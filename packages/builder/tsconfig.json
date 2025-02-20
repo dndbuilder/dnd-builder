@@ -4,7 +4,6 @@
   "compilerOptions": {
     "lib": ["esnext", "dom"],
     "outDir": "dist",
-    "rootDir": "src",
     "declaration": true,
     "declarationDir": "dist",
     "baseUrl": ".",

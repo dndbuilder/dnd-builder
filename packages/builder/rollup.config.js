@@ -1,5 +1,5 @@
 import typescript from "@rollup/plugin-typescript";
-import postcss from 'rollup-plugin-postcss'
+import postcss from "rollup-plugin-postcss";
 
 // export default [
 //   {
@@ -25,6 +25,13 @@ export default {
   output: {
     file: "dist/index.js",
   },
-  external: ["react/jsx-runtime"],
-  plugins: [typescript(), postcss()],
-}
+  external: ["react", "react-dom", "react/jsx-runtime"],
+  plugins: [
+    typescript(),
+    postcss({
+      extract: "index.css",
+      minimize: true,
+      config: "postcss.config.cjs",
+    }),
+  ],
+};
