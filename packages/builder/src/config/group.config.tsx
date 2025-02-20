@@ -3,37 +3,27 @@ import { registerGroupConfig } from "@/core";
 
 export const GroupConfiguration = registerGroupConfig([
   {
-    label: BlockGroup.TEMPLATE,
-    order: 1,
-    isVisible: ({ resourceType }) => resourceType === "templates",
-  },
-  {
-    label: BlockGroup.TEMPLATE_PART,
-    order: 2,
-    isVisible: ({ resourceType }) => resourceType === "template-parts",
-  },
-  {
     label: BlockGroup.BASIC,
-    order: 3,
+    order: 1,
   },
   {
     label: BlockGroup.LAYOUT,
-    order: 4,
+    order: 2,
   },
   {
     label: BlockGroup.ECOMMERCE,
-    order: 5,
+    order: 3,
   },
   {
     label: BlockGroup.SITE,
-    order: 6,
+    order: 4,
   },
   {
     label: BlockGroup.ADVANCED,
-    order: 7,
+    order: 5,
   },
   {
     label: BlockGroup.OTHERS,
-    order: 8,
+    order: 6,
   },
 ]);

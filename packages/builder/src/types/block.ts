@@ -114,7 +114,7 @@ export type EditorBlockConfig<
   group?: BlockGroup;
   controls: BlockControl[];
   disableAdvancedSettings?: boolean;
-  isVisible?: (params: { resourceType: string; resourceId: string }) => boolean;
+  isVisible?: (params?: AnyObject) => boolean;
   toolbar?: ComponentType<BlockToolbarProps>;
 };
 
@@ -129,7 +129,7 @@ export type BlockToolbarProps = {
 export type GroupConfig = {
   label: BlockGroup;
   order: number;
-  isVisible?: (params: { resourceType: string; resourceId: string }) => boolean;
+  isVisible?: (params?: AnyObject) => boolean;
 };
 
 export type PreviewBlockConfig<
@@ -187,8 +187,5 @@ export type BlockAdvancedSettings = {
 };
 
 export type BlockMeta = {
-  path: string;
   locale: string;
-  params?: { [key: string]: string | undefined };
-  searchParams?: ParsedQs;
 };
