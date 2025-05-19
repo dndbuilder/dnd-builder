@@ -1,5 +1,3 @@
-"use client";
-
 import { TabsSettingsType, TabType } from "@/blocks/tabs/types";
 import AddNewSection from "@/components/base/add-new-section";
 import EditorRenderBlock from "@/components/base/editor-render-block";

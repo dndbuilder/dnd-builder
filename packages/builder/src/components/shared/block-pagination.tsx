@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { classNames } from '@/utils';
-import { useEffect, useState } from 'react';
-import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import { classNames } from "@/utils";
+import { useEffect, useState } from "react";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 type PaginationProps = {
   current: number;
@@ -27,7 +27,13 @@ const getAvailablePages = (current: number, totalPage: number) => {
   return pages;
 };
 
-const BlockPagination = ({ current, totalPage, onPageChange, className, ...rest }: PaginationProps) => {
+const BlockPagination = ({
+  current,
+  totalPage,
+  onPageChange,
+  className,
+  ...rest
+}: PaginationProps) => {
   const [availablePages, setAvailablePages] = useState<number[]>([]);
   const [hasPreviousPage, setHasPreviousPage] = useState(false);
   const [hasNextPage, setHasNextPage] = useState(true);
@@ -39,13 +45,19 @@ const BlockPagination = ({ current, totalPage, onPageChange, className, ...rest 
   }, [current]);
 
   return (
-    <div className={classNames('inline-flex items-center justify-between gap-2 text-sm', className)} {...rest}>
+    <div
+      className={classNames(
+        "inline-flex items-center justify-between gap-2 text-sm",
+        className
+      )}
+      {...rest}
+    >
       <button
         className={classNames(
-          'reset flex h-8 items-center justify-center rounded-sm border border-dark-200 px-4 text-dark-800',
+          "reset flex h-8 items-center justify-center rounded-sm border border-slate-200 px-4 text-slate-800",
           !hasPreviousPage
-            ? 'cursor-not-allowed text-dark-400 hover:bg-transparent'
-            : 'hover:border-primary-500 hover:bg-primary-50 hover:text-primary-500'
+            ? "cursor-not-allowed text-slate-400 hover:bg-transparent"
+            : "hover:border-primary-500 hover:bg-primary-50 hover:text-primary-500"
         )}
         disabled={!hasPreviousPage}
         onClick={() => {
@@ -60,9 +72,9 @@ const BlockPagination = ({ current, totalPage, onPageChange, className, ...rest 
             <button
               disabled
               key={index}
-              className="reset flex h-8 w-8 items-center justify-center rounded-sm border cursor-not-allowed text-dark-400 hover:bg-transparent active"
+              className="reset flex h-8 w-8 items-center justify-center rounded-sm border cursor-not-allowed text-slate-400 hover:bg-transparent active"
             >
-              {pageNo}{' '}
+              {pageNo}{" "}
             </button>
           );
         }
@@ -72,18 +84,18 @@ const BlockPagination = ({ current, totalPage, onPageChange, className, ...rest 
               onPageChange?.(pageNo);
             }}
             key={index}
-            className="reset flex h-8 w-8 items-center justify-center rounded-sm border text-dark-800 hover:border-primary-500 hover:bg-primary-50 hover:text-primary-500"
+            className="reset flex h-8 w-8 items-center justify-center rounded-sm border text-slate-800 hover:border-primary-500 hover:bg-primary-50 hover:text-primary-500"
           >
-            {pageNo}{' '}
+            {pageNo}{" "}
           </button>
         );
       })}
       <button
         className={classNames(
-          'reset flex h-8 items-center justify-center rounded-sm border border-dark-200 px-4 text-dark-800',
+          "reset flex h-8 items-center justify-center rounded-sm border border-slate-200 px-4 text-slate-800",
           !hasNextPage
-            ? 'cursor-not-allowed text-dark-400 hover:bg-transparent'
-            : 'hover:border-primary-500 hover:bg-primary-50 hover:text-primary-500'
+            ? "cursor-not-allowed text-slate-400 hover:bg-transparent"
+            : "hover:border-primary-500 hover:bg-primary-50 hover:text-primary-500"
         )}
         disabled={!hasNextPage}
         onClick={() => {

@@ -1,7 +1,7 @@
-import React from 'react';
-import * as TabsPrimitive from '@radix-ui/react-tabs';
+import React from "react";
+import * as TabsPrimitive from "@radix-ui/react-tabs";
 
-import { classNames } from '@/utils';
+import { classNames } from "@/utils";
 
 const Tabs = ({ children, ...props }: TabsPrimitive.TabsProps) => {
   return <TabsPrimitive.Root {...props}>{children}</TabsPrimitive.Root>;
@@ -14,7 +14,7 @@ const TabsList = React.forwardRef<
   <TabsPrimitive.List
     ref={ref}
     className={classNames(
-      'inline-flex h-10 items-center justify-center rounded-sm bg-dark-200 p-1 text-dark-600',
+      "inline-flex h-10 items-center justify-center rounded-sm bg-slate-200 p-1 text-slate-600",
       className
     )}
     {...props}
@@ -29,7 +29,7 @@ const TabsTrigger = React.forwardRef<
   <TabsPrimitive.Trigger
     ref={ref}
     className={classNames(
-      'inline-flex items-center justify-center whitespace-nowrap rounded-xs px-3 py-1.5 text-sm  transition-all focus-visible:outline-hidden disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-white data-[state=active]:text-dark-800 data-[state=active]:shadow-xs',
+      "inline-flex items-center justify-center whitespace-nowrap rounded-xs px-3 py-1.5 text-sm  transition-all focus-visible:outline-hidden disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-white data-[state=active]:text-slate-800 data-[state=active]:shadow-xs",
       className
     )}
     {...props}
@@ -43,7 +43,10 @@ const TabsContent = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <TabsPrimitive.Content
     ref={ref}
-    className={classNames('mt-2 focus-visible:outline-hidden focus-visible:ring-offset-2', className)}
+    className={classNames(
+      "mt-2 focus-visible:outline-hidden focus-visible:ring-offset-2",
+      className
+    )}
     {...props}
   />
 ));

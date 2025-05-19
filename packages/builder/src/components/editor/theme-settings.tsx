@@ -73,7 +73,7 @@ const Navigation = () => {
               Theme Settings
             </div>
             <button
-              className="text-dark-600 hover:text-dark-900"
+              className="text-slate-600 hover:text-slate-900"
               onClick={() => {
                 toggleRightPanel(BuilderRightPanelType.SETTINGS);
               }}

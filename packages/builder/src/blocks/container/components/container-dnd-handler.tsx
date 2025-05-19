@@ -1,5 +1,3 @@
-"use client";
-
 import BlockPlaceholder from "@/components/base/block-placeholder";
 import EditorRenderBlock from "@/components/base/editor-render-block";
 import { BlockConfiguration } from "@/config/editor.config";
@@ -287,7 +285,7 @@ const ContainerDndHandler: FC<BlockProps<ContainerSettingsType>> = ({
         id,
         values: [
           { key: `width.{{BREAKPOINT}}.value`, value: width },
-          { key: `width.{{BREAKPOINT}}.unit`, value: Unit.PARCENTAGE },
+          { key: `width.{{BREAKPOINT}}.unit`, value: Unit.PERCENTAGE },
         ],
       })
     );
@@ -319,14 +317,14 @@ const ContainerDndHandler: FC<BlockProps<ContainerSettingsType>> = ({
             "items-center justify-center after:pointer-events-none after:absolute after:left-0 after:top-0 after:z-10 after:h-full after:w-full after:ring-inset",
           !isInner &&
             isSelected &&
-            "after:ring-2  after:ring-dokan-500 after:ring-inset",
+            "after:ring-2  after:ring-indigo-500 after:ring-inset",
           !isInner &&
             !isSelected &&
-            "hover:after:ring-1 hover:after:ring-dokan-500 after:ring-inset",
-          isInner && isSelected && "ring-2 ring-dokan-500 ring-inset",
+            "hover:after:ring-1 hover:after:ring-indigo-500 after:ring-inset",
+          isInner && isSelected && "ring-2 ring-indigo-500 ring-inset",
           isInner &&
             !isSelected &&
-            "hover:ring-1 hover:ring-dokan-500 ring-inset",
+            "hover:ring-1 hover:ring-indigo-500 ring-inset",
           isOver && placeholderPosition === Position.TOP && "mt-2",
           isOver && placeholderPosition === Position.RIGHT && "me-2",
           isOver && placeholderPosition === Position.BOTTOM && "mb-2",
@@ -345,7 +343,7 @@ const ContainerDndHandler: FC<BlockProps<ContainerSettingsType>> = ({
           className={classNames(
             "content relative flex w-full mx-auto max-w-[1140px]",
             isDragging && "opacity-30 *:pointer-events-none",
-            isOverInner && children.length === 0 && "bg-dokan-50"
+            isOverInner && children.length === 0 && "bg-indigo-50"
           )}
           ref={innerRef}
         >
@@ -395,10 +393,10 @@ const RenderChildren: FC<RenderChildrenProps> = memo(
       return (
         <div
           className={
-            "pointer-events-none flex h-full min-h-[80px] w-full items-center justify-center border border-dashed border-dark-300"
+            "pointer-events-none flex h-full min-h-[80px] w-full items-center justify-center border border-dashed border-slate-300"
           }
         >
-          <BiPlus size={30} className="text-dark-300" />
+          <BiPlus size={30} className="text-slate-300" />
         </div>
       );
     }

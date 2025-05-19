@@ -1,5 +1,3 @@
-"use client";
-
 import { FC, useState } from "react";
 import ActionDropdown from "./action-dropdown";
 import BreakpointSwitch from "./breakpoint-switch";
@@ -13,7 +11,7 @@ const Header: FC = () => {
 
   return (
     <>
-      <div className="absolute top-0 z-50 flex h-[60px] gap-4 w-full items-center bg-dark-900 shadow-sm px-4 min-w-[1024px]">
+      <div className="absolute top-0 z-50 flex h-[60px] gap-4 w-full items-center bg-slate-900 shadow-sm px-4 min-w-[1024px]">
         <div className="flex items-center gap-4">
           {/* Logo */}
           <div className="flex items-center lg:w-[290px] h-full">Logo</div>

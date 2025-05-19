@@ -93,7 +93,7 @@ const CanvasArea: FC = () => {
   return (
     <div
       className={classNames(
-        "relative flex grow justify-center p-4 transition-all duration-300 bg-dark-100",
+        "relative flex grow justify-center p-4 transition-all duration-300 bg-slate-100",
         !isLeftPanelOpen ? "ms-0" : "ms-[290px]",
         !activeRightPanel ? "me-0" : "me-[290px]"
       )}

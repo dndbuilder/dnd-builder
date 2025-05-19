@@ -1,5 +1,5 @@
-import * as TooltipPrimitive from '@radix-ui/react-tooltip';
-import { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react';
+import * as TooltipPrimitive from "@radix-ui/react-tooltip";
+import { ComponentPropsWithoutRef, ElementRef, forwardRef } from "react";
 
 interface TooltipProps extends TooltipPrimitive.TooltipProps {}
 
@@ -33,7 +33,7 @@ const TriggerContent = forwardRef<
   return (
     <TooltipPrimitive.Portal>
       <TooltipPrimitive.Content
-        className="data-[state=delayed-open]:data-[side=top]:animate-slideDownAndFade data-[state=delayed-open]:data-[side=right]:animate-slideLeftAndFade data-[state=delayed-open]:data-[side=left]:animate-slideRightAndFade data-[state=delayed-open]:data-[side=bottom]:animate-slideUpAndFade z-50 select-none rounded-[4px] bg-black px-2 py-1.5 text-[10px] leading-none text-dark-50  will-change-[transform,opacity]"
+        className="data-[state=delayed-open]:data-[side=top]:animate-slideDownAndFade data-[state=delayed-open]:data-[side=right]:animate-slideLeftAndFade data-[state=delayed-open]:data-[side=left]:animate-slideRightAndFade data-[state=delayed-open]:data-[side=bottom]:animate-slideUpAndFade z-50 select-none rounded-[4px] bg-black px-2 py-1.5 text-[10px] leading-none text-slate-50  will-change-[transform,opacity]"
         sideOffset={5}
         ref={ref}
         {...props}

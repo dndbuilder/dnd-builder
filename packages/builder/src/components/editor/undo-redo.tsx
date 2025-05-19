@@ -10,7 +10,7 @@ const UndoRedo: FC<{ className?: string }> = ({ className }) => {
   return (
     <div
       className={classNames(
-        "flex rounded-sm bg-dark-800 divide-x divide-dark-700 h-10",
+        "flex rounded-sm bg-slate-800 divide-x divide-slate-700 h-10",
         className
       )}
     >
@@ -18,7 +18,7 @@ const UndoRedo: FC<{ className?: string }> = ({ className }) => {
       <Tooltip>
         <Tooltip.Trigger
           type="button"
-          className="px-2.5 text-dark-100 enabled:hover:text-dokan-500 disabled:cursor-not-allowed disabled:opacity-50"
+          className="px-2.5 text-slate-100 enabled:hover:text-indigo-500 disabled:cursor-not-allowed disabled:opacity-50"
           onClick={undo}
           disabled={!isUndoable}
         >
@@ -32,7 +32,7 @@ const UndoRedo: FC<{ className?: string }> = ({ className }) => {
       <Tooltip>
         <Tooltip.Trigger
           type="button"
-          className="px-2.5 text-dark-100 enabled:hover:text-dokan-500 disabled:cursor-not-allowed disabled:opacity-50"
+          className="px-2.5 text-slate-100 enabled:hover:text-indigo-500 disabled:cursor-not-allowed disabled:opacity-50"
           onClick={redo}
           disabled={!isRedoable}
         >

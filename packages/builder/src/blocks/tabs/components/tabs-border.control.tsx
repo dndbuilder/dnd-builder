@@ -64,7 +64,7 @@ const TabsBorderControl: FC<Props> = ({ fieldName, mode, type, className }) => {
         label="Border Radius"
         mode={mode}
         min={0}
-        units={[Unit.PX, Unit.PARCENTAGE, Unit.REM, Unit.EM]}
+        units={[Unit.PX, Unit.PERCENTAGE, Unit.REM, Unit.EM]}
       />
     </div>
   );

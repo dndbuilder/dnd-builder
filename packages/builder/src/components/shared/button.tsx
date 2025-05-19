@@ -10,12 +10,12 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-dokan-500 text-white hover:bg-dokan-600 focus:bg-dokan-600",
+          "bg-indigo-500 text-white hover:bg-indigo-600 focus:bg-indigo-600",
         outline:
-          "border border-input hover:border-dark-400 focus:border-dark-600",
+          "border border-input hover:border-slate-400 focus:border-slate-600",
         secondary:
-          "bg-dark-600 text-dark-100 hover:bg-dark-700 focus:bg-dark-700",
-        link: "text-dokan-500 underline-offset-4 hover:underline",
+          "bg-slate-600 text-slate-100 hover:bg-slate-700 focus:bg-slate-700",
+        link: "text-indigo-500 underline-offset-4 hover:underline",
       },
       size: {
         default: "h-8 px-4 py-2",

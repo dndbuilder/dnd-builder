@@ -10,7 +10,7 @@ import { SettingsType } from "@/types";
 import { PseudoClass } from "@/types/style";
 import { createId } from "@/utils";
 import { cloneDeep } from "lodash";
-import ContentEditable from "react-contenteditable";
+import ContentEditable from "@/components/shared/content-editable";
 import { BsPlus } from "react-icons/bs";
 import { CiEdit } from "react-icons/ci";
 
@@ -35,7 +35,7 @@ const ThemeButtonPresets = () => {
             }
             html={preset.name}
             tagName="p"
-            className="me-auto rounded-sm border border-transparent px-2 py-1 text-xs hover:border-dark-100 focus-visible:border-dark-100 focus-visible:outline-0"
+            className="me-auto rounded-sm border border-transparent px-2 py-1 text-xs hover:border-slate-100 focus-visible:border-slate-100 focus-visible:outline-0"
           />
 
           <Popover>

@@ -228,8 +228,8 @@ const EditorBlockWrapper: FC<Props> = ({
           "relative transition-all duration-200 ease-in-out",
           parentId === "root" && "ring-inset",
           isSelected
-            ? "ring-2 ring-dokan-500"
-            : "hover:ring-1 hover:ring-dokan-500",
+            ? "ring-2 ring-indigo-500"
+            : "hover:ring-1 hover:ring-indigo-500",
           isOver && placeholderPosition === Position.TOP && "mt-2",
           isOver && placeholderPosition === Position.RIGHT && "me-2",
           isOver && placeholderPosition === Position.BOTTOM && "mb-2",

@@ -188,14 +188,14 @@ const ContainerSpacer: FC<ContainerSpacerProps> = ({
     <div
       ref={spacerRef}
       className={classNames(
-        "group/spacer absolute flex items-center justify-center overflow-visible hover:bg-dokan-50",
+        "group/spacer absolute flex items-center justify-center overflow-visible hover:bg-indigo-50",
         positionClassMap[position],
         isDragging && "bg-primary-50"
       )}
     >
       <div
         className={classNames(
-          "z-50 hidden rounded-sm bg-dark-900 p-1 text-xs leading-none text-white group-hover/spacer:inline-block",
+          "z-50 hidden rounded-sm bg-slate-900 p-1 text-xs leading-none text-white group-hover/spacer:inline-block",
           isDragging && "inline-block"
         )}
         style={{

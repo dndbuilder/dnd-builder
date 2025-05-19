@@ -91,7 +91,7 @@ const BlockDropzone: FC<BlockDropzoneProps> = ({
     <div
       className={classNames(
         "flex w-full justify-center rounded-sm border border-dashed py-6",
-        isOver ? "border-dokan-500" : "border-dark-300",
+        isOver ? "border-indigo-500" : "border-slate-300",
         className
       )}
       ref={dropRef}

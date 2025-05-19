@@ -9,12 +9,11 @@ import {
   generateSpacingValue,
   generateUnitValue,
 } from "@/utils/style";
+import { lazy } from "react";
 import { LuContainer } from "react-icons/lu";
 import ContainerLayoutControl from "./components/controls/container-layout.control";
-import { ContainerSettingsType } from "./types";
 import ContainerStyleControl from "./components/controls/container-style.control";
-// import containerPreview from "./container-preview.png";
-import { lazy } from "react";
+import { ContainerSettingsType } from "./types";
 
 const ContainerConfig = createBlockConfig<ContainerSettingsType>({
   type: BlockType.CONTAINER,
@@ -36,21 +35,21 @@ const ContainerConfig = createBlockConfig<ContainerSettingsType>({
         },
         location1: {
           default: {
-            unit: Unit.PARCENTAGE,
+            unit: Unit.PERCENTAGE,
             value: 0,
           },
           hover: {
-            unit: Unit.PARCENTAGE,
+            unit: Unit.PERCENTAGE,
             value: 0,
           },
         },
         location2: {
           default: {
-            unit: Unit.PARCENTAGE,
+            unit: Unit.PERCENTAGE,
             value: 100,
           },
           hover: {
-            unit: Unit.PARCENTAGE,
+            unit: Unit.PERCENTAGE,
             value: 100,
           },
         },

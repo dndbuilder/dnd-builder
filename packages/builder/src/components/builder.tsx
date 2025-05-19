@@ -1,8 +1,7 @@
-import { ActionProvider } from "@/contexts/action-context";
+import { BuilderProvider } from "@/contexts/builder-context";
 import { store } from "@/store";
 import { Block } from "@/types/block";
 import { FC } from "react";
-import { Provider } from "react-redux";
 import Editor from "./editor";
 
 type BuilderProps = {
@@ -12,11 +11,9 @@ type BuilderProps = {
 const Builder: FC<BuilderProps> = ({ content }) => {
   return (
     <>
-      <Provider store={store}>
-        <ActionProvider>
-          <Editor content={content} />
-        </ActionProvider>
-      </Provider>
+      <BuilderProvider store={store}>
+        <Editor content={content} />
+      </BuilderProvider>
     </>
   );
 };

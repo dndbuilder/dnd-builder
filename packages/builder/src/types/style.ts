@@ -4,7 +4,7 @@ import { ResponsiveValue } from "./responsive";
 
 export const enum Unit {
   PX = "px",
-  PARCENTAGE = "%",
+  PERCENTAGE = "%",
   EM = "em",
   REM = "rem",
   VW = "vw",
@@ -17,7 +17,7 @@ export const enum Unit {
 
 export const enum SpacingUnit {
   PX = "px",
-  PARCENT = "%",
+  PERCENT = "%",
   EM = "em",
   REM = "rem",
   VW = "vw",

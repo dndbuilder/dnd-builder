@@ -39,7 +39,7 @@ const AdvancedSettingsControl = () => {
             label="Margin"
             responsive
             className="mt-0"
-            units={[Unit.PX, Unit.REM, Unit.EM, Unit.PARCENTAGE]}
+            units={[Unit.PX, Unit.REM, Unit.EM, Unit.PERCENTAGE]}
           />
 
           {/* Padding */}
@@ -48,7 +48,7 @@ const AdvancedSettingsControl = () => {
             fieldName="padding"
             label="Padding"
             responsive
-            units={[Unit.PX, Unit.REM, Unit.EM, Unit.PARCENTAGE]}
+            units={[Unit.PX, Unit.REM, Unit.EM, Unit.PERCENTAGE]}
           />
 
           <Separator className="my-3" />
@@ -233,7 +233,7 @@ const AdvancedSettingsControl = () => {
       <Accordion.Item value="Responsive">
         <Accordion.Trigger className="p-4">Responsive</Accordion.Trigger>
         <Accordion.Content className="px-4">
-          <Label className="text-xs font-semibold text-dark-800">
+          <Label className="text-xs font-semibold text-slate-800">
             Visibility
           </Label>
           <InfoMessage>

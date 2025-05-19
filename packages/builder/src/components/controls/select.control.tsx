@@ -1,15 +1,14 @@
-import { FC, HTMLAttributes, ReactNode } from "react";
-import Select from "@/components/shared/select";
 import Label from "@/components/shared/label";
-import { classNames } from "@/utils";
+import Select from "@/components/shared/select";
 import { useAppSelector } from "@/hooks/use-app-selector";
-import { getCurrentBreakpoint } from "@/store/selectors";
-import { PseudoClass } from "@/types/style";
-import BreakpointSelector from "../shared/breakpoint-selector";
-import { VariantProps, cva } from "class-variance-authority";
-import { createId } from "../../utils";
-import { SettingsType } from "@/types";
 import { useSettings } from "@/hooks/use-settings";
+import { getCurrentBreakpoint } from "@/store/selectors";
+import { SettingsType } from "@/types";
+import { classNames } from "@/utils";
+import { VariantProps, cva } from "class-variance-authority";
+import { FC, HTMLAttributes, ReactNode } from "react";
+import { createId } from "../../utils";
+import BreakpointSelector from "../shared/breakpoint-selector";
 
 const controlVariants = cva("flex", {
   variants: {
@@ -24,7 +23,7 @@ const controlVariants = cva("flex", {
 });
 
 type SelectOption = {
-  value: string | undefined;
+  value: string;
   content: ReactNode;
 };
 
@@ -42,7 +41,6 @@ type SelectControlProps = {
   VariantProps<typeof controlVariants>;
 
 const SelectControl: FC<SelectControlProps> = ({
-  placeholder,
   options,
   fieldName,
   type = SettingsType.BLOCK,
@@ -82,19 +80,22 @@ const SelectControl: FC<SelectControlProps> = ({
 
       <Select
         onValueChange={(val) => {
-          setValue(val);
-          onValueChange?.(val);
+          const value = val === "select" ? "" : val;
+          setValue(value);
+          onValueChange?.(value);
         }}
-        value={value ? value : defaultValue ? undefined : ""}
-        defaultValue={defaultValue}
+        value={value || defaultValue || "select"}
       >
         <Select.Trigger id={autoId} className="flex-1 bg-white">
-          <Select.Value placeholder={placeholder} />
+          <Select.Value />
         </Select.Trigger>
 
         <Select.Content>
+          <Select.Item value="select" key="clear">
+            Select
+          </Select.Item>
           {options.map((opt, i) => (
-            <Select.Item value={opt.value ?? ""} key={i}>
+            <Select.Item value={opt.value} key={i}>
               {opt.content}
             </Select.Item>
           ))}

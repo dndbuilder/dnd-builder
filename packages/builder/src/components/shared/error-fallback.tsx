@@ -1,5 +1,3 @@
-"use client";
-
 const ErrorFallback = () => {
   return (
     <div

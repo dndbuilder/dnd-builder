@@ -99,7 +99,7 @@ const TabsStyleControl = () => {
             fieldName="list.spacing"
             label="Spacing"
             responsive
-            units={[Unit.PX, Unit.REM, Unit.EM, Unit.PARCENTAGE]}
+            units={[Unit.PX, Unit.REM, Unit.EM, Unit.PERCENTAGE]}
           />
 
           {/* Margin */}
@@ -108,7 +108,7 @@ const TabsStyleControl = () => {
             fieldName="list.margin"
             label="Margin"
             responsive
-            units={[Unit.PX, Unit.REM, Unit.EM, Unit.PARCENTAGE]}
+            units={[Unit.PX, Unit.REM, Unit.EM, Unit.PERCENTAGE]}
           />
 
           {/* Padding */}
@@ -117,7 +117,7 @@ const TabsStyleControl = () => {
             fieldName="list.padding"
             label="Padding"
             responsive
-            units={[Unit.PX, Unit.REM, Unit.EM, Unit.PARCENTAGE]}
+            units={[Unit.PX, Unit.REM, Unit.EM, Unit.PERCENTAGE]}
           />
         </Accordion.Content>
       </Accordion.Item>
@@ -133,7 +133,7 @@ const TabsStyleControl = () => {
             fieldName="button.width"
             label="Width"
             responsive
-            units={[Unit.PX, Unit.REM, Unit.EM, Unit.PARCENTAGE]}
+            units={[Unit.PX, Unit.REM, Unit.EM, Unit.PERCENTAGE]}
           />
 
           {/* Height */}
@@ -142,7 +142,7 @@ const TabsStyleControl = () => {
             fieldName="button.height"
             label="Height"
             responsive
-            units={[Unit.PX, Unit.REM, Unit.EM, Unit.PARCENTAGE]}
+            units={[Unit.PX, Unit.REM, Unit.EM, Unit.PERCENTAGE]}
           />
 
           {/*  Alignment */}
@@ -176,7 +176,7 @@ const TabsStyleControl = () => {
             fieldName="button.spacing"
             label="Spacing"
             responsive
-            units={[Unit.PX, Unit.REM, Unit.EM, Unit.PARCENTAGE]}
+            units={[Unit.PX, Unit.REM, Unit.EM, Unit.PERCENTAGE]}
           />
 
           {/* Typography */}
@@ -192,7 +192,7 @@ const TabsStyleControl = () => {
             fieldName="button.margin"
             label="Margin"
             responsive
-            units={[Unit.PX, Unit.REM, Unit.EM, Unit.PARCENTAGE]}
+            units={[Unit.PX, Unit.REM, Unit.EM, Unit.PERCENTAGE]}
           />
 
           {/* Padding */}
@@ -201,7 +201,7 @@ const TabsStyleControl = () => {
             fieldName="button.padding"
             label="Padding"
             responsive
-            units={[Unit.PX, Unit.REM, Unit.EM, Unit.PARCENTAGE]}
+            units={[Unit.PX, Unit.REM, Unit.EM, Unit.PERCENTAGE]}
           />
 
           {/* Text & Background Color */}
@@ -332,7 +332,7 @@ const TabsStyleControl = () => {
             fieldName="content.margin"
             label="Margin"
             responsive
-            units={[Unit.PX, Unit.REM, Unit.EM, Unit.PARCENTAGE]}
+            units={[Unit.PX, Unit.REM, Unit.EM, Unit.PERCENTAGE]}
           />
 
           {/* Padding */}
@@ -341,7 +341,7 @@ const TabsStyleControl = () => {
             fieldName="content.padding"
             label="Padding"
             responsive
-            units={[Unit.PX, Unit.REM, Unit.EM, Unit.PARCENTAGE]}
+            units={[Unit.PX, Unit.REM, Unit.EM, Unit.PERCENTAGE]}
           />
 
           {/* Border */}

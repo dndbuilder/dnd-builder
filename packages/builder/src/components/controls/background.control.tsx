@@ -116,7 +116,7 @@ const BackgroundControl: FC<Props> = ({
                     type={type}
                     fieldName={`${fieldName}.positionX`}
                     label="Position X"
-                    units={[Unit.PX, Unit.REM, Unit.EM, Unit.PARCENTAGE]}
+                    units={[Unit.PX, Unit.REM, Unit.EM, Unit.PERCENTAGE]}
                     mode={mode}
                     responsive
                   />
@@ -124,7 +124,7 @@ const BackgroundControl: FC<Props> = ({
                     type={type}
                     fieldName={`${fieldName}.positionY`}
                     label="Position Y"
-                    units={[Unit.PX, Unit.REM, Unit.EM, Unit.PARCENTAGE]}
+                    units={[Unit.PX, Unit.REM, Unit.EM, Unit.PERCENTAGE]}
                     mode={mode}
                     responsive
                   />
@@ -195,7 +195,7 @@ const BackgroundControl: FC<Props> = ({
             type={type}
             fieldName={`${fieldName}.gradient.location1`}
             label="Location 1"
-            units={[Unit.PARCENTAGE]}
+            units={[Unit.PERCENTAGE]}
             mode={mode}
           />
 
@@ -212,7 +212,7 @@ const BackgroundControl: FC<Props> = ({
             type={type}
             fieldName={`${fieldName}.gradient.location2`}
             label="Location 2"
-            units={[Unit.PARCENTAGE]}
+            units={[Unit.PERCENTAGE]}
             mode={mode}
           />
 

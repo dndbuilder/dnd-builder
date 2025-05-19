@@ -24,7 +24,7 @@ interface SliderControlProps extends HTMLAttributes<HTMLDivElement> {
   responsive?: boolean;
 }
 
-const defaultUnits: Unit[] = [Unit.PX, Unit.PARCENTAGE, Unit.REM, Unit.EM];
+const defaultUnits: Unit[] = [Unit.PX, Unit.PERCENTAGE, Unit.REM, Unit.EM];
 
 const SliderUnitControl: FC<SliderControlProps> = ({
   min,
@@ -124,7 +124,7 @@ const SliderUnitControl: FC<SliderControlProps> = ({
         />
         <div
           className={classNames(
-            "flex h-7 items-center justify-between rounded-sm border text-dark-800"
+            "flex h-7 items-center justify-between rounded-sm border text-slate-800"
           )}
         >
           <Tooltip>
@@ -152,7 +152,7 @@ const SliderUnitControl: FC<SliderControlProps> = ({
 
           <Select onValueChange={onUnitChange} value={innerValue?.unit}>
             <Select.Trigger
-              className="flex h-full w-7 items-center justify-center rounded-none rounded-r border-0 border-l p-0 text-[11px] leading-3 hover:bg-dark-200 focus:ring-0 focus:ring-offset-0"
+              className="flex h-full w-7 items-center justify-center rounded-none rounded-r border-0 border-l p-0 text-[11px] leading-3 hover:bg-slate-200 focus:ring-0 focus:ring-offset-0"
               chevronDown={false}
             >
               <Select.Value />

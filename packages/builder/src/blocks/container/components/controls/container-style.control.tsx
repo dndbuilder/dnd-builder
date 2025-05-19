@@ -1,5 +1,3 @@
-"use client";
-
 import BackgroundControl from "@/components/controls/background.control";
 import BorderControl from "@/components/controls/border.control";
 import BoxShadowControl from "@/components/controls/box-shadow.control";
@@ -28,7 +26,7 @@ export default function ContainerStyleControl() {
             label="Margin"
             responsive
             className="mt-0"
-            units={[Unit.PX, Unit.REM, Unit.EM, Unit.PARCENTAGE]}
+            units={[Unit.PX, Unit.REM, Unit.EM, Unit.PERCENTAGE]}
           />
 
           {/* Padding */}
@@ -37,7 +35,7 @@ export default function ContainerStyleControl() {
             fieldName="padding"
             label="Padding"
             responsive
-            units={[Unit.PX, Unit.REM, Unit.EM, Unit.PARCENTAGE]}
+            units={[Unit.PX, Unit.REM, Unit.EM, Unit.PERCENTAGE]}
           />
         </Accordion.Content>
       </Accordion.Item>

@@ -19,7 +19,7 @@ const BlockControlPanel: FC<Props> = ({ type }) => {
 
   if (controls.length === 0 && disableAdvancedSettings) {
     return (
-      <div className="flex justify-center py-10 text-dark-400">
+      <div className="flex justify-center py-10 text-slate-400">
         No controls found
       </div>
     );
@@ -32,11 +32,11 @@ const BlockControlPanel: FC<Props> = ({ type }) => {
         onValueChange={(val) => setCurrentTabIndex(Number(val))}
         className="w-full"
       >
-        <Tabs.List className="w-full rounded-none bg-dark-100 p-0">
+        <Tabs.List className="w-full rounded-none bg-slate-100 p-0">
           {controls.map((tab, index) => (
             <Tabs.Trigger
               value={String(index)}
-              className="h-full w-full rounded-none border-t-2 border-t-transparent font-medium text-dark-700 data-[state=active]:border-t-dokan-500 data-[state=active]:shadow-none"
+              className="h-full w-full rounded-none border-t-2 border-t-transparent font-medium text-slate-700 data-[state=active]:border-t-indigo-500 data-[state=active]:shadow-none"
               key={index}
             >
               {tab.label}
@@ -45,7 +45,7 @@ const BlockControlPanel: FC<Props> = ({ type }) => {
           {!disableAdvancedSettings && (
             <Tabs.Trigger
               value={String(controls.length)}
-              className="h-full w-full rounded-none border-t-2 border-t-transparent font-medium text-dark-700 data-[state=active]:border-t-dokan-500 data-[state=active]:shadow-none"
+              className="h-full w-full rounded-none border-t-2 border-t-transparent font-medium text-slate-700 data-[state=active]:border-t-indigo-500 data-[state=active]:shadow-none"
             >
               Advanced
             </Tabs.Trigger>

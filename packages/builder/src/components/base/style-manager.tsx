@@ -1,5 +1,3 @@
-"use client";
-
 import { BreakpointConfiguration } from "@/config/breakpoints.config";
 import { BlockConfiguration } from "@/config/editor.config";
 import { Block } from "@/types/block";

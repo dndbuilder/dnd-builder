@@ -8,7 +8,7 @@ import { TypographyType } from "@/types/style";
 import { createId } from "@/utils";
 import { cloneDeep } from "lodash";
 import { FC } from "react";
-import ContentEditable from "react-contenteditable";
+import ContentEditable from "@/components/shared/content-editable";
 import { BsPlus, BsTrash } from "react-icons/bs";
 import { FiX } from "react-icons/fi";
 import { TbTypography } from "react-icons/tb";
@@ -29,7 +29,7 @@ const TypographySettings: FC<Props> = ({ setCurrentSetting }) => {
           Typography
         </div>
         <button
-          className="text-dark-600 hover:text-dark-900"
+          className="text-slate-600 hover:text-slate-900"
           onClick={() => setCurrentSetting(ThemeSettingsType.GLOBAL)}
         >
           <FiX size={16} />
@@ -119,7 +119,7 @@ const TypographySettings: FC<Props> = ({ setCurrentSetting }) => {
                   }
                   html={preset.name}
                   tagName="p"
-                  className="me-auto rounded-sm border border-transparent px-2 py-1 text-xs hover:border-dark-100 focus-visible:border-dark-100 focus-visible:outline-0"
+                  className="me-auto rounded-sm border border-transparent px-2 py-1 text-xs hover:border-slate-100 focus-visible:border-slate-100 focus-visible:outline-0"
                 />
 
                 <Label>

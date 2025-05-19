@@ -1,5 +1,3 @@
-"use client";
-
 import { useAppSelector } from "@/hooks/use-app-selector";
 import { classNames } from "@/utils";
 import * as Dialog from "@radix-ui/react-dialog";
@@ -78,12 +76,12 @@ const IconControl: FC<Props> = ({
       <Dialog.Root open={open} onOpenChange={setOpen}>
         <Dialog.Trigger asChild>
           <div className="group p-0  relative h-32 w-full cursor-pointer overflow-hidden  transition duration-200 control-media-area">
-            <div className="flex h-full w-full items-center justify-center text-2xl text-dark-600">
+            <div className="flex h-full w-full items-center justify-center text-2xl text-slate-600">
               {value && renderIcon()}
 
               {!value && <HiPlusCircle />}
             </div>
-            <div className="absolute -bottom-full z-10 flex w-full justify-between bg-dark-700 p-1 text-center text-xs text-dark-50 transition-all duration-200 group-hover:bottom-0">
+            <div className="absolute -bottom-full z-10 flex w-full justify-between bg-slate-700 p-1 text-center text-xs text-slate-50 transition-all duration-200 group-hover:bottom-0">
               <span>Icon Library</span>
 
               {value && (

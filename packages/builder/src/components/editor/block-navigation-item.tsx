@@ -31,9 +31,9 @@ const BlockNavigationItem = ({ block }: Props) => {
     <div
       ref={dragRef}
       style={{ opacity }}
-      className="h-[88px] flex cursor-move flex-col items-center overflow-hidden rounded-sm border border-dark-200 bg-dark-50 py-4 text-dark-800 transition-colors duration-200 hover:border-dokan-500 hover:bg-dokan-50 hover:text-dokan-500"
+      className="h-[88px] flex cursor-move flex-col items-center overflow-hidden rounded-sm border border-slate-200 bg-slate-50 py-4 text-slate-800 transition-colors duration-200 hover:border-indigo-500 hover:bg-indigo-50 hover:text-indigo-500"
     >
-      <div className="text-[22px] mb-1">
+      <div className="text-[22px] mb-1 text-slate-600">
         <Suspense fallback={null}>
           {block.icon ? <block.icon /> : <FiGrid />}
         </Suspense>

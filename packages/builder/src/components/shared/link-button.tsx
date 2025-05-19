@@ -1,61 +1,69 @@
-import { classNames } from '@/utils';
+import { classNames } from "@/utils";
 
 type Props = {
   color?:
-    | 'amber'
-    | 'blue'
-    | 'cyan'
-    | 'emerald'
-    | 'fuchsia'
-    | 'green'
-    | 'gray'
-    | 'indigo'
-    | 'lime'
-    | 'orange'
-    | 'pink'
-    | 'purple'
-    | 'red'
-    | 'rose'
-    | 'sky'
-    | 'teal'
-    | 'violet'
-    | 'yellow'
-    | 'primary'
-    | 'secondary'
-    | 'danger'
-    | 'white';
+    | "amber"
+    | "blue"
+    | "cyan"
+    | "emerald"
+    | "fuchsia"
+    | "green"
+    | "gray"
+    | "indigo"
+    | "lime"
+    | "orange"
+    | "pink"
+    | "purple"
+    | "red"
+    | "rose"
+    | "sky"
+    | "teal"
+    | "violet"
+    | "yellow"
+    | "primary"
+    | "secondary"
+    | "danger"
+    | "white";
   href: string;
   children: React.ReactNode;
   className?: string;
 };
 
-const LinkButton = ({ color = 'primary', href, children, className = '' }: Props) => {
+const LinkButton = ({
+  color = "primary",
+  href,
+  children,
+  className = "",
+}: Props) => {
   const colorClasses = {
-    amber: 'bg-amber-500 hover:bg-amber-600 text-dark-800',
-    blue: 'bg-blue-500 hover:bg-blue-600 text-white',
-    cyan: 'bg-cyan-500 hover:bg-cyan-600 text-white',
-    emerald: 'bg-emerald-500 hover:bg-emerald-600 text-white',
-    fuchsia: 'bg-fuchsia-500 hover:bg-fuchsia-600 text-white',
-    green: 'bg-green-500 hover:bg-green-600 text-white',
-    gray: 'bg-dark-500 hover:bg-dark-600 text-dark-100 text-white',
-    indigo: 'bg-primary-500 hover:bg-primary-600 text-white',
-    lime: 'bg-lime-500 hover:bg-lime-600 text-white',
-    orange: 'bg-orange-500 hover:bg-orange-600 text-white',
-    pink: 'bg-pink-500 hover:bg-pink-600 text-white',
-    purple: 'bg-purple-500 hover:bg-purple-600 text-white',
-    red: 'bg-red-500 hover:bg-red-600 text-white',
-    rose: 'bg-rose-500 hover:bg-rose-600 text-white',
-    sky: 'bg-sky-500 hover:bg-sky-600 text-white',
-    teal: 'bg-teal-500 hover:bg-teal-600 text-white',
-    violet: 'bg-dokan-500 hover:bg-dokan-600 text-white',
-    yellow: 'bg-yellow-500 hover:bg-yellow-600 text-white',
-    primary: 'bg-dokan-500 hover:bg-dokan-600 text-white',
-    secondary: 'bg-secondary-500 hover:bg-secondary-600 text-white',
-    danger: 'bg-danger-500 hover:bg-danger-600 text-white',
-    white: 'bg-white hover:bg-dark-100 text-dark-800',
+    amber: "bg-amber-500 hover:bg-amber-600 text-slate-800",
+    blue: "bg-blue-500 hover:bg-blue-600 text-white",
+    cyan: "bg-cyan-500 hover:bg-cyan-600 text-white",
+    emerald: "bg-emerald-500 hover:bg-emerald-600 text-white",
+    fuchsia: "bg-fuchsia-500 hover:bg-fuchsia-600 text-white",
+    green: "bg-green-500 hover:bg-green-600 text-white",
+    gray: "bg-slate-500 hover:bg-slate-600 text-slate-100 text-white",
+    indigo: "bg-primary-500 hover:bg-primary-600 text-white",
+    lime: "bg-lime-500 hover:bg-lime-600 text-white",
+    orange: "bg-orange-500 hover:bg-orange-600 text-white",
+    pink: "bg-pink-500 hover:bg-pink-600 text-white",
+    purple: "bg-indigo-500 hover:bg-indigo-600 text-white",
+    red: "bg-red-500 hover:bg-red-600 text-white",
+    rose: "bg-rose-500 hover:bg-rose-600 text-white",
+    sky: "bg-sky-500 hover:bg-sky-600 text-white",
+    teal: "bg-teal-500 hover:bg-teal-600 text-white",
+    violet: "bg-indigo-500 hover:bg-indigo-600 text-white",
+    yellow: "bg-yellow-500 hover:bg-yellow-600 text-white",
+    primary: "bg-indigo-500 hover:bg-indigo-600 text-white",
+    secondary: "bg-secondary-500 hover:bg-secondary-600 text-white",
+    danger: "bg-danger-500 hover:bg-danger-600 text-white",
+    white: "bg-white hover:bg-slate-100 text-slate-800",
   };
   return (
-    <a href={href} className={classNames('link-button', colorClasses[color], className)}>
+    <a
+      href={href}
+      className={classNames("link-button", colorClasses[color], className)}
+    >
       {children}
     </a>
   );

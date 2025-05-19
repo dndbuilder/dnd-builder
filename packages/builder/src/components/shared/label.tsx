@@ -1,16 +1,25 @@
-import { classNames } from '@/utils';
-import { LabelHTMLAttributes, forwardRef } from 'react';
+import { classNames } from "@/utils";
+import { LabelHTMLAttributes, forwardRef } from "react";
 
 interface ControlLabelProps extends LabelHTMLAttributes<HTMLLabelElement> {}
 
-const Label = forwardRef<HTMLLabelElement, ControlLabelProps>(({ className, children, ...props }, ref) => {
-  return (
-    <label ref={ref} className={classNames('block text-xs text-dark-800 text-left', className)} {...props}>
-      {children}
-    </label>
-  );
-});
+const Label = forwardRef<HTMLLabelElement, ControlLabelProps>(
+  ({ className, children, ...props }, ref) => {
+    return (
+      <label
+        ref={ref}
+        className={classNames(
+          "block text-xs text-slate-800 text-left",
+          className
+        )}
+        {...props}
+      >
+        {children}
+      </label>
+    );
+  }
+);
 
-Label.displayName = 'Label';
+Label.displayName = "Label";
 
 export default Label;

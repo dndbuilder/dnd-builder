@@ -1,5 +1,3 @@
-"use client";
-
 import { useAppDispatch } from "@/hooks/use-app-dispatch";
 import { useAppSelector } from "@/hooks/use-app-selector";
 import { clearContent, setContent } from "@/store/builder-slice";
@@ -51,7 +49,7 @@ const Editor: FC<Props> = ({ content }) => {
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <div className="relative flex h-[calc(100vh-60px)] w-full flex-wrap overflow-hidden">
+      <div className="relative flex h-full w-full flex-wrap overflow-hidden">
         {/* Builder Left Sidebar Panel */}
         <LeftPanel />
 

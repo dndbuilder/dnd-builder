@@ -215,7 +215,7 @@ const TypographyControl: FC<Props> = ({
                       <Button
                         variant="outline"
                         role="combobox"
-                        className="w-full justify-between whitespace-nowrap border-dark-300"
+                        className="w-full justify-between whitespace-nowrap border-slate-300"
                       >
                         {typography?.fontFamily?.desktop ?? "Select"}
                         <LuChevronsUpDown className="ms-2 h-4 shrink-0 opacity-50" />
@@ -225,7 +225,7 @@ const TypographyControl: FC<Props> = ({
                   <Popover.Content className="w-[200px] p-0">
                     <div className="flex items-center border-b">
                       <div className="ms-2.5 flex w-7 items-center justify-center">
-                        <BiSearch className=" text-dark-500" size={18} />
+                        <BiSearch className=" text-slate-500" size={18} />
                       </div>
                       <input
                         value={searchText}
@@ -248,7 +248,7 @@ const TypographyControl: FC<Props> = ({
                           .map((font) => (
                             <div
                               key={font}
-                              className="flex items-center whitespace-nowrap rounded-sm p-2 text-xs font-normal text-dark-700 hover:bg-dark-100 "
+                              className="flex items-center whitespace-nowrap rounded-sm p-2 text-xs font-normal text-slate-700 hover:bg-slate-100 "
                               onClick={() => {
                                 setTypography({
                                   ...typography,

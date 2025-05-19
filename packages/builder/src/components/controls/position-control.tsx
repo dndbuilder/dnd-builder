@@ -66,7 +66,7 @@ const PositionControl: FC<PositionControlProps> = ({
             fieldName={`${fieldName}.horizontalOffset`}
             label="Offset"
             responsive
-            units={[Unit.PX, Unit.REM, Unit.EM, Unit.PARCENTAGE]}
+            units={[Unit.PX, Unit.REM, Unit.EM, Unit.PERCENTAGE]}
           />
 
           {/* Vertical */}
@@ -94,7 +94,7 @@ const PositionControl: FC<PositionControlProps> = ({
             fieldName={`${fieldName}.verticalOffset`}
             label="Offset"
             responsive
-            units={[Unit.PX, Unit.REM, Unit.EM, Unit.PARCENTAGE]}
+            units={[Unit.PX, Unit.REM, Unit.EM, Unit.PERCENTAGE]}
           />
         </div>
       )}

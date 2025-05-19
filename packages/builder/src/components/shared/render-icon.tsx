@@ -1,4 +1,3 @@
-"use client";
 import { FC, useEffect, useState } from "react";
 import { getIcons } from "@/utils";
 import { IconBaseProps } from "react-icons";

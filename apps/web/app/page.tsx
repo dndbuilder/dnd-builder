@@ -5,7 +5,7 @@ import "@repo/builder/dist/style.css";
 
 export default function HomePage() {
   return (
-    <div>
+    <div className="h-screen">
       {/* <Header text="Page Builder" />
       <Button>Click me</Button> */}
       <Builder content={{}} />

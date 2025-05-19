@@ -45,7 +45,7 @@ const SwitchControl: FC<Props> = ({
   return (
     <Label
       className={classNames(
-        "mt-4 flex items-center justify-between text-xs text-dark-800",
+        "mt-4 flex items-center justify-between text-xs text-slate-800",
         className
       )}
     >

@@ -26,7 +26,7 @@ const BreakpointSwitch: FC<BreakpointSwitcherProps> = ({ className }) => {
   return (
     <div
       className={classNames(
-        "flex items-center rounded-sm bg-dark-800 px-2 h-10",
+        "flex items-center rounded-sm bg-slate-800 px-2 h-10",
         className
       )}
     >
@@ -37,9 +37,9 @@ const BreakpointSwitch: FC<BreakpointSwitcherProps> = ({ className }) => {
               <div
                 onClick={() => changeBreakpoint(breakpoint.key)}
                 className={classNames(
-                  "cursor-pointer p-2 text-dark-100 hover:text-dokan-400",
+                  "cursor-pointer p-2 text-slate-100 hover:text-indigo-400",
                   {
-                    "text-dokan-400": currentBreakpoint === breakpoint.key,
+                    "text-indigo-400": currentBreakpoint === breakpoint.key,
                   }
                 )}
               >

@@ -33,9 +33,9 @@ const BlockNavigation = () => {
   return (
     <div>
       <div className="h-14 w-full bg-white px-4 mt-4">
-        <div className="flex items-center border focus-within:border-dokan-500 rounded-sm overflow-hidden focus-within:ring-1 focus-within:ring-dokan-500">
+        <div className="flex items-center border focus-within:border-indigo-500 rounded-sm overflow-hidden focus-within:ring-1 focus-within:ring-indigo-500">
           <div className="ms-2.5 flex w-7 items-center justify-center">
-            <BiSearch className=" text-dark-500" size={18} />
+            <BiSearch className=" text-slate-500" size={18} />
           </div>
           <input
             value={search}
@@ -50,7 +50,7 @@ const BlockNavigation = () => {
       </div>
 
       {objectKeys(availableGroups).length === 0 && (
-        <div className="text-center py-2 text-sm text-dark-600">
+        <div className="text-center py-2 text-sm text-slate-600">
           No blocks found
         </div>
       )}

@@ -24,7 +24,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   responsive?: boolean;
 }
 
-const defaultUnits = [Unit.PX, Unit.PARCENTAGE];
+const defaultUnits = [Unit.PX, Unit.PERCENTAGE];
 
 const SpacingControl: FC<Props> = ({
   className,
@@ -152,7 +152,7 @@ const SpacingControl: FC<Props> = ({
             value={innerValue?.top ?? ""}
             type="number"
           />
-          <p className="mt-0.5 text-center text-[10px] text-dark-400">Top</p>
+          <p className="mt-0.5 text-center text-[10px] text-slate-400">Top</p>
         </div>
         <div>
           <Input
@@ -162,7 +162,7 @@ const SpacingControl: FC<Props> = ({
             value={innerValue?.right ?? ""}
             type="number"
           />
-          <p className="mt-0.5 text-center text-[10px] text-dark-400">Right</p>
+          <p className="mt-0.5 text-center text-[10px] text-slate-400">Right</p>
         </div>
         <div>
           <Input
@@ -172,7 +172,9 @@ const SpacingControl: FC<Props> = ({
             value={innerValue?.bottom ?? ""}
             type="number"
           />
-          <p className="mt-0.5 text-center text-[10px] text-dark-400">Bottom</p>
+          <p className="mt-0.5 text-center text-[10px] text-slate-400">
+            Bottom
+          </p>
         </div>
         <div>
           <Input
@@ -182,12 +184,12 @@ const SpacingControl: FC<Props> = ({
             value={innerValue?.left ?? ""}
             type="number"
           />
-          <p className="mt-0.5 text-center text-[10px] text-dark-400">Left</p>
+          <p className="mt-0.5 text-center text-[10px] text-slate-400">Left</p>
         </div>
         <div>
           <div
-            className={classNames("w-full rounded-sm border border-dark-300", {
-              "bg-dark-100": !innerValue?.linked,
+            className={classNames("w-full rounded-sm border border-slate-300", {
+              "bg-slate-100": !innerValue?.linked,
             })}
           >
             <Tooltip>
@@ -195,16 +197,16 @@ const SpacingControl: FC<Props> = ({
                 {innerValue?.linked ? (
                   <div
                     onClick={() => handleLinkedChange(false)}
-                    className="cursor-pointer rounded-sm px-3 py-[7px] hover:bg-dark-100"
+                    className="cursor-pointer rounded-sm px-3 py-[7px] hover:bg-slate-100"
                   >
-                    <MdLink className="text-dark-600" />
+                    <MdLink className="text-slate-600" />
                   </div>
                 ) : (
                   <div
                     onClick={() => handleLinkedChange(true)}
-                    className="cursor-pointer rounded-sm px-3 py-[7px] hover:bg-dark-100"
+                    className="cursor-pointer rounded-sm px-3 py-[7px] hover:bg-slate-100"
                   >
-                    <MdLinkOff className="text-dark-600" />
+                    <MdLinkOff className="text-slate-600" />
                   </div>
                 )}
               </Tooltip.Trigger>
@@ -216,7 +218,7 @@ const SpacingControl: FC<Props> = ({
             onValueChange={(val) => handleUnitChange(val as Unit)}
           >
             <Select.Trigger
-              className="mx-auto h-auto w-auto border-none p-0 text-[10px] text-dark-400 hover:text-dark-600 hover:underline focus:underline"
+              className="mx-auto h-auto w-auto border-none p-0 text-[10px] text-slate-400 hover:text-slate-600 hover:underline focus:underline"
               chevronDown={false}
             >
               <Select.Value placeholder="px" />

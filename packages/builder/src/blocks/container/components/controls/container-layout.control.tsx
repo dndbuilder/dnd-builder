@@ -1,5 +1,3 @@
-"use client";
-
 import FlexGapControl from "@/components/controls/flex-gap.control";
 import SelectControl from "@/components/controls/select.control";
 import SliderUnitControl from "@/components/controls/slider-unit.control";
@@ -65,7 +63,7 @@ const ContainerLayoutControl = () => {
           <SliderUnitControl
             fieldName="width"
             label="Width"
-            units={[Unit.PX, Unit.PARCENTAGE, Unit.EM, Unit.REM, Unit.VW]}
+            units={[Unit.PX, Unit.PERCENTAGE, Unit.EM, Unit.REM, Unit.VW]}
             responsive
             type={SettingsType.BLOCK}
             className="mt-0"
@@ -75,7 +73,7 @@ const ContainerLayoutControl = () => {
           <SliderUnitControl
             fieldName="maxWidth"
             label="Max Width"
-            units={[Unit.PX, Unit.PARCENTAGE, Unit.EM, Unit.REM, Unit.VW]}
+            units={[Unit.PX, Unit.PERCENTAGE, Unit.EM, Unit.REM, Unit.VW]}
             responsive
             type={SettingsType.BLOCK}
           />
@@ -85,7 +83,7 @@ const ContainerLayoutControl = () => {
             responsive
             fieldName="minHeight"
             label="Min Height"
-            units={[Unit.PX, Unit.PARCENTAGE, Unit.EM, Unit.REM, Unit.VH]}
+            units={[Unit.PX, Unit.PERCENTAGE, Unit.EM, Unit.REM, Unit.VH]}
             type={SettingsType.BLOCK}
           />
 

@@ -85,7 +85,7 @@ const TextShadowControl: FC<Props> = ({
       {/* <ResetControl /> */}
       <Popover>
         <Popover.Trigger asChild>
-          <div className="cursor-pointer rounded-sm bg-slate-50 px-3 py-1.5 transition-colors duration-200 hover:bg-dark-300">
+          <div className="cursor-pointer rounded-sm bg-slate-50 px-3 py-1.5 transition-colors duration-200 hover:bg-slate-300">
             <CiEdit />
           </div>
         </Popover.Trigger>

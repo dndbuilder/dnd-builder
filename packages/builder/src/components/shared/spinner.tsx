@@ -1,5 +1,5 @@
-import { classNames } from '@/utils';
-import { FC } from 'react';
+import { classNames } from "@/utils";
+import { FC } from "react";
 
 type SpinnerProps = {
   className?: string;
@@ -9,7 +9,10 @@ const Spinner: FC<SpinnerProps> = ({ className, ...rest }) => {
   return (
     <svg
       aria-hidden="true"
-      className={classNames('h-6 w-6 animate-spin fill-dokan-600 text-dark-200', className)}
+      className={classNames(
+        "h-6 w-6 animate-spin fill-indigo-600 text-slate-200",
+        className
+      )}
       viewBox="0 0 100 101"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

@@ -123,13 +123,13 @@ const ColorControl: FC<Props> = ({
             {/* Text */}
             <Popover.Close className="w-full">
               <div
-                className="cursor-pointer px-5 py-3 hover:bg-dark-100"
+                className="cursor-pointer px-5 py-3 hover:bg-slate-100"
                 onClick={() => setColor(`var(--text-color)`)}
               >
                 <div className="flex items-center">
                   {getSquareColor(themeSettings.color.textColor)}
-                  <p className="ms-3 text-xs text-dark-500">Text</p>
-                  <p className="ms-auto text-xs text-dark-500">
+                  <p className="ms-3 text-xs text-slate-500">Text</p>
+                  <p className="ms-auto text-xs text-slate-500">
                     {themeSettings.color.textColor}
                   </p>
                 </div>
@@ -139,14 +139,14 @@ const ColorControl: FC<Props> = ({
             {/* Background */}
             <Popover.Close className="w-full">
               <div
-                className="cursor-pointer px-5 py-3 hover:bg-dark-100"
+                className="cursor-pointer px-5 py-3 hover:bg-slate-100"
                 onClick={() => setColor(`var(--background-color)`)}
               >
                 <div className="flex items-center">
                   {getSquareColor(themeSettings.color.backgroundColor)}
 
-                  <p className="ms-3 text-xs text-dark-500">Background</p>
-                  <p className="ms-auto text-xs text-dark-500">
+                  <p className="ms-3 text-xs text-slate-500">Background</p>
+                  <p className="ms-auto text-xs text-slate-500">
                     {themeSettings.color.backgroundColor}
                   </p>
                 </div>
@@ -156,14 +156,14 @@ const ColorControl: FC<Props> = ({
             {/* Accent */}
             <Popover.Close className="w-full">
               <div
-                className="cursor-pointer px-5 py-3 hover:bg-dark-100"
+                className="cursor-pointer px-5 py-3 hover:bg-slate-100"
                 onClick={() => setColor(`var(--accent-color)`)}
               >
                 <div className="flex items-center">
                   {getSquareColor(themeSettings.color.accentColor)}
 
-                  <p className="ms-3 text-xs text-dark-500">Accent</p>
-                  <p className="ms-auto text-xs text-dark-500">
+                  <p className="ms-3 text-xs text-slate-500">Accent</p>
+                  <p className="ms-auto text-xs text-slate-500">
                     {themeSettings.color.accentColor}
                   </p>
                 </div>
@@ -174,14 +174,16 @@ const ColorControl: FC<Props> = ({
             {accentShades.map((shade, i) => (
               <Popover.Close className="w-full" key={i}>
                 <div
-                  className="cursor-pointer px-5 py-3 hover:bg-dark-100"
+                  className="cursor-pointer px-5 py-3 hover:bg-slate-100"
                   onClick={() => setColor(`var(--accent-color-${shade})`)}
                 >
                   <div className="flex items-center">
                     {getSquareColor(`var(--accent-color-${shade})`)}
 
-                    <p className="ms-3 text-xs text-dark-500">Accent {shade}</p>
-                    <p className="ms-auto text-xs text-dark-500">
+                    <p className="ms-3 text-xs text-slate-500">
+                      Accent {shade}
+                    </p>
+                    <p className="ms-auto text-xs text-slate-500">
                       {getColor(`var(--accent-color-${shade})`)}
                     </p>
                   </div>
@@ -192,13 +194,13 @@ const ColorControl: FC<Props> = ({
             {colorPresets?.map((preset, index) => (
               <Popover.Close className="w-full" key={index}>
                 <div
-                  className="cursor-pointer px-5 py-3 hover:bg-dark-100"
+                  className="cursor-pointer px-5 py-3 hover:bg-slate-100"
                   onClick={() => setColor(`var(--color-preset-${preset.id})`)}
                 >
                   <div className="flex items-center">
                     {getSquareColor(preset.value)}
-                    <p className="ms-3 text-xs text-dark-500">{preset.name}</p>
-                    <p className="ms-auto text-xs text-dark-500">
+                    <p className="ms-3 text-xs text-slate-500">{preset.name}</p>
+                    <p className="ms-auto text-xs text-slate-500">
                       {preset.value}
                     </p>
                   </div>
