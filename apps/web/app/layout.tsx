@@ -1,3 +1,4 @@
+import "./globals.css";
 import React from "react";
 import { Open_Sans } from "next/font/google";
 
