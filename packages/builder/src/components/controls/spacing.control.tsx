@@ -214,7 +214,7 @@ const SpacingControl: FC<Props> = ({
             </Tooltip>
           </div>
           <Select
-            value={innerValue?.unit}
+            value={innerValue?.unit || units[0]}
             onValueChange={(val) => handleUnitChange(val as Unit)}
           >
             <Select.Trigger

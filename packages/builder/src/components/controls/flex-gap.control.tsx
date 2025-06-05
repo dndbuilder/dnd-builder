@@ -144,7 +144,7 @@ const FlexGapControl: FC<Props> = ({
             </Tooltip>
           </div>
           <Select
-            value={value?.unit}
+            value={value?.unit || units[0]}
             onValueChange={(val) => handleUnitChange(val as Unit)}
           >
             <Select.Trigger

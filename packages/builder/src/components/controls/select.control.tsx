@@ -84,7 +84,7 @@ const SelectControl: FC<SelectControlProps> = ({
           setValue(value);
           onValueChange?.(value);
         }}
-        value={value || defaultValue || "select"}
+        value={value !== undefined && value !== null ? value : defaultValue || "select"}
       >
         <Select.Trigger id={autoId} className="flex-1 bg-white">
           <Select.Value />

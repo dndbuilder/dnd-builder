@@ -279,7 +279,7 @@ const BoxShadowControl: FC<Props> = ({
             <div className="mt-4 grid grid-cols-2 items-center gap-1.5">
               <Label>Position</Label>
               <Select
-                defaultValue={innerValue.position}
+                value={innerValue.position || ""}
                 onValueChange={(val) => {
                   // setBoxShadow({
                   //   ...innerValue,

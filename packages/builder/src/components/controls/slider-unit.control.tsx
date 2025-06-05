@@ -150,7 +150,7 @@ const SliderUnitControl: FC<SliderControlProps> = ({
             ) : null}
           </Tooltip>
 
-          <Select onValueChange={onUnitChange} value={innerValue?.unit}>
+          <Select onValueChange={onUnitChange} value={innerValue?.unit || units[0]}>
             <Select.Trigger
               className="flex h-full w-7 items-center justify-center rounded-none rounded-r border-0 border-l p-0 text-[11px] leading-3 hover:bg-slate-200 focus:ring-0 focus:ring-offset-0"
               chevronDown={false}

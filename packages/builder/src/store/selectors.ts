@@ -1,7 +1,7 @@
-import { RootState } from "@/store";
-import { SettingsType } from "@/types";
-import { AnyObject } from "@/types";
-import { Block } from "@/types/block";
+import { RootState } from "./index";
+import { SettingsType } from "../types";
+import { AnyObject } from "../types";
+import { Block } from "../types/block";
 import { createSelector } from "@reduxjs/toolkit";
 import objectPath from "object-path";
 

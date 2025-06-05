@@ -1,13 +1,13 @@
-import { Block, BlockAdvancedSettings, BlockType } from "@/types/block";
-import { Breakpoint } from "@/types/responsive";
-import { createBlock, createId, createRootBlock } from "@/utils";
-import { AnyObject } from "@/types";
+import { Block, BlockAdvancedSettings, BlockType } from "../types/block";
+import { Breakpoint } from "../types/responsive";
+import { createBlock, createId, createRootBlock } from "../utils";
+import { AnyObject } from "../types";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { isEmpty } from "lodash";
 import cloneDeep from "lodash/cloneDeep";
 import objectPath from "object-path";
-import { ContainerSettingsType } from "@/blocks/container/types";
-import { TabType } from "@/blocks/tabs/types";
+import { ContainerSettingsType } from "../blocks/container/types";
+import { TabType } from "../blocks/tabs/types";
 
 export interface BuilderState {
   content: Record<string, Block>;

@@ -5,33 +5,47 @@ import { getContent } from "@/store/selectors";
 import { setActiveTheme } from "@/store/theme-slice";
 import { Block } from "@/types/block";
 import { Theme } from "@/types/theme";
-import { FC, useEffect } from "react";
+import { FC, memo, useEffect, useMemo } from "react";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import CanvasArea from "./canvas-area";
 import LeftPanel from "./left-panel";
 import RightPanel from "./right-panel";
 
-type Props = {
+export type EditorProps = {
   content: Record<string, Block>;
 };
 
-const Editor: FC<Props> = ({ content }) => {
-  // const dispatch = useAppDispatch();
+export const Editor: FC<EditorProps> = ({ content }) => {
+  const dispatch = useAppDispatch();
 
-  // const contentState = useAppSelector(getContent);
+  const contentState = useAppSelector(getContent);
 
-  // const isDirty = JSON.stringify(content) !== JSON.stringify(contentState);
+  // Memoize the isDirty calculation to prevent recalculating on every render
+  const isDirty = useMemo(() => {
+    return JSON.stringify(content) !== JSON.stringify(contentState);
+  }, [content, contentState]);
+
+  useEffect(() => {
+    // if (!content) {
+    //   dispatch(clearContent());
+    //   return;
+    // }
+
+    dispatch(setContent(content));
+  }, [content]);
+
+  // Call onChange when contentState changes
+  // useEffect(() => {
+  //   if (onChange && isDirty) {
+  //     onChange(contentState);
+  //   }
+  // }, [contentState, onChange, isDirty]);
 
   // useEffect(() => {
-  //   if (!content) {
-  //     dispatch(clearContent());
-  //     return;
-  //   }
-
-  //   dispatch(setContent(content));
-  // }, [content]);
-
+  //     onChange?.(contentState);
+  // }, [contentState]);
+  //
   // useEffect(() => {
   //   const handleBeforeUnload = (e: BeforeUnloadEvent) => {
   //     if (isDirty) {
@@ -39,9 +53,9 @@ const Editor: FC<Props> = ({ content }) => {
   //       e.returnValue = true;
   //     }
   //   };
-
+  //
   //   window.addEventListener("beforeunload", handleBeforeUnload);
-
+  //
   //   return () => {
   //     window.removeEventListener("beforeunload", handleBeforeUnload);
   //   };
@@ -63,4 +77,11 @@ const Editor: FC<Props> = ({ content }) => {
   );
 };
 
-export default Editor;
+// // Memoize the Editor component to prevent unnecessary rerenders
+// export default memo(Editor, (prevProps, nextProps) => {
+//   // Only rerender if content or onChange has changed
+//   return (
+//     JSON.stringify(prevProps.content) === JSON.stringify(nextProps.content) &&
+//     prevProps.onChange === nextProps.onChange
+//   );
+// });

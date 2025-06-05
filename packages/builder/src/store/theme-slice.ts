@@ -1,7 +1,7 @@
-import { Theme } from "@/types/theme";
+import { Theme } from "../types/theme";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import objectPath from "object-path";
-import { ThemeConfiguration } from "@/config/theme.config";
+import { ThemeConfiguration } from "../config/theme.config";
 
 export interface ThemeState {
   activeTheme: Theme;
