@@ -19,6 +19,7 @@ export const FrameContextManager: FC<{ children?: ReactNode }> = ({
 
     // Set frame document to global
     window.frameDocument = frameDocument;
+
   }, [manager, frameDocument, frameWindow]);
 
   return <>{children}</>;

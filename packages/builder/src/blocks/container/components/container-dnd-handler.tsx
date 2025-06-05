@@ -164,7 +164,7 @@ const ContainerDndHandler: FC<BlockProps<ContainerSettingsType>> = ({
       }
     },
     hover: (item, monitor) => {
-      if (!ref.current) {
+      if (!ref.current || !monitor.isOver() || !monitor.canDrop()) {
         return;
       }
 

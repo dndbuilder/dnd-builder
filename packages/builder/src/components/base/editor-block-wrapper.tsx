@@ -151,7 +151,7 @@ const EditorBlockWrapper: FC<Props> = ({
       }
     },
     hover: (item, monitor) => {
-      if (!ref.current) {
+      if (!ref.current || !monitor.isOver() || !monitor.canDrop()) {
         return;
       }
 
