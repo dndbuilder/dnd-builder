@@ -8,6 +8,4 @@ export { BuilderProvider } from "./contexts/builder-context";
 
 export { store } from "./store";
 
-export * from "./core";
-
 export * from "./store/selectors";
