@@ -1,5 +1,5 @@
 import { BreakpointSelector } from "@/components/shared/breakpoint-selector";
-import ToggleGroupControl from "@/components/controls/toggle-group.control";
+import { ToggleGroupControl } from "@/components/controls/toggle-group.control";
 import { Input } from "@/components/shared/input";
 import { Label } from "@/components/shared/label";
 import { useAppSelector } from "@/hooks/use-app-selector";
@@ -12,7 +12,7 @@ import { BiBlock, BiDotsVerticalRounded } from "react-icons/bi";
 import { CgArrowAlignH } from "react-icons/cg";
 import { MdVerticalAlignCenter } from "react-icons/md";
 
-interface Props extends HTMLAttributes<HTMLDivElement> {
+export interface FlexSizeControlProps extends HTMLAttributes<HTMLDivElement> {
   type: SettingsType;
   fieldName: string;
   growFieldName: string;
@@ -20,7 +20,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   label?: string;
 }
 
-const FlexSizeControl: FC<Props> = ({
+export const FlexSizeControl: FC<FlexSizeControlProps> = ({
   className,
   type,
   fieldName,
@@ -114,5 +114,3 @@ const FlexSizeControl: FC<Props> = ({
     </div>
   );
 };
-
-export default FlexSizeControl;

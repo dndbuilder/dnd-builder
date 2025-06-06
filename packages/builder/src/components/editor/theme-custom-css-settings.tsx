@@ -1,4 +1,4 @@
-import CustomCSSControl from "@/components/controls/custom-css.control";
+import { CustomCSSControl } from "@/components/controls/custom-css.control";
 import { SettingsType, ThemeSettingsType } from "@/types";
 import React, { FC } from "react";
 import { BsFiletypeCss } from "react-icons/bs";

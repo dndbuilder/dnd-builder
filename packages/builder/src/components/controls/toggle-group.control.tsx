@@ -28,7 +28,7 @@ interface ControlType {
   value: string;
 }
 
-interface Props
+export interface ToggleGroupControlProps
   extends HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof controlVariants> {
   controls: ControlType[];
@@ -43,7 +43,10 @@ interface Props
 const toggleGroupItemClasses =
   "hover:bg-slate-100  controls-[state=on]:bg-slate-100 flex h-[28px] w-[35px] items-center justify-center bg-white text-base leading-4 first:rounded-l last:rounded-r focus:z-10 focus:outline-hidden";
 
-const ToggleGroupControl = forwardRef<HTMLDivElement, Props>(
+export const ToggleGroupControl = forwardRef<
+  HTMLDivElement,
+  ToggleGroupControlProps
+>(
   (
     {
       type,
@@ -128,5 +131,3 @@ const ToggleGroupControl = forwardRef<HTMLDivElement, Props>(
 );
 
 ToggleGroupControl.displayName = "ToggleGroupControl";
-
-export default ToggleGroupControl;

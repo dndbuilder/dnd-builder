@@ -1,9 +1,9 @@
-import BoxShadowControl from "@/components/controls/box-shadow.control";
-import ColorControl from "@/components/controls/color.control";
-import SliderUnitControl from "@/components/controls/slider-unit.control";
-import SpacingControl from "@/components/controls/spacing.control";
-import ToggleGroupControl from "@/components/controls/toggle-group.control";
-import TypographyControl from "@/components/controls/typography.control";
+import { BoxShadowControl } from "@/components/controls/box-shadow.control";
+import { ColorControl } from "@/components/controls/color.control";
+import { SliderUnitControl } from "@/components/controls/slider-unit.control";
+import { SpacingControl } from "@/components/controls/spacing.control";
+import { ToggleGroupControl } from "@/components/controls/toggle-group.control";
+import { TypographyControl } from "@/components/controls/typography.control";
 import { Accordion } from "@/components/shared/accordion";
 import { Tabs } from "@/components/shared/tabs";
 import { useSettings } from "@/hooks/use-settings";
@@ -18,7 +18,7 @@ import {
   MdAlignVerticalTop,
 } from "react-icons/md";
 import { RxPinLeft, RxPinTop } from "react-icons/rx";
-import TabsBorderControl from "./tabs-border.control";
+import { TabsBorderControl } from "./tabs-border.control";
 
 const TabsStyleControl = () => {
   const [orientation] = useSettings<"horizontal" | "vertical">(

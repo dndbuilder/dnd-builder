@@ -1,7 +1,7 @@
-import BackgroundControl from "@/components/controls/background.control";
-import ColorControl from "@/components/controls/color.control";
-import TextShadowControl from "@/components/controls/text-shadow.control";
-import TypographyControl from "@/components/controls/typography.control";
+import { BackgroundControl } from "@/components/controls/background.control";
+import { ColorControl } from "@/components/controls/color.control";
+import { TextShadowControl } from "@/components/controls/text-shadow.control";
+import { TypographyControl } from "@/components/controls/typography.control";
 import { Accordion } from "@/components/shared/accordion";
 import { Tabs } from "@/components/shared/tabs";
 import { SettingsType, ThemeSettingsType } from "@/types";
@@ -10,9 +10,9 @@ import { FC } from "react";
 import { FiX } from "react-icons/fi";
 import { RxButton } from "react-icons/rx";
 import ThemeButtonPresets from "./theme-button-presets";
-import SelectControl from "@/components/controls/select.control";
+import { SelectControl } from "@/components/controls/select.control";
 import { useSettings } from "@/hooks/use-settings";
-import SpacingControl from "@/components/controls/spacing.control";
+import { SpacingControl } from "@/components/controls/spacing.control";
 import { Separator } from "@/components/shared/seperator";
 
 type Props = {

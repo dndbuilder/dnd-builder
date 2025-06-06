@@ -13,7 +13,7 @@ import { classNames } from "@/utils";
 import { FC, HTMLAttributes, ReactNode } from "react";
 import { MdLink, MdLinkOff } from "react-icons/md";
 
-interface Props extends HTMLAttributes<HTMLDivElement> {
+export interface FlexGapsControlProps extends HTMLAttributes<HTMLDivElement> {
   units?: Unit[];
   min?: number;
   max?: number;
@@ -26,7 +26,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 
 const defaultUnits = [Unit.PX, Unit.PERCENTAGE];
 
-const FlexGapControl: FC<Props> = ({
+export const FlexGapControl: FC<FlexGapsControlProps> = ({
   className,
   units = defaultUnits,
   responsive,
@@ -177,5 +177,3 @@ const FlexGapControl: FC<Props> = ({
     </div>
   );
 };
-
-export default FlexGapControl;

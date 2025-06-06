@@ -1,4 +1,4 @@
-import ColorControl from "@/components/controls/color.control";
+import { ColorControl } from "@/components/controls/color.control";
 import { Accordion } from "@/components/shared/accordion";
 import { Tabs } from "@/components/shared/tabs";
 import { SettingsType, ThemeSettingsType } from "@/types";

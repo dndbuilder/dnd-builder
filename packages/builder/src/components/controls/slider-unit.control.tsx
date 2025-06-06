@@ -12,7 +12,7 @@ import { classNames } from "@/utils";
 import { FC, HTMLAttributes, ReactNode, useEffect, useState } from "react";
 import { BreakpointSelector } from "../shared/breakpoint-selector";
 
-interface SliderControlProps extends HTMLAttributes<HTMLDivElement> {
+export interface SliderControlProps extends HTMLAttributes<HTMLDivElement> {
   step?: number;
   min?: number;
   max?: number;
@@ -26,7 +26,7 @@ interface SliderControlProps extends HTMLAttributes<HTMLDivElement> {
 
 const defaultUnits: Unit[] = [Unit.PX, Unit.PERCENTAGE, Unit.REM, Unit.EM];
 
-const SliderUnitControl: FC<SliderControlProps> = ({
+export const SliderUnitControl: FC<SliderControlProps> = ({
   min,
   max,
   step = 1,
@@ -150,7 +150,10 @@ const SliderUnitControl: FC<SliderControlProps> = ({
             ) : null}
           </Tooltip>
 
-          <Select onValueChange={onUnitChange} value={innerValue?.unit || units[0]}>
+          <Select
+            onValueChange={onUnitChange}
+            value={innerValue?.unit || units[0]}
+          >
             <Select.Trigger
               className="flex h-full w-7 items-center justify-center rounded-none rounded-r border-0 border-l p-0 text-[11px] leading-3 hover:bg-slate-200 focus:ring-0 focus:ring-offset-0"
               chevronDown={false}
@@ -181,5 +184,3 @@ const SliderUnitControl: FC<SliderControlProps> = ({
     </div>
   );
 };
-
-export default SliderUnitControl;

@@ -7,7 +7,7 @@ import { BsTrash } from "react-icons/bs";
 import { cloneDeep } from "lodash";
 import { SettingsType } from "@/types";
 
-const CustomAttributeControl = () => {
+export const CustomAttributeControl = () => {
   const [customAttributes, setCustomAttributes] = useSettings<
     AttributeType[] | undefined
   >("customAttributes", SettingsType.ADVANCED);
@@ -72,4 +72,3 @@ const CustomAttributeControl = () => {
   );
 };
 
-export default CustomAttributeControl;

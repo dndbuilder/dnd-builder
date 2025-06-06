@@ -22,12 +22,12 @@ const controlVariants = cva("flex", {
   },
 });
 
-type SelectOption = {
+export type SelectOption = {
   value: string;
   content: ReactNode;
 };
 
-type SelectControlProps = {
+export type SelectControlProps = {
   options: SelectOption[];
   placeholder?: ReactNode;
   type: SettingsType;
@@ -40,7 +40,7 @@ type SelectControlProps = {
 } & HTMLAttributes<HTMLDivElement> &
   VariantProps<typeof controlVariants>;
 
-const SelectControl: FC<SelectControlProps> = ({
+export const SelectControl: FC<SelectControlProps> = ({
   options,
   fieldName,
   type = SettingsType.BLOCK,
@@ -108,5 +108,3 @@ const SelectControl: FC<SelectControlProps> = ({
     </div>
   );
 };
-
-export default SelectControl;

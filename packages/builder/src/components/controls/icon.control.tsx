@@ -15,7 +15,7 @@ import { Input } from "../shared/input";
 import { Label } from "../shared/label";
 import { ScrollArea } from "../shared/scroll-area";
 
-type Props = {
+export type IconControlProps = {
   label?: string;
   type: SettingsType;
   fieldName: string;
@@ -24,7 +24,7 @@ type Props = {
   className?: string;
 };
 
-const IconControl: FC<Props> = ({
+export const IconControl: FC<IconControlProps> = ({
   label = "Select Icon",
   fieldName,
   mode,
@@ -228,5 +228,3 @@ function IconSetViewer({
     </>
   );
 }
-
-export default IconControl;

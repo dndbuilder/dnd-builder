@@ -1,7 +1,7 @@
-import BackgroundControl from "@/components/controls/background.control";
-import ColorControl from "@/components/controls/color.control";
-import TextShadowControl from "@/components/controls/text-shadow.control";
-import TypographyControl from "@/components/controls/typography.control";
+import { BackgroundControl } from "@/components/controls/background.control";
+import { ColorControl } from "@/components/controls/color.control";
+import { TextShadowControl } from "@/components/controls/text-shadow.control";
+import { TypographyControl } from "@/components/controls/typography.control";
 import { Button } from "@/components/shared/button";
 import { Popover } from "@/components/shared/popover";
 import { Tabs } from "@/components/shared/tabs";

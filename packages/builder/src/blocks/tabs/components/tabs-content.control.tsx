@@ -1,5 +1,5 @@
-import IconControl from "@/components/controls/icon.control";
-import InputControl from "@/components/controls/input.control";
+import { IconControl } from "@/components/controls/icon.control";
+import { InputControl } from "@/components/controls/input.control";
 import { Accordion } from "@/components/shared/accordion";
 import { Button } from "@/components/shared/button";
 import { Label } from "@/components/shared/label";

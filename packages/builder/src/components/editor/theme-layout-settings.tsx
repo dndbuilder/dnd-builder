@@ -1,6 +1,6 @@
-import FlexGapControl from "@/components/controls/flex-gap.control";
-import SliderUnitControl from "@/components/controls/slider-unit.control";
-import SpacingControl from "@/components/controls/spacing.control";
+import { FlexGapControl } from "@/components/controls/flex-gap.control";
+import { SliderUnitControl } from "@/components/controls/slider-unit.control";
+import { SpacingControl } from "@/components/controls/spacing.control";
 import { Accordion } from "@/components/shared/accordion";
 import { SettingsType, ThemeSettingsType } from "@/types";
 import { Unit } from "@/types/style";

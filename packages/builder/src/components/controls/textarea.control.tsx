@@ -17,7 +17,7 @@ import { useFieldName } from "@/hooks/use-field-name";
 import { BreakpointSelector } from "../shared/breakpoint-selector";
 import { LanguageSelector } from "@/components/shared/language-selector";
 
-type Props = {
+export type TextareaControlProps = {
   label?: string;
   type: SettingsType;
   fieldName: string;
@@ -28,7 +28,7 @@ type Props = {
   labelProps?: LabelHTMLAttributes<HTMLLabelElement>;
 } & HTMLAttributes<HTMLDivElement>;
 
-const TextareaControl: FC<Props> = ({
+export const TextareaControl: FC<TextareaControlProps> = ({
   className,
   label,
   type,
@@ -83,5 +83,3 @@ const TextareaControl: FC<Props> = ({
     </div>
   );
 };
-
-export default TextareaControl;

@@ -32,7 +32,7 @@ const controlVariants = cva("", {
   },
 });
 
-type Props = {
+export type InputControlProps = {
   label?: string;
   type: SettingsType;
   fieldName: string;
@@ -47,7 +47,7 @@ type Props = {
 } & HTMLAttributes<HTMLDivElement> &
   VariantProps<typeof controlVariants>;
 
-const InputControl: FC<Props> = ({
+export const InputControl: FC<InputControlProps> = ({
   className,
   label,
   responsive,
@@ -116,5 +116,3 @@ const InputControl: FC<Props> = ({
     </div>
   );
 };
-
-export default InputControl;

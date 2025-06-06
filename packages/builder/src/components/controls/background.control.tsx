@@ -7,19 +7,19 @@ import { BackgroundType, Unit } from "@/types/style";
 import { FC, HTMLAttributes } from "react";
 import { BsSquareHalf } from "react-icons/bs";
 import { PiPaintBrushFill } from "react-icons/pi";
-import ColorControl from "./color.control";
-import SelectControl from "./select.control";
-import SliderUnitControl from "./slider-unit.control";
-import ToggleGroupControl from "./toggle-group.control";
+import { ColorControl } from "./color.control";
+import { SelectControl } from "./select.control";
+import { SliderUnitControl } from "./slider-unit.control";
+import { ToggleGroupControl } from "./toggle-group.control";
 
-type Props = {
+export type BackgroundProps = {
   fieldName: string;
   mode?: string;
   type: SettingsType;
   showImage?: boolean;
 } & HTMLAttributes<HTMLDivElement>;
 
-const BackgroundControl: FC<Props> = ({
+export const BackgroundControl: FC<BackgroundProps> = ({
   mode,
   type,
   fieldName,
@@ -261,5 +261,3 @@ const BackgroundControl: FC<Props> = ({
     </div>
   );
 };
-
-export default BackgroundControl;

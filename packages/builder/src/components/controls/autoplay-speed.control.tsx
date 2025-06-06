@@ -5,11 +5,11 @@ import { SettingsType } from "@/types";
 import { classNames } from "@/utils";
 import { FC, HTMLAttributes } from "react";
 
-type Props = {
+export type AutoPlaySpeedControlProps = {
   fieldName: string;
 } & HTMLAttributes<HTMLDivElement>;
 
-const AutoplaySpeedControl: FC<Props> = ({ className, fieldName }) => {
+export const AutoplaySpeedControl: FC<AutoPlaySpeedControlProps> = ({ className, fieldName }) => {
   const [value, setValue] = useSettings<number>(fieldName, SettingsType.BLOCK);
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -34,4 +34,3 @@ const AutoplaySpeedControl: FC<Props> = ({ className, fieldName }) => {
   );
 };
 
-export default AutoplaySpeedControl;

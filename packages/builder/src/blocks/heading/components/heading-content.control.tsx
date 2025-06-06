@@ -1,16 +1,16 @@
 import { Accordion } from "@/components/shared/accordion";
 import { Separator } from "@/components/shared/seperator";
 
-import LinkControl from "@/components/controls/link.control";
-import SelectControl from "@/components/controls/select.control";
-import ToggleGroupControl from "@/components/controls/toggle-group.control";
+import { LinkControl } from "@/components/controls/link.control";
+import { SelectControl } from "@/components/controls/select.control";
+import { ToggleGroupControl } from "@/components/controls/toggle-group.control";
 import {
   AiOutlineAlignCenter,
   AiOutlineAlignLeft,
   AiOutlineAlignRight,
 } from "react-icons/ai";
 import { TfiAlignJustify } from "react-icons/tfi";
-import TextareaControl from "@/components/controls/textarea.control";
+import { TextareaControl } from "@/components/controls/textarea.control";
 import { SettingsType } from "@/types";
 
 const HeadingContentControl = () => {

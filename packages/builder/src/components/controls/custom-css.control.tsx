@@ -5,13 +5,17 @@ import Editor from "@monaco-editor/react";
 import { debounce } from "lodash";
 import { FC, useState } from "react";
 
-type Props = {
+type CustomCSSControlProps = {
   label?: string;
   type: SettingsType;
   fieldName: string;
 };
 
-const CustomCSSControl: FC<Props> = ({ type, label, fieldName }) => {
+export const CustomCSSControl: FC<CustomCSSControlProps> = ({
+  type,
+  label,
+  fieldName,
+}) => {
   const [customCss, setCustomCSS] = useSettings<string | undefined>(
     fieldName,
     type
@@ -61,5 +65,3 @@ const CustomCSSControl: FC<Props> = ({ type, label, fieldName }) => {
     </div>
   );
 };
-
-export default CustomCSSControl;

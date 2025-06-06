@@ -1,7 +1,7 @@
-import FlexGapControl from "@/components/controls/flex-gap.control";
-import SelectControl from "@/components/controls/select.control";
-import SliderUnitControl from "@/components/controls/slider-unit.control";
-import ToggleGroupControl from "@/components/controls/toggle-group.control";
+import { FlexGapControl } from "@/components/controls/flex-gap.control";
+import { SelectControl } from "@/components/controls/select.control";
+import { SliderUnitControl } from "@/components/controls/slider-unit.control";
+import { ToggleGroupControl } from "@/components/controls/toggle-group.control";
 import { Accordion } from "@/components/shared/accordion";
 import { InfoMessage } from "@/components/shared/info-message";
 import { Separator } from "@/components/shared/seperator";

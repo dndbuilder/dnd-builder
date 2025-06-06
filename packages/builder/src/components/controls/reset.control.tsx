@@ -6,13 +6,13 @@ import { classNames } from "@/utils";
 import { useSettings } from "../../hooks/use-settings";
 import { SettingsType } from "../../types";
 
-interface Props
+export interface ResetControlProps
   extends ComponentPropsWithoutRef<typeof TooltipPrimitive.Trigger> {
   fieldName: string;
   settingsType: SettingsType;
 }
 
-const ResetControl: FC<Props> = ({
+export const ResetControl: FC<ResetControlProps> = ({
   className,
   type,
   settingsType,
@@ -34,5 +34,3 @@ const ResetControl: FC<Props> = ({
     </Tooltip>
   );
 };
-
-export default ResetControl;

@@ -2,9 +2,9 @@ import { useSettings } from "@/hooks/use-settings";
 import { SettingsType } from "@/types";
 import { PseudoClass, Unit } from "@/types/style";
 import { FC, HTMLAttributes } from "react";
-import ColorControl from "./color.control";
-import SelectControl from "./select.control";
-import SpacingControl from "./spacing.control";
+import { ColorControl } from "./color.control";
+import { SelectControl } from "./select.control";
+import { SpacingControl } from "./spacing.control";
 import { classNames } from "@/utils";
 
 export type BorderProps = {
@@ -13,7 +13,7 @@ export type BorderProps = {
   type: SettingsType;
 } & HTMLAttributes<HTMLDivElement>;
 
-const BorderControl: FC<BorderProps> = ({ fieldName, mode, type, className }) => {
+export const BorderControl: FC<BorderProps> = ({ fieldName, mode, type, className }) => {
   const [borderType] = useSettings<string | undefined>(
     mode ? `${fieldName}.type.${mode}` : `${fieldName}.type`,
     type
@@ -69,5 +69,3 @@ const BorderControl: FC<BorderProps> = ({ fieldName, mode, type, className }) =>
     </div>
   );
 };
-
-export default BorderControl;

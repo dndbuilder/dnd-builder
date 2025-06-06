@@ -10,22 +10,22 @@ import {
   MdAlignHorizontalRight,
   MdOutlineAlignHorizontalCenter,
 } from "react-icons/md";
-import BackgroundControl from "./background.control";
-import BorderControl from "./border.control";
-import BoxShadowControl from "./box-shadow.control";
-import CustomAttributeControl from "./custom-attributes.control";
-import CustomCSSControl from "./custom-css.control";
-import FlexOrderControl from "./flex-order.control";
-import FlexSizeControl from "./flex-size.control";
-import InputControl from "./input.control";
-import PositionControl from "./position-control";
-import SliderInputControl from "./slider-input.control";
-import SpacingControl from "./spacing.control";
-import SwitchControl from "./switch.control";
-import ToggleGroupControl from "./toggle-group.control";
-import DisplayControl from "./display-control";
+import { BackgroundControl } from "./background.control";
+import {BorderControl} from "./border.control";
+import { BoxShadowControl } from "./box-shadow.control";
+import { CustomAttributeControl } from "./custom-attributes.control";
+import { CustomCSSControl } from "./custom-css.control";
+import { FlexOrderControl } from "./flex-order.control";
+import { FlexSizeControl } from "./flex-size.control";
+import { InputControl } from "./input.control";
+import { PositionControl } from "./position-control";
+import { SliderInputControl } from "./slider-input.control";
+import { SpacingControl } from "./spacing.control";
+import { SwitchControl } from "./switch.control";
+import { ToggleGroupControl } from "./toggle-group.control";
+import { DisplayControl } from "./display-control";
 
-const AdvancedSettingsControl = () => {
+export const AdvancedSettingsControl = () => {
   return (
     <Accordion defaultValue="Layout" type="single" collapsible>
       {/* Layout */}
@@ -285,5 +285,3 @@ const AdvancedSettingsControl = () => {
     </Accordion>
   );
 };
-
-export default AdvancedSettingsControl;
