@@ -1,12 +1,12 @@
 import { FC, lazy } from "react";
-import ReactQuillProps from "react-quill-new";
-import "react-quill/dist/quill.snow.css";
+import type ReactQuill from "react-quill-new";
+import "react-quill-new/dist/quill.snow.css";
 
-interface TextEditorProps extends ReactQuillProps {
+interface TextEditorProps extends ReactQuill.ReactQuillProps {
   onChange?: (content: string) => void;
 }
 
-const ReactQuill = lazy(() => import("react-quill-new"));
+const ReactQuillEditor = lazy(() => import("react-quill-new"));
 
 const modules = {
   toolbar: [
@@ -33,7 +33,6 @@ const formats = [
   "strike",
   "blockquote",
   "list",
-  "bullet",
   "align",
   "indent",
   "link",
@@ -41,7 +40,7 @@ const formats = [
 
 const TextEditor: FC<TextEditorProps> = ({ value, onChange, ...props }) => {
   return (
-    <ReactQuill
+    <ReactQuillEditor
       theme="snow"
       value={value}
       onChange={(content, _, source) => {
