@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef } from 'react';
 import type { CSSProperties, FC, ReactNode } from 'react';
 import '@/assets/styles/drawer.css';
 
-type Props = {
+export type DrawerProps = {
   open?: boolean;
   onClose?: () => void;
   direction: 'left' | 'right' | 'top' | 'bottom';
@@ -63,7 +63,7 @@ const getDirectionStyle = (dir: string, size?: number | string): {} | CSSPropert
   }
 };
 
-const Drawer: FC<Props> = (props) => {
+export const Drawer: FC<DrawerProps> = (props) => {
   const {
     open,
     onClose,
@@ -146,4 +146,3 @@ const Drawer: FC<Props> = (props) => {
   );
 };
 
-export default Drawer;

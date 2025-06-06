@@ -1,7 +1,7 @@
-import BreakpointSelector from "@/components/shared/breakpoint-selector";
-import Label from "@/components/shared/label";
-import LanguageSelector from "@/components/shared/language-selector";
-import TextEditor from "@/components/shared/text-editor";
+import { BreakpointSelector } from "@/components/shared/breakpoint-selector";
+import { Label } from "@/components/shared/label";
+import { LanguageSelector } from "@/components/shared/language-selector";
+import { TextEditor } from "@/components/shared/text-editor";
 import { useFieldName } from "@/hooks/use-field-name";
 import { useSettings } from "@/hooks/use-settings";
 import { SettingsType } from "@/types";

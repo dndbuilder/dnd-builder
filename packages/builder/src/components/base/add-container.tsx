@@ -1,5 +1,5 @@
 import { createBlock } from "@/utils";
-import Popover from "@/components/shared/popover";
+import { Popover } from "@/components/shared/popover";
 import { BlockConfiguration } from "@/config/editor.config";
 import { useAppDispatch } from "@/hooks/use-app-dispatch";
 import { addBlocks } from "@/store/builder-slice";

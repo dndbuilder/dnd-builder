@@ -1,8 +1,10 @@
 import { classNames } from "@/utils";
 import { FC, HTMLAttributes } from "react";
 
-interface InfoMessageProps extends HTMLAttributes<HTMLParagraphElement> {}
-const InfoMessage: FC<InfoMessageProps> = ({ children, className }) => {
+export interface InfoMessageProps
+  extends HTMLAttributes<HTMLParagraphElement> {}
+
+export const InfoMessage: FC<InfoMessageProps> = ({ children, className }) => {
   return (
     <div
       className={classNames(
@@ -14,5 +16,3 @@ const InfoMessage: FC<InfoMessageProps> = ({ children, className }) => {
     </div>
   );
 };
-
-export default InfoMessage;

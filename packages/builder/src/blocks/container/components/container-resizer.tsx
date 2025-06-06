@@ -1,4 +1,4 @@
-import Tooltip from "@/components/shared/tooltip";
+import { Tooltip } from "@/components/shared/tooltip";
 import { useFrame } from "@/hooks/use-frame";
 import { FC, RefObject, useEffect, useRef, useState } from "react";
 

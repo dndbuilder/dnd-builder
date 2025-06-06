@@ -1,24 +1,22 @@
-import Input from "@/components/shared/input";
-import Popover from "@/components/shared/popover";
-import RangeSlider from "@/components/shared/range-slider";
+import { Input } from "@/components/shared/input";
+import { Popover } from "@/components/shared/popover";
+import { RangeSlider } from "@/components/shared/range-slider";
 import { BsFillSquareFill } from "react-icons/bs";
 import { CiEdit } from "react-icons/ci";
 
+import { ColorPicker } from "@/components/shared/color-picker";
+import { Label } from "@/components/shared/label";
+import { Select } from "@/components/shared/select";
 import { useAppSelector } from "@/hooks/use-app-selector";
 import { useSettings } from "@/hooks/use-settings";
 import { getCurrentBreakpoint } from "@/store/selectors";
-import { PseudoClass } from "@/types/style";
+import { SettingsType } from "@/types";
 import { BoxShadow } from "@/types/style";
 import { classNames } from "@/utils";
-import { FC, HTMLAttributes, useCallback, useEffect } from "react";
-import ColorPicker from "@/components/shared/color-picker";
-import Label from "@/components/shared/label";
-import Select from "@/components/shared/select";
-import BreakpointSelector from "../shared/breakpoint-selector";
-import { SettingsType } from "@/types";
-import { debounce } from "lodash";
+import { FC, HTMLAttributes } from "react";
+import { BreakpointSelector } from "../shared/breakpoint-selector";
 
-type Props = {
+export type BoxShadowControlProps = {
   mode?: string;
   fieldName?: string;
   label?: string;
@@ -26,7 +24,7 @@ type Props = {
   type: SettingsType;
 } & HTMLAttributes<HTMLDivElement>;
 
-const BoxShadowControl: FC<Props> = ({
+export const BoxShadowControl: FC<BoxShadowControlProps> = ({
   mode,
   className,
   responsive,
@@ -306,5 +304,3 @@ const BoxShadowControl: FC<Props> = ({
     </div>
   );
 };
-
-export default BoxShadowControl;

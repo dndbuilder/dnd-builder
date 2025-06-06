@@ -2,9 +2,9 @@ import { classNames } from "@/utils";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { ComponentPropsWithoutRef, ElementRef, forwardRef } from "react";
 
-interface DialogProps extends DialogPrimitive.DialogProps {}
+export interface DialogProps extends DialogPrimitive.DialogProps {}
 
-const Dialog = ({ children, ...props }: DialogProps) => {
+export const Dialog = ({ children, ...props }: DialogProps) => {
   return <DialogPrimitive.Root {...props}>{children}</DialogPrimitive.Root>;
 };
 
@@ -68,4 +68,3 @@ Dialog.Description = DialogPrimitive.Description;
 Dialog.Portal = DialogPrimitive.Portal;
 Dialog.Close = DialogPrimitive.Close;
 
-export default Dialog;

@@ -1,12 +1,12 @@
-import ColorControl from "@/components/controls/color.control";
-import TextShadowControl from "@/components/controls/text-shadow.control";
-import TypographyControl from "@/components/controls/typography.control";
-import SelectControl from "@/components/controls/select.control";
-import TextStrokeControl from "@/components/controls/text-stroke.control";
-import Accordion from "@/components/shared/accordion";
+import { ColorControl } from "@/components/controls/color.control";
+import { TextShadowControl } from "@/components/controls/text-shadow.control";
+import { TypographyControl } from "@/components/controls/typography.control";
+import { SelectControl } from "@/components/controls/select.control";
+import { TextStrokeControl } from "@/components/controls/text-stroke.control";
+import { Accordion } from "@/components/shared/accordion";
 import { PseudoClass, Unit } from "@/types/style";
 import { SettingsType } from "@/types";
-import SpacingControl from "@/components/controls/spacing.control";
+import { SpacingControl } from "@/components/controls/spacing.control";
 
 const HeadingStyleControl = () => {
   return (

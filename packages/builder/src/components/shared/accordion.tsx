@@ -4,11 +4,13 @@ import { HiChevronRight } from 'react-icons/hi';
 
 import { classNames } from '@/utils';
 
-const Accordion = ({
+export type AccordionProps = (AccordionPrimitive.AccordionSingleProps | AccordionPrimitive.AccordionMultipleProps) &
+  React.RefAttributes<HTMLDivElement>;
+
+export const Accordion = ({
   children,
   ...props
-}: (AccordionPrimitive.AccordionSingleProps | AccordionPrimitive.AccordionMultipleProps) &
-  React.RefAttributes<HTMLDivElement>) => {
+}: AccordionProps) => {
   return <AccordionPrimitive.Root {...props}>{children}</AccordionPrimitive.Root>;
 };
 
@@ -63,4 +65,3 @@ Accordion.Trigger = AccordionTrigger;
 Accordion.Content = AccordionContent;
 Accordion.Item = AccordionItem;
 
-export default Accordion;

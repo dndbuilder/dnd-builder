@@ -3,7 +3,7 @@ import * as PopoverPrimitive from '@radix-ui/react-popover';
 import { PopoverArrow, PopoverClose } from '@radix-ui/react-popover';
 import { classNames } from '@/utils';
 
-const Popover = ({ children, ...props }: PopoverPrimitive.PopoverProps) => {
+export const Popover = ({ children, ...props }: PopoverPrimitive.PopoverProps) => {
   return <PopoverPrimitive.Root {...props}>{children}</PopoverPrimitive.Root>;
 };
 
@@ -47,4 +47,3 @@ Popover.Portal = PopoverPrimitive.PopoverPortal;
 
 Popover.displayName = PopoverPrimitive.Root.displayName;
 
-export default Popover;

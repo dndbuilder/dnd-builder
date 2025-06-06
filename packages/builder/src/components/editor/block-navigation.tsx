@@ -1,6 +1,6 @@
 import { BlockConfiguration } from "@/config/editor.config";
 import BlockNavigationItem from "./block-navigation-item";
-import Accordion from "@/components/shared/accordion";
+import { Accordion } from "@/components/shared/accordion";
 import { ScrollArea } from "@/components/shared/scroll-area";
 import { BiSearch } from "react-icons/bi";
 import { useMemo, useState } from "react";

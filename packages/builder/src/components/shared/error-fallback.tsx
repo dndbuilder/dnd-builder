@@ -1,4 +1,4 @@
-const ErrorFallback = () => {
+export const ErrorFallback = () => {
   return (
     <div
       className="border border-dashed border-red-400 p-10 flex items-center justify-center h-full"
@@ -10,5 +10,3 @@ const ErrorFallback = () => {
     </div>
   );
 };
-
-export default ErrorFallback;

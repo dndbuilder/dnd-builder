@@ -1,7 +1,7 @@
 import { TabsSettingsType, TabType } from "@/blocks/tabs/types";
 import AddNewSection from "@/components/base/add-new-section";
 import EditorRenderBlock from "@/components/base/editor-render-block";
-import RenderIcon from "@/components/shared/render-icon";
+import { RenderIcon } from "@/components/shared/render-icon";
 import { useBlockSettings } from "@/hooks/use-block-settings";
 import { BlockProps } from "@/types/block";
 import * as Tabs from "@radix-ui/react-tabs";

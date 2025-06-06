@@ -1,5 +1,5 @@
-import Input from "@/components/shared/input";
-import Label from "@/components/shared/label";
+import { Input } from "@/components/shared/input";
+import { Label } from "@/components/shared/label";
 import { useSettings } from "@/hooks/use-settings";
 import { getCurrentBreakpoint } from "@/store/selectors";
 import { SettingsType } from "@/types";
@@ -17,8 +17,8 @@ import {
   useRef,
 } from "react";
 import { useFieldName } from "@/hooks/use-field-name";
-import BreakpointSelector from "../shared/breakpoint-selector";
-import LanguageSelector from "../shared/language-selector";
+import { BreakpointSelector } from "../shared/breakpoint-selector";
+import { LanguageSelector } from "../shared/language-selector";
 
 const controlVariants = cva("", {
   variants: {
@@ -32,7 +32,7 @@ const controlVariants = cva("", {
   },
 });
 
-type Props = {
+export type InputControlProps = {
   label?: string;
   type: SettingsType;
   fieldName: string;
@@ -47,7 +47,7 @@ type Props = {
 } & HTMLAttributes<HTMLDivElement> &
   VariantProps<typeof controlVariants>;
 
-const InputControl: FC<Props> = ({
+export const InputControl: FC<InputControlProps> = ({
   className,
   label,
   responsive,
@@ -116,5 +116,3 @@ const InputControl: FC<Props> = ({
     </div>
   );
 };
-
-export default InputControl;

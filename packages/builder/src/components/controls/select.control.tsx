@@ -1,5 +1,5 @@
-import Label from "@/components/shared/label";
-import Select from "@/components/shared/select";
+import { Label } from "@/components/shared/label";
+import { Select } from "@/components/shared/select";
 import { useAppSelector } from "@/hooks/use-app-selector";
 import { useSettings } from "@/hooks/use-settings";
 import { getCurrentBreakpoint } from "@/store/selectors";
@@ -8,7 +8,7 @@ import { classNames } from "@/utils";
 import { VariantProps, cva } from "class-variance-authority";
 import { FC, HTMLAttributes, ReactNode } from "react";
 import { createId } from "../../utils";
-import BreakpointSelector from "../shared/breakpoint-selector";
+import { BreakpointSelector } from "../shared/breakpoint-selector";
 
 const controlVariants = cva("flex", {
   variants: {
@@ -22,12 +22,12 @@ const controlVariants = cva("flex", {
   },
 });
 
-type SelectOption = {
+export type SelectOption = {
   value: string;
   content: ReactNode;
 };
 
-type SelectControlProps = {
+export type SelectControlProps = {
   options: SelectOption[];
   placeholder?: ReactNode;
   type: SettingsType;
@@ -40,7 +40,7 @@ type SelectControlProps = {
 } & HTMLAttributes<HTMLDivElement> &
   VariantProps<typeof controlVariants>;
 
-const SelectControl: FC<SelectControlProps> = ({
+export const SelectControl: FC<SelectControlProps> = ({
   options,
   fieldName,
   type = SettingsType.BLOCK,
@@ -84,7 +84,11 @@ const SelectControl: FC<SelectControlProps> = ({
           setValue(value);
           onValueChange?.(value);
         }}
-        value={value !== undefined && value !== null ? value : defaultValue || "select"}
+        value={
+          value !== undefined && value !== null
+            ? value
+            : defaultValue || "select"
+        }
       >
         <Select.Trigger id={autoId} className="flex-1 bg-white">
           <Select.Value />
@@ -104,5 +108,3 @@ const SelectControl: FC<SelectControlProps> = ({
     </div>
   );
 };
-
-export default SelectControl;

@@ -6,7 +6,7 @@ import { useAppSelector } from "@/hooks/use-app-selector";
 import { ErrorBoundary } from "react-error-boundary";
 import { FC, Suspense, memo } from "react";
 import BlockWrapper from "./block-wrapper";
-import ErrorFallback from "../shared/error-fallback";
+import { ErrorFallback } from "../shared/error-fallback";
 import EditorBlockWrapper from "./editor-block-wrapper";
 
 type EditorRenderBlockProps = {

@@ -1,5 +1,5 @@
-import Select from "@/components/shared/select";
-import Tooltip from "@/components/shared/tooltip";
+import { Select } from "@/components/shared/select";
+import { Tooltip } from "@/components/shared/tooltip";
 import { setCurrentLanguage } from "@/store/builder-slice";
 import { getCurrentLocale } from "@/store/selectors";
 import { useAppDispatch } from "@/hooks/use-app-dispatch";
@@ -61,7 +61,7 @@ const languages = [
   },
 ];
 
-const LanguageSelector: FC<{ className?: string }> = ({ className }) => {
+export const LanguageSelector: FC<{ className?: string }> = ({ className }) => {
   const currentLocale = useAppSelector(getCurrentLocale);
 
   const dispatch = useAppDispatch();
@@ -128,5 +128,3 @@ const LanguageSelector: FC<{ className?: string }> = ({ className }) => {
     </Select>
   );
 };
-
-export default LanguageSelector;

@@ -1,8 +1,8 @@
-import BreakpointSelector from "@/components/shared/breakpoint-selector";
-import ToggleGroupControl from "@/components/controls/toggle-group.control";
-import InfoMessage from "@/components/shared/info-message";
-import Input from "@/components/shared/input";
-import Label from "@/components/shared/label";
+import { BreakpointSelector } from "@/components/shared/breakpoint-selector";
+import { ToggleGroupControl } from "@/components/controls/toggle-group.control";
+import { InfoMessage } from "@/components/shared/info-message";
+import { Input } from "@/components/shared/input";
+import { Label } from "@/components/shared/label";
 import { useAppSelector } from "@/hooks/use-app-selector";
 import { useSettings } from "@/hooks/use-settings";
 import { getCurrentBreakpoint } from "@/store/selectors";
@@ -13,14 +13,14 @@ import { FC, HTMLAttributes } from "react";
 import { BiDotsVerticalRounded } from "react-icons/bi";
 import { RxPinLeft, RxPinRight } from "react-icons/rx";
 
-type Props = {
+export type FlexOrderProps = {
   type: SettingsType;
   fieldName: string;
   customFieldName: string;
   label?: string;
 } & HTMLAttributes<HTMLDivElement>;
 
-const FlexOrderControl: FC<Props> = ({
+export const FlexOrderControl: FC<FlexOrderProps> = ({
   type,
   className,
   fieldName,
@@ -96,5 +96,3 @@ const FlexOrderControl: FC<Props> = ({
     </div>
   );
 };
-
-export default FlexOrderControl;

@@ -21,12 +21,12 @@ import { useAppSelector } from "@/hooks/use-app-selector";
 import { getBlock } from "@/store/selectors";
 import { useActionContext } from "@/contexts/action-context";
 
-type Props = {
+export type EditorContextMenuProps = {
   blockId: string;
   children: ReactNode;
 };
 
-const EditorContextMenu: FC<Props> = ({ blockId, children }) => {
+export const EditorContextMenu: FC<EditorContextMenuProps> = ({ blockId, children }) => {
   const dispatch = useAppDispatch();
 
   const {
@@ -123,4 +123,3 @@ const EditorContextMenu: FC<Props> = ({ blockId, children }) => {
   );
 };
 
-export default EditorContextMenu;

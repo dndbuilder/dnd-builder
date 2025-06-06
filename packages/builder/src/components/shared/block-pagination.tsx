@@ -2,7 +2,7 @@ import { classNames } from "@/utils";
 import { useEffect, useState } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
-type PaginationProps = {
+export type PaginationProps = {
   current: number;
   totalPage: number;
   className?: string;
@@ -25,7 +25,7 @@ const getAvailablePages = (current: number, totalPage: number) => {
   return pages;
 };
 
-const BlockPagination = ({
+export const BlockPagination = ({
   current,
   totalPage,
   onPageChange,
@@ -106,4 +106,3 @@ const BlockPagination = ({
   );
 };
 
-export default BlockPagination;

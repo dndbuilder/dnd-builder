@@ -1,4 +1,4 @@
-import Tooltip from "@/components/shared/tooltip";
+import { Tooltip } from "@/components/shared/tooltip";
 import { useActionContext } from "@/contexts/action-context";
 import { useAppSelector } from "@/hooks/use-app-selector";
 import { BuilderRightPanelType } from "@/store/app-slice";

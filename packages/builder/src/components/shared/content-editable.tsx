@@ -57,7 +57,7 @@ export interface Props extends DivProps {
 /**
  * A simple component for an html element with editable contents.
  */
-const ContentEditable = (props: Props) => {
+export const ContentEditable = (props: Props) => {
   const { tagName, html, innerRef, ...restProps } = props;
 
   const lastHtmlRef = useRef<string>(html);

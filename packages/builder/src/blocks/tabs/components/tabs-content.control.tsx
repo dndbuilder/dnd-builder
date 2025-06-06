@@ -1,8 +1,8 @@
-import IconControl from "@/components/controls/icon.control";
-import InputControl from "@/components/controls/input.control";
-import Accordion from "@/components/shared/accordion";
-import Button from "@/components/shared/button";
-import Label from "@/components/shared/label";
+import { IconControl } from "@/components/controls/icon.control";
+import { InputControl } from "@/components/controls/input.control";
+import { Accordion } from "@/components/shared/accordion";
+import { Button } from "@/components/shared/button";
+import { Label } from "@/components/shared/label";
 import { useSettings } from "@/hooks/use-settings";
 import { duplicateTabItem, removeTabItem } from "@/store/builder-slice";
 import { getCurrentLocale, getSelectedBlockId } from "@/store/selectors";

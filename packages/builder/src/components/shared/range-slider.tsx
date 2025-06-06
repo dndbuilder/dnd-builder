@@ -2,7 +2,7 @@ import React from "react";
 import * as SliderPrimitive from "@radix-ui/react-slider";
 import { classNames } from "@/utils";
 
-const RangeSlider = React.forwardRef<
+export const RangeSlider = React.forwardRef<
   React.ElementRef<typeof SliderPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof SliderPrimitive.Root>
 >(({ className, ...props }, ref) => (
@@ -22,4 +22,3 @@ const RangeSlider = React.forwardRef<
 ));
 RangeSlider.displayName = SliderPrimitive.Root.displayName;
 
-export default RangeSlider;

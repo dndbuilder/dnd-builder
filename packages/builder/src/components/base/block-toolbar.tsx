@@ -9,7 +9,7 @@ import { FC, MouseEvent, Suspense, memo } from "react";
 import { DragPreviewImage } from "react-dnd";
 import { FiMove, FiTrash2 } from "react-icons/fi";
 import { IoDuplicateOutline } from "react-icons/io5";
-import EditorContextMenu from "../shared/editor-context-menu";
+import { EditorContextMenu } from "../shared/editor-context-menu";
 
 type Props = BlockToolbarProps & {
   children?: React.ReactNode;

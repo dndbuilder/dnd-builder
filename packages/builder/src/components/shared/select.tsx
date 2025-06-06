@@ -4,7 +4,9 @@ import { HiChevronDown } from "react-icons/hi";
 import { BsCheck2 } from "react-icons/bs";
 import { classNames } from "@/utils";
 
-const Select = ({ children, ...props }: SelectPrimitive.SelectProps) => {
+export type SelectProps = SelectPrimitive.SelectProps;
+
+export const Select = ({ children, ...props }: SelectProps) => {
   return <SelectPrimitive.Root {...props}>{children}</SelectPrimitive.Root>;
 };
 
@@ -38,7 +40,7 @@ const SelectValue = React.forwardRef<
 
 SelectValue.displayName = SelectPrimitive.SelectValue.displayName;
 
-interface SelectTriggerProps
+export interface SelectTriggerProps
   extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger> {
   chevronDown?: boolean;
 }
@@ -115,7 +117,7 @@ const SelectLabel = React.forwardRef<
 ));
 SelectLabel.displayName = SelectPrimitive.Label.displayName;
 
-interface SelectItemProps
+export interface SelectItemProps
   extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Item> {
   showCheck?: boolean;
 }
@@ -167,5 +169,3 @@ Select.Item = SelectItem;
 Select.Separator = SelectSeparator;
 
 Select.displayName = SelectPrimitive.Select.displayName;
-
-export default Select;

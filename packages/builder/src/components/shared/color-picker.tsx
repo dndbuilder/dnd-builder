@@ -2,7 +2,7 @@ import { classNames } from '@/utils';
 import React, { FC, HtmlHTMLAttributes } from 'react';
 import { ChromePicker, RGBColor } from 'react-color';
 
-type Props = {
+export type ColorPickerProps = {
   color?: string;
   disableAlpha?: boolean;
   onChange?: (color: string) => void;
@@ -26,7 +26,7 @@ function rgbaToHex({ r = 0, g = 0, b = 0, a = 1 }: RGBColor): string {
   return hexColor;
 }
 
-const ColorPicker: FC<Props> = ({ color, onChange, disableAlpha = false, className }) => {
+export const ColorPicker: FC<ColorPickerProps> = ({ color, onChange, disableAlpha = false, className }) => {
   return (
     <div className={classNames('color-picker', className)}>
       <ChromePicker
@@ -44,4 +44,3 @@ const ColorPicker: FC<Props> = ({ color, onChange, disableAlpha = false, classNa
   );
 };
 
-export default ColorPicker;

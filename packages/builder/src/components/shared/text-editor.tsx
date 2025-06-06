@@ -2,7 +2,7 @@ import { FC, lazy } from "react";
 import type ReactQuill from "react-quill-new";
 import "react-quill-new/dist/quill.snow.css";
 
-interface TextEditorProps extends ReactQuill.ReactQuillProps {
+export interface TextEditorProps extends ReactQuill.ReactQuillProps {
   onChange?: (content: string) => void;
 }
 
@@ -38,7 +38,11 @@ const formats = [
   "link",
 ];
 
-const TextEditor: FC<TextEditorProps> = ({ value, onChange, ...props }) => {
+export const TextEditor: FC<TextEditorProps> = ({
+  value,
+  onChange,
+  ...props
+}) => {
   return (
     <ReactQuillEditor
       theme="snow"
@@ -54,5 +58,3 @@ const TextEditor: FC<TextEditorProps> = ({ value, onChange, ...props }) => {
     />
   );
 };
-
-export default TextEditor;

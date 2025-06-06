@@ -1,8 +1,8 @@
-import BreakpointSelector from "@/components/shared/breakpoint-selector";
-import Input from "@/components/shared/input";
-import Label from "@/components/shared/label";
-import Select from "@/components/shared/select";
-import Tooltip from "@/components/shared/tooltip";
+import { BreakpointSelector } from "@/components/shared/breakpoint-selector";
+import { Input } from "@/components/shared/input";
+import { Label } from "@/components/shared/label";
+import { Select } from "@/components/shared/select";
+import { Tooltip } from "@/components/shared/tooltip";
 import { useAppSelector } from "@/hooks/use-app-selector";
 import { useSettings } from "@/hooks/use-settings";
 import { getCurrentBreakpoint } from "@/store/selectors";
@@ -13,7 +13,7 @@ import { classNames } from "@/utils";
 import { FC, HTMLAttributes, ReactNode } from "react";
 import { MdLink, MdLinkOff } from "react-icons/md";
 
-interface Props extends HTMLAttributes<HTMLDivElement> {
+export interface FlexGapsControlProps extends HTMLAttributes<HTMLDivElement> {
   units?: Unit[];
   min?: number;
   max?: number;
@@ -26,7 +26,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 
 const defaultUnits = [Unit.PX, Unit.PERCENTAGE];
 
-const FlexGapControl: FC<Props> = ({
+export const FlexGapControl: FC<FlexGapsControlProps> = ({
   className,
   units = defaultUnits,
   responsive,
@@ -177,5 +177,3 @@ const FlexGapControl: FC<Props> = ({
     </div>
   );
 };
-
-export default FlexGapControl;

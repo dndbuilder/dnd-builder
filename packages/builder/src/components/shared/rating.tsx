@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react';
-import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs';
-import { IconType } from 'react-icons/lib';
-import { twMerge } from 'tailwind-merge';
+import React, { Fragment } from "react";
+import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
+import { IconType } from "react-icons/lib";
+import { twMerge } from "tailwind-merge";
 
-interface Props {
+export interface RatingProps {
   className?: string;
   count: number;
   value: number;
@@ -14,7 +14,7 @@ interface Props {
   fullIcon?: IconType;
 }
 
-const Rating: React.FC<Props> = (props) => {
+export const Rating: React.FC<RatingProps> = (props) => {
   const {
     className,
     count,
@@ -41,14 +41,21 @@ const Rating: React.FC<Props> = (props) => {
     stars.push(
       <Fragment key={i}>
         {React.createElement(star, {
-          className: 'cursor-pointer',
+          className: "cursor-pointer",
           size,
         })}
       </Fragment>
     );
   }
 
-  return <div className={twMerge('flex items-center gap-0.5 text-yellow-400 text-lg', className)}>{stars}</div>;
+  return (
+    <div
+      className={twMerge(
+        "flex items-center gap-0.5 text-yellow-400 text-lg",
+        className
+      )}
+    >
+      {stars}
+    </div>
+  );
 };
-
-export default Rating;

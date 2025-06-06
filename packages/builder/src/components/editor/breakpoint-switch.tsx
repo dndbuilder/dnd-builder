@@ -1,4 +1,4 @@
-import Tooltip from "@/components/shared/tooltip";
+import { Tooltip } from "@/components/shared/tooltip";
 import { BreakpointConfiguration } from "@/config/breakpoints.config";
 import { setCurrentBreakpoint } from "@/store/builder-slice";
 import { getCurrentBreakpoint } from "@/store/selectors";

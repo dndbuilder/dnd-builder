@@ -1,6 +1,6 @@
-import AdvancedSettingsControl from "@/components/controls/advance-settings.control";
+import { AdvancedSettingsControl } from "@/components/controls/advance-settings.control";
 import { ScrollArea } from "@/components/shared/scroll-area";
-import Tabs from "@/components/shared/tabs";
+import { Tabs } from "@/components/shared/tabs";
 import { BlockConfiguration } from "@/config/editor.config";
 import { FC, Suspense, useState } from "react";
 

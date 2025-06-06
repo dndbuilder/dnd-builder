@@ -1,21 +1,19 @@
-import RangeSlider from "@/components/shared/range-slider";
-import { BsFillSquareFill } from "react-icons/bs";
-import ColorPicker from "@/components/shared/color-picker";
-import Input from "@/components/shared/input";
-import Label from "@/components/shared/label";
-import Popover from "@/components/shared/popover";
+import { ColorPicker } from "@/components/shared/color-picker";
+import { Input } from "@/components/shared/input";
+import { Label } from "@/components/shared/label";
+import { Popover } from "@/components/shared/popover";
+import { RangeSlider } from "@/components/shared/range-slider";
 import { useSettings } from "@/hooks/use-settings";
-import { PseudoClass, TextShadow } from "@/types/style";
-// import ResetControl from './reset.control';
-import { CiEdit } from "react-icons/ci";
-import { FC, useCallback, useEffect } from "react";
-import { classNames } from "@/utils";
-import { SettingsType } from "@/types";
+import { TextShadow } from "@/types/style";
+import { BsFillSquareFill } from "react-icons/bs";
 import { useAppSelector } from "@/hooks/use-app-selector";
-import { getCurrentBreakpoint } from "../../store/selectors";
-import { debounce } from "lodash";
+import { SettingsType } from "@/types";
+import { classNames } from "@/utils";
+import { FC } from "react";
+import { CiEdit } from "react-icons/ci";
+import { getCurrentBreakpoint } from "@/store/selectors";
 
-type Props = {
+export type TextShadowControlProps = {
   type: SettingsType;
   fieldName?: string;
   label?: string;
@@ -23,7 +21,7 @@ type Props = {
   responsive?: boolean;
 } & React.HTMLAttributes<HTMLDivElement>;
 
-const TextShadowControl: FC<Props> = ({
+export const TextShadowControl: FC<TextShadowControlProps> = ({
   type,
   responsive,
   mode,
@@ -235,5 +233,3 @@ const TextShadowControl: FC<Props> = ({
     </div>
   );
 };
-
-export default TextShadowControl;

@@ -1,5 +1,5 @@
-import Select from "@/components/shared/select";
-import Tooltip from "@/components/shared/tooltip";
+import { Select } from "@/components/shared/select";
+import { Tooltip } from "@/components/shared/tooltip";
 import { setCurrentBreakpoint } from "@/store/builder-slice";
 import { getCurrentBreakpoint } from "@/store/selectors";
 import { Breakpoint } from "@/types/responsive";
@@ -10,7 +10,13 @@ import { FC } from "react";
 import { FaMobileAlt, FaTabletAlt } from "react-icons/fa";
 import { FiMonitor } from "react-icons/fi";
 
-const BreakpointSelector: FC<{ className?: string }> = ({ className }) => {
+export interface BreakpointSelectorProps {
+  className?: string;
+}
+
+export const BreakpointSelector: FC<BreakpointSelectorProps> = ({
+  className,
+}) => {
   const currentBreakpoint = useAppSelector(getCurrentBreakpoint);
   const dispatch = useAppDispatch();
 
@@ -122,5 +128,3 @@ const BreakpointSelector: FC<{ className?: string }> = ({ className }) => {
     </Select>
   );
 };
-
-export default BreakpointSelector;

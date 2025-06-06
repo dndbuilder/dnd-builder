@@ -1,4 +1,4 @@
-import Dialog from "@/components/shared/dialog";
+import { Dialog } from "@/components/shared/dialog";
 import { FC, MouseEventHandler } from "react";
 
 type UnsaveChangesDialogProps = {

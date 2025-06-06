@@ -1,5 +1,5 @@
 import AddContainer from "@/components/base/add-container";
-import EditorContextMenu from "@/components/shared/editor-context-menu";
+import { EditorContextMenu } from "@/components/shared/editor-context-menu";
 import { duplicateBlock, removeBlock } from "@/store/builder-slice";
 import { getIsBlockSelected } from "@/store/selectors";
 import { useAppDispatch } from "@/hooks/use-app-dispatch";

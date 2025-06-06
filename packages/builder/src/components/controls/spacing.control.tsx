@@ -1,7 +1,7 @@
-import Input from "@/components/shared/input";
-import Label from "@/components/shared/label";
-import Select from "@/components/shared/select";
-import Tooltip from "@/components/shared/tooltip";
+import { Input } from "@/components/shared/input";
+import { Label } from "@/components/shared/label";
+import { Select } from "@/components/shared/select";
+import { Tooltip } from "@/components/shared/tooltip";
 import { useSettings } from "@/hooks/use-settings";
 import { getCurrentBreakpoint } from "@/store/selectors";
 import { SettingsType } from "@/types";
@@ -10,10 +10,10 @@ import { useAppSelector } from "@/hooks/use-app-selector";
 import { classNames } from "@/utils";
 import { FC, HTMLAttributes, ReactNode, useEffect, useState } from "react";
 import { MdLink, MdLinkOff } from "react-icons/md";
-import BreakpointSelector from "../shared/breakpoint-selector";
+import { BreakpointSelector } from "../shared/breakpoint-selector";
 import useDebounce from "@/hooks/use-debounce";
 
-interface Props extends HTMLAttributes<HTMLDivElement> {
+export interface SpacingControlProps extends HTMLAttributes<HTMLDivElement> {
   units?: Unit[];
   min?: number;
   max?: number;
@@ -26,7 +26,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 
 const defaultUnits = [Unit.PX, Unit.PERCENTAGE];
 
-const SpacingControl: FC<Props> = ({
+export const SpacingControl: FC<SpacingControlProps> = ({
   className,
   units = defaultUnits,
   min,
@@ -247,5 +247,3 @@ const SpacingControl: FC<Props> = ({
     </div>
   );
 };
-
-export default SpacingControl;

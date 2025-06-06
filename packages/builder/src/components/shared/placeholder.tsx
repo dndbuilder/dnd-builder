@@ -1,12 +1,16 @@
-import { classNames } from '@/utils';
+import { classNames } from "@/utils";
 
-type Props = {
+export type PlaceholderProps = {
   width?: number;
   height?: number;
   className?: string;
 };
 
-const PlaceHolderImage = ({ width = 42, height = 42, className }: Props) => {
+export const Placeholder = ({
+  width = 42,
+  height = 42,
+  className,
+}: PlaceholderProps) => {
   return (
     <svg
       className={classNames(className)}
@@ -40,5 +44,3 @@ const PlaceHolderImage = ({ width = 42, height = 42, className }: Props) => {
     </svg>
   );
 };
-
-export default PlaceHolderImage;

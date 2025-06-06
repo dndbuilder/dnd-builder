@@ -3,7 +3,7 @@ import EditorRenderContent from "@/components/base/editor-render-content";
 import EditorStyleManager from "@/components/base/editor-style-manager";
 import { FrameContextManager } from "@/components/base/frame-context-manager";
 import ClientOnlyRenderFrame from "@/components/base/render-frame";
-import ErrorFallback from "@/components/shared/error-fallback";
+import { ErrorFallback } from "@/components/shared/error-fallback";
 import { BreakpointConfiguration } from "@/config/breakpoints.config";
 import { useActionContext } from "@/contexts/action-context";
 import { useAppDispatch } from "@/hooks/use-app-dispatch";
@@ -112,7 +112,10 @@ const CanvasArea: FC = () => {
                 : `${previewWidth}px`,
           }}
         >
-          <ClientOnlyRenderFrame className="absolute mx-auto" style={frameStyles}>
+          <ClientOnlyRenderFrame
+            className="absolute mx-auto"
+            style={frameStyles}
+          >
             <FrameContextManager>
               <EditorRenderContent content={content} meta={meta} />
 

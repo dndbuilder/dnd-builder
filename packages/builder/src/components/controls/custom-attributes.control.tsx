@@ -1,13 +1,13 @@
-import Label from "@/components/shared/label";
+import { Label } from "@/components/shared/label";
 import { useSettings } from "@/hooks/use-settings";
 import { AttributeType } from "@/types/style";
-import Input from "@/components/shared/input";
-import Button from "@/components/shared/button";
+import { Input } from "@/components/shared/input";
+import { Button } from "@/components/shared/button";
 import { BsTrash } from "react-icons/bs";
 import { cloneDeep } from "lodash";
 import { SettingsType } from "@/types";
 
-const CustomAttributeControl = () => {
+export const CustomAttributeControl = () => {
   const [customAttributes, setCustomAttributes] = useSettings<
     AttributeType[] | undefined
   >("customAttributes", SettingsType.ADVANCED);
@@ -72,4 +72,3 @@ const CustomAttributeControl = () => {
   );
 };
 
-export default CustomAttributeControl;

@@ -1,16 +1,16 @@
-import BackgroundControl from "@/components/controls/background.control";
-import ColorControl from "@/components/controls/color.control";
-import TextShadowControl from "@/components/controls/text-shadow.control";
-import TypographyControl from "@/components/controls/typography.control";
-import Button from "@/components/shared/button";
-import Popover from "@/components/shared/popover";
-import Tabs from "@/components/shared/tabs";
+import { BackgroundControl } from "@/components/controls/background.control";
+import { ColorControl } from "@/components/controls/color.control";
+import { TextShadowControl } from "@/components/controls/text-shadow.control";
+import { TypographyControl } from "@/components/controls/typography.control";
+import { Button } from "@/components/shared/button";
+import { Popover } from "@/components/shared/popover";
+import { Tabs } from "@/components/shared/tabs";
 import { useSettings } from "@/hooks/use-settings";
 import { SettingsType } from "@/types";
 import { PseudoClass } from "@/types/style";
 import { createId } from "@/utils";
 import { cloneDeep } from "lodash";
-import ContentEditable from "@/components/shared/content-editable";
+import { ContentEditable } from "@/components/shared/content-editable";
 import { BsPlus } from "react-icons/bs";
 import { CiEdit } from "react-icons/ci";
 

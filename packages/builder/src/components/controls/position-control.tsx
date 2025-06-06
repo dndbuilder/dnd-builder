@@ -5,16 +5,16 @@ import { useSettings } from "@/hooks/use-settings";
 import { getCurrentBreakpoint } from "@/store/selectors";
 import { SettingsType } from "@/types";
 import { Unit } from "@/types/style";
-import SelectControl from "./select.control";
-import SliderUnitControl from "./slider-unit.control";
-import ToggleGroupControl from "./toggle-group.control";
+import { SelectControl } from "./select.control";
+import { SliderUnitControl } from "./slider-unit.control";
+import { ToggleGroupControl } from "./toggle-group.control";
 
-type PositionControlProps = {
+export type PositionControlProps = {
   type: SettingsType;
   fieldName?: string;
 };
 
-const PositionControl: FC<PositionControlProps> = ({
+export const PositionControl: FC<PositionControlProps> = ({
   type,
   fieldName = "position",
 }) => {
@@ -101,5 +101,3 @@ const PositionControl: FC<PositionControlProps> = ({
     </div>
   );
 };
-
-export default PositionControl;

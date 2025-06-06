@@ -2,11 +2,15 @@ import { FC, useEffect, useState } from "react";
 import { getIcons } from "@/utils";
 import { IconBaseProps } from "react-icons";
 
-type Props = {
+export type RenderIconProps = {
   iconSet?: string;
   iconName?: string;
 } & IconBaseProps;
-const RenderIcon: FC<Props> = ({ iconName, iconSet, ...props }) => {
+export const RenderIcon: FC<RenderIconProps> = ({
+  iconName,
+  iconSet,
+  ...props
+}) => {
   const [icons, setIcons] = useState<any>();
 
   useEffect(() => {
@@ -21,5 +25,3 @@ const RenderIcon: FC<Props> = ({ iconName, iconSet, ...props }) => {
   }
   return null;
 };
-
-export default RenderIcon;

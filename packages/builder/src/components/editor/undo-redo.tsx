@@ -1,4 +1,4 @@
-import Tooltip from "@/components/shared/tooltip";
+import { Tooltip } from "@/components/shared/tooltip";
 import { useActionContext } from "@/contexts/action-context";
 import { classNames } from "@/utils";
 import { FC } from "react";

@@ -1,6 +1,6 @@
 "use client";
 
-import Accordion from "@/components/shared/accordion";
+import { Accordion } from "@/components/shared/accordion";
 // import Separator from '@/components/shared/Separator';
 // import DropCap from './controls/DropCap';
 // import Columns from './controls/Columns';

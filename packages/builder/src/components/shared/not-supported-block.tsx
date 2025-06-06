@@ -1,16 +1,19 @@
-import { classNames } from '@/utils';
-import { FC } from 'react';
+import { classNames } from "@/utils";
+import { FC } from "react";
 
-type NotSupportedBlockProps = {
+export type NotSupportedBlockProps = {
   className?: string;
   children?: React.ReactNode;
 };
 
-const NotSupportedBlock: FC<NotSupportedBlockProps> = ({ className, children }) => {
+export const NotSupportedBlock: FC<NotSupportedBlockProps> = ({
+  className,
+  children,
+}) => {
   return (
     <div
       className={classNames(
-        'px-4 py-2 border border-dashed rounded-sm border-danger-500 text-danger-500 text-center',
+        "px-4 py-2 border border-dashed rounded-sm border-danger-500 text-danger-500 text-center",
         className
       )}
     >
@@ -18,5 +21,3 @@ const NotSupportedBlock: FC<NotSupportedBlockProps> = ({ className, children }) 
     </div>
   );
 };
-
-export default NotSupportedBlock;

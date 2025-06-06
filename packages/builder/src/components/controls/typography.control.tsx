@@ -4,24 +4,24 @@ import { TypographyType, Unit } from "@/types/style";
 import { FC, HTMLAttributes, useRef, useState } from "react";
 import { classNames } from "@/utils";
 import { SettingsType } from "@/types";
-import Label from "../shared/label";
-import Tooltip from "../shared/tooltip";
-import Popover from "../shared/popover";
+import { Label } from "../shared/label";
+import { Tooltip } from "../shared/tooltip";
+import { Popover } from "../shared/popover";
 import { AiOutlineGlobal } from "react-icons/ai";
 import { useAppSelector } from "@/hooks/use-app-selector";
 import { getCurrentBreakpoint } from "@/store/selectors";
 import { CiEdit } from "react-icons/ci";
-import Button from "../shared/button";
+import { Button } from "../shared/button";
 import { LuChevronsUpDown } from "react-icons/lu";
 import { BiSearch } from "react-icons/bi";
 import { ScrollArea } from "../shared/scroll-area";
 import { BsCheck2 } from "react-icons/bs";
-import SliderUnitControl from "./slider-unit.control";
-import SelectControl from "./select.control";
+import { SliderUnitControl } from "./slider-unit.control";
+import { SelectControl } from "./select.control";
 import { generateUnitValue } from "@/utils/style";
 import { FontConfiguration } from "@/config/fonts.config";
 
-type Props = {
+export type TypographyControlProps = {
   type: SettingsType;
   fieldName: string;
   label?: string;
@@ -31,7 +31,7 @@ type Props = {
   // avoidCollisions?: boolean;
 } & HTMLAttributes<HTMLDivElement>;
 
-const TypographyControl: FC<Props> = ({
+export const TypographyControl: FC<TypographyControlProps> = ({
   type,
   fieldName,
   label = "Typography",
@@ -401,5 +401,3 @@ const TypographyControl: FC<Props> = ({
     </div>
   );
 };
-
-export default TypographyControl;

@@ -1,20 +1,23 @@
-import Label from "@/components/shared/label";
-import Popover from "@/components/shared/popover";
+import { Label } from "@/components/shared/label";
+import { Popover } from "@/components/shared/popover";
 import { SettingsType } from "@/types";
-import { PseudoClass } from "@/types/style";
 import { FC, HTMLAttributes, ReactNode } from "react";
 import { CiEdit } from "react-icons/ci";
-import ColorControl from "./color.control";
-import SliderUnitControl from "./slider-unit.control";
+import { ColorControl } from "./color.control";
+import { SliderUnitControl } from "./slider-unit.control";
 
-type Props = {
+export type TextStrokeProps = {
   type: SettingsType;
   fieldName: string;
   mode?: string;
   label?: ReactNode;
 } & HTMLAttributes<HTMLDivElement>;
 
-const TextStrokeControl: FC<Props> = ({ label, type, fieldName }) => {
+export const TextStrokeControl: FC<TextStrokeProps> = ({
+  label,
+  type,
+  fieldName,
+}) => {
   return (
     <div className="mt-4 flex items-center justify-between gap-1.5">
       {label && <Label>{label}</Label>}
@@ -51,5 +54,3 @@ const TextStrokeControl: FC<Props> = ({ label, type, fieldName }) => {
     </div>
   );
 };
-
-export default TextStrokeControl;

@@ -3,14 +3,14 @@ import { useSettings } from "@/hooks/use-settings";
 import { getCurrentBreakpoint } from "@/store/selectors";
 import { PseudoClass } from "@/types/style";
 import { FC } from "react";
-import Input from "@/components/shared/input";
-import Label from "@/components/shared/label";
-import RangeSlider from "@/components/shared/range-slider";
-import BreakpointSelector from "../shared/breakpoint-selector";
+import { Input } from "@/components/shared/input";
+import { Label } from "@/components/shared/label";
+import { RangeSlider } from "@/components/shared/range-slider";
+import { BreakpointSelector } from "../shared/breakpoint-selector";
 import { SettingsType } from "@/types";
 import { classNames } from "@/utils";
 
-type Props = {
+export type SliderInputControlProps = {
   type: SettingsType;
   fieldName: string;
   label?: string;
@@ -21,7 +21,7 @@ type Props = {
   step?: number;
 } & React.HTMLAttributes<HTMLDivElement>;
 
-const SliderInputControl: FC<Props> = ({
+export const SliderInputControl: FC<SliderInputControlProps> = ({
   fieldName,
   type,
   mode,
@@ -78,5 +78,3 @@ const SliderInputControl: FC<Props> = ({
     </div>
   );
 };
-
-export default SliderInputControl;

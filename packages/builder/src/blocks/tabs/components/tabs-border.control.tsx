@@ -4,17 +4,22 @@ import { Unit } from "@/types/style";
 import { FC, HTMLAttributes } from "react";
 
 import { classNames } from "@/utils";
-import SelectControl from "@/components/controls/select.control";
-import SpacingControl from "@/components/controls/spacing.control";
-import ColorControl from "@/components/controls/color.control";
+import { SelectControl } from "@/components/controls/select.control";
+import { SpacingControl } from "@/components/controls/spacing.control";
+import { ColorControl } from "@/components/controls/color.control";
 
-type Props = {
+export type TabsBorderControlProps = {
   fieldName: string;
   mode?: string;
   type: SettingsType;
 } & HTMLAttributes<HTMLDivElement>;
 
-const TabsBorderControl: FC<Props> = ({ fieldName, mode, type, className }) => {
+export const TabsBorderControl: FC<TabsBorderControlProps> = ({
+  fieldName,
+  mode,
+  type,
+  className,
+}) => {
   const [borderType] = useSettings<string | undefined>(
     mode ? `${fieldName}.type.${mode}` : `${fieldName}.type`,
     type

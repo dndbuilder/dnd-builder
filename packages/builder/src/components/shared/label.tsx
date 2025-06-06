@@ -1,9 +1,10 @@
 import { classNames } from "@/utils";
 import { LabelHTMLAttributes, forwardRef } from "react";
 
-interface ControlLabelProps extends LabelHTMLAttributes<HTMLLabelElement> {}
+export interface ControlLabelProps
+  extends LabelHTMLAttributes<HTMLLabelElement> {}
 
-const Label = forwardRef<HTMLLabelElement, ControlLabelProps>(
+export const Label = forwardRef<HTMLLabelElement, ControlLabelProps>(
   ({ className, children, ...props }, ref) => {
     return (
       <label
@@ -21,5 +22,3 @@ const Label = forwardRef<HTMLLabelElement, ControlLabelProps>(
 );
 
 Label.displayName = "Label";
-
-export default Label;

@@ -1,17 +1,20 @@
-import { FC } from 'react';
-import Spinner from './spinner';
-import { classNames } from '@/utils';
+import { FC } from "react";
+import { Spinner } from "./spinner";
+import { classNames } from "@/utils";
 
-type Props = {
+export type PageLoaderProps = {
   className?: string;
 };
 
-const PageLoader: FC<Props> = ({ className }) => {
+export const PageLoader: FC<PageLoaderProps> = ({ className }) => {
   return (
-    <div className={classNames('flex h-screen w-full items-center justify-center', className)}>
+    <div
+      className={classNames(
+        "flex h-screen w-full items-center justify-center",
+        className
+      )}
+    >
       <Spinner className="h-10 w-10" />
     </div>
   );
 };
-
-export default PageLoader;

@@ -1,11 +1,11 @@
 import { classNames } from "@/utils";
 import { FC } from "react";
 
-type SpinnerProps = {
+export type SpinnerProps = {
   className?: string;
 } & React.SVGProps<SVGSVGElement>;
 
-const Spinner: FC<SpinnerProps> = ({ className, ...rest }) => {
+export const Spinner: FC<SpinnerProps> = ({ className, ...rest }) => {
   return (
     <svg
       aria-hidden="true"
@@ -29,5 +29,3 @@ const Spinner: FC<SpinnerProps> = ({ className, ...rest }) => {
     </svg>
   );
 };
-
-export default Spinner;

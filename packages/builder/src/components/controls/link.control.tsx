@@ -1,20 +1,20 @@
-import Input from "@/components/shared/input";
+import { Input } from "@/components/shared/input";
 import { classNames } from "@/utils";
 import { FC, HTMLAttributes, useState } from "react";
 import { CiSettings } from "react-icons/ci";
 import { Checkbox } from "@/components/shared/checkbox";
-import Label from "@/components/shared/label";
+import { Label } from "@/components/shared/label";
 import { LinkType, SettingsType } from "@/types";
 import { useSettings } from "@/hooks/use-settings";
 import { createId } from "@/utils";
 
-type Props = {
+export type LinkControlProps = {
   type: SettingsType;
   fieldName?: string;
   label?: string;
 } & HTMLAttributes<HTMLDivElement>;
 
-const LinkControl: FC<Props> = ({
+export const LinkControl: FC<LinkControlProps> = ({
   type,
   fieldName = "link",
   label = "Link",
@@ -96,5 +96,3 @@ const LinkControl: FC<Props> = ({
     </div>
   );
 };
-
-export default LinkControl;

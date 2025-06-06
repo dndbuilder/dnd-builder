@@ -1,5 +1,5 @@
-import Popover from "@/components/shared/popover";
-import Tooltip from "@/components/shared/tooltip";
+import { Popover } from "@/components/shared/popover";
+import { Tooltip } from "@/components/shared/tooltip";
 import { useActionContext } from "@/contexts/action-context";
 import { useAppDispatch } from "@/hooks/use-app-dispatch";
 import { useAppSelector } from "@/hooks/use-app-selector";

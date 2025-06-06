@@ -1,13 +1,13 @@
 import * as ToggleGroup from "@radix-ui/react-toggle-group";
-import Tooltip from "@/components/shared/tooltip";
+import { Tooltip } from "@/components/shared/tooltip";
 import { classNames } from "@/utils";
 import { HTMLAttributes, ReactNode, forwardRef } from "react";
 import { PseudoClass } from "@/types/style";
 import { useAppSelector } from "@/hooks/use-app-selector";
 import { getCurrentBreakpoint } from "@/store/selectors";
 import { VariantProps, cva } from "class-variance-authority";
-import Label from "@/components/shared/label";
-import BreakpointSelector from "../shared/breakpoint-selector";
+import { Label } from "@/components/shared/label";
+import { BreakpointSelector } from "../shared/breakpoint-selector";
 import { SettingsType } from "@/types";
 import { useSettings } from "@/hooks/use-settings";
 
@@ -28,7 +28,7 @@ interface ControlType {
   value: string;
 }
 
-interface Props
+export interface ToggleGroupControlProps
   extends HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof controlVariants> {
   controls: ControlType[];
@@ -43,7 +43,10 @@ interface Props
 const toggleGroupItemClasses =
   "hover:bg-slate-100  controls-[state=on]:bg-slate-100 flex h-[28px] w-[35px] items-center justify-center bg-white text-base leading-4 first:rounded-l last:rounded-r focus:z-10 focus:outline-hidden";
 
-const ToggleGroupControl = forwardRef<HTMLDivElement, Props>(
+export const ToggleGroupControl = forwardRef<
+  HTMLDivElement,
+  ToggleGroupControlProps
+>(
   (
     {
       type,
@@ -128,5 +131,3 @@ const ToggleGroupControl = forwardRef<HTMLDivElement, Props>(
 );
 
 ToggleGroupControl.displayName = "ToggleGroupControl";
-
-export default ToggleGroupControl;

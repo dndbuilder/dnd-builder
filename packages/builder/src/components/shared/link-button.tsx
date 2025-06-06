@@ -1,6 +1,6 @@
 import { classNames } from "@/utils";
 
-type Props = {
+export type LinkButtonProps = {
   color?:
     | "amber"
     | "blue"
@@ -29,12 +29,12 @@ type Props = {
   className?: string;
 };
 
-const LinkButton = ({
+export const LinkButton = ({
   color = "primary",
   href,
   children,
   className = "",
-}: Props) => {
+}: LinkButtonProps) => {
   const colorClasses = {
     amber: "bg-amber-500 hover:bg-amber-600 text-slate-800",
     blue: "bg-blue-500 hover:bg-blue-600 text-white",
@@ -68,5 +68,3 @@ const LinkButton = ({
     </a>
   );
 };
-
-export default LinkButton;

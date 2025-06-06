@@ -30,16 +30,16 @@ import {
   MdVerticalAlignCenter,
 } from "react-icons/md";
 import { PiArrowUUpRightLight } from "react-icons/pi";
-import FlexGapControl from "./flex-gap.control";
-import SelectControl from "./select.control";
-import ToggleGroupControl from "./toggle-group.control";
+import { FlexGapControl } from "./flex-gap.control";
+import { SelectControl } from "./select.control";
+import { ToggleGroupControl } from "./toggle-group.control";
 
-type DisplayControlProps = {
+export type DisplayControlProps = {
   type: SettingsType;
   fieldName?: string;
 };
 
-const DisplayControl: FC<DisplayControlProps> = ({
+export const DisplayControl: FC<DisplayControlProps> = ({
   type,
   fieldName = "display",
 }) => {
@@ -334,5 +334,3 @@ const DisplayControl: FC<DisplayControlProps> = ({
     </div>
   );
 };
-
-export default DisplayControl;
