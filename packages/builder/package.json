@@ -17,7 +17,7 @@
     },
     "./hooks": {
       "import": "./dist/hooks.js",
-      "types": "./dist/hooks.d.ts"
+      "types": "./dist/hooks/index.d.ts"
     },
     "./dist/builder.css": {
       "import": "./dist/builder.css"
