@@ -189,3 +189,6 @@ export function bytesToSize(bytes: number): string {
 export const generateImageUrl = (path: string) => {
   return path;
 };
+
+// Export image utility functions
+export * from './image-utils';

@@ -1,6 +1,7 @@
 import { ButtonConfig } from "@/blocks/button";
 import { ContainerConfig } from "@/blocks/container";
 import { HeadingConfig } from "@/blocks/heading";
+import { ImageConfig } from "@/blocks/image";
 import { LinkConfig } from "@/blocks/link";
 import { TabsConfig } from "@/blocks/tabs";
 import { TextConfig } from "@/blocks/text";
@@ -12,5 +13,6 @@ export const BlockConfiguration = registerEditorBlocks([
   TextConfig,
   ButtonConfig,
   LinkConfig,
+  ImageConfig,
   TabsConfig,
 ]);

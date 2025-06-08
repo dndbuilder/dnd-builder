@@ -1,11 +1,10 @@
 interface Window {
   frameWindow?: Window;
   frameDocument?: Document;
-  Razorpay?: Constructable<{
-    open: () => void;
-  }>;
-  payfast_do_onsite_payment?: (
-    { uuid: string },
-    callback: (result: boolean) => void
-  ) => void;
 }
+
+declare module "*.svg";
+
+declare module "*.png";
+
+declare module "*.jpg";

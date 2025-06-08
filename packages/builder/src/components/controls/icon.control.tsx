@@ -3,8 +3,8 @@ import { classNames } from "@/utils";
 import * as Dialog from "@radix-ui/react-dialog";
 import { FC, useEffect, useRef, useState } from "react";
 import { BsTrash } from "react-icons/bs";
+import { FiX } from "react-icons/fi";
 import { HiPlusCircle } from "react-icons/hi";
-import { LiaTimesSolid } from "react-icons/lia";
 import { useSettings } from "../../hooks/use-settings";
 import { getCurrentBreakpoint } from "../../store/selectors";
 import { IconType, SettingsType } from "../../types";
@@ -101,13 +101,13 @@ export const IconControl: FC<IconControlProps> = ({
         <Dialog.Portal>
           <Dialog.Overlay className="fixed inset-0 z-50 bg-[rgba(0,0,0,0.7)] data-[state=open]:animate-overlay-show" />
           <Dialog.Content className="fixed left-[50%] top-[50%] z-60 w-[750px] lg:w-[1000px]  xl:w-[1150px] translate-x-[-50%] translate-y-[-50%] rounded-[6px] bg-white focus:outline-hidden data-[state=open]:animate-content-show">
-            <div className="flex justify-between pb-2 ps-5 pe-4 pt-5 border-b">
+            <Dialog.Title className="flex justify-between pb-2 ps-5 pe-4 pt-5 border-b">
               <p className="text-xl font-semibold">Insert Icon</p>
 
               <Dialog.Close className="cursor-pointer">
-                <LiaTimesSolid />
+                <FiX />
               </Dialog.Close>
-            </div>
+            </Dialog.Title>
 
             <div className="flex justify-end py-3 pe-5">
               <Input
