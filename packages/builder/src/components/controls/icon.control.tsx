@@ -17,9 +17,11 @@ import * as Tabs from "@radix-ui/react-tabs";
 import { FC, useEffect, useRef, useState } from "react";
 import { BsTrash } from "react-icons/bs";
 import { CgSpinner } from "react-icons/cg";
-import { FiX } from "react-icons/fi";
+import { FiX, FiSearch } from "react-icons/fi";
 import { HiPlusCircle } from "react-icons/hi";
 import useDebounce from "@/hooks/use-debounce";
+import { LuSearchX } from "react-icons/lu";
+import { MdErrorOutline } from "react-icons/md";
 
 export type IconControlProps = {
   label?: string;
@@ -71,7 +73,7 @@ export const IconControl: FC<IconControlProps> = ({
                 size="2em"
               />
             </div>
-            <div className="text-xs text-gray-500">{value.iconSet}</div>
+            <div className="text-xs text-slate-600">{value.iconSet}</div>
           </div>
         </div>
       );
@@ -114,7 +116,9 @@ export const IconControl: FC<IconControlProps> = ({
           <Dialog.Overlay className="fixed inset-0 z-50 bg-[rgba(0,0,0,0.7)] data-[state=open]:animate-overlay-show" />
           <Dialog.Content className="fixed left-[50%] top-[50%] z-60 w-full max-w-5xl translate-x-[-50%] translate-y-[-50%] rounded-[6px] bg-white focus:outline-hidden data-[state=open]:animate-content-show">
             <Dialog.Title className="flex justify-between p-4 border-b">
-              <p className="text-xl font-semibold">Insert Icon</p>
+              <p className="text-xl font-semibold text-slate-800">
+                Insert Icon
+              </p>
 
               <Dialog.Close className="cursor-pointer">
                 <FiX />
@@ -182,6 +186,7 @@ export function IconSetViewer({
   setSelectedIcon,
 }: IconSetViewerProps) {
   const ref = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null); // Ref for the scroll area
   const loadMoreRef = useRef<HTMLDivElement>(null); // Ref for the sentinel element
   const [searchText, setSearchText] = useState<string>("");
   const debouncedSearchText = useDebounce(searchText, 500); // Debounce search text with 500ms delay
@@ -199,6 +204,16 @@ export function IconSetViewer({
     pageSize: 72,
     searchText: debouncedSearchText,
   });
+
+  const handleCollectionChange = (value: string) => {
+    setSelectedCollection(value);
+    setSelectedIcon(""); // Reset selected icon when collection changes
+    setSearchText(""); // Reset search text when collection changes
+    if (scrollRef.current) {
+      // Scroll to top of the icons grid when collection changes
+      scrollRef.current.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
 
   // Set up Intersection Observer to load more icons when the sentinel element is visible
   useEffect(() => {
@@ -238,7 +253,7 @@ export function IconSetViewer({
   return (
     <Tabs.Root
       value={selectedCollection}
-      onValueChange={setSelectedCollection}
+      onValueChange={handleCollectionChange}
       className="flex w-full h-full"
     >
       {/* Vertical tabs for icon collections */}
@@ -247,7 +262,7 @@ export function IconSetViewer({
           <Tabs.Trigger
             key={collection.value}
             value={collection.value}
-            className="px-4 py-3 text-left border-l-2 border-transparent hover:bg-slate-100 data-[state=active]:border-indigo-500 data-[state=active]:bg-indigo-50 text-sm"
+            className="px-4 py-3 text-left border-l-2 border-transparent hover:bg-slate-100 data-[state=active]:border-slate-600 data-[state=active]:bg-slate-100 text-sm  transition-colors font-medium text-slate-800"
           >
             {collection.name}
           </Tabs.Trigger>
@@ -275,61 +290,84 @@ export function IconSetViewer({
 
               {/* Icons grid */}
               <ScrollArea className="flex-1">
-                <div
-                  ref={ref}
-                  className="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-8  gap-4"
-                >
-                  {iconData?.pages ? (
-                    iconData.pages.flatMap((page) =>
-                      Object.keys(page?.icons ?? {}).map((iconName) => (
-                        <div
-                          key={iconName}
-                          className={classNames(
-                            "p-4 cursor-pointer rounded text-center transition-colors",
-                            selectedIcon === iconName
-                              ? "bg-indigo-100"
-                              : "hover:bg-slate-100"
-                          )}
-                          onClick={() => setSelectedIcon(iconName)}
-                        >
-                          <RenderIcon
-                            iconSet={collection.value}
-                            iconName={iconName}
-                            size="1.5rem"
-                            className="text-slate-600"
-                          />
-                        </div>
-                      ))
-                    )
-                  ) : isError ? (
-                    <div className="col-span-full flex justify-center py-10 h-[350px]">
-                      <div className="text-center">
-                        <div className="text-2xl mb-2 text-slate-800 font-semibold">
+                <div ref={scrollRef}>
+                  <div
+                    ref={ref}
+                    className="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-8 px-4 py-2 gap-4"
+                  >
+                    {/* Render actual icons */}
+                    {iconData?.pages &&
+                    iconData.pages.length > 0 &&
+                    iconData.pages.some(
+                      (page) => Object.keys(page?.icons ?? {}).length > 0
+                    ) ? (
+                      iconData.pages.flatMap((page) =>
+                        Object.keys(page?.icons ?? {}).map((iconName) => (
+                          <div
+                            key={iconName}
+                            className={classNames(
+                              "p-4 cursor-pointer rounded text-center transition-colors",
+                              selectedIcon === iconName
+                                ? "bg-slate-100 ring-2 ring-slate-600"
+                                : "hover:bg-slate-100"
+                            )}
+                            onClick={() => setSelectedIcon(iconName)}
+                          >
+                            <RenderIcon
+                              iconSet={collection.value}
+                              iconName={iconName}
+                              size="1.5rem"
+                              className="text-slate-800"
+                            />
+                          </div>
+                        ))
+                      )
+                    ) : isError ? (
+                      <div className="col-span-full flex flex-col items-center justify-center py-10 h-[350px] text-slate-500">
+                        <MdErrorOutline className="h-12 w-12 mb-2" />
+                        <div className="text-lg font-semibold mb-1">
                           Something went wrong
                         </div>
-                        <div className="text-sm text-slate-600">
+                        <div className="text-sm">
                           Please try again or select a different icon set
                         </div>
                       </div>
-                    </div>
-                  ) : isLoading ? (
-                    <div className="col-span-full flex justify-center py-10 h-[350px]">
-                      <CgSpinner className="animate-spin text-2xl text-slate-600" />
-                    </div>
-                  ) : null}
-                </div>
-
-                {/* Sentinel element for intersection observer */}
-                {hasNextPage && (
-                  <div
-                    ref={loadMoreRef}
-                    className="flex justify-center mt-4 mb-2 h-10"
-                  >
-                    {isFetchingNextPage && (
-                      <CgSpinner className="animate-spin text-2xl text-slate-600" />
+                    ) : isLoading ? (
+                      Array.from({ length: 48 })
+                        .fill(null)
+                        .map((_, index) => (
+                          <div
+                            key={index}
+                            className="p-4 cursor-pointer rounded flex items-center justify-center transition-colors"
+                          >
+                            <div className="h-12 w-12 bg-slate-200 animate-pulse rounded" />
+                          </div>
+                        ))
+                    ) : (
+                      <div className="col-span-full flex flex-col items-center justify-center py-10 h-[350px] text-slate-500">
+                        <LuSearchX className="h-12 w-12 mb-2" />
+                        <div className="text-lg font-semibold mb-1">
+                          No icons found
+                        </div>
+                        <div className="text-sm">
+                          Try a different search or icon set.
+                        </div>
+                      </div>
                     )}
                   </div>
-                )}
+
+                  {/* Sentinel element for intersection observer */}
+                  {hasNextPage && (
+                    <div
+                      ref={loadMoreRef}
+                      className="flex justify-center mt-4 mb-2 h-10"
+                    >
+                      {isFetchingNextPage && (
+                        <CgSpinner className="animate-spin text-2xl text-slate-600" />
+                      )}
+                    </div>
+                  )}
+                </div>
               </ScrollArea>
             </div>
           </Tabs.Content>
