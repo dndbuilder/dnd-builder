@@ -19,13 +19,14 @@
       "outputs": []
     },
     "dev": {
-      "cache": false,
-      "persistent": true,
-      "inputs": [
-        "$TURBO_DEFAULT$",
-        ".env*"
+      "dependsOn": [
+        "^build"
       ],
-      "outputs": []
+      "cache": true,
+      "persistent": true,
+      "outputs": [
+        "dist/**"
+      ]
     }
   }
 }

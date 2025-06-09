@@ -65,7 +65,6 @@
     "react-dom": "^19.0.0"
   },
   "dependencies": {
-    "@iconify/utils": "^2.3.0",
     "@paralleldrive/cuid2": "^2.2.2",
     "@radix-ui/react-accordion": "^1.2.3",
     "@radix-ui/react-checkbox": "^1.1.4",

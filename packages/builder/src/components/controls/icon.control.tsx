@@ -73,7 +73,9 @@ export const IconControl: FC<IconControlProps> = ({
                 size="2em"
               />
             </div>
-            <div className="text-xs text-slate-600">{value.iconSet}</div>
+            <div className="text-xs text-slate-600">
+              {value.iconSet}:{value.iconName}
+            </div>
           </div>
         </div>
       );
