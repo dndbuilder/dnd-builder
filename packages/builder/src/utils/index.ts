@@ -5,6 +5,7 @@ import { create } from "free-style";
 import { startCase } from "lodash";
 import clsx, { ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { languages } from "@/config/language.config";
 
 export const createId = init({
   length: 8,
@@ -18,6 +19,14 @@ export const createRootBlock = () => {
     children: [],
     settings: {},
   };
+};
+
+export const getLocaleTag = (locale: string) => {
+  const lang = languages.find((lang) => lang.code === locale);
+
+  if (!lang) throw new Error("Language not found");
+
+  return lang.tag;
 };
 
 export const createContent = (blocks: Block[]) => {

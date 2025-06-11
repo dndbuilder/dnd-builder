@@ -1,6 +1,7 @@
 import { BannerConfig } from "@/blocks/banner";
 import { ButtonConfig } from "@/blocks/button";
 import { ContainerConfig } from "@/blocks/container";
+import { CountdownConfig } from "@/blocks/countdown";
 import { DrawerConfig } from "@/blocks/drawer";
 import { DropdownConfig } from "@/blocks/dropdown";
 import { FaqConfig } from "@/blocks/faq";
@@ -33,4 +34,5 @@ export const BlockConfiguration = registerEditorBlocks([
   SliderConfig,
   FaqConfig,
   TestimonialConfig,
+  // CountdownConfig,
 ]);
