@@ -1,22 +1,20 @@
-import { BlockConfiguration } from "@/config/editor.config";
+import { BuilderConfiguration } from "@/config/editor.config";
 import BlockNavigationItem from "./block-navigation-item";
 import { Accordion } from "@/components/shared/accordion";
 import { ScrollArea } from "@/components/shared/scroll-area";
 import { BiSearch } from "react-icons/bi";
 import { useMemo, useState } from "react";
 import { classNames, objectKeys } from "@/utils";
-import { EditorBlockConfig } from "@/types/block";
-import { GroupConfiguration } from "@/config/group.config";
+import { BlockGroup, EditorBlockConfig } from "@/types/block";
 
 const BlockNavigation = () => {
   const [search, setSearch] = useState("");
 
   const availableGroups = useMemo(() => {
-    return BlockConfiguration.getBlocks()
+    return BuilderConfiguration.getBlocks()
       .filter((block) =>
         block.label.toLowerCase().includes(search.toLowerCase())
       )
-
       .reduce(
         (acc, block) => {
           const group = block.group ?? "Others";
@@ -26,7 +24,7 @@ const BlockNavigation = () => {
           acc[group].push(block);
           return acc;
         },
-        {} as Record<string, EditorBlockConfig[]>
+        {} as Record<BlockGroup, EditorBlockConfig[]>
       );
   }, [search]);
 
@@ -61,11 +59,22 @@ const BlockNavigation = () => {
       <ScrollArea className="h-[calc(100vh-145px)]">
         <Accordion defaultValue={Object.keys(availableGroups)} type="multiple">
           {objectKeys(availableGroups)
-            .sort(
-              (a, b) =>
-                GroupConfiguration.getGroup(a).order -
-                GroupConfiguration.getGroup(b).order
-            )
+            .sort((a, b) => {
+              const indexA = BuilderConfiguration.getGroupOrder(a);
+              const indexB = BuilderConfiguration.getGroupOrder(b);
+
+              // If both groups are in the order array, sort by their position
+              if (indexA !== -1 && indexB !== -1) {
+                return indexA - indexB;
+              }
+
+              // If only one group is in the order array, prioritize it
+              if (indexA !== -1) return -1;
+              if (indexB !== -1) return 1;
+
+              // If neither group is in the order array, maintain original order
+              return 0;
+            })
             .map((group, index) => {
               return (
                 <Accordion.Item value={group} key={group}>

@@ -1,4 +1,4 @@
-import { BlockConfiguration } from "@/config/editor.config";
+import { BuilderConfiguration } from "@/config/editor.config";
 import { useFrame } from "@/hooks/use-frame";
 import { removeBlock } from "@/store/builder-slice";
 import { BlockToolbarProps } from "@/types/block";
@@ -17,7 +17,7 @@ type Props = BlockToolbarProps & {
 
 const BlockToolbar: FC<Props> = memo(
   ({ blockId, blockType, isSelected, children, dragRef, previewRef }) => {
-    const blockConfig = BlockConfiguration.getBlock(blockType);
+    const blockConfig = BuilderConfiguration.getBlock(blockType);
 
     const { document } = useFrame();
 

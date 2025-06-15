@@ -1,4 +1,4 @@
-import { BlockConfiguration } from "@/config/editor.config";
+import { BuilderConfiguration } from "@/config/editor.config";
 import { useBlockSettings } from "@/hooks/use-block-settings";
 import { useContainerSettings } from "@/hooks/use-container-settings";
 import {
@@ -41,7 +41,7 @@ const EditorBlockWrapper: FC<Props> = ({
 
   const { className, ...restAttributes } = attributes;
 
-  const blockTypes = BlockConfiguration.getBlockTypes();
+  const blockTypes = BuilderConfiguration.getBlockTypes();
 
   const isSelected = useAppSelector(getIsBlockSelected(blockId));
 

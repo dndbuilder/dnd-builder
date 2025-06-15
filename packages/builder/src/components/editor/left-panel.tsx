@@ -1,4 +1,4 @@
-import { BlockConfiguration } from "@/config/editor.config";
+import { BuilderConfiguration } from "@/config/editor.config";
 import { useActionContext } from "@/contexts/action-context";
 import { unselectBlock } from "@/store/builder-slice";
 import { getSelectedBlock } from "@/store/selectors";
@@ -39,7 +39,7 @@ const LeftPanel = () => {
             className="absolute left-2 top-1/2 -translate-y-1/2"
           />
           <span className="text-base font-semibold">
-            Edit {BlockConfiguration.getBlock(selectedBlock.type)?.label}
+            Edit {BuilderConfiguration.getBlock(selectedBlock.type)?.label}
           </span>
         </button>
       )}

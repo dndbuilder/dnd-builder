@@ -1,12 +1,16 @@
 import { useAppSelector } from "@/hooks/use-app-selector";
-import { BlockConfiguration } from "@/config/editor.config";
-import { BlockAdvancedSettings, BlockType } from "@/types/block";
+import { BuilderConfiguration } from "@/config/editor.config";
+import {
+  BlockAdvancedSettings,
+  BlockType,
+  EditorBlockConfig,
+} from "@/types/block";
 import { getActiveThemeContainerSettings } from "@/store/selectors";
 import { ContainerSettingsType } from "@/blocks/container/types";
 import deepmerge from "deepmerge";
 
 export const useContainerSettings = () => {
-  const ContainerConfig = BlockConfiguration.getBlock(BlockType.CONTAINER);
+  const ContainerConfig = BuilderConfiguration.getBlock(BlockType.CONTAINER);
 
   const themeContainerSettings = useAppSelector(
     getActiveThemeContainerSettings

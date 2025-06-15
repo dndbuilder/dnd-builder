@@ -1,7 +1,7 @@
-import { BlockConfiguration } from "@/config/editor.config";
+import { BuilderConfiguration } from "@/config/editor.config";
 import { useFrame } from "@/hooks/use-frame";
 import { duplicateTab, removeBlock } from "@/store/builder-slice";
-import { BlockToolbarProps } from "@/types/block";
+import { BlockToolbarProps, EditorBlockConfig } from "@/types/block";
 import { useAppDispatch } from "@/hooks/use-app-dispatch";
 import { classNames } from "@/utils";
 import { FC, memo, MouseEvent, Suspense } from "react";
@@ -10,7 +10,7 @@ import { IoDuplicateOutline } from "react-icons/io5";
 
 const TabsToolbar: FC<BlockToolbarProps> = memo(
   ({ blockId, blockType, isSelected }) => {
-    const blockConfig = BlockConfiguration.getBlock(blockType);
+    const blockConfig = BuilderConfiguration.getBlock(blockType);
 
     const { document } = useFrame();
 

@@ -1,5 +1,5 @@
 import { ScrollArea } from "@/components/shared/scroll-area";
-import { BlockConfiguration } from "@/config/editor.config";
+import { BuilderConfiguration } from "@/config/editor.config";
 import { useActionContext } from "@/contexts/action-context";
 import {
   duplicateBlock,
@@ -31,7 +31,7 @@ const StructureItem = ({ blockId, index }: LayterItemProps) => {
 
   const block = useAppSelector(getBlock(blockId));
 
-  const config = BlockConfiguration.getBlock(block.type);
+  const config = BuilderConfiguration.getBlock(block.type);
 
   const selectedblock = useAppSelector(getSelectedBlock);
 

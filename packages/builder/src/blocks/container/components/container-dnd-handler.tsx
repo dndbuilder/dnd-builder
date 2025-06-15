@@ -1,6 +1,6 @@
 import BlockPlaceholder from "@/components/base/block-placeholder";
 import EditorRenderBlock from "@/components/base/editor-render-block";
-import { BlockConfiguration } from "@/config/editor.config";
+import { BuilderConfiguration } from "@/config/editor.config";
 import { useBlockSettings } from "@/hooks/use-block-settings";
 import { useContainerSettings } from "@/hooks/use-container-settings";
 import {
@@ -63,7 +63,7 @@ const ContainerDndHandler: FC<BlockProps<ContainerSettingsType>> = ({
     Position.TOP | Position.RIGHT | Position.BOTTOM | Position.LEFT | null
   >(null);
 
-  const blockTypes = BlockConfiguration.getBlockTypes();
+  const blockTypes = BuilderConfiguration.getBlockTypes();
 
   const { settings, advancedSettings } = useContainerSettings();
 

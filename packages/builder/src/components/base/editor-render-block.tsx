@@ -1,4 +1,4 @@
-import { BlockConfiguration } from "@/config/editor.config";
+import { BuilderConfiguration } from "@/config/editor.config";
 import { getBlock } from "@/store/selectors";
 import { Block, BlockMeta, BlockType } from "@/types/block";
 import { generateBlockProps } from "@/utils/block";
@@ -50,7 +50,7 @@ type RenderBlockProps = {
 
 const RenderBlock: FC<RenderBlockProps> = memo(
   ({ block, index, isEditable, meta }) => {
-    const blockConfig = BlockConfiguration.getBlock(block.type);
+    const blockConfig = BuilderConfiguration.getBlock(block.type);
 
     if (!blockConfig) {
       return null;

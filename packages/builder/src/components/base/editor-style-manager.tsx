@@ -1,12 +1,12 @@
 import { BreakpointConfiguration } from "@/config/breakpoints.config";
-import { BlockConfiguration } from "@/config/editor.config";
+import { BuilderConfiguration } from "@/config/editor.config";
 import { useFrame } from "@/hooks/use-frame";
 import { Block } from "@/types/block";
 import { Breakpoint } from "@/types/responsive";
+import { ThemeSettings } from "@/types/theme";
 import { createStyle } from "@/utils";
 import { generateContentStyles, generateFontsUrl } from "@/utils/style";
 import { generateThemeStyles } from "@/utils/theme";
-import { ThemeSettings } from "@/types/theme";
 import cssBeautify from "cssbeautify";
 import { FC, memo, useEffect } from "react";
 
@@ -53,7 +53,7 @@ const EditorStyleManager: FC<Props> = memo(({ content, themeSettings }) => {
     content,
     themeSettings,
     breakpoints,
-    config: BlockConfiguration.getConfig(),
+    config: BuilderConfiguration.getRegisteredBlocks(),
   });
 
   const themeStyles = generateThemeStyles({

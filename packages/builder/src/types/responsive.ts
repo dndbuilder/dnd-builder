@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { ComponentType } from "react";
 
 export const enum Breakpoint {
-  MOBILE = 'mobile',
+  MOBILE = "mobile",
   // MOBILE_LANDSCAPE = 'mobile-landscape',
-  TABLET = 'tablet',
+  TABLET = "tablet",
   // TABLET_LANDSCAPE = 'tablet-landscape',
   // LAPTOP = 'laptop',
-  DESKTOP = 'desktop',
+  DESKTOP = "desktop",
   // WIDESCREEN = 'widescreen',
 }
 
@@ -17,7 +17,7 @@ export type ResponsiveValue<T = string> = {
 export type BreakpointConfig = {
   key: Breakpoint;
   label: string;
-  icon: React.ReactNode;
+  icon: ComponentType;
   previewWidth: number;
   maxWidth: number;
   minWidth: number;

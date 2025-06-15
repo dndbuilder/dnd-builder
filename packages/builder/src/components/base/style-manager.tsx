@@ -1,5 +1,5 @@
 import { BreakpointConfiguration } from "@/config/breakpoints.config";
-import { BlockConfiguration } from "@/config/editor.config";
+import { BuilderConfiguration } from "@/config/editor.config";
 import { Block } from "@/types/block";
 import { Breakpoint } from "@/types/responsive";
 import { createStyle } from "@/utils";
@@ -45,7 +45,7 @@ const StyleManager: FC<Props> = memo(({ content, themeSettings }) => {
     content,
     themeSettings,
     breakpoints,
-    config: BlockConfiguration.getConfig(),
+    config: BuilderConfiguration.getRegisteredBlocks(),
   });
 
   const themeStyles = generateThemeStyles({

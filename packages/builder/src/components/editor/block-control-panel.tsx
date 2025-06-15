@@ -1,6 +1,6 @@
 import { ScrollArea } from "@/components/shared/scroll-area";
 import { Tabs } from "@/components/shared/tabs";
-import { BlockConfiguration } from "@/config/editor.config";
+import { BuilderConfiguration } from "@/config/editor.config";
 import { FC, lazy, Suspense, useState } from "react";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { CgSpinner } from "react-icons/cg";
@@ -23,7 +23,7 @@ const AdvancedSettingsControl = lazy(
 const BlockControlPanel: FC<Props> = ({ type }) => {
   const [currentTabIndex, setCurrentTabIndex] = useState(0);
 
-  const config = BlockConfiguration.getBlock(type);
+  const config = BuilderConfiguration.getBlock(type);
 
   const controls = config?.controls ?? [];
 

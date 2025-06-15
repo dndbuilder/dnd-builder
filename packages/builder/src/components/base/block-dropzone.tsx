@@ -1,4 +1,4 @@
-import { BlockConfiguration } from "@/config/editor.config";
+import { BuilderConfiguration } from "@/config/editor.config";
 import { addBlock, addBlocks } from "@/store/builder-slice";
 import { Block, BlockType } from "@/types/block";
 import { createBlock } from "@/utils";
@@ -21,11 +21,11 @@ const BlockDropzone: FC<BlockDropzoneProps> = ({
   children,
   onBlockAdded,
 }) => {
-  const blockTypes = BlockConfiguration.getBlockTypes();
+  const blockTypes = BuilderConfiguration.getBlockTypes();
 
   const dispatch = useAppDispatch();
 
-  const ContainerConfig = BlockConfiguration.getBlock(BlockType.CONTAINER);
+  const ContainerConfig = BuilderConfiguration.getBlock(BlockType.CONTAINER);
 
   const [{ isOver }, drop] = useDrop({
     accept: blockTypes,
