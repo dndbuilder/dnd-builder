@@ -1,4 +1,5 @@
 import { useContent } from "@repo/builder/hooks";
+import { BreakpointSwitch } from "@repo/builder/components";
 import Link from "next/link";
 import { useState } from "react";
 import toast from "react-hot-toast";
@@ -33,6 +34,9 @@ export const Header = () => {
           <span className="font-bold">DnD Builder</span>
         </Link>
       </div>
+
+      <BreakpointSwitch />
+
       <button
         className="bg-slate-900 hover:bg-slate-800 text-white px-4 py-2 rounded text-sm font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         onClick={handleSave}

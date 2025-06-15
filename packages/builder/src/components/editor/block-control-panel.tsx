@@ -1,6 +1,6 @@
 import { ScrollArea } from "@/components/shared/scroll-area";
 import { Tabs } from "@/components/shared/tabs";
-import { BuilderConfiguration } from "@/config/editor.config";
+import { BuilderConfiguration } from "@/config/builder.config";
 import { FC, lazy, Suspense, useState } from "react";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { CgSpinner } from "react-icons/cg";

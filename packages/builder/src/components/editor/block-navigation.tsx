@@ -1,4 +1,4 @@
-import { BuilderConfiguration } from "@/config/editor.config";
+import { BuilderConfiguration } from "@/config/builder.config";
 import BlockNavigationItem from "./block-navigation-item";
 import { Accordion } from "@/components/shared/accordion";
 import { ScrollArea } from "@/components/shared/scroll-area";

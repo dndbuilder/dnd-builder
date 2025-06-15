@@ -1,4 +1,4 @@
-import { BuilderConfiguration } from "@/config/editor.config";
+import { BuilderConfiguration } from "@/config/builder.config";
 import { useFrame } from "@/hooks/use-frame";
 import { removeBlock } from "@/store/builder-slice";
 import { BlockToolbarProps } from "@/types/block";

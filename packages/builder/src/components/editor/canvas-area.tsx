@@ -4,7 +4,7 @@ import EditorStyleManager from "@/components/base/editor-style-manager";
 import { FrameContextManager } from "@/components/base/frame-context-manager";
 import ClientOnlyRenderFrame from "@/components/base/render-frame";
 import { ErrorFallback } from "@/components/shared/error-fallback";
-import { BuilderConfiguration } from "@/config/editor.config";
+import { BuilderConfiguration } from "@/config/builder.config";
 import { useActionContext } from "@/contexts/action-context";
 import { useAppDispatch } from "@/hooks/use-app-dispatch";
 import { useAppSelector } from "@/hooks/use-app-selector";

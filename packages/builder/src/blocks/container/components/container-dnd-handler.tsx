@@ -1,6 +1,6 @@
 import BlockPlaceholder from "@/components/base/block-placeholder";
 import EditorRenderBlock from "@/components/base/editor-render-block";
-import { BuilderConfiguration } from "@/config/editor.config";
+import { BuilderConfiguration } from "@/config/builder.config";
 import { useBlockSettings } from "@/hooks/use-block-settings";
 import { useContainerSettings } from "@/hooks/use-container-settings";
 import {

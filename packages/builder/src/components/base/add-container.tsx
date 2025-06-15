@@ -1,6 +1,6 @@
 import { createBlock } from "@/utils";
 import { Popover } from "@/components/shared/popover";
-import { BuilderConfiguration } from "@/config/editor.config";
+import { BuilderConfiguration } from "@/config/builder.config";
 import { useAppDispatch } from "@/hooks/use-app-dispatch";
 import { addBlocks } from "@/store/builder-slice";
 import { Unit } from "@/types/style";

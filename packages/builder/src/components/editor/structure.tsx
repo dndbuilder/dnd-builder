@@ -1,5 +1,5 @@
 import { ScrollArea } from "@/components/shared/scroll-area";
-import { BuilderConfiguration } from "@/config/editor.config";
+import { BuilderConfiguration } from "@/config/builder.config";
 import { useActionContext } from "@/contexts/action-context";
 import {
   duplicateBlock,

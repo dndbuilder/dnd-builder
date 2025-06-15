@@ -1,3 +1,4 @@
+import { classNames } from "@/utils";
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
 import { ComponentPropsWithoutRef, ElementRef, forwardRef } from "react";
 
@@ -29,11 +30,14 @@ Trigger.displayName = TooltipPrimitive.Trigger.displayName;
 const TriggerContent = forwardRef<
   ElementRef<typeof TooltipPrimitive.Content>,
   ComponentPropsWithoutRef<typeof TooltipPrimitive.Content>
->(({ children, ...props }, ref) => {
+>(({ children, className, ...props }, ref) => {
   return (
     <TooltipPrimitive.Portal>
       <TooltipPrimitive.Content
-        className="data-[state=delayed-open]:data-[side=top]:animate-slideDownAndFade data-[state=delayed-open]:data-[side=right]:animate-slideLeftAndFade data-[state=delayed-open]:data-[side=left]:animate-slideRightAndFade data-[state=delayed-open]:data-[side=bottom]:animate-slideUpAndFade z-50 select-none rounded-[4px] bg-black px-2 py-1.5 text-[10px] leading-none text-slate-50  will-change-[transform,opacity]"
+        className={classNames(
+          "data-[state=delayed-open]:data-[side=top]:animate-slideDownAndFade data-[state=delayed-open]:data-[side=right]:animate-slideLeftAndFade data-[state=delayed-open]:data-[side=left]:animate-slideRightAndFade data-[state=delayed-open]:data-[side=bottom]:animate-slideUpAndFade z-[10000] select-none rounded-[4px] bg-black px-2 py-1.5 text-[10px] leading-none text-slate-50  will-change-[transform,opacity]",
+          className
+        )}
         sideOffset={5}
         ref={ref}
         {...props}
@@ -50,4 +54,3 @@ TriggerContent.displayName = TooltipPrimitive.Content.displayName;
 Tooltip.Trigger = Trigger;
 Tooltip.Content = TriggerContent;
 Tooltip.Portal = TooltipPrimitive.Portal;
-

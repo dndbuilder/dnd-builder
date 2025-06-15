@@ -11,3 +11,5 @@ export { BuilderProvider } from "./contexts/builder-context";
 export { store } from "./store";
 
 export * from "./store/selectors";
+
+export { BuilderConfiguration } from "./config/builder.config";

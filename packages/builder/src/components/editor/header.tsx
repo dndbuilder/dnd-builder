@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import ActionDropdown from "./action-dropdown";
-import BreakpointSwitch from "./breakpoint-switch";
+import { BreakpointSwitch } from "./breakpoint-switch";
 import SettingsToggle from "./settings-toggle";
 import StructureToggle from "./structure-toggle";
 import UndoRedo from "./undo-redo";

@@ -6,13 +6,15 @@ import { useAppDispatch } from "@/hooks/use-app-dispatch";
 import { useAppSelector } from "@/hooks/use-app-selector";
 import { classNames } from "@/utils";
 import { FC } from "react";
-import { BuilderConfiguration } from "@/config/editor.config";
+import { BuilderConfiguration } from "@/config/builder.config";
 
-type BreakpointSwitcherProps = {
+export type BreakpointSwitcherProps = {
   className?: string;
 };
 
-const BreakpointSwitch: FC<BreakpointSwitcherProps> = ({ className }) => {
+export const BreakpointSwitch: FC<BreakpointSwitcherProps> = ({
+  className,
+}) => {
   const currentBreakpoint = useAppSelector(getCurrentBreakpoint);
 
   const dispatch = useAppDispatch();
@@ -26,7 +28,7 @@ const BreakpointSwitch: FC<BreakpointSwitcherProps> = ({ className }) => {
   return (
     <div
       className={classNames(
-        "flex items-center rounded-sm bg-slate-800 px-2 h-10",
+        "flex items-center rounded-sm px-2 h-10 border text-lg",
         className
       )}
     >
@@ -37,9 +39,9 @@ const BreakpointSwitch: FC<BreakpointSwitcherProps> = ({ className }) => {
               <div
                 onClick={() => changeBreakpoint(breakpoint.key)}
                 className={classNames(
-                  "cursor-pointer p-2 text-slate-100 hover:text-indigo-400",
+                  "cursor-pointer p-2 text-slate-400 hover:text-slate-800",
                   {
-                    "text-indigo-400": currentBreakpoint === breakpoint.key,
+                    "text-slate-800": currentBreakpoint === breakpoint.key,
                   }
                 )}
               >
@@ -53,5 +55,3 @@ const BreakpointSwitch: FC<BreakpointSwitcherProps> = ({ className }) => {
     </div>
   );
 };
-
-export default BreakpointSwitch;

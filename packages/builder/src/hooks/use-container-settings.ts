@@ -1,5 +1,5 @@
 import { useAppSelector } from "@/hooks/use-app-selector";
-import { BuilderConfiguration } from "@/config/editor.config";
+import { BuilderConfiguration } from "@/config/builder.config";
 import {
   BlockAdvancedSettings,
   BlockType,

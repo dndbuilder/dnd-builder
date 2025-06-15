@@ -1,4 +1,4 @@
-import { BuilderConfiguration } from "@/config/editor.config";
+import { BuilderConfiguration } from "@/config/builder.config";
 import { getBlock } from "@/store/selectors";
 import { Block, BlockMeta, BlockType } from "@/types/block";
 import { generateBlockProps } from "@/utils/block";

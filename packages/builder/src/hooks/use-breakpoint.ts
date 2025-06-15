@@ -1,4 +1,4 @@
-import { BuilderConfiguration } from "@/config/editor.config";
+import { BuilderConfiguration } from "@/config/builder.config";
 import { Breakpoint } from "@/types/responsive";
 import { useEffect, useState } from "react";
 
