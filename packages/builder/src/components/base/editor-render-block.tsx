@@ -1,3 +1,5 @@
+"use client";
+
 import { BuilderConfiguration } from "@/config/builder.config";
 import { getBlock } from "@/store/selectors";
 import { Block, BlockMeta, BlockType } from "@/types/block";

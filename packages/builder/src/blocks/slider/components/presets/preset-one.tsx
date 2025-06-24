@@ -6,7 +6,9 @@ import { classNames } from "@/utils";
 import { FC } from "react";
 import SlickSlider from "react-slick";
 
-const PresetOne: FC<SliderSettingsProps> = ({ settings, meta: { locale } }) => {
+const PresetOne: FC<SliderSettingsProps> = ({ settings, meta }) => {
+  const locale = meta?.locale || "en";
+
   return (
     <SlickSlider
       dots={settings.showDots?.desktop}
@@ -29,13 +31,11 @@ const PresetOne: FC<SliderSettingsProps> = ({ settings, meta: { locale } }) => {
       )}
     >
       {settings.slides?.map((slide, index) => {
-        const title = slide.title?.[locale] || slide.title?.en;
+        const title = slide.title?.[locale];
 
-        const description =
-          slide.description?.[locale] || slide.description?.en;
+        const description = slide.description?.[locale];
 
-        const buttonText =
-          slide.button?.text?.[locale] || slide.button?.text?.en;
+        const buttonText = slide.button?.text?.[locale];
 
         return (
           <div key={index} className={`slide-item slide-item-${slide.id}`}>

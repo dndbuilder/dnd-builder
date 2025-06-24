@@ -1,18 +1,16 @@
+"use client";
+
 import { BannerSettingsType } from "@/blocks/banner/types";
 import { BlockProps } from "@/types/block";
 import { FC } from "react";
 
-const Banner: FC<BlockProps<BannerSettingsType>> = ({
-  settings,
-  meta: { locale },
-}) => {
-  const title = settings.title?.text?.[locale] || settings.title?.text?.en;
-  const subTitle =
-    settings.subTitle?.text?.[locale] || settings.subTitle?.text?.en;
-  const description =
-    settings.description?.text?.[locale] || settings.description?.text?.en;
-  const buttonText =
-    settings.button?.text?.[locale] || settings.button?.text?.en;
+const Banner: FC<BlockProps<BannerSettingsType>> = ({ settings, meta }) => {
+  const locale = meta?.locale || "en";
+
+  const title = settings.title?.text?.[locale];
+  const subTitle = settings.subTitle?.text?.[locale];
+  const description = settings.description?.text?.[locale];
+  const buttonText = settings.button?.text?.[locale];
 
   return (
     <div className="banner">

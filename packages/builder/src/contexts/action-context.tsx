@@ -1,3 +1,5 @@
+"use client";
+
 import { useAppDispatch } from "@/hooks/use-app-dispatch";
 import { useAppSelector } from "@/hooks/use-app-selector";
 import useLocalstorage from "@/hooks/use-localstorage";

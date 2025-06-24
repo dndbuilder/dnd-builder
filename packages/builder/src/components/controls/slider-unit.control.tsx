@@ -1,3 +1,5 @@
+"use client";
+
 import { Label } from "@/components/shared/label";
 import { RangeSlider } from "@/components/shared/range-slider";
 import { Select } from "@/components/shared/select";

@@ -2,11 +2,9 @@ import { ButtonSettingsType } from "../types";
 import { BlockProps } from "@/types/block";
 import { FC } from "react";
 
-const Button: FC<BlockProps<ButtonSettingsType>> = ({
-  settings,
-  meta: { locale },
-}) => {
-  const buttonText = settings.text?.[locale] || settings.text?.en;
+const Button: FC<BlockProps<ButtonSettingsType>> = ({ settings, meta }) => {
+  const locale = meta?.locale || "en";
+  const buttonText = settings.text?.[locale];
 
   return (
     <div className="button-wrapper">

@@ -6,10 +6,9 @@ import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { classNames } from "@/utils";
 import { FaqSettingsType } from "../types";
 
-const Faq: FC<BlockProps<FaqSettingsType>> = ({
-  settings,
-  meta: { locale },
-}) => {
+const Faq: FC<BlockProps<FaqSettingsType>> = ({ settings, meta }) => {
+  const locale = meta?.locale || "en";
+
   const [openItems, setOpenItems] = useState<string[]>(() => {
     if (settings.isOpenFirstItem && settings.items?.length)
       return [settings.items?.[0].id];
@@ -59,7 +58,7 @@ const Faq: FC<BlockProps<FaqSettingsType>> = ({
                 "h-auto": openItems.includes(item.id),
               })}
             >
-              {item.description?.text?.[locale] || item.description?.text?.en}
+              {item.description?.text?.[locale]}
             </div>
           </div>
         </div>

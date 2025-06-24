@@ -23,7 +23,7 @@ const TabsBlock: FC<BlockProps<TabsSettingsType>> = ({
     "list.orientation.{{BREAKPOINT}}"
   );
 
-  const locale = meta.locale;
+  const locale = meta?.locale || "en";
 
   const { 1: setTabs } = useBlockSettings(id, "tabs");
 

@@ -1,3 +1,5 @@
+"use client";
+
 import { BuilderConfiguration } from "@/config/builder.config";
 import { useFrame } from "@/hooks/use-frame";
 import { Block } from "@/types/block";

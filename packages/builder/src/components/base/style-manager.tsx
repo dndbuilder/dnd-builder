@@ -1,3 +1,5 @@
+"use client";
+
 import { BuilderConfiguration } from "@/config/builder.config";
 import { Block } from "@/types/block";
 import { Breakpoint } from "@/types/responsive";

@@ -23,6 +23,18 @@
       "import": "./dist/components.js",
       "types": "./dist/components/index.d.ts"
     },
+    "./components/server": {
+      "import": "./dist/components/server.js",
+      "types": "./dist/components/server.d.ts"
+    },
+    "./store": {
+      "import": "./dist/store.js",
+      "types": "./dist/store/index.d.ts"
+    },
+    "./store/selectors": {
+      "import": "./dist/selectors.js",
+      "types": "./dist/store/selectors.d.ts"
+    },
     "./dist/builder.css": {
       "import": "./dist/builder.css"
     }
@@ -57,6 +69,7 @@
     "qs": "^6.14.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "rollup-plugin-preserve-directives": "^0.4.0",
     "tailwind-merge": "^3.0.1",
     "tailwindcss": "^4.1.7",
     "tslib": "^2.8.1",

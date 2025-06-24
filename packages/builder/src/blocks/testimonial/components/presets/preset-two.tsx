@@ -1,14 +1,16 @@
-import { FC } from 'react';
-import { BsStarFill } from 'react-icons/bs';
-import { MdFaceRetouchingNatural } from 'react-icons/md';
-import { PresetPropsType } from '../../types';
+import { FC } from "react";
+import { BsStarFill } from "react-icons/bs";
+import { MdFaceRetouchingNatural } from "react-icons/md";
+import { PresetPropsType } from "../../types";
 
-const PresetTwo: FC<PresetPropsType> = ({ data, meta: { locale } }) => {
-  const name = data.name?.[locale] || data.name?.en;
+const PresetTwo: FC<PresetPropsType> = ({ data, meta }) => {
+  const locale = meta?.locale || "en";
 
-  const position = data.position?.[locale] || data.position?.en;
+  const name = data.name?.[locale];
 
-  const content = data.content?.[locale] || data.content?.en;
+  const position = data.position?.[locale];
+
+  const content = data.content?.[locale];
 
   return (
     <figure className="testimonial-card">
@@ -27,7 +29,11 @@ const PresetTwo: FC<PresetPropsType> = ({ data, meta: { locale } }) => {
         {/* Image wrapper */}
         <div className="image-wrapper flex h-12 w-12 items-center justify-center rounded-full border">
           {data.image ? (
-            <img className="rounded-full bg-dark-50" src={data.image.url} alt={name} />
+            <img
+              className="rounded-full bg-dark-50"
+              src={data.image.url}
+              alt={name}
+            />
           ) : (
             <MdFaceRetouchingNatural className="text-lg text-dark-400" />
           )}

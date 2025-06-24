@@ -1,3 +1,5 @@
+"use client";
+
 import { InputControl } from "@/components/controls/input.control";
 import { LinkControl } from "@/components/controls/link.control";
 import { ToggleGroupControl } from "@/components/controls/toggle-group.control";

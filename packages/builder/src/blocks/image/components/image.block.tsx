@@ -1,15 +1,14 @@
+"use client";
+
 import { BlockProps } from "@/types/block";
 import { FC } from "react";
 import { ImageSettingsType } from "../types";
 import { generateImageUrl } from "@/utils";
 import placeholder from "@/assets/images/placeholder.png";
 
-const ImageBlock: FC<BlockProps<ImageSettingsType>> = ({
-  settings,
-  meta: { locale },
-}) => {
-  const captionText =
-    settings.caption?.text?.[locale] || settings.caption?.text?.en;
+const ImageBlock: FC<BlockProps<ImageSettingsType>> = ({ settings, meta }) => {
+  const locale = meta?.locale || "en";
+  const captionText = settings.caption?.text?.[locale];
 
   const img = (
     <>

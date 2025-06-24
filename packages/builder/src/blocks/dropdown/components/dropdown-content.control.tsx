@@ -1,3 +1,5 @@
+"use client";
+
 import { IconControl } from "@/components/controls/icon.control";
 import { InputControl } from "@/components/controls/input.control";
 import { MediaControl } from "@/components/controls/media.control";

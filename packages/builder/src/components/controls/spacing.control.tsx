@@ -1,3 +1,5 @@
+"use client";
+
 import { Input } from "@/components/shared/input";
 import { Label } from "@/components/shared/label";
 import { Select } from "@/components/shared/select";

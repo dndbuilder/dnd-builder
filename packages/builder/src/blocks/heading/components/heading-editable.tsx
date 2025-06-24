@@ -1,3 +1,5 @@
+"use client";
+
 import { useBlockSettings } from "@/hooks/use-block-settings";
 import { BlockMeta } from "@/types/block";
 import { FC, useRef } from "react";
@@ -12,10 +14,9 @@ const HeadingEditable: FC<{
   id: string;
   meta?: BlockMeta;
 }> = ({ id, settings, meta }) => {
-  const [title, setTitle] = useBlockSettings<string>(
-    id,
-    `title.${meta.locale}`
-  );
+  const locale = meta?.locale || "en";
+
+  const [title, setTitle] = useBlockSettings<string>(id, `title.${locale}`);
 
   const text = useRef<string>("");
 

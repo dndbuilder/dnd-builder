@@ -15,7 +15,7 @@ const DrawerBlock: FC<BlockProps<DrawerSettingsType>> = ({
   meta,
   isEditable,
 }) => {
-  const locale = meta.locale;
+  const locale = meta?.locale || "en";
   const [open, setOpen] = useState(false);
 
   const handleOpenChange = (isOpen: boolean) => {
@@ -37,8 +37,7 @@ const DrawerBlock: FC<BlockProps<DrawerSettingsType>> = ({
           />
         )}
         <span className="drawer-trigger-text">
-          {settings.trigger?.text?.content?.[locale] ||
-            settings.trigger?.text?.content?.en}
+          {settings.trigger?.text?.content?.[locale]}
         </span>
       </Drawer.Trigger>
       <Drawer.Content direction={direction}>

@@ -1,3 +1,5 @@
+"use client";
+
 import { BreakpointSelector } from "@/components/shared/breakpoint-selector";
 import { Label } from "@/components/shared/label";
 import { useAppSelector } from "@/hooks/use-app-selector";

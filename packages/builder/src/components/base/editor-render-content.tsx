@@ -1,3 +1,5 @@
+"use client";
+
 import { Block, BlockMeta } from "@/types/block";
 import { FC } from "react";
 import EditorRenderBlock from "./editor-render-block";

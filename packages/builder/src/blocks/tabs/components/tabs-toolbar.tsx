@@ -1,3 +1,5 @@
+"use client";
+
 import { BuilderConfiguration } from "@/config/builder.config";
 import { useAppDispatch } from "@/hooks/use-app-dispatch";
 import { useFrame } from "@/hooks/use-frame";

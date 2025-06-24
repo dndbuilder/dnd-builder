@@ -1,3 +1,5 @@
+"use client";
+
 import { ScrollArea } from "@/components/shared/scroll-area";
 import { useActionContext } from "@/contexts/action-context";
 import { ThemeSettingsType } from "@/types";

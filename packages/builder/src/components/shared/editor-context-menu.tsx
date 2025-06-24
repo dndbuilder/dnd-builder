@@ -1,3 +1,5 @@
+"use client";
+
 import { useAppDispatch } from "@/hooks/use-app-dispatch";
 import { BuilderRightPanelType } from "@/store/app-slice";
 import { FC, ReactNode, useState } from "react";
@@ -26,7 +28,10 @@ export type EditorContextMenuProps = {
   children: ReactNode;
 };
 
-export const EditorContextMenu: FC<EditorContextMenuProps> = ({ blockId, children }) => {
+export const EditorContextMenu: FC<EditorContextMenuProps> = ({
+  blockId,
+  children,
+}) => {
   const dispatch = useAppDispatch();
 
   const {
@@ -122,4 +127,3 @@ export const EditorContextMenu: FC<EditorContextMenuProps> = ({ blockId, childre
     </ContextMenu>
   );
 };
-

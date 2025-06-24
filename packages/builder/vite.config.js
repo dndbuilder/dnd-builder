@@ -3,6 +3,7 @@ import { resolve } from "path";
 import react from "@vitejs/plugin-react";
 import dts from "vite-plugin-dts";
 import tailwindcss from "@tailwindcss/vite";
+import preserveDirectives from "rollup-plugin-preserve-directives";
 
 export default defineConfig({
   build: {
@@ -11,17 +12,22 @@ export default defineConfig({
         index: resolve(__dirname, "src/index.ts"),
         hooks: resolve(__dirname, "src/hooks/index.ts"),
         components: resolve(__dirname, "src/components/index.ts"),
+        "components/server": resolve(__dirname, "src/components/server.ts"),
+        store: resolve(__dirname, "src/store/index.ts"),
+        "store/selectors": resolve(__dirname, "src/store/selectors.ts"),
+        config: resolve(__dirname, "src/config/index.ts"),
       },
       formats: ["es"],
-      fileName: (format, entryName) => `${entryName}.js`,
+      // fileName: (format, entryName) => `${entryName}.js`,
     },
     outDir: "dist",
     sourcemap: true,
     rollupOptions: {
       external: ["react", "react-dom", "react/jsx-runtime"],
       output: {
-        preserveModules: false,
+        preserveModules: true,
       },
+      plugins: [preserveDirectives()],
     },
   },
   plugins: [

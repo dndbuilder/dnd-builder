@@ -1,3 +1,5 @@
+"use client";
+
 import { Label } from "@/components/shared/label";
 import { Switch } from "@/components/shared/switch";
 import { useSettings } from "@/hooks/use-settings";

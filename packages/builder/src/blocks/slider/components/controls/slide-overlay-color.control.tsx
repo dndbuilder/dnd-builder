@@ -1,3 +1,5 @@
+"use client";
+
 import { ColorControl } from "@/components/controls/color.control";
 import { useSettings } from "@/hooks/use-settings";
 import { SettingsType } from "@/types";

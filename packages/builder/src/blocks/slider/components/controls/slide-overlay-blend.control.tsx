@@ -1,3 +1,5 @@
+"use client";
+
 import { SelectControl } from "@/components/controls/select.control";
 import { useSettings } from "@/hooks/use-settings";
 import { SettingsType } from "@/types";

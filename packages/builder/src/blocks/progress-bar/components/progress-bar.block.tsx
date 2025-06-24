@@ -5,10 +5,10 @@ import { ProgressBarSettingsType } from "../types";
 
 const ProgressBar: FC<BlockProps<ProgressBarSettingsType>> = ({
   settings,
-  meta: { locale },
+  meta,
 }) => {
-  const title =
-    settings.title?.content?.[locale] || settings.title?.content?.en;
+  const locale = meta?.locale || "en";
+  const title = settings.title?.content?.[locale];
 
   const value = settings.percentage?.value || 0;
 

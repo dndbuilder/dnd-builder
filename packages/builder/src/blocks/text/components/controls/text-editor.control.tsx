@@ -1,3 +1,5 @@
+"use client";
+
 import { BreakpointSelector } from "@/components/shared/breakpoint-selector";
 import { Label } from "@/components/shared/label";
 import { LanguageSelector } from "@/components/shared/language-selector";

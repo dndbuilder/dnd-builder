@@ -1,3 +1,5 @@
+"use client";
+
 import { Input } from "@/components/shared/input";
 import { Popover } from "@/components/shared/popover";
 import { RangeSlider } from "@/components/shared/range-slider";

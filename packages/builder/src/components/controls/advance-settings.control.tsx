@@ -1,3 +1,5 @@
+"use client";
+
 import { Accordion } from "@/components/shared/accordion";
 import { InfoMessage } from "@/components/shared/info-message";
 import { Label } from "@/components/shared/label";

@@ -1,3 +1,5 @@
+"use client";
+
 import { Select } from "@/components/shared/select";
 import { Tooltip } from "@/components/shared/tooltip";
 import { setCurrentBreakpoint } from "@/store/builder-slice";

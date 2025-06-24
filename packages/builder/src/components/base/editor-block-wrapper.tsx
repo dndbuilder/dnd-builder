@@ -1,3 +1,5 @@
+"use client";
+
 import { BuilderConfiguration } from "@/config/builder.config";
 import { useBlockSettings } from "@/hooks/use-block-settings";
 import { useContainerSettings } from "@/hooks/use-container-settings";

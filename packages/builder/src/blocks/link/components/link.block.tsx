@@ -2,10 +2,9 @@ import { BlockProps } from "@/types/block";
 import { FC } from "react";
 import { LinkSettingsType } from "../types";
 
-const LinkBlock: FC<BlockProps<LinkSettingsType>> = ({
-  settings,
-  meta: { locale },
-}) => {
+const LinkBlock: FC<BlockProps<LinkSettingsType>> = ({ settings, meta }) => {
+  const locale = meta?.locale || "en";
+
   if (!settings.text) return null;
 
   const rules = /^[\/#\?]|^[^:]+:/; // Check if the url is relative or absolute path
@@ -25,7 +24,7 @@ const LinkBlock: FC<BlockProps<LinkSettingsType>> = ({
         className="hover:underline"
         onClick={(e) => e.preventDefault()}
       >
-        {settings.text?.[locale] || settings.text?.en}
+        {settings.text?.[locale]}
       </a>
     </div>
   );

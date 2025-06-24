@@ -1,3 +1,5 @@
+"use client";
+
 import { BoxShadowControl } from "@/components/controls/box-shadow.control";
 import { ColorControl } from "@/components/controls/color.control";
 import { SliderUnitControl } from "@/components/controls/slider-unit.control";

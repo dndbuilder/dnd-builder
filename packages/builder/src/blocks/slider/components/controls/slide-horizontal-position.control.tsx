@@ -1,3 +1,5 @@
+"use client";
+
 import { ToggleGroupControl } from "@/components/controls/toggle-group.control";
 import { SettingsType } from "@/types";
 import { FC, HtmlHTMLAttributes } from "react";

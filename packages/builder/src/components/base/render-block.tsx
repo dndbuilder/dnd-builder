@@ -3,6 +3,7 @@ import { Block, BlockMeta } from "@/types/block";
 import { generateBlockProps } from "@/utils/block";
 import { Suspense } from "react";
 import BlockWrapper from "./block-wrapper";
+import { BuilderConfiguration } from "@/config";
 
 export type RenderBlockProps = {
   index: number;
@@ -15,7 +16,7 @@ export const RenderBlock = ({ block, index, meta }: RenderBlockProps) => {
 
   const blockProps = generateBlockProps({ block, index, meta });
 
-  const config = PreviewBlockConfiguration.getBlock(block.type);
+  const config = BuilderConfiguration.getBlock(block.type);
 
   const Component = config?.component;
 

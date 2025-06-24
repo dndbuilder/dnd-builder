@@ -1,14 +1,18 @@
+"use client";
+
 import { PresetPropsType } from "@/blocks/testimonial/types";
 import { Rating } from "@/components/shared/rating";
 import { FC } from "react";
 import { MdFaceRetouchingNatural } from "react-icons/md";
 
-const PresetOne: FC<PresetPropsType> = ({ data, meta: { locale } }) => {
-  const name = data.name?.[locale] || data.name?.en;
+const PresetOne: FC<PresetPropsType> = ({ data, meta }) => {
+  const locale = meta?.locale || "en";
 
-  const position = data.position?.[locale] || data.position?.en;
+  const name = data.name?.[locale];
 
-  const content = data.content?.[locale] || data.content?.en;
+  const position = data.position?.[locale];
+
+  const content = data.content?.[locale];
 
   return (
     <figure className="testimonial-card">

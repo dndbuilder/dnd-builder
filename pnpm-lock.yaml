@@ -304,6 +304,9 @@ importers:
       react-dom:
         specifier: ^19.0.0
         version: 19.0.0(react@19.0.0)
+      rollup-plugin-preserve-directives:
+        specifier: ^0.4.0
+        version: 0.4.0(rollup@4.41.1)
       tailwind-merge:
         specifier: ^3.0.1
         version: 3.0.1
@@ -3754,6 +3757,11 @@ packages:
   reusify@1.0.4:
     resolution: {integrity: sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==}
     engines: {iojs: '>=1.0.0', node: '>=0.10.0'}
+
+  rollup-plugin-preserve-directives@0.4.0:
+    resolution: {integrity: sha512-gx4nBxYm5BysmEQS+e2tAMrtFxrGvk+Pe5ppafRibQi0zlW7VYAbEGk6IKDw9sJGPdFWgVTE0o4BU4cdG0Fylg==}
+    peerDependencies:
+      rollup: 2.x || 3.x || 4.x
 
   rollup@4.41.1:
     resolution: {integrity: sha512-cPmwD3FnFv8rKMBc1MxWCwVQFxwf1JEmSX3iQXrRVVG15zerAIXRjMFVWnd5Q5QvgKF7Aj+5ykXFhUl+QGnyOw==}
@@ -7668,6 +7676,12 @@ snapshots:
       supports-preserve-symlinks-flag: 1.0.0
 
   reusify@1.0.4: {}
+
+  rollup-plugin-preserve-directives@0.4.0(rollup@4.41.1):
+    dependencies:
+      '@rollup/pluginutils': 5.1.4(rollup@4.41.1)
+      magic-string: 0.30.17
+      rollup: 4.41.1
 
   rollup@4.41.1:
     dependencies:

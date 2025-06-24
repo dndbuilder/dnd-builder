@@ -1,3 +1,5 @@
+"use client";
+
 import { ColorControl } from "@/components/controls/color.control";
 import { SliderInputControl } from "@/components/controls/slider-input.control";
 import { SpacingControl } from "@/components/controls/spacing.control";

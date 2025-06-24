@@ -19,12 +19,9 @@ const Dropdown: FC<BlockProps<DropdownSettingsType>> = ({
 }) => {
   const breakpoint = useBreakpoint();
 
-  const locale = meta.locale;
+  const locale = meta?.locale || "en";
 
-  const buttonText =
-    settings?.button?.text?.content?.[locale] ||
-    settings?.button?.text?.content?.en;
-
+  const buttonText = settings?.button?.text?.content?.[locale];
   const imageUrl = settings?.button?.image?.media?.path
     ? generateImageUrl(settings?.button?.image?.media?.path)
     : settings?.button?.image?.media?.url;

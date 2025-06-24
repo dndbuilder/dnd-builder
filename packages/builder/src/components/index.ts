@@ -79,3 +79,6 @@ export * from "./base/render-content";
 export * from "./base/render-block";
 export * from "./base/editor-render-block";
 export * from "./base/block-toolbar";
+
+// Provider Components
+export { BuilderProvider } from "@/contexts/builder-context";

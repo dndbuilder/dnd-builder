@@ -1,3 +1,5 @@
+"use client";
+
 import { BlockProps } from "@/types/block";
 import { FC } from "react";
 import { ContainerSettingsType } from "../types";

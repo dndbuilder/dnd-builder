@@ -1,3 +1,5 @@
+"use client";
+
 import { Input } from "@/components/shared/input";
 import { classNames } from "@/utils";
 import { FC, HTMLAttributes, useState } from "react";

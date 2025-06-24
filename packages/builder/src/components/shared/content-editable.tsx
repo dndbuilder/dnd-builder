@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import { JSX, useEffect, useRef } from "react";
 import deepEqual from "fast-deep-equal";

@@ -1,3 +1,5 @@
+"use client";
+
 import { useSettings } from "@/hooks/use-settings";
 import { SettingsType } from "@/types";
 import { Unit } from "@/types/style";

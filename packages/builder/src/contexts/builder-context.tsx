@@ -1,3 +1,5 @@
+"use client";
+
 import { store } from "../store";
 import { Provider } from "react-redux";
 import { ActionProvider } from "./action-context";

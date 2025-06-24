@@ -1,3 +1,5 @@
+"use client";
+
 import { FC, memo } from "react";
 import { AiFillFile, AiOutlinePlus } from "react-icons/ai";
 import AddContainer from "./add-container";

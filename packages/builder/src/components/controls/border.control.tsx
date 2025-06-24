@@ -1,3 +1,5 @@
+"use client";
+
 import { useSettings } from "@/hooks/use-settings";
 import { SettingsType } from "@/types";
 import { PseudoClass, Unit } from "@/types/style";

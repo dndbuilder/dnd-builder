@@ -1,3 +1,5 @@
+"use client";
+
 import { IconControl } from "@/components/controls/icon.control";
 import { InputControl } from "@/components/controls/input.control";
 import { Accordion } from "@/components/shared/accordion";
