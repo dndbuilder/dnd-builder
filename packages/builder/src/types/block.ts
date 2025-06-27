@@ -103,6 +103,7 @@ export type BlockConfig<
   icon?: ComponentType;
   previewImage?: string;
   component: ComponentType<BlockProps<T>>;
+  previewComponent?: ComponentType<BlockProps<T>>;
   settings: T;
   advancedSettings?: BlockAdvancedSettings;
   style?: (params: {

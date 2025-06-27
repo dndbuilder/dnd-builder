@@ -19,7 +19,7 @@ export const RenderBlock = ({ block, index, meta }: RenderBlockProps) => {
 
   const config = BuilderConfiguration.getBlock(block.type);
 
-  const Component = config?.component;
+  const Component = config?.previewComponent || config?.component;
 
   if (!Component) {
     return (
