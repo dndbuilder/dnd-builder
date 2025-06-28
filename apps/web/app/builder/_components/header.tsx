@@ -1,9 +1,10 @@
 import { useContent } from "@repo/builder/hooks";
-import { BreakpointSwitch } from "@repo/builder/components";
+import { BreakpointSwitch, Tooltip } from "@repo/builder/components";
 import Link from "next/link";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { TbDragDrop } from "react-icons/tb";
+import { LuScanEye } from "react-icons/lu";
 
 export const Header = () => {
   const [content] = useContent();
@@ -14,16 +15,16 @@ export const Header = () => {
     setIsSaving(true);
     try {
       // Save to API instead of localStorage
-      const response = await fetch('/api/builder-content', {
-        method: 'POST',
+      const response = await fetch("/api/builder-content", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ content }),
       });
 
       if (!response.ok) {
-        throw new Error('Failed to save content');
+        throw new Error("Failed to save content");
       }
 
       toast.success("Content saved successfully!");
@@ -47,13 +48,28 @@ export const Header = () => {
 
       <BreakpointSwitch />
 
-      <button
-        className="bg-slate-900 hover:bg-slate-800 text-white px-4 py-2 rounded text-sm font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-        onClick={handleSave}
-        disabled={isSaving}
-      >
-        {isSaving ? "Saving..." : "Save"}
-      </button>
+      <div className="flex items-center space-x-2">
+        <Tooltip>
+          <Tooltip.Trigger>
+            <Link
+              href={"/preview"}
+              target="_blank"
+              className="text-slate-600 ring-1 ring-inset ring-slate-300 hover:text-slate-800 transition-colors flex items-center p-2 hover:bg-slate-100 rounded hover:ring-slate-600"
+            >
+              <LuScanEye size={20} />
+            </Link>
+            <Tooltip.Content>Preview</Tooltip.Content>
+          </Tooltip.Trigger>
+        </Tooltip>
+
+        <button
+          className="bg-slate-800 hover:bg-slate-900 text-white px-6 py-2 rounded text-sm font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          onClick={handleSave}
+          disabled={isSaving}
+        >
+          {isSaving ? "Saving..." : "Save"}
+        </button>
+      </div>
     </header>
   );
 };
