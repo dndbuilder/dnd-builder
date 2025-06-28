@@ -1,6 +1,5 @@
 "use client";
 
-import "@/assets/styles/text-editor.css";
 import Link from "@tiptap/extension-link";
 import Placeholder from "@tiptap/extension-placeholder";
 import { EditorContent, useEditor } from "@tiptap/react";
@@ -17,6 +16,7 @@ import {
   FaStrikethrough,
   FaUnlink,
 } from "react-icons/fa";
+import { classNames } from "@/utils";
 
 export interface TextEditorProps {
   value?: string;
@@ -40,9 +40,6 @@ export const TextEditor: FC<TextEditorProps> = ({
       StarterKit,
       Link.configure({
         openOnClick: false,
-        HTMLAttributes: {
-          class: "tiptap-link",
-        },
       }),
       Placeholder.configure({
         placeholder: placeholder || "Write something...",
@@ -51,11 +48,13 @@ export const TextEditor: FC<TextEditorProps> = ({
     content: value,
     editorProps: {
       attributes: {
-        class: "tiptap-editor-content",
+        class: "prose prose-slate prose-sm min-h-[150px] outline-none p-4",
       },
     },
     onUpdate: ({ editor }) => {
       const html = editor.getHTML();
+
+      // html = html.replaceAll(/<p><\/p>/g, '<p><br class="ProseMirror-trailingBreak"></p>');
       onChange?.(html);
     },
     immediatelyRender: false,
@@ -95,11 +94,26 @@ export const TextEditor: FC<TextEditorProps> = ({
   };
 
   return (
-    <div className={`tiptap-editor ${className || ""}`}>
-      <div className="tiptap-toolbar">
+    <div
+      className={classNames(
+        "border border-slate-200 rounded-md overflow-hidden flex flex-col",
+        className
+      )}
+    >
+      <div
+        className={classNames(
+          "flex flex-wrap p-2 border-b border-slate-200 bg-slate-50 items-center"
+        )}
+      >
         <button
           onClick={() => editor?.chain().focus().toggleBold().run()}
-          className={editor?.isActive("bold") ? "is-active" : ""}
+          className={classNames(
+            "bg-transparent border-none rounded p-2 mr-1 mb-1 text-sm cursor-pointer text-slate-600 flex items-center justify-center w-8 h-8 hover:bg-slate-200",
+            {
+              "bg-slate-200 text-slate-800 font-medium":
+                editor?.isActive("bold"),
+            }
+          )}
           type="button"
           title="Bold"
         >
@@ -107,7 +121,13 @@ export const TextEditor: FC<TextEditorProps> = ({
         </button>
         <button
           onClick={() => editor?.chain().focus().toggleItalic().run()}
-          className={editor?.isActive("italic") ? "is-active" : ""}
+          className={classNames(
+            "bg-transparent border-none rounded p-2 mr-1 mb-1 text-sm cursor-pointer text-slate-600 flex items-center justify-center w-8 h-8 hover:bg-slate-200",
+            {
+              "bg-slate-200 text-slate-800 font-medium":
+                editor?.isActive("italic"),
+            }
+          )}
           type="button"
           title="Italic"
         >
@@ -115,22 +135,34 @@ export const TextEditor: FC<TextEditorProps> = ({
         </button>
         <button
           onClick={() => editor?.chain().focus().toggleStrike().run()}
-          className={editor?.isActive("strike") ? "is-active" : ""}
+          className={classNames(
+            "bg-transparent border-none rounded p-2 mr-1 mb-1 text-sm cursor-pointer text-slate-600 flex items-center justify-center w-8 h-8 hover:bg-slate-200",
+            {
+              "bg-slate-200 text-slate-800 font-medium":
+                editor?.isActive("strike"),
+            }
+          )}
           type="button"
           title="Strike"
         >
           <FaStrikethrough />
         </button>
 
-        <span className="tiptap-toolbar-divider"></span>
+        <span className={classNames("w-px h-6 bg-slate-200 mx-2")}></span>
 
         <button
           onClick={() =>
             editor?.chain().focus().toggleHeading({ level: 1 }).run()
           }
-          className={
-            editor?.isActive("heading", { level: 1 }) ? "is-active" : ""
-          }
+          className={classNames(
+            "bg-transparent border-none rounded p-2 mr-1 mb-1 text-sm cursor-pointer text-slate-600 flex items-center justify-center w-8 h-8 hover:bg-slate-200",
+            {
+              "bg-slate-200 text-slate-800 font-medium": editor?.isActive(
+                "heading",
+                { level: 1 }
+              ),
+            }
+          )}
           type="button"
           title="Heading 1"
         >
@@ -140,20 +172,32 @@ export const TextEditor: FC<TextEditorProps> = ({
           onClick={() =>
             editor?.chain().focus().toggleHeading({ level: 2 }).run()
           }
-          className={
-            editor?.isActive("heading", { level: 2 }) ? "is-active" : ""
-          }
+          className={classNames(
+            "bg-transparent border-none rounded p-2 mr-1 mb-1 text-sm cursor-pointer text-slate-600 flex items-center justify-center w-8 h-8 hover:bg-slate-200",
+            {
+              "bg-slate-200 text-slate-800 font-medium": editor?.isActive(
+                "heading",
+                { level: 2 }
+              ),
+            }
+          )}
           type="button"
           title="Heading 2"
         >
           <FaHeading className="text-sm" />
         </button>
 
-        <span className="tiptap-toolbar-divider"></span>
+        <span className={classNames("w-px h-6 bg-slate-200 mx-2")}></span>
 
         <button
           onClick={() => editor?.chain().focus().toggleBulletList().run()}
-          className={editor?.isActive("bulletList") ? "is-active" : ""}
+          className={classNames(
+            "bg-transparent border-none rounded p-2 mr-1 mb-1 text-sm cursor-pointer text-slate-600 flex items-center justify-center w-8 h-8 hover:bg-slate-200",
+            {
+              "bg-slate-200 text-slate-800 font-medium":
+                editor?.isActive("bulletList"),
+            }
+          )}
           type="button"
           title="Bullet List"
         >
@@ -161,7 +205,13 @@ export const TextEditor: FC<TextEditorProps> = ({
         </button>
         <button
           onClick={() => editor?.chain().focus().toggleOrderedList().run()}
-          className={editor?.isActive("orderedList") ? "is-active" : ""}
+          className={classNames(
+            "bg-transparent border-none rounded p-2 mr-1 mb-1 text-sm cursor-pointer text-slate-600 flex items-center justify-center w-8 h-8 hover:bg-slate-200",
+            {
+              "bg-slate-200 text-slate-800 font-medium":
+                editor?.isActive("orderedList"),
+            }
+          )}
           type="button"
           title="Ordered List"
         >
@@ -169,14 +219,20 @@ export const TextEditor: FC<TextEditorProps> = ({
         </button>
         <button
           onClick={() => editor?.chain().focus().toggleBlockquote().run()}
-          className={editor?.isActive("blockquote") ? "is-active" : ""}
+          className={classNames(
+            "bg-transparent border-none rounded p-2 mr-1 mb-1 text-sm cursor-pointer text-slate-600 flex items-center justify-center w-8 h-8 hover:bg-slate-200",
+            {
+              "bg-slate-200 text-slate-800 font-medium":
+                editor?.isActive("blockquote"),
+            }
+          )}
           type="button"
           title="Blockquote"
         >
           <FaQuoteLeft />
         </button>
 
-        <span className="tiptap-toolbar-divider"></span>
+        <span className={classNames("w-px h-6 bg-slate-200 mx-2")}></span>
 
         {!showLinkInput ? (
           <>
@@ -188,7 +244,13 @@ export const TextEditor: FC<TextEditorProps> = ({
                   setShowLinkInput(true);
                 }
               }}
-              className={editor?.isActive("link") ? "is-active" : ""}
+              className={classNames(
+                "bg-transparent border-none rounded p-2 mr-1 mb-1 text-sm cursor-pointer text-slate-600 flex items-center justify-center w-8 h-8 hover:bg-slate-200",
+                {
+                  "bg-slate-200 text-slate-800 font-medium":
+                    editor?.isActive("link"),
+                }
+              )}
               type="button"
               title={editor?.isActive("link") ? "Unlink" : "Link"}
             >
@@ -196,32 +258,43 @@ export const TextEditor: FC<TextEditorProps> = ({
             </button>
           </>
         ) : (
-          <div className="tiptap-link-input-container">
+          <div className={classNames("flex flex-col gap-2 mr-2 w-full")}>
             <input
               type="text"
               value={linkUrl}
               onChange={(e) => setLinkUrl(e.target.value)}
               placeholder="Enter URL"
               onKeyDown={handleKeyDown}
-              className="tiptap-link-input"
+              className={classNames(
+                "border border-slate-200 rounded text-sm p-1 px-2 outline-none w-full placeholder:xs"
+              )}
               autoFocus
             />
-            <button onClick={setLink} className="tiptap-link-button">
-              Apply
-            </button>
-            <button
-              onClick={() => {
-                setLinkUrl("");
-                setShowLinkInput(false);
-              }}
-              className="tiptap-link-button"
-            >
-              Cancel
-            </button>
+            <div className={classNames("flex gap-1")}>
+              <button
+                onClick={setLink}
+                className={classNames(
+                  "bg-slate-800 focus:bg-slate-900 text-whit rounded text-xs p-1 px-2 cursor-pointer mr-1 hover:bg-slate-900"
+                )}
+              >
+                Apply
+              </button>
+              <button
+                onClick={() => {
+                  setLinkUrl("");
+                  setShowLinkInput(false);
+                }}
+                className={classNames(
+                  "bg-slate-100 border border-slate-200 rounded text-xs p-1 px-2 cursor-pointer mr-1 hover:bg-slate-200"
+                )}
+              >
+                Cancel
+              </button>
+            </div>
           </div>
         )}
 
-        <span className="tiptap-toolbar-divider"></span>
+        <span className={classNames("w-px h-6 bg-slate-200 mx-2")}></span>
       </div>
       <EditorContent editor={editor} {...props} />
     </div>

@@ -53,6 +53,7 @@
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@tailwindcss/postcss": "^4.1.7",
+    "@tailwindcss/typography": "^0.5.16",
     "@tailwindcss/vite": "^4.1.8",
     "@tanstack/react-virtual": "^3.13.0",
     "@types/cssbeautify": "~0.3.5",

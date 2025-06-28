@@ -8,10 +8,15 @@ const Text: FC<BlockProps<TextSettingsType>> = ({ settings, meta }) => {
   const text = settings.text?.[locale] || "";
 
   return (
-    <p
-      className="text prose prose-sm prose-slate"
-      dangerouslySetInnerHTML={{ __html: text }}
-    ></p>
+    <div
+      className="tiptap ProseMirror prose prose-slate max-w-none p-4"
+      dangerouslySetInnerHTML={{
+        __html: text.replaceAll(
+          /<p><\/p>/g,
+          '<p><br class="ProseMirror-trailingBreak"></p>'
+        ),
+      }}
+    ></div>
   );
 };
 
