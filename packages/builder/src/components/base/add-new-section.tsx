@@ -19,15 +19,11 @@ const AddNewSection: FC<Props> = memo(
     return (
       <div className={className}>
         <BlockDropzone blockId={blockId} onBlockAdded={onBlockAdded}>
-          <div
-            className={
-              "flex w-36 items-center justify-center gap-3 rounded-full bg-white p-3"
-            }
-          >
+          <div className={"flex w-36 items-center justify-center gap-3 rounded-full bg-white p-3"}>
             <AddContainer blockId={blockId} onBlockAdded={onBlockAdded}>
               <div
                 role="button"
-                className="flex h-12 w-12 items-center justify-center rounded-full bg-slate-800 hover:bg-slate-900 transition-colors duration-150"
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-slate-800 transition-colors duration-150 hover:bg-slate-900"
                 aria-label="Select Container"
               >
                 <span className="inline-block rounded-full bg-white p-[3px]">

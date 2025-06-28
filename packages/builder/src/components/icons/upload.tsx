@@ -1,11 +1,11 @@
-import { CSSProperties } from 'react';
+import { CSSProperties } from "react";
 
 interface Props {
   className?: string;
-  color?: CSSProperties['color'];
+  color?: CSSProperties["color"];
 }
 
-const Upload = ({ className, color = '#7047EB' }: Props) => {
+const Upload = ({ className, color = "#7047EB" }: Props) => {
   return (
     <svg
       className={className}

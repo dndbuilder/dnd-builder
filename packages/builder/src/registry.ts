@@ -68,9 +68,7 @@ export class BuilderRegistry {
    * @returns Array of blocks that belong to the specified group
    */
   getBlocksByGroup(group: string): BlockConfig[] {
-    return Object.values(this.registeredBlocks).filter(
-      (block) => block.group === group
-    );
+    return Object.values(this.registeredBlocks).filter((block) => block.group === group);
   }
 
   /**
@@ -198,10 +196,7 @@ export class BuilderRegistry {
 
         if (existingBreakpoint) {
           // If breakpoint already exists, deep merge it with the existing one
-          this.breakpoints[breakpoint.key] = deepmerge(
-            existingBreakpoint,
-            breakpoint
-          );
+          this.breakpoints[breakpoint.key] = deepmerge(existingBreakpoint, breakpoint);
         } else {
           // If breakpoint doesn't exist, register it
           this.registerBreakpoint(breakpoint);

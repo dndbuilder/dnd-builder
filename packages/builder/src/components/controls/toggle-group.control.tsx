@@ -43,10 +43,7 @@ export interface ToggleGroupControlProps
 const toggleGroupItemClasses =
   "hover:bg-slate-100  controls-[state=on]:bg-slate-100 flex h-[28px] w-[35px] items-center justify-center bg-white text-base leading-4 first:rounded-l last:rounded-r focus:z-10 focus:outline-hidden";
 
-export const ToggleGroupControl = forwardRef<
-  HTMLDivElement,
-  ToggleGroupControlProps
->(
+export const ToggleGroupControl = forwardRef<HTMLDivElement, ToggleGroupControlProps>(
   (
     {
       type,
@@ -99,30 +96,22 @@ export const ToggleGroupControl = forwardRef<
             className="inline-flex rounded-sm border"
             type="single"
           >
-            {controls.map(
-              ({ toggleTrigger, tooltipContent, value: val }, index) => (
-                <Tooltip key={index}>
-                  <Tooltip.Trigger asChild>
-                    <ToggleGroup.Item
-                      className={classNames(
-                        toggleGroupItemClasses,
-                        "border-r last:border-r-0",
-                        {
-                          "bg-slate-100": val === value,
-                        }
-                      )}
-                      value={val}
-                    >
-                      {toggleTrigger}
-                    </ToggleGroup.Item>
-                  </Tooltip.Trigger>
+            {controls.map(({ toggleTrigger, tooltipContent, value: val }, index) => (
+              <Tooltip key={index}>
+                <Tooltip.Trigger asChild>
+                  <ToggleGroup.Item
+                    className={classNames(toggleGroupItemClasses, "border-r last:border-r-0", {
+                      "bg-slate-100": val === value,
+                    })}
+                    value={val}
+                  >
+                    {toggleTrigger}
+                  </ToggleGroup.Item>
+                </Tooltip.Trigger>
 
-                  {tooltipContent && (
-                    <Tooltip.Content>{tooltipContent}</Tooltip.Content>
-                  )}
-                </Tooltip>
-              )
-            )}
+                {tooltipContent && <Tooltip.Content>{tooltipContent}</Tooltip.Content>}
+              </Tooltip>
+            ))}
           </ToggleGroup.Root>
         </div>
       </div>

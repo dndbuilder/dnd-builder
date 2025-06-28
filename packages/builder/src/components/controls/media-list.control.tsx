@@ -26,10 +26,7 @@ export const MediaList: FC<MediaListProps> = ({ onImageSelect }) => {
         <ScrollArea className="h-[calc(90vh-160px)]">
           <div className="grid grid-cols-5 gap-4">
             {images.map((image) => (
-              <div
-                key={image.id}
-                onDoubleClick={() => onImageSelect(image.src)}
-              >
+              <div key={image.id} onDoubleClick={() => onImageSelect(image.src)}>
                 <div
                   className="relative w-full cursor-pointer overflow-hidden bg-slate-300 transition duration-200 hover:bg-slate-400 hover:shadow-xl"
                   style={{ paddingBottom: "100%" }}

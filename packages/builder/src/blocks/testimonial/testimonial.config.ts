@@ -148,9 +148,7 @@ const TestimonialConfig = createBlockConfig<TestimonialSettingsType>({
             right: borderTopRightRadius,
             bottom: borderBottomRightRadius,
             left: borderBottomLeftRadius,
-          } = generateSpacingValue(
-            settings.card?.border?.radius?.[pseudoClass]
-          );
+          } = generateSpacingValue(settings.card?.border?.radius?.[pseudoClass]);
 
           const borderType = settings.card?.border?.type?.[pseudoClass];
           return {
@@ -160,9 +158,7 @@ const TestimonialConfig = createBlockConfig<TestimonialSettingsType>({
             borderBottomLeftRadius,
             borderStyle: Boolean(borderType) ? borderType : undefined,
             borderColor: settings.card?.border?.color?.[pseudoClass],
-            boxShadow: generateBoxShadow(
-              settings.card?.boxShadow?.[pseudoClass]
-            ),
+            boxShadow: generateBoxShadow(settings.card?.boxShadow?.[pseudoClass]),
           };
         }),
         ...generateResponsiveStyle(breakpoints, (breakpoint) => {
@@ -183,9 +179,7 @@ const TestimonialConfig = createBlockConfig<TestimonialSettingsType>({
                 right: borderRightWidth,
                 bottom: borderBottomWidth,
                 left: borderLeftWidth,
-              } = generateSpacingValue(
-                settings.card?.border?.width?.[breakpoint]?.[pseudoClass]
-              );
+              } = generateSpacingValue(settings.card?.border?.width?.[breakpoint]?.[pseudoClass]);
 
               return {
                 borderTopWidth,
@@ -219,38 +213,23 @@ const TestimonialConfig = createBlockConfig<TestimonialSettingsType>({
           zIndex: 2,
           transition: "all 200ms ease-in-out",
           ...generateResponsiveStyle(breakpoints, (breakpoint) => {
-            const leftArrow =
-              settings.slider?.navigation?.leftArrowPosition?.[breakpoint];
-            const rightArrow =
-              settings.slider?.navigation?.rightArrowPosition?.[breakpoint];
+            const leftArrow = settings.slider?.navigation?.leftArrowPosition?.[breakpoint];
+            const rightArrow = settings.slider?.navigation?.rightArrowPosition?.[breakpoint];
 
             return {
-              width: generateUnitValue(
-                settings.slider?.navigation?.arrowWidth?.[breakpoint]
-              ),
-              height: generateUnitValue(
-                settings.slider?.navigation?.arrowHeight?.[breakpoint]
-              ),
+              width: generateUnitValue(settings.slider?.navigation?.arrowWidth?.[breakpoint]),
+              height: generateUnitValue(settings.slider?.navigation?.arrowHeight?.[breakpoint]),
               fontSize:
-                generateUnitValue(
-                  settings.slider?.navigation?.arrowSize?.[breakpoint]
-                ) ?? "22px",
+                generateUnitValue(settings.slider?.navigation?.arrowSize?.[breakpoint]) ?? "22px",
               ...generatePseudoStyle((pseudoClass) => ({
-                color:
-                  settings.slider?.navigation?.arrowColor?.[breakpoint]?.[
-                    pseudoClass
-                  ],
+                color: settings.slider?.navigation?.arrowColor?.[breakpoint]?.[pseudoClass],
                 backgroundColor:
-                  settings.slider?.navigation?.arrowBackgroudColor?.[
-                    breakpoint
-                  ]?.[pseudoClass],
+                  settings.slider?.navigation?.arrowBackgroudColor?.[breakpoint]?.[pseudoClass],
                 boxShadow: generateBoxShadow(
                   settings.slider?.navigation?.arrowBoxShadow?.[pseudoClass]
                 ),
                 ...generateBorderRadius(
-                  settings.slider?.navigation?.arrowRadius?.[breakpoint]?.[
-                    pseudoClass
-                  ]
+                  settings.slider?.navigation?.arrowRadius?.[breakpoint]?.[pseudoClass]
                 ),
               })),
               ["&.arrow-left"]: {
@@ -285,67 +264,49 @@ const TestimonialConfig = createBlockConfig<TestimonialSettingsType>({
               settings.slider?.navigation?.dotsPosition?.[breakpoint]
             );
             return {
-              gap:
-                generateUnitValue(
-                  settings.slider?.navigation?.dotGap?.[breakpoint]
-                ) ?? "15px",
+              gap: generateUnitValue(settings.slider?.navigation?.dotGap?.[breakpoint]) ?? "15px",
               top: position.top,
               right: position.right,
               bottom: position.bottom,
-              left: position.left
-                ? position.left
-                : position.right
-                  ? undefined
-                  : "50%",
-              transform:
-                position.left || position.right
-                  ? undefined
-                  : "translateX(-50%)",
+              left: position.left ? position.left : position.right ? undefined : "50%",
+              transform: position.left || position.right ? undefined : "translateX(-50%)",
               ["& li"]: {
                 cursor: "unset",
                 "& .dot": {
                   margin: "0 5px",
                   cursor: "pointer",
                   borderRadius:
-                    generateUnitValue(
-                      settings.slider?.navigation?.dotRadius?.[breakpoint]
-                    ) ?? "50%",
+                    generateUnitValue(settings.slider?.navigation?.dotRadius?.[breakpoint]) ??
+                    "50%",
                   backgroundColor:
-                    settings.slider?.navigation?.dotColor?.[breakpoint]
-                      ?.default ?? "rgba(0,0,0,0.2)",
+                    settings.slider?.navigation?.dotColor?.[breakpoint]?.default ??
+                    "rgba(0,0,0,0.2)",
                   display: "block",
                   width:
-                    generateUnitValue(
-                      settings.slider?.navigation?.dotWidth?.[breakpoint]
-                    ) ?? "10px",
+                    generateUnitValue(settings.slider?.navigation?.dotWidth?.[breakpoint]) ??
+                    "10px",
                   height:
-                    generateUnitValue(
-                      settings.slider?.navigation?.dotHeight?.[breakpoint]
-                    ) ?? "10px",
+                    generateUnitValue(settings.slider?.navigation?.dotHeight?.[breakpoint]) ??
+                    "10px",
                 },
                 "&:hover": {
                   "& .dot": {
                     backgroundColor:
-                      settings.slider?.navigation?.dotActiveColor?.[breakpoint]
-                        ?.default,
+                      settings.slider?.navigation?.dotActiveColor?.[breakpoint]?.default,
                   },
                 },
                 ["&.slick-active"]: {
                   "& .dot": {
                     backgroundColor:
-                      settings.slider?.navigation?.dotActiveColor?.[breakpoint]
-                        ?.default ?? "rgba(0,0,0,0.8)",
+                      settings.slider?.navigation?.dotActiveColor?.[breakpoint]?.default ??
+                      "rgba(0,0,0,0.8)",
                     width:
                       generateUnitValue(
-                        settings.slider?.navigation?.activeDotWidth?.[
-                          breakpoint
-                        ]
+                        settings.slider?.navigation?.activeDotWidth?.[breakpoint]
                       ) ?? "10px",
                     height:
                       generateUnitValue(
-                        settings.slider?.navigation?.activeDotHeight?.[
-                          breakpoint
-                        ]
+                        settings.slider?.navigation?.activeDotHeight?.[breakpoint]
                       ) ?? "10px",
                   },
                 },

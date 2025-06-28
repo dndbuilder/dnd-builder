@@ -105,16 +105,12 @@ export const LanguageSelector: FC<{ className?: string }> = ({ className }) => {
         </Tooltip>
       </Select.Trigger>
 
-      <Select.Content
-        sideOffset={-23}
-        className="min-w-[30px] border-0"
-        align="end"
-      >
+      <Select.Content sideOffset={-23} className="min-w-[30px] border-0" align="end">
         <Select.Group>
           {languages.map((lang) => (
             <Select.Item
               key={lang.code}
-              className="flex ps-3 pe-3 py-2"
+              className="flex py-2 pe-3 ps-3"
               value={lang.code}
               showCheck={false}
             >

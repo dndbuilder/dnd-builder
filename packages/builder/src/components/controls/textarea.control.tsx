@@ -63,11 +63,7 @@ export const TextareaControl: FC<TextareaControlProps> = ({
   return (
     <div className={classNames("mt-4 grid w-full gap-1.5", className)}>
       {label && (
-        <Label
-          htmlFor={autoId}
-          className="flex flex-1 items-center gap-1"
-          {...labelProps}
-        >
+        <Label htmlFor={autoId} className="flex flex-1 items-center gap-1" {...labelProps}>
           <span>{label}</span>
           {responsive && <BreakpointSelector />}
           {isLocalized && <LanguageSelector className="ms-auto" />}

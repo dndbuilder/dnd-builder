@@ -21,10 +21,7 @@ import { FaRegCopy } from "react-icons/fa6";
 import { TabsSettingsType } from "../types";
 
 const TabsContentControl = () => {
-  const [tabs, setTabs] = useSettings<TabsSettingsType["tabs"]>(
-    "tabs",
-    SettingsType.BLOCK
-  );
+  const [tabs, setTabs] = useSettings<TabsSettingsType["tabs"]>("tabs", SettingsType.BLOCK);
 
   const [activeTabId, setActiveTabId] = useSettings<string | null>(
     "activeTabId",
@@ -86,8 +83,8 @@ const TabsContentControl = () => {
             {tabs?.map((tab, index) => (
               <div key={tab.id} className="mb-1.5">
                 <SortableItem key={tab.id}>
-                  <div className="bg-[#F8F9F8] z-99 px-2" key={index}>
-                    <div className="min-h-[40px] flex  items-center">
+                  <div className="z-99 bg-[#F8F9F8] px-2" key={index}>
+                    <div className="flex min-h-[40px]  items-center">
                       <button className={"me-1 cursor-move"}>
                         <BiGridVertical size={14} color={"#828282"} />
                       </button>
@@ -96,14 +93,14 @@ const TabsContentControl = () => {
                         onClick={() => {
                           setActiveTabId(tab.id);
                         }}
-                        className="flex h-full flex-1 text-xs cursor-pointer items-center py-1 hover:bg-slate-50"
+                        className="flex h-full flex-1 cursor-pointer items-center py-1 text-xs hover:bg-slate-50"
                       >
                         {getTitle(tab.label?.[currentLocale], index)}
                       </Label>
 
                       <button
                         onClick={() => duplicateTab(index)}
-                        className="flex h-full cursor-pointer me-1.5 items-center justify-center hover:bg-slate-50"
+                        className="me-1.5 flex h-full cursor-pointer items-center justify-center hover:bg-slate-50"
                       >
                         <FaRegCopy />
                       </button>
@@ -119,7 +116,7 @@ const TabsContentControl = () => {
                 </SortableItem>
                 <div
                   className={classNames(
-                    "grid grid-rows-[0fr] bg-[#F8F9F8] overflow-hidden transition-[grid-template-rows] duration-200",
+                    "grid grid-rows-[0fr] overflow-hidden bg-[#F8F9F8] transition-[grid-template-rows] duration-200",
                     {
                       "grid-rows-[1fr]": activeTabId === tab.id,
                     }

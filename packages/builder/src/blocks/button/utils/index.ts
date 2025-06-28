@@ -22,75 +22,47 @@ export function generateSize({
     case SizeType.SM:
       return {
         paddingTop: padding?.top ? `${padding.top}${padding.unit}` : "0.25rem",
-        paddingBottom: padding?.bottom
-          ? `${padding.bottom}${padding.unit}`
-          : "0.25rem",
+        paddingBottom: padding?.bottom ? `${padding.bottom}${padding.unit}` : "0.25rem",
         paddingLeft: padding?.left ? `${padding.left}${padding.unit}` : "1rem",
-        paddingRight: padding?.right
-          ? `${padding.right}${padding.unit}`
-          : "1rem",
+        paddingRight: padding?.right ? `${padding.right}${padding.unit}` : "1rem",
       };
     case SizeType.MD:
       return {
         paddingTop: padding?.top ? `${padding.top}${padding.unit}` : "0.5rem",
-        paddingBottom: padding?.bottom
-          ? `${padding.bottom}${padding.unit}`
-          : "0.5rem",
-        paddingLeft: padding?.left
-          ? `${padding.left}${padding.unit}`
-          : "1.5rem",
-        paddingRight: padding?.right
-          ? `${padding.right}${padding.unit}`
-          : "1.5rem",
+        paddingBottom: padding?.bottom ? `${padding.bottom}${padding.unit}` : "0.5rem",
+        paddingLeft: padding?.left ? `${padding.left}${padding.unit}` : "1.5rem",
+        paddingRight: padding?.right ? `${padding.right}${padding.unit}` : "1.5rem",
       };
 
     case SizeType.LG:
       return {
         paddingTop: padding?.top ? `${padding.top}${padding.unit}` : "0.75rem",
-        paddingBottom: padding?.bottom
-          ? `${padding.bottom}${padding.unit}`
-          : "0.75rem",
-        paddingLeft: padding?.left
-          ? `${padding.left}${padding.unit}`
-          : "1.5rem",
-        paddingRight: padding?.right
-          ? `${padding.right}${padding.unit}`
-          : "1.5rem",
+        paddingBottom: padding?.bottom ? `${padding.bottom}${padding.unit}` : "0.75rem",
+        paddingLeft: padding?.left ? `${padding.left}${padding.unit}` : "1.5rem",
+        paddingRight: padding?.right ? `${padding.right}${padding.unit}` : "1.5rem",
       };
 
     case SizeType.XL:
       return {
         paddingTop: padding?.top ? `${padding.top}${padding.unit}` : "1rem",
-        paddingBottom: padding?.bottom
-          ? `${padding.bottom}${padding.unit}`
-          : "1rem",
+        paddingBottom: padding?.bottom ? `${padding.bottom}${padding.unit}` : "1rem",
         paddingLeft: padding?.left ? `${padding.left}${padding.unit}` : "2rem",
-        paddingRight: padding?.right
-          ? `${padding.right}${padding.unit}`
-          : "2rem",
+        paddingRight: padding?.right ? `${padding.right}${padding.unit}` : "2rem",
       };
 
     case SizeType.XXL:
       return {
         paddingTop: padding?.top ? `${padding.top}${padding.unit}` : "1.5rem",
-        paddingBottom: padding?.bottom
-          ? `${padding.bottom}${padding.unit}`
-          : "1.5rem",
+        paddingBottom: padding?.bottom ? `${padding.bottom}${padding.unit}` : "1.5rem",
         paddingLeft: padding?.left ? `${padding.left}${padding.unit}` : "3rem",
-        paddingRight: padding?.right
-          ? `${padding.right}${padding.unit}`
-          : "3rem",
+        paddingRight: padding?.right ? `${padding.right}${padding.unit}` : "3rem",
       };
     default:
       return {
         paddingTop: padding?.top ? `${padding.top}${padding.unit}` : "0.5rem",
-        paddingBottom: padding?.bottom
-          ? `${padding.bottom}${padding.unit}`
-          : "0.5rem",
+        paddingBottom: padding?.bottom ? `${padding.bottom}${padding.unit}` : "0.5rem",
         paddingLeft: padding?.left ? `${padding.left}${padding.unit}` : "1rem",
-        paddingRight: padding?.right
-          ? `${padding.right}${padding.unit}`
-          : "1rem",
+        paddingRight: padding?.right ? `${padding.right}${padding.unit}` : "1rem",
       };
   }
 }

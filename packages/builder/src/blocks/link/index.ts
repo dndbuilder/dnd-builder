@@ -1,1 +1,1 @@
-export { default as LinkConfig } from './link.config';
+export { default as LinkConfig } from "./link.config";

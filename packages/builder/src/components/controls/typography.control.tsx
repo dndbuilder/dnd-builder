@@ -44,13 +44,11 @@ export const TypographyControl: FC<TypographyProps> = ({
 }) => {
   const fieldName = mode ? `${name}.${mode}` : name;
 
-  const [typography, setTypography] = useSettings<TypographyType | undefined>(
-    fieldName,
-    type
+  const [typography, setTypography] = useSettings<TypographyType | undefined>(fieldName, type);
+  const [presets] = useSettings<Array<{ id: string; name: string; value: TypographyType }>>(
+    "typography.presets",
+    SettingsType.THEME
   );
-  const [presets] = useSettings<
-    Array<{ id: string; name: string; value: TypographyType }>
-  >("typography.presets", SettingsType.THEME);
   const currentBreakpoint = useAppSelector(getCurrentBreakpoint);
   const rootRef = useRef<HTMLDivElement>(null);
 
@@ -59,10 +57,7 @@ export const TypographyControl: FC<TypographyProps> = ({
   };
 
   return (
-    <div
-      className={classNames("mt-4 flex items-center", className)}
-      ref={rootRef}
-    >
+    <div className={classNames("mt-4 flex items-center", className)} ref={rootRef}>
       {label && <Label className="flex-grow">{label}</Label>}
 
       {showPresets && (
@@ -72,7 +67,7 @@ export const TypographyControl: FC<TypographyProps> = ({
           <Tooltip>
             <Tooltip.Trigger>
               <Popover.Trigger asChild>
-                <div className="cursor-pointer border border-r-0 rounded-l px-[10px] py-2">
+                <div className="cursor-pointer rounded-l border border-r-0 px-[10px] py-2">
                   <AiOutlineGlobal className="text-sm" />
                 </div>
               </Popover.Trigger>
@@ -101,26 +96,18 @@ export const TypographyControl: FC<TypographyProps> = ({
                   <BsCheck2
                     className={classNames(
                       "me-2 h-4 w-4",
-                      typography?.presetId === preset.id
-                        ? "opacity-100"
-                        : "opacity-0"
+                      typography?.presetId === preset.id ? "opacity-100" : "opacity-0"
                     )}
                   />
                   <p
                     style={{
                       fontFamily: preset.value?.fontFamily?.desktop,
-                      fontSize: generateUnitValue(
-                        preset.value?.fontSize?.[currentBreakpoint]
-                      ),
+                      fontSize: generateUnitValue(preset.value?.fontSize?.[currentBreakpoint]),
                       fontWeight: preset.value?.fontWeight?.[currentBreakpoint],
-                      textTransform:
-                        preset.value?.textTransform?.[currentBreakpoint],
+                      textTransform: preset.value?.textTransform?.[currentBreakpoint],
                       fontStyle: preset.value?.fontStyle?.[currentBreakpoint],
-                      textDecoration:
-                        preset.value?.textDecoration?.[currentBreakpoint],
-                      lineHeight: generateUnitValue(
-                        preset.value?.lineHeight?.[currentBreakpoint]
-                      ),
+                      textDecoration: preset.value?.textDecoration?.[currentBreakpoint],
+                      lineHeight: generateUnitValue(preset.value?.lineHeight?.[currentBreakpoint]),
                       letterSpacing: generateUnitValue(
                         preset.value?.letterSpacing?.[currentBreakpoint]
                       ),
@@ -142,7 +129,7 @@ export const TypographyControl: FC<TypographyProps> = ({
       {/* Typography */}
       <Popover onOpenChange={(open: boolean) => onOpenChange(open)}>
         <Popover.Trigger asChild>
-          <div className="cursor-pointer border rounded-r px-[10px] py-2">
+          <div className="cursor-pointer rounded-r border px-[10px] py-2">
             <CiEdit />
           </div>
         </Popover.Trigger>

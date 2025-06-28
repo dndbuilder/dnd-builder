@@ -88,17 +88,10 @@ export const InputControl: FC<InputControlProps> = ({
 
   return (
     <div
-      className={classNames(
-        "mt-4 flex w-full gap-1.5",
-        controlVariants({ direction, className })
-      )}
+      className={classNames("mt-4 flex w-full gap-1.5", controlVariants({ direction, className }))}
     >
       {label && (
-        <Label
-          htmlFor={autoId}
-          className="flex flex-1 items-center w-full"
-          {...labelProps}
-        >
+        <Label htmlFor={autoId} className="flex w-full flex-1 items-center" {...labelProps}>
           <span>{label}</span>
           {responsive && <BreakpointSelector />}
           {isLocalized && <LanguageSelector className="ms-auto" />}

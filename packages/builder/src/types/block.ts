@@ -95,9 +95,7 @@ export type BlockProps<T extends object = AnyObject> = Block<T> & {
   meta?: BlockMeta;
 };
 
-export type BlockConfig<
-  T extends object = any /* @typescript-eslint/no-explicit-any */,
-> = {
+export type BlockConfig<T extends object = any /* @typescript-eslint/no-explicit-any */> = {
   type: string;
   label: string;
   icon?: ComponentType;
@@ -134,9 +132,7 @@ export type GroupConfig = {
   isVisible?: (params?: AnyObject) => boolean;
 };
 
-export type PreviewBlockConfig<
-  T extends object = any /* @typescript-eslint/no-explicit-any */,
-> = {
+export type PreviewBlockConfig<T extends object = any /* @typescript-eslint/no-explicit-any */> = {
   type: string;
   component: ComponentType<BlockProps<T>>;
 };

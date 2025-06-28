@@ -42,24 +42,19 @@ const Testimonials = () => {
         {testimonials?.map((item, index) => (
           <div key={item.id} className="mb-1.5">
             <SortableItem key={item.id}>
-              <div className="bg-[#F8F9F8] z-[99] px-2" key={index}>
-                <div className="min-h-[40px] flex  items-center">
+              <div className="z-[99] bg-[#F8F9F8] px-2" key={index}>
+                <div className="flex min-h-[40px]  items-center">
                   <button className={"me-1 cursor-move"}>
                     <BiGridVertical size={14} color={"#828282"} />
                   </button>
 
                   <Label
                     onClick={() => {
-                      setActiveItem((prevState) =>
-                        prevState === item.id ? "" : item.id
-                      );
+                      setActiveItem((prevState) => (prevState === item.id ? "" : item.id));
                     }}
                     className="flex h-full flex-1 cursor-pointer items-center "
                   >
-                    {getTitle(
-                      item.name?.[currentLocale] || item.name?.en,
-                      index
-                    )}
+                    {getTitle(item.name?.[currentLocale] || item.name?.en, index)}
                   </Label>
 
                   <div
@@ -72,7 +67,7 @@ const Testimonials = () => {
                       });
                       setTestimonials(newSlides);
                     }}
-                    className="flex h-full cursor-pointer items-center justify-center me-1.5 "
+                    className="me-1.5 flex h-full cursor-pointer items-center justify-center "
                   >
                     <FaRegCopy />
                   </div>
@@ -93,7 +88,7 @@ const Testimonials = () => {
 
             <div
               className={classNames(
-                "grid grid-rows-[0fr] bg-[#F8F9F8] overflow-hidden transition-[grid-template-rows] duration-200",
+                "grid grid-rows-[0fr] overflow-hidden bg-[#F8F9F8] transition-[grid-template-rows] duration-200",
                 {
                   "grid-rows-[1fr]": activeItem === item.id,
                 }

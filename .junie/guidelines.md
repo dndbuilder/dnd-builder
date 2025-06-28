@@ -21,11 +21,13 @@ The project is organized as a monorepo using pnpm workspaces and Turborepo:
 ### Setup
 
 1. Install dependencies:
+
    ```bash
    pnpm install
    ```
 
 2. Build all packages:
+
    ```bash
    pnpm build
    ```
@@ -47,6 +49,7 @@ pnpm build
 ```
 
 This will:
+
 - Transpile TypeScript files
 - Process CSS with PostCSS and Tailwind
 - Bundle everything into the `dist` directory
@@ -87,14 +90,14 @@ pnpm test
 
 ```typescript
 // tests/utils.test.ts
-import { bytesToSize } from '../src/utils';
+import { bytesToSize } from "../src/utils";
 
-describe('bytesToSize', () => {
-  it('should convert bytes to human-readable format', () => {
-    expect(bytesToSize(0)).toBe('0 Bytes');
-    expect(bytesToSize(1024)).toBe('1 KB');
-    expect(bytesToSize(1048576)).toBe('1 MB');
-    expect(bytesToSize(1073741824)).toBe('1 GB');
+describe("bytesToSize", () => {
+  it("should convert bytes to human-readable format", () => {
+    expect(bytesToSize(0)).toBe("0 Bytes");
+    expect(bytesToSize(1024)).toBe("1 KB");
+    expect(bytesToSize(1048576)).toBe("1 MB");
+    expect(bytesToSize(1073741824)).toBe("1 GB");
   });
 });
 ```
@@ -110,14 +113,14 @@ import { ExampleComponent } from './example-component';
 describe('ExampleComponent', () => {
   it('renders the provided text', () => {
     render(<ExampleComponent text="Hello, World!" />);
-    
+
     const heading = screen.getByRole('heading');
     expect(heading).toHaveTextContent('Hello, World!');
   });
 
   it('renders a button', () => {
     render(<ExampleComponent text="Test" />);
-    
+
     const button = screen.getByRole('button');
     expect(button).toBeInTheDocument();
     expect(button).toHaveTextContent('Click me');
@@ -149,6 +152,7 @@ The project uses Tailwind CSS for styling. PostCSS is used to process CSS files.
 ### Component Development Guidelines
 
 1. **Component Structure**: Components should be organized in directories with related files:
+
    ```
    component-name/
      ├── component-name.tsx
@@ -174,12 +178,14 @@ The project uses Tailwind CSS for styling. PostCSS is used to process CSS files.
 ### Common Issues
 
 1. **Build Failures**: If you encounter build failures, try cleaning the build cache:
+
    ```bash
    rm -rf .turbo
    pnpm build
    ```
 
 2. **Dependency Issues**: If you encounter dependency issues, try reinstalling dependencies:
+
    ```bash
    rm -rf node_modules
    pnpm install

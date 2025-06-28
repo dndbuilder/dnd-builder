@@ -3,11 +3,7 @@
 import { BuilderConfiguration } from "@/config/builder.config";
 import { useBlockSettings } from "@/hooks/use-block-settings";
 import { useContainerSettings } from "@/hooks/use-container-settings";
-import {
-  addBlocks,
-  moveBlock,
-  selectBlock as setSelectedBlock,
-} from "@/store/builder-slice";
+import { addBlocks, moveBlock, selectBlock as setSelectedBlock } from "@/store/builder-slice";
 import { getIsBlockSelected } from "@/store/selectors";
 import { Direction } from "@/types";
 import { Position } from "@/types/style";
@@ -56,8 +52,7 @@ const EditorBlockWrapper: FC<Props> = ({
   const { settings, advancedSettings } = useContainerSettings();
 
   const direction =
-    parentFlexDirection === FlexDirection.ROW ||
-    parentFlexDirection === FlexDirection.ROW_REVERSE
+    parentFlexDirection === FlexDirection.ROW || parentFlexDirection === FlexDirection.ROW_REVERSE
       ? Direction.HORIZONTAL
       : Direction.VERTICAL;
 
@@ -107,29 +102,18 @@ const EditorBlockWrapper: FC<Props> = ({
         blocks.push(block);
 
         // Hover on top
-        if (
-          placeholderPosition === Position.TOP ||
-          placeholderPosition === Position.LEFT
-        ) {
+        if (placeholderPosition === Position.TOP || placeholderPosition === Position.LEFT) {
           dispatch(addBlocks({ blocks, selectedBlockId: block.id, index }));
         }
 
         // Hover on bottom
-        if (
-          placeholderPosition === Position.BOTTOM ||
-          placeholderPosition === Position.RIGHT
-        ) {
-          dispatch(
-            addBlocks({ blocks, selectedBlockId: block.id, index: index + 1 })
-          );
+        if (placeholderPosition === Position.BOTTOM || placeholderPosition === Position.RIGHT) {
+          dispatch(addBlocks({ blocks, selectedBlockId: block.id, index: index + 1 }));
         }
       }
       if (isMoveableBlock(item)) {
         // Hover on top
-        if (
-          placeholderPosition === Position.TOP ||
-          placeholderPosition === Position.LEFT
-        ) {
+        if (placeholderPosition === Position.TOP || placeholderPosition === Position.LEFT) {
           dispatch(
             moveBlock({
               sourceId: item.id,
@@ -139,10 +123,7 @@ const EditorBlockWrapper: FC<Props> = ({
           );
         }
         // Hover on bottom
-        if (
-          placeholderPosition === Position.BOTTOM ||
-          placeholderPosition === Position.RIGHT
-        ) {
+        if (placeholderPosition === Position.BOTTOM || placeholderPosition === Position.RIGHT) {
           dispatch(
             moveBlock({
               sourceId: item.id,
@@ -169,11 +150,9 @@ const EditorBlockWrapper: FC<Props> = ({
 
       const hoverBoundingRect = ref.current.getBoundingClientRect();
       // Get vertical middle
-      const hoverMiddleY =
-        (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
+      const hoverMiddleY = (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
       // Get horizontal middle
-      const hoverMiddleX =
-        (hoverBoundingRect.right - hoverBoundingRect.left) / 2;
+      const hoverMiddleX = (hoverBoundingRect.right - hoverBoundingRect.left) / 2;
       // Determine mouse position
       const clientOffset = monitor.getClientOffset();
       // Get pixels to the top
@@ -201,8 +180,7 @@ const EditorBlockWrapper: FC<Props> = ({
       isOver:
         monitor.isOver({ shallow: true }) &&
         monitor.canDrop() &&
-        (isDropableBlock(monitor.getItem()) ||
-          isMoveableBlock(monitor.getItem())),
+        (isDropableBlock(monitor.getItem()) || isMoveableBlock(monitor.getItem())),
     }),
   });
 
@@ -230,9 +208,7 @@ const EditorBlockWrapper: FC<Props> = ({
           blockId,
           "relative transition-all duration-200 ease-in-out",
           parentId === "root" && "ring-inset",
-          isSelected
-            ? "ring-1 ring-slate-800"
-            : "hover:ring-1 hover:ring-slate-800",
+          isSelected ? "ring-1 ring-slate-800" : "hover:ring-1 hover:ring-slate-800",
           isOver && placeholderPosition === Position.TOP && "mt-2",
           isOver && placeholderPosition === Position.RIGHT && "me-2",
           isOver && placeholderPosition === Position.BOTTOM && "mb-2",
@@ -243,9 +219,7 @@ const EditorBlockWrapper: FC<Props> = ({
         onClick={handleClick}
         {...restAttributes}
       >
-        {isOver && !!placeholderPosition && (
-          <BlockPlaceholder position={placeholderPosition} />
-        )}
+        {isOver && !!placeholderPosition && <BlockPlaceholder position={placeholderPosition} />}
         {children}
       </div>
     </BlockToolbar>

@@ -13,7 +13,7 @@ export type BlockControlPanelProps = {
 const LoadingFallback = () => (
   <div className="flex flex-col items-center justify-center p-8">
     <CgSpinner size={24} className="animate-spin text-slate-600" />
-    <span className="mt-2 text-slate-600 text-sm">Loading...</span>
+    <span className="mt-2 text-sm text-slate-600">Loading...</span>
   </div>
 );
 
@@ -31,11 +31,7 @@ export const BlockControlPanel: FC<BlockControlPanelProps> = ({ type }) => {
   const disableAdvancedSettings = config?.disableAdvancedSettings ?? false;
 
   if (controls.length === 0 && disableAdvancedSettings) {
-    return (
-      <div className="flex justify-center py-10 text-slate-400">
-        No controls found
-      </div>
-    );
+    return <div className="flex justify-center py-10 text-slate-400">No controls found</div>;
   }
 
   return (
@@ -69,11 +65,7 @@ export const BlockControlPanel: FC<BlockControlPanelProps> = ({ type }) => {
           <Tabs.Content value={String(index)} key={index}>
             <ScrollArea className="h-[calc(100vh-175px)]">
               <div className="panel-scroll-content">
-                {
-                  <Suspense fallback={<LoadingFallback />}>
-                    {<tab.component />}
-                  </Suspense>
-                }
+                {<Suspense fallback={<LoadingFallback />}>{<tab.component />}</Suspense>}
               </div>
             </ScrollArea>
           </Tabs.Content>
@@ -93,4 +85,3 @@ export const BlockControlPanel: FC<BlockControlPanelProps> = ({ type }) => {
     </div>
   );
 };
-

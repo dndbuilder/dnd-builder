@@ -1,1 +1,1 @@
-export { default as TestimonialConfig } from './testimonial.config';
+export { default as TestimonialConfig } from "./testimonial.config";

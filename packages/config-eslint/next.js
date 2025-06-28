@@ -4,11 +4,7 @@ const project = resolve(process.cwd(), "tsconfig.json");
 
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
-  extends: [
-    "next/core-web-vitals", 
-    "prettier",
-    "turbo",
-  ],
+  extends: ["next/core-web-vitals", "prettier", "turbo"],
   globals: {
     React: true,
     JSX: true,

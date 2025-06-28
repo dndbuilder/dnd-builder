@@ -12,12 +12,7 @@ import { PseudoClass, Unit } from "@/types/style";
 
 export default function ContainerStyleControl() {
   return (
-    <Accordion
-      defaultValue={"Layout"}
-      type="single"
-      collapsible
-      className="mt-0 w-full"
-    >
+    <Accordion defaultValue={"Layout"} type="single" collapsible className="mt-0 w-full">
       <Accordion.Item value="Layout">
         <Accordion.Trigger className="p-4">Layout</Accordion.Trigger>
         <Accordion.Content className="px-4">

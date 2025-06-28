@@ -10,11 +10,7 @@ import { getCurrentBreakpoint } from "@/store/selectors";
 import { SettingsType } from "@/types";
 import { SpacingValue, Unit } from "@/types/style";
 import { useAppSelector } from "@/hooks/use-app-selector";
-import {
-  AiOutlineAlignCenter,
-  AiOutlineAlignLeft,
-  AiOutlineAlignRight,
-} from "react-icons/ai";
+import { AiOutlineAlignCenter, AiOutlineAlignLeft, AiOutlineAlignRight } from "react-icons/ai";
 
 const IconContentControl = () => {
   const currentBreakpoint = useAppSelector(getCurrentBreakpoint);
@@ -31,11 +27,7 @@ const IconContentControl = () => {
         <Accordion.Trigger className="p-4">General</Accordion.Trigger>
         <Accordion.Content className="px-4">
           {/* Select Icon */}
-          <IconControl
-            fieldName="icon"
-            label="Select Icon"
-            type={SettingsType.BLOCK}
-          />
+          <IconControl fieldName="icon" label="Select Icon" type={SettingsType.BLOCK} />
 
           {/* View */}
           <SelectControl
@@ -47,10 +39,7 @@ const IconContentControl = () => {
             ]}
             type={SettingsType.BLOCK}
             onValueChange={(val) => {
-              if (
-                (val === "stacked" || val === "framed") &&
-                shape === "circle"
-              ) {
+              if ((val === "stacked" || val === "framed") && shape === "circle") {
                 setBorderRadius({
                   top: 50,
                   right: 50,

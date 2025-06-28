@@ -15,25 +15,12 @@ import { Tabs } from "@/components/shared/tabs";
 import { useSettings } from "@/hooks/use-settings";
 import { SettingsType } from "@/types";
 import { PseudoClass, Unit } from "@/types/style";
-import {
-  AiOutlineAlignCenter,
-  AiOutlineAlignLeft,
-  AiOutlineAlignRight,
-} from "react-icons/ai";
+import { AiOutlineAlignCenter, AiOutlineAlignLeft, AiOutlineAlignRight } from "react-icons/ai";
 
 const TestimonialStyleControl = () => {
-  const [layout] = useSettings<"grid" | "slider">(
-    "layout.desktop",
-    SettingsType.BLOCK
-  );
-  const [showDots] = useSettings<boolean>(
-    "slider.showDots.desktop",
-    SettingsType.BLOCK
-  );
-  const [showArrows] = useSettings<boolean>(
-    "slider.showArrows.desktop",
-    SettingsType.BLOCK
-  );
+  const [layout] = useSettings<"grid" | "slider">("layout.desktop", SettingsType.BLOCK);
+  const [showDots] = useSettings<boolean>("slider.showDots.desktop", SettingsType.BLOCK);
+  const [showArrows] = useSettings<boolean>("slider.showArrows.desktop", SettingsType.BLOCK);
   return (
     <Accordion defaultValue={"Content"} type="single" collapsible>
       <Accordion.Item value="Content">
@@ -59,15 +46,8 @@ const TestimonialStyleControl = () => {
             />
           )}
 
-          <ColorControl
-            type={SettingsType.BLOCK}
-            fieldName="review.color.default"
-            label="Color"
-          />
-          <TypographyControl
-            type={SettingsType.BLOCK}
-            fieldName="review.typography"
-          />
+          <ColorControl type={SettingsType.BLOCK} fieldName="review.color.default" label="Color" />
+          <TypographyControl type={SettingsType.BLOCK} fieldName="review.typography" />
         </Accordion.Content>
       </Accordion.Item>
 
@@ -204,10 +184,7 @@ const TestimonialStyleControl = () => {
             label="Color"
             className="mt-0"
           />
-          <TypographyControl
-            type={SettingsType.BLOCK}
-            fieldName="review.typography"
-          />
+          <TypographyControl type={SettingsType.BLOCK} fieldName="review.typography" />
         </Accordion.Content>
       </Accordion.Item>
 
@@ -220,10 +197,7 @@ const TestimonialStyleControl = () => {
             label="Color"
             className="mt-0"
           />
-          <TypographyControl
-            type={SettingsType.BLOCK}
-            fieldName="review.typography"
-          />
+          <TypographyControl type={SettingsType.BLOCK} fieldName="review.typography" />
         </Accordion.Content>
       </Accordion.Item>
 

@@ -24,9 +24,7 @@ export const useSettings = <T = unknown>(key: string, type: SettingsType) => {
     }
 
     if (type === "advanced") {
-      dispatch(
-        setSelectedBlockAdvancedSettingsValueByKey([{ key, value: newValue }])
-      );
+      dispatch(setSelectedBlockAdvancedSettingsValueByKey([{ key, value: newValue }]));
       return;
     }
 

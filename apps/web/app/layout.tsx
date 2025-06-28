@@ -10,11 +10,7 @@ const openSans = Open_Sans({
   display: "swap",
 });
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html className={openSans.className}>
       <head></head>

@@ -27,11 +27,7 @@ const Container: FC<BlockProps<ContainerSettingsType>> = (props) => {
       )}
       {...restAttributes}
     >
-      <div
-        className={classNames(
-          "content relative flex w-full mx-auto max-w-[1140px]"
-        )}
-      >
+      <div className={classNames("content relative mx-auto flex w-full max-w-[1140px]")}>
         {props.children.map((block, index) => (
           <EditorRenderBlock
             index={index}

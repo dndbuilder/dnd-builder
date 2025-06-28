@@ -55,8 +55,7 @@ const ContainerDndHandler: FC<BlockProps<ContainerSettingsType>> = ({
   );
 
   const direction =
-    flexDirection === FlexDirection.ROW ||
-    flexDirection === FlexDirection.ROW_REVERSE
+    flexDirection === FlexDirection.ROW || flexDirection === FlexDirection.ROW_REVERSE
       ? Direction.HORIZONTAL
       : Direction.VERTICAL;
 
@@ -108,38 +107,25 @@ const ContainerDndHandler: FC<BlockProps<ContainerSettingsType>> = ({
         const block = createBlock({
           ...item,
           parentId:
-            parentId === "root" && item.type !== BlockType.CONTAINER
-              ? blocks[0].id
-              : parentId,
+            parentId === "root" && item.type !== BlockType.CONTAINER ? blocks[0].id : parentId,
         });
 
         blocks.push(block);
 
         // Hover on top
-        if (
-          placeholderPosition === Position.TOP ||
-          placeholderPosition === Position.LEFT
-        ) {
+        if (placeholderPosition === Position.TOP || placeholderPosition === Position.LEFT) {
           dispatch(addBlocks({ blocks, selectedBlockId: block.id, index }));
         }
 
         // Hover on bottom
-        if (
-          placeholderPosition === Position.BOTTOM ||
-          placeholderPosition === Position.RIGHT
-        ) {
-          dispatch(
-            addBlocks({ blocks, selectedBlockId: block.id, index: index + 1 })
-          );
+        if (placeholderPosition === Position.BOTTOM || placeholderPosition === Position.RIGHT) {
+          dispatch(addBlocks({ blocks, selectedBlockId: block.id, index: index + 1 }));
         }
       }
 
       if (isMoveableBlock(item)) {
         // Hover on top
-        if (
-          placeholderPosition === Position.TOP ||
-          placeholderPosition === Position.LEFT
-        ) {
+        if (placeholderPosition === Position.TOP || placeholderPosition === Position.LEFT) {
           dispatch(
             moveBlock({
               sourceId: item.id,
@@ -150,10 +136,7 @@ const ContainerDndHandler: FC<BlockProps<ContainerSettingsType>> = ({
         }
 
         // Hover on bottom
-        if (
-          placeholderPosition === Position.BOTTOM ||
-          placeholderPosition === Position.RIGHT
-        ) {
+        if (placeholderPosition === Position.BOTTOM || placeholderPosition === Position.RIGHT) {
           dispatch(
             moveBlock({
               sourceId: item.id,
@@ -183,12 +166,10 @@ const ContainerDndHandler: FC<BlockProps<ContainerSettingsType>> = ({
       const hoverBoundingRect = ref.current.getBoundingClientRect();
 
       // Get vertical middle
-      const hoverMiddleY =
-        (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
+      const hoverMiddleY = (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
 
       // Get horizontal middle
-      const hoverMiddleX =
-        (hoverBoundingRect.right - hoverBoundingRect.left) / 2;
+      const hoverMiddleX = (hoverBoundingRect.right - hoverBoundingRect.left) / 2;
 
       // Determine mouse position
       const clientOffset = monitor.getClientOffset();
@@ -223,8 +204,7 @@ const ContainerDndHandler: FC<BlockProps<ContainerSettingsType>> = ({
       isOver:
         monitor.isOver({ shallow: true }) &&
         monitor.canDrop() &&
-        (isDropableBlock(monitor.getItem()) ||
-          isMoveableBlock(monitor.getItem())),
+        (isDropableBlock(monitor.getItem()) || isMoveableBlock(monitor.getItem())),
     }),
   });
 
@@ -270,8 +250,7 @@ const ContainerDndHandler: FC<BlockProps<ContainerSettingsType>> = ({
       isOver:
         monitor.isOver({ shallow: true }) &&
         monitor.canDrop() &&
-        (isDropableBlock(monitor.getItem()) ||
-          isMoveableBlock(monitor.getItem())),
+        (isDropableBlock(monitor.getItem()) || isMoveableBlock(monitor.getItem())),
     }),
   });
 
@@ -316,16 +295,12 @@ const ContainerDndHandler: FC<BlockProps<ContainerSettingsType>> = ({
           "group relative flex w-full flex-col",
           !isInner &&
             "items-center justify-center after:pointer-events-none after:absolute after:left-0 after:top-0 after:z-10 after:h-full after:w-full after:ring-inset",
-          !isInner &&
-            isSelected &&
-            "after:ring-1  after:ring-slate-800 after:ring-inset",
+          !isInner && isSelected && "after:ring-1  after:ring-inset after:ring-slate-800",
           !isInner &&
             !isSelected &&
-            "hover:after:ring-1 hover:after:ring-slate-800 after:ring-inset",
-          isInner && isSelected && "ring-1 ring-slate-800 ring-inset",
-          isInner &&
-            !isSelected &&
-            "hover:ring-1 hover:ring-slate-800 ring-inset",
+            "after:ring-inset hover:after:ring-1 hover:after:ring-slate-800",
+          isInner && isSelected && "ring-1 ring-inset ring-slate-800",
+          isInner && !isSelected && "ring-inset hover:ring-1 hover:ring-slate-800",
           isOver && placeholderPosition === Position.TOP && "mt-2",
           isOver && placeholderPosition === Position.RIGHT && "me-2",
           isOver && placeholderPosition === Position.BOTTOM && "mb-2",
@@ -336,33 +311,22 @@ const ContainerDndHandler: FC<BlockProps<ContainerSettingsType>> = ({
         onClick={handleSelect}
         {...restAttributes}
       >
-        {isOver && !!placeholderPosition && (
-          <BlockPlaceholder position={placeholderPosition} />
-        )}
+        {isOver && !!placeholderPosition && <BlockPlaceholder position={placeholderPosition} />}
 
         <div
           className={classNames(
-            "content relative flex w-full mx-auto max-w-[1140px]",
+            "content relative mx-auto flex w-full max-w-[1140px]",
             isDragging && "opacity-30 *:pointer-events-none",
             isOverInner && children.length === 0 && "bg-slate-50"
           )}
           ref={innerRef}
         >
-          <RenderChildren
-            blocks={children}
-            meta={meta}
-            isEditable={isEditable ?? false}
-          />
+          <RenderChildren blocks={children} meta={meta} isEditable={isEditable ?? false} />
         </div>
         {ContainerConfig.previewImage && (
-          <DragPreviewImage
-            connect={previewRef}
-            src={ContainerConfig.previewImage}
-          />
+          <DragPreviewImage connect={previewRef} src={ContainerConfig.previewImage} />
         )}
-        {isInner && (
-          <ContainerResizer containerRef={ref} onChange={handleResize} />
-        )}
+        {isInner && <ContainerResizer containerRef={ref} onChange={handleResize} />}
         {!isInner && isSelected && (
           <>
             <ContainerSpacer
@@ -388,35 +352,33 @@ type RenderChildrenProps = {
   isEditable: boolean;
 };
 
-const RenderChildren: FC<RenderChildrenProps> = memo(
-  ({ blocks, meta, isEditable }) => {
-    if (!blocks.length) {
-      return (
-        <div
-          className={
-            "pointer-events-none flex h-full min-h-[80px] w-full items-center justify-center border border-dashed border-slate-300"
-          }
-        >
-          <BiPlus size={30} className="text-slate-300" />
-        </div>
-      );
-    }
-
+const RenderChildren: FC<RenderChildrenProps> = memo(({ blocks, meta, isEditable }) => {
+  if (!blocks.length) {
     return (
-      <>
-        {blocks.map((block, index) => (
-          <EditorRenderBlock
-            index={index}
-            block={block}
-            key={typeof block === "string" ? block : block.id}
-            meta={meta}
-            isEditable={isEditable}
-          />
-        ))}
-      </>
+      <div
+        className={
+          "pointer-events-none flex h-full min-h-[80px] w-full items-center justify-center border border-dashed border-slate-300"
+        }
+      >
+        <BiPlus size={30} className="text-slate-300" />
+      </div>
     );
   }
-);
+
+  return (
+    <>
+      {blocks.map((block, index) => (
+        <EditorRenderBlock
+          index={index}
+          block={block}
+          key={typeof block === "string" ? block : block.id}
+          meta={meta}
+          isEditable={isEditable}
+        />
+      ))}
+    </>
+  );
+});
 
 RenderChildren.displayName = "RenderChildren";
 

@@ -61,10 +61,7 @@ export const LinkButton = ({
     white: "bg-white hover:bg-slate-100 text-slate-800",
   };
   return (
-    <a
-      href={href}
-      className={classNames("link-button", colorClasses[color], className)}
-    >
+    <a href={href} className={classNames("link-button", colorClasses[color], className)}>
       {children}
     </a>
   );

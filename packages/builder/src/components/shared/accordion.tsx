@@ -13,20 +13,14 @@ export type AccordionProps = (
   React.RefAttributes<HTMLDivElement>;
 
 export const Accordion = ({ children, ...props }: AccordionProps) => {
-  return (
-    <AccordionPrimitive.Root {...props}>{children}</AccordionPrimitive.Root>
-  );
+  return <AccordionPrimitive.Root {...props}>{children}</AccordionPrimitive.Root>;
 };
 
 const AccordionItem = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>
 >(({ className, children, ...props }, ref) => (
-  <AccordionPrimitive.Item
-    ref={ref}
-    className={classNames("border-b", className)}
-    {...props}
-  >
+  <AccordionPrimitive.Item ref={ref} className={classNames("border-b", className)} {...props}>
     {children}
   </AccordionPrimitive.Item>
 ));
@@ -59,7 +53,7 @@ const AccordionContent = React.forwardRef<
   <AccordionPrimitive.Content
     ref={ref}
     className={classNames(
-      "overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down",
+      "data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden text-sm transition-all",
       className
     )}
     {...props}

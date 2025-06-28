@@ -12,11 +12,7 @@ import { BoxShadowControl } from "@/components/controls/box-shadow.control";
 import { ColorControl } from "@/components/controls/color.control";
 import { Accordion } from "@/components/shared/accordion";
 import { PseudoClass, SettingsType, Unit } from "@/types";
-import {
-  AiOutlineAlignCenter,
-  AiOutlineAlignLeft,
-  AiOutlineAlignRight,
-} from "react-icons/ai";
+import { AiOutlineAlignCenter, AiOutlineAlignLeft, AiOutlineAlignRight } from "react-icons/ai";
 import { TfiAlignJustify } from "react-icons/tfi";
 
 const DrawerStyleControl = () => {
@@ -137,7 +133,7 @@ const DrawerStyleControl = () => {
                 type={SettingsType.BLOCK}
               />
 
-              <Label className="font-semibold mt-4">Icon</Label>
+              <Label className="mt-4 font-semibold">Icon</Label>
 
               <ColorControl
                 label="Color"
@@ -173,7 +169,7 @@ const DrawerStyleControl = () => {
                 type={SettingsType.BLOCK}
               />
 
-              <Label className="font-semibold mt-4">Icon</Label>
+              <Label className="mt-4 font-semibold">Icon</Label>
 
               <ColorControl
                 label="Color"
@@ -209,7 +205,7 @@ const DrawerStyleControl = () => {
                 type={SettingsType.BLOCK}
               />
 
-              <Label className="font-semibold mt-4">Icon</Label>
+              <Label className="mt-4 font-semibold">Icon</Label>
 
               <ColorControl
                 label="Color"

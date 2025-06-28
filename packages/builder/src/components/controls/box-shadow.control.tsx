@@ -73,10 +73,7 @@ export const BoxShadowControl: FC<BoxShadowControlProps> = ({
   //   };
   // }, [debouncedChangeHandler]);
 
-  const handleValueChange = (
-    val: number | string | undefined,
-    field: string
-  ) => {
+  const handleValueChange = (val: number | string | undefined, field: string) => {
     // debouncedChangeHandler(val, field);
     setBoxShadow({
       ...innerValue,
@@ -100,20 +97,13 @@ export const BoxShadowControl: FC<BoxShadowControlProps> = ({
           </button>
         </Popover.Trigger>
         <Popover.Portal>
-          <Popover.Content
-            align="end"
-            alignOffset={-8}
-            className="w-[260px] bg-white p-4"
-          >
+          <Popover.Content align="end" alignOffset={-8} className="w-[260px] bg-white p-4">
             {/* Color */}
             <div className="flex items-center justify-between">
               <Label>Color</Label>
               <Popover>
                 <Popover.Trigger className="rounded-xs border p-1">
-                  <BsFillSquareFill
-                    style={{ color: innerValue.color }}
-                    className="rounded-xs"
-                  />
+                  <BsFillSquareFill style={{ color: innerValue.color }} className="rounded-xs" />
                 </Popover.Trigger>
                 <Popover.Content className="p-0">
                   <p className="px-4 py-3 shadow-md">Color Picker</p>
@@ -133,9 +123,7 @@ export const BoxShadowControl: FC<BoxShadowControlProps> = ({
             </div>
             {/* Horizontal */}
             <div className="mt-4">
-              <Label className="mb-1.5 block text-xs text-slate-800">
-                Horizontal
-              </Label>
+              <Label className="mb-1.5 block text-xs text-slate-800">Horizontal</Label>
               <div className="flex gap-1.5">
                 <RangeSlider
                   defaultValue={[innerValue.horizontal ?? 0]}
@@ -169,9 +157,7 @@ export const BoxShadowControl: FC<BoxShadowControlProps> = ({
 
             {/* Vertical */}
             <div className="mt-3">
-              <Label className="mb-1.5 block text-xs text-slate-800">
-                Vertical
-              </Label>
+              <Label className="mb-1.5 block text-xs text-slate-800">Vertical</Label>
               <div className="flex gap-1.5">
                 <RangeSlider
                   defaultValue={[innerValue.vertical ?? 0]}
@@ -205,9 +191,7 @@ export const BoxShadowControl: FC<BoxShadowControlProps> = ({
 
             {/* Blur */}
             <div className="mt-3">
-              <Label className="mb-1.5 block text-xs text-slate-800">
-                Blur
-              </Label>
+              <Label className="mb-1.5 block text-xs text-slate-800">Blur</Label>
               <div className="flex gap-1.5">
                 <RangeSlider
                   defaultValue={[innerValue.blur ?? 0]}
@@ -241,9 +225,7 @@ export const BoxShadowControl: FC<BoxShadowControlProps> = ({
 
             {/* Spread */}
             <div className="mt-3">
-              <Label className="mb-1.5 block text-xs text-slate-800">
-                Spread
-              </Label>
+              <Label className="mb-1.5 block text-xs text-slate-800">Spread</Label>
               <div className="flex gap-1.5">
                 <RangeSlider
                   defaultValue={[innerValue.spread ?? 0]}

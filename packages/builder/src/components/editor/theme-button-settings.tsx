@@ -28,8 +28,8 @@ const ThemeButtonSettings: FC<Props> = ({ setCurrentSetting }) => {
 
   return (
     <>
-      <div className="flex items-center justify-between p-4 border-b">
-        <div className="text-base font-semibold flex items-center gap-2">
+      <div className="flex items-center justify-between border-b p-4">
+        <div className="flex items-center gap-2 text-base font-semibold">
           <RxButton />
           Button
         </div>
@@ -50,10 +50,7 @@ const ThemeButtonSettings: FC<Props> = ({ setCurrentSetting }) => {
               fieldName="button.typography"
               className="mt-0"
             />
-            <TextShadowControl
-              fieldName="button.textShadow"
-              type={SettingsType.THEME}
-            />
+            <TextShadowControl fieldName="button.textShadow" type={SettingsType.THEME} />
 
             <Tabs defaultValue={PseudoClass.DEFAULT} className="mt-4">
               <Tabs.List className="h-8 w-full rounded-full">

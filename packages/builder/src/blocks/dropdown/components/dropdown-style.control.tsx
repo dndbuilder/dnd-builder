@@ -13,11 +13,7 @@ import { Separator } from "@/components/shared/separator";
 import { Tabs } from "@/components/shared/tabs";
 import { SettingsType } from "@/types";
 import { PseudoClass, Unit } from "@/types/style";
-import {
-  AiOutlineAlignCenter,
-  AiOutlineAlignLeft,
-  AiOutlineAlignRight,
-} from "react-icons/ai";
+import { AiOutlineAlignCenter, AiOutlineAlignLeft, AiOutlineAlignRight } from "react-icons/ai";
 import { TfiAlignJustify } from "react-icons/tfi";
 
 const DropdownStyleControl = () => {
@@ -138,7 +134,7 @@ const DropdownStyleControl = () => {
                 type={SettingsType.BLOCK}
               />
 
-              <Label className="font-semibold mt-4">Icon</Label>
+              <Label className="mt-4 font-semibold">Icon</Label>
 
               <ColorControl
                 label="Color"
@@ -174,7 +170,7 @@ const DropdownStyleControl = () => {
                 type={SettingsType.BLOCK}
               />
 
-              <Label className="font-semibold mt-4">Icon</Label>
+              <Label className="mt-4 font-semibold">Icon</Label>
 
               <ColorControl
                 label="Color"
@@ -210,7 +206,7 @@ const DropdownStyleControl = () => {
                 type={SettingsType.BLOCK}
               />
 
-              <Label className="font-semibold mt-4">Icon</Label>
+              <Label className="mt-4 font-semibold">Icon</Label>
 
               <ColorControl
                 label="Color"

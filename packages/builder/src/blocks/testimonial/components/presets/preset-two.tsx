@@ -15,13 +15,13 @@ const PresetTwo: FC<PresetPropsType> = ({ data, meta }) => {
   return (
     <figure className="testimonial-card">
       {data.showRating && (
-        <div className="mb-3 flex items-center gap-x-1 text-dark-700">
+        <div className="text-dark-700 mb-3 flex items-center gap-x-1">
           {data.rating}
           <BsStarFill className="text-yellow-400" />
         </div>
       )}
 
-      <blockquote className="text-lg review-msg tracking-tight text-dark-800">
+      <blockquote className="review-msg text-dark-800 text-lg tracking-tight">
         <p>{content}</p>
       </blockquote>
 
@@ -29,22 +29,18 @@ const PresetTwo: FC<PresetPropsType> = ({ data, meta }) => {
         {/* Image wrapper */}
         <div className="image-wrapper flex h-12 w-12 items-center justify-center rounded-full border">
           {data.image ? (
-            <img
-              className="rounded-full bg-dark-50"
-              src={data.image.url}
-              alt={name}
-            />
+            <img className="bg-dark-50 rounded-full" src={data.image.url} alt={name} />
           ) : (
-            <MdFaceRetouchingNatural className="text-lg text-dark-400" />
+            <MdFaceRetouchingNatural className="text-dark-400 text-lg" />
           )}
         </div>
 
         <div className="text-sm leading-4">
           {/* Name */}
-          <div className="font-semibold text-dark-900">{name}</div>
+          <div className="text-dark-900 font-semibold">{name}</div>
 
           {/* Position / Title */}
-          {position && <div className="mt-0.5 text-dark-600">{position}</div>}
+          {position && <div className="text-dark-600 mt-0.5">{position}</div>}
         </div>
       </figcaption>
     </figure>

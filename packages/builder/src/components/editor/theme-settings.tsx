@@ -41,9 +41,7 @@ const SettingItem = ({ label, icon, onClick }: SettingItemProps) => {
 };
 
 const Navigation = () => {
-  const [currentSetting, setCurrentSetting] = useState<ThemeSettingsType>(
-    ThemeSettingsType.GLOBAL
-  );
+  const [currentSetting, setCurrentSetting] = useState<ThemeSettingsType>(ThemeSettingsType.GLOBAL);
 
   const { toggleRightPanel } = useActionContext();
 
@@ -69,7 +67,7 @@ const Navigation = () => {
     default:
       return (
         <div className="relative">
-          <div className="text-base font-semibold flex items-center justify-between gap-2 p-4 border-b">
+          <div className="flex items-center justify-between gap-2 border-b p-4 text-base font-semibold">
             <div className="flex items-center gap-2">
               <FiSettings />
               Theme Settings
@@ -132,7 +130,7 @@ const ThemeSettings = () => {
           <Navigation />
         </div>
       </ScrollArea>
-      <div className="absolute bottom-0 left-0 p-4 w-full">
+      <div className="absolute bottom-0 left-0 w-full p-4">
         <ThemeActionDropdown />
       </div>
     </div>

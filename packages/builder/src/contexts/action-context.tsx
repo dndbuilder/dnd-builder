@@ -5,14 +5,7 @@ import { useAppSelector } from "@/hooks/use-app-selector";
 import useLocalstorage from "@/hooks/use-localstorage";
 import { BuilderRightPanelType } from "@/store/app-slice";
 import { getSelectedBlock } from "@/store/selectors";
-import {
-  createContext,
-  Dispatch,
-  ReactNode,
-  SetStateAction,
-  useContext,
-  useState,
-} from "react";
+import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { useHotkeys } from "react-hotkeys-hook";
 import { ActionCreators } from "redux-undo";
@@ -43,20 +36,17 @@ export type ActionContextType = {
   redo: () => void;
 };
 
-export const ActionContext = createContext<ActionContextType | undefined>(
-  undefined
-);
+export const ActionContext = createContext<ActionContextType | undefined>(undefined);
 
 export const ActionProvider = ({ children }: { children: ReactNode }) => {
   const containerSettings = useContainerSettings();
   const selectedBlock = useAppSelector(getSelectedBlock);
 
-  const [isLeftPanelOpen, setIsLeftPanelOpen] = useLocalstorage(
-    "eidtor-left-panel-open",
-    true
+  const [isLeftPanelOpen, setIsLeftPanelOpen] = useLocalstorage("eidtor-left-panel-open", true);
+  const [activeRightPanel, setActiveRightPanel] = useLocalstorage<BuilderRightPanelType | null>(
+    "active-right-panel",
+    null
   );
-  const [activeRightPanel, setActiveRightPanel] =
-    useLocalstorage<BuilderRightPanelType | null>("active-right-panel", null);
 
   const dispatch = useAppDispatch();
 
@@ -123,13 +113,7 @@ export const ActionProvider = ({ children }: { children: ReactNode }) => {
     try {
       const text = await navigator.clipboard.readText();
       const json = JSON.parse(text);
-      if (
-        !json ||
-        typeof json !== "object" ||
-        !json.id ||
-        !json.type ||
-        !json.parentId
-      ) {
+      if (!json || typeof json !== "object" || !json.id || !json.type || !json.parentId) {
         return null;
       }
       return json;
@@ -152,15 +136,9 @@ export const ActionProvider = ({ children }: { children: ReactNode }) => {
 
   const getPlatformSpecificCopyShortcut = () => {
     let shortcutKey = "Ctrl+C";
-    if (
-      navigator.userAgent &&
-      navigator.userAgent.toUpperCase().includes("MAC")
-    ) {
+    if (navigator.userAgent && navigator.userAgent.toUpperCase().includes("MAC")) {
       shortcutKey = "⌘+C";
-    } else if (
-      navigator.platform &&
-      navigator.platform.toUpperCase().includes("MAC")
-    ) {
+    } else if (navigator.platform && navigator.platform.toUpperCase().includes("MAC")) {
       shortcutKey = "⌘+C";
     }
     return shortcutKey;
@@ -168,15 +146,9 @@ export const ActionProvider = ({ children }: { children: ReactNode }) => {
 
   const getPlatformSpecificPasteShortcut = () => {
     let shortcutKey = "Ctrl+V";
-    if (
-      navigator.userAgent &&
-      navigator.userAgent.toUpperCase().includes("MAC")
-    ) {
+    if (navigator.userAgent && navigator.userAgent.toUpperCase().includes("MAC")) {
       shortcutKey = "⌘+V";
-    } else if (
-      navigator.platform &&
-      navigator.platform.toUpperCase().includes("MAC")
-    ) {
+    } else if (navigator.platform && navigator.platform.toUpperCase().includes("MAC")) {
       shortcutKey = "⌘+V";
     }
     return shortcutKey;
@@ -184,15 +156,9 @@ export const ActionProvider = ({ children }: { children: ReactNode }) => {
 
   const getPlatformSpecificSaveShortcut = (): string => {
     let shortcutKey = "Ctrl+S";
-    if (
-      navigator.userAgent &&
-      navigator.userAgent.toUpperCase().includes("MAC")
-    ) {
+    if (navigator.userAgent && navigator.userAgent.toUpperCase().includes("MAC")) {
       shortcutKey = "⌘+S";
-    } else if (
-      navigator.platform &&
-      navigator.platform.toUpperCase().includes("MAC")
-    ) {
+    } else if (navigator.platform && navigator.platform.toUpperCase().includes("MAC")) {
       shortcutKey = "⌘+S";
     }
 

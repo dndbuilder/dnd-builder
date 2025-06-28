@@ -221,10 +221,7 @@ const TabsStyleControl = () => {
               >
                 {"Hover"}
               </Tabs.Trigger>
-              <Tabs.Trigger
-                className="flex-1 rounded-full p-[3px] text-[13px]"
-                value={"active"}
-              >
+              <Tabs.Trigger className="flex-1 rounded-full p-[3px] text-[13px]" value={"active"}>
                 {"Active"}
               </Tabs.Trigger>
             </Tabs.List>

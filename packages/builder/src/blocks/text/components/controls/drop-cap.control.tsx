@@ -10,17 +10,9 @@ import { FC } from "react";
 interface DropCapProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 const DropCap: FC<DropCapProps> = ({ className }) => {
-  const [dropCap, setDropCap] = useSettings<boolean>(
-    "dropCap.desktop",
-    SettingsType.BLOCK
-  );
+  const [dropCap, setDropCap] = useSettings<boolean>("dropCap.desktop", SettingsType.BLOCK);
   return (
-    <Label
-      className={classNames(
-        "mt-4 flex items-center justify-between",
-        className
-      )}
-    >
+    <Label className={classNames("mt-4 flex items-center justify-between", className)}>
       Drop Cap
       <Switch checked={dropCap} onCheckedChange={setDropCap} />
     </Label>

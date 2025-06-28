@@ -8,24 +8,16 @@ import deepmerge from "deepmerge";
 export const useContainerSettings = () => {
   const ContainerConfig = BuilderConfiguration.getBlock(BlockType.CONTAINER);
 
-  const themeContainerSettings = useAppSelector(
-    getActiveThemeContainerSettings
-  );
+  const themeContainerSettings = useAppSelector(getActiveThemeContainerSettings);
 
   const settings: ContainerSettingsType = {
     ...ContainerConfig.settings,
-    width: deepmerge(
-      ContainerConfig.settings.width ?? {},
-      themeContainerSettings?.width ?? {}
-    ),
+    width: deepmerge(ContainerConfig.settings.width ?? {}, themeContainerSettings?.width ?? {}),
     maxWidth: deepmerge(
       ContainerConfig.settings.maxWidth ?? {},
       themeContainerSettings?.maxWidth ?? {}
     ),
-    gap: deepmerge(
-      ContainerConfig.settings.gap ?? {},
-      themeContainerSettings?.gap ?? {}
-    ),
+    gap: deepmerge(ContainerConfig.settings.gap ?? {}, themeContainerSettings?.gap ?? {}),
   };
 
   const advancedSettings: BlockAdvancedSettings = {

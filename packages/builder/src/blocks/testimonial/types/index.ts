@@ -1,7 +1,4 @@
-import {
-  SliderNavigationType,
-  SliderPresets as SliderPresets,
-} from "@/blocks/slider/types";
+import { SliderNavigationType, SliderPresets as SliderPresets } from "@/blocks/slider/types";
 import { BlockMeta } from "@/types/block";
 import { ResponsiveValue } from "@/types/responsive";
 import { LocalizedValue } from "@/types";

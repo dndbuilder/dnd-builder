@@ -7,10 +7,7 @@ type ContainerResizerProps = {
   onChange?: (width: number) => void;
 };
 
-const ContainerResizer: FC<ContainerResizerProps> = ({
-  containerRef,
-  onChange,
-}) => {
+const ContainerResizer: FC<ContainerResizerProps> = ({ containerRef, onChange }) => {
   const { window: frameWindow, document: frameDocument } = useFrame();
 
   const resizeHandleRef = useRef<HTMLDivElement>(null);
@@ -20,12 +17,7 @@ const ContainerResizer: FC<ContainerResizerProps> = ({
   const [isResizing, setIsResizing] = useState(false);
 
   useEffect(() => {
-    if (
-      !containerRef.current ||
-      !resizeHandleRef.current ||
-      !frameWindow ||
-      !frameDocument
-    ) {
+    if (!containerRef.current || !resizeHandleRef.current || !frameWindow || !frameDocument) {
       return;
     }
 
@@ -48,10 +40,7 @@ const ContainerResizer: FC<ContainerResizerProps> = ({
     let widthInPixel = parseInt(styles.width, 10);
 
     // Get the width of the resizeable element in %
-    let widthInPercentage = (
-      (widthInPixel / parentElement.offsetWidth) *
-      100
-    ).toFixed(2);
+    let widthInPercentage = ((widthInPixel / parentElement.offsetWidth) * 100).toFixed(2);
 
     // Get the width of the parent element in px
     const parentWidthInPixel = parseInt(parentStyles.width, 10);
@@ -75,9 +64,7 @@ const ContainerResizer: FC<ContainerResizerProps> = ({
       }
 
       // Set the element's new width in %
-      widthInPercentage = ((widthInPixel / parentWidthInPixel) * 100).toFixed(
-        2
-      );
+      widthInPercentage = ((widthInPixel / parentWidthInPixel) * 100).toFixed(2);
 
       // Set the element's new width in %
       resizeableElement.style.width = `${widthInPercentage}%`;

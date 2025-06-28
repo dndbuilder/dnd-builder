@@ -5,10 +5,7 @@ import { Label } from "@/components/shared/label";
 import { Popover } from "@/components/shared/popover";
 import { Tooltip } from "@/components/shared/tooltip";
 import { useSettings } from "@/hooks/use-settings";
-import {
-  getActiveThemeColorPresets,
-  getActiveThemeSettings,
-} from "@/store/selectors";
+import { getActiveThemeColorPresets, getActiveThemeSettings } from "@/store/selectors";
 import { SettingsType } from "@/types";
 import { useAppSelector } from "@/hooks/use-app-selector";
 import { classNames } from "@/utils";
@@ -46,9 +43,7 @@ export const ColorControl: FC<ColorControlProps> = ({
   const getColor = (color: string) => {
     const isVar = Boolean(color.startsWith("var"));
     if (color && isVar) {
-      const el =
-        document.querySelector("iframe")!.contentWindow!.document
-          .documentElement;
+      const el = document.querySelector("iframe")!.contentWindow!.document.documentElement;
       const c = window
         .getComputedStyle(el)
         .getPropertyValue(color.replace("var(", "").replace(")", ""));
@@ -62,27 +57,15 @@ export const ColorControl: FC<ColorControlProps> = ({
 
   const getSquareColor = (c: string) => {
     if (getColor(color ?? "") === getColor(c)) {
-      return (
-        <FaCheckSquare
-          className="rounded border w-5 h-5"
-          style={{ color: getColor(c) }}
-        />
-      );
+      return <FaCheckSquare className="h-5 w-5 rounded border" style={{ color: getColor(c) }} />;
     }
-    return (
-      <FaSquare
-        className="rounded border w-5 h-5"
-        style={{ color: getColor(c) }}
-      />
-    );
+    return <FaSquare className="h-5 w-5 rounded border" style={{ color: getColor(c) }} />;
   };
 
   const accentShades = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950];
 
   const onOpenChange = (open: boolean) => {
-    const panelScrollContent = document.querySelector<HTMLDivElement>(
-      ".panel-scroll-content"
-    );
+    const panelScrollContent = document.querySelector<HTMLDivElement>(".panel-scroll-content");
     if (!panelScrollContent) return;
     if (open) {
       panelScrollContent.style.paddingBottom = "100vh";
@@ -92,12 +75,7 @@ export const ColorControl: FC<ColorControlProps> = ({
   };
 
   return (
-    <div
-      className={classNames(
-        "mt-4 flex items-center justify-between gap-1.5",
-        className
-      )}
-    >
+    <div className={classNames("mt-4 flex items-center justify-between gap-1.5", className)}>
       {label && <Label>{label}</Label>}
 
       <div className="flex rounded-sm border">
@@ -131,9 +109,7 @@ export const ColorControl: FC<ColorControlProps> = ({
                 <div className="flex items-center">
                   {getSquareColor(themeSettings.color.textColor)}
                   <p className="ms-3 text-xs text-slate-500">Text</p>
-                  <p className="ms-auto text-xs text-slate-500">
-                    {themeSettings.color.textColor}
-                  </p>
+                  <p className="ms-auto text-xs text-slate-500">{themeSettings.color.textColor}</p>
                 </div>
               </div>
             </Popover.Close>
@@ -182,9 +158,7 @@ export const ColorControl: FC<ColorControlProps> = ({
                   <div className="flex items-center">
                     {getSquareColor(`var(--accent-color-${shade})`)}
 
-                    <p className="ms-3 text-xs text-slate-500">
-                      Accent {shade}
-                    </p>
+                    <p className="ms-3 text-xs text-slate-500">Accent {shade}</p>
                     <p className="ms-auto text-xs text-slate-500">
                       {getColor(`var(--accent-color-${shade})`)}
                     </p>
@@ -202,9 +176,7 @@ export const ColorControl: FC<ColorControlProps> = ({
                   <div className="flex items-center">
                     {getSquareColor(preset.value)}
                     <p className="ms-3 text-xs text-slate-500">{preset.name}</p>
-                    <p className="ms-auto text-xs text-slate-500">
-                      {preset.value}
-                    </p>
+                    <p className="ms-auto text-xs text-slate-500">{preset.value}</p>
                   </div>
                 </div>
               </Popover.Close>
@@ -238,8 +210,7 @@ export const ColorControl: FC<ColorControlProps> = ({
 
           <Popover.Content className="w-[270px] p-0" side={side} align={align}>
             <p className="flex items-center px-4 py-3 shadow-md">
-              Color Picker{" "}
-              <ResetControl fieldName={fieldName} settingsType={type} />
+              Color Picker <ResetControl fieldName={fieldName} settingsType={type} />
             </p>
             <div className="p-4">
               <ColorPicker color={color} onChange={setColor} />

@@ -9,12 +9,7 @@ type Props = {
   mediaField: string;
 } & HTMLAttributes<HTMLDivElement>;
 
-const SlideBgSizeControl: FC<Props> = ({
-  type,
-  fieldName,
-  mediaField,
-  className,
-}) => {
+const SlideBgSizeControl: FC<Props> = ({ type, fieldName, mediaField, className }) => {
   const [media] = useSettings<string | undefined>(mediaField, type);
 
   return media ? (

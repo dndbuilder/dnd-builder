@@ -36,16 +36,10 @@ const DrawerBlock: FC<BlockProps<DrawerSettingsType>> = ({
             className="drawer-trigger-icon"
           />
         )}
-        <span className="drawer-trigger-text">
-          {settings.trigger?.text?.content?.[locale]}
-        </span>
+        <span className="drawer-trigger-text">{settings.trigger?.text?.content?.[locale]}</span>
       </Drawer.Trigger>
       <Drawer.Content direction={direction}>
-        <EditorRenderChildren
-          blocks={children}
-          meta={meta}
-          isEditable={isEditable ?? false}
-        />
+        <EditorRenderChildren blocks={children} meta={meta} isEditable={isEditable ?? false} />
         <AddNewSection blockId={id} showBlockLibrary={false} className="p-2" />
       </Drawer.Content>
       <Drawer.Backdrop />

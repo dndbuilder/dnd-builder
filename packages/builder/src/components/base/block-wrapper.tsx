@@ -13,10 +13,7 @@ const BlockWrapper: FC<Props> = ({ blockId, attributes, children }) => {
 
   return (
     <>
-      <div
-        className={classNames(blockId, "relative", className)}
-        {...restAttributes}
-      >
+      <div className={classNames(blockId, "relative", className)} {...restAttributes}>
         {children}
       </div>
     </>

@@ -6,11 +6,7 @@ export type NoContentProps = {
   children?: React.ReactNode;
 } & React.HTMLAttributes<HTMLDivElement>;
 
-export const NoContent: FC<NoContentProps> = ({
-  children,
-  className,
-  ...rest
-}) => {
+export const NoContent: FC<NoContentProps> = ({ children, className, ...rest }) => {
   return (
     <div
       className={twMerge(

@@ -13,7 +13,4 @@ if (typeof window !== "undefined") {
 
 export const FrameContext = createContext({ document: doc, window: win });
 
-export const {
-  Provider: FrameContextProvider,
-  Consumer: FrameContextConsumer,
-} = FrameContext;
+export const { Provider: FrameContextProvider, Consumer: FrameContextConsumer } = FrameContext;

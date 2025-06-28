@@ -23,24 +23,10 @@ export const EditorRenderBlock: FC<EditorRenderBlockProps> = memo((props) => {
   const { block, index, isEditable, meta } = props;
 
   if (typeof block === "string") {
-    return (
-      <RenderBlockFromId
-        blockId={block}
-        index={index}
-        isEditable={isEditable}
-        meta={meta}
-      />
-    );
+    return <RenderBlockFromId blockId={block} index={index} isEditable={isEditable} meta={meta} />;
   }
 
-  return (
-    <RenderBlock
-      block={block}
-      index={index}
-      isEditable={isEditable}
-      meta={meta}
-    />
-  );
+  return <RenderBlock block={block} index={index} isEditable={isEditable} meta={meta} />;
 });
 
 type RenderBlockProps = {
@@ -50,45 +36,43 @@ type RenderBlockProps = {
   meta?: BlockMeta;
 };
 
-const RenderBlock: FC<RenderBlockProps> = memo(
-  ({ block, index, isEditable, meta }) => {
-    const blockConfig = BuilderConfiguration.getBlock(block.type);
+const RenderBlock: FC<RenderBlockProps> = memo(({ block, index, isEditable, meta }) => {
+  const blockConfig = BuilderConfiguration.getBlock(block.type);
 
-    if (!blockConfig) {
-      return null;
-    }
+  if (!blockConfig) {
+    return null;
+  }
 
-    const { component: Component } = blockConfig;
+  const { component: Component } = blockConfig;
 
-    const blockProps = generateBlockProps({ block, index, isEditable, meta });
+  const blockProps = generateBlockProps({ block, index, isEditable, meta });
 
-    if (block.type === BlockType.CONTAINER) {
-      return (
-        <ErrorBoundary fallbackRender={ErrorFallback}>
-          <Suspense>
-            <Component {...blockProps} />
-          </Suspense>
-        </ErrorBoundary>
-      );
-    }
-
-    const Wrapper = isEditable ? EditorBlockWrapper : BlockWrapper;
-
+  if (block.type === BlockType.CONTAINER) {
     return (
-      <Suspense>
-        <Wrapper
-          index={index}
-          blockId={block.id}
-          parentId={block.parentId}
-          blockType={block.type}
-          attributes={blockProps.attributes}
-        >
+      <ErrorBoundary fallbackRender={ErrorFallback}>
+        <Suspense>
           <Component {...blockProps} />
-        </Wrapper>
-      </Suspense>
+        </Suspense>
+      </ErrorBoundary>
     );
   }
-);
+
+  const Wrapper = isEditable ? EditorBlockWrapper : BlockWrapper;
+
+  return (
+    <Suspense>
+      <Wrapper
+        index={index}
+        blockId={block.id}
+        parentId={block.parentId}
+        blockType={block.type}
+        attributes={blockProps.attributes}
+      >
+        <Component {...blockProps} />
+      </Wrapper>
+    </Suspense>
+  );
+});
 
 type RenderBlockFromIdProps = {
   blockId: string;
@@ -97,24 +81,15 @@ type RenderBlockFromIdProps = {
   meta?: BlockMeta;
 };
 
-const RenderBlockFromId = memo(
-  ({ blockId, index, isEditable, meta }: RenderBlockFromIdProps) => {
-    const block = useAppSelector(getBlock(blockId));
+const RenderBlockFromId = memo(({ blockId, index, isEditable, meta }: RenderBlockFromIdProps) => {
+  const block = useAppSelector(getBlock(blockId));
 
-    if (!block) {
-      return null;
-    }
-
-    return (
-      <RenderBlock
-        block={block}
-        index={index}
-        isEditable={isEditable}
-        meta={meta}
-      />
-    );
+  if (!block) {
+    return null;
   }
-);
+
+  return <RenderBlock block={block} index={index} isEditable={isEditable} meta={meta} />;
+});
 
 RenderBlockFromId.displayName = "RenderBlockFromId";
 

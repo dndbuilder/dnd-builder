@@ -1,1 +1,1 @@
-export { default as HeadingConfig } from './heading.config';
+export { default as HeadingConfig } from "./heading.config";

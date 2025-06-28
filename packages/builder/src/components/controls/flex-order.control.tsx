@@ -30,10 +30,7 @@ export const FlexOrderControl: FC<FlexOrderProps> = ({
 }) => {
   const currentBreakpoint = useAppSelector(getCurrentBreakpoint);
   const [flexOrder] = useSettings<ResponsiveValue>(fieldName, type);
-  const [flexOrderCustom, setFlexOrderCustom] = useSettings<ResponsiveValue>(
-    customFieldName,
-    type
-  );
+  const [flexOrderCustom, setFlexOrderCustom] = useSettings<ResponsiveValue>(customFieldName, type);
   return (
     <div className={classNames("mt-4", className)}>
       <ToggleGroupControl
@@ -91,9 +88,7 @@ export const FlexOrderControl: FC<FlexOrderProps> = ({
         </div>
       </div>
 
-      <InfoMessage>
-        This control will affect contained elements only.
-      </InfoMessage>
+      <InfoMessage>This control will affect contained elements only.</InfoMessage>
     </div>
   );
 };

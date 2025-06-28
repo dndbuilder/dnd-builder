@@ -145,10 +145,8 @@ const ContainerConfig = createBlockConfig<ContainerSettingsType>({
               position: settings.background?.gradient?.position?.default,
               gradientType: settings.background?.gradient?.type?.default,
             }),
-            backgroundPosition:
-              settings.background?.position?.[breakpoint]?.default,
-            backgroundRepeat:
-              settings.background?.repeat?.[breakpoint]?.default,
+            backgroundPosition: settings.background?.position?.[breakpoint]?.default,
+            backgroundRepeat: settings.background?.repeat?.[breakpoint]?.default,
             backgroundSize: settings.background?.size?.[breakpoint]?.default,
             backgroundColor:
               settings.background?.type?.default === BackgroundType.CLASSIC
@@ -169,9 +167,7 @@ const ContainerConfig = createBlockConfig<ContainerSettingsType>({
                 right: borderRightWidth,
                 bottom: borderBottomWidth,
                 left: borderLeftWidth,
-              } = generateSpacingValue(
-                settings.border?.width?.[breakpoint]?.[pseudoClass]
-              );
+              } = generateSpacingValue(settings.border?.width?.[breakpoint]?.[pseudoClass]);
 
               const borderType = settings.border?.type?.[pseudoClass];
               return {
@@ -187,8 +183,7 @@ const ContainerConfig = createBlockConfig<ContainerSettingsType>({
                 borderStyle: Boolean(borderType) ? borderType : undefined,
                 borderColor: settings.border?.color?.[pseudoClass],
                 backgroundColor:
-                  settings.background?.type?.[pseudoClass] ===
-                  BackgroundType.CLASSIC
+                  settings.background?.type?.[pseudoClass] === BackgroundType.CLASSIC
                     ? settings.background.color?.[pseudoClass]
                     : null,
                 backgroundImage: generateBgImageWithGradient({
@@ -197,23 +192,15 @@ const ContainerConfig = createBlockConfig<ContainerSettingsType>({
                   angle: settings.background?.gradient?.angle?.[pseudoClass],
                   color1: settings.background?.gradient?.color1?.[pseudoClass],
                   color2: settings.background?.gradient?.color2?.[pseudoClass],
-                  location1:
-                    settings.background?.gradient?.location1?.[pseudoClass],
-                  location2:
-                    settings.background?.gradient?.location2?.[pseudoClass],
-                  position:
-                    settings.background?.gradient?.position?.[pseudoClass],
-                  gradientType:
-                    settings.background?.gradient?.type?.[pseudoClass],
+                  location1: settings.background?.gradient?.location1?.[pseudoClass],
+                  location2: settings.background?.gradient?.location2?.[pseudoClass],
+                  position: settings.background?.gradient?.position?.[pseudoClass],
+                  gradientType: settings.background?.gradient?.type?.[pseudoClass],
                 }),
-                backgroundPosition:
-                  settings.background?.position?.[breakpoint]?.[pseudoClass],
-                backgroundAttachment:
-                  settings.background?.attachment?.[pseudoClass],
-                backgroundRepeat:
-                  settings.background?.repeat?.[breakpoint]?.[pseudoClass],
-                backgroundSize:
-                  settings.background?.size?.[breakpoint]?.[pseudoClass],
+                backgroundPosition: settings.background?.position?.[breakpoint]?.[pseudoClass],
+                backgroundAttachment: settings.background?.attachment?.[pseudoClass],
+                backgroundRepeat: settings.background?.repeat?.[breakpoint]?.[pseudoClass],
+                backgroundSize: settings.background?.size?.[breakpoint]?.[pseudoClass],
               };
             }),
           };
@@ -229,15 +216,11 @@ const ContainerConfig = createBlockConfig<ContainerSettingsType>({
   controls: [
     {
       label: "Layout",
-      component: lazy(
-        () => import("./components/controls/container-layout.control")
-      ),
+      component: lazy(() => import("./components/controls/container-layout.control")),
     },
     {
       label: "Style",
-      component: lazy(
-        () => import("./components/controls/container-style.control")
-      ),
+      component: lazy(() => import("./components/controls/container-style.control")),
     },
   ],
 });

@@ -20,7 +20,7 @@
   }
 
   body {
-    @apply bg-white text-slate-800 text-sm;
+    @apply bg-white text-sm text-slate-800;
   }
 
   /* Reset dialog default styles */

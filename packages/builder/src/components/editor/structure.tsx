@@ -2,11 +2,7 @@
 import { ScrollArea } from "@/components/shared/scroll-area";
 import { BuilderConfiguration } from "@/config/builder.config";
 import { useActionContext } from "@/contexts/action-context";
-import {
-  duplicateBlock,
-  removeBlock,
-  selectBlock,
-} from "@/store/builder-slice";
+import { duplicateBlock, removeBlock, selectBlock } from "@/store/builder-slice";
 import {
   getBlock,
   getContentRoot,
@@ -68,8 +64,7 @@ const StructureItem = ({ blockId, index }: LayterItemProps) => {
   };
 
   const handleMouseEnter = () => {
-    if (selectedblock?.id === blockId || typeof document === "undefined")
-      return;
+    if (selectedblock?.id === blockId || typeof document === "undefined") return;
 
     try {
       const iframe = document.querySelector("iframe") as HTMLIFrameElement;
@@ -92,8 +87,7 @@ const StructureItem = ({ blockId, index }: LayterItemProps) => {
   };
 
   const handleMouseLeave = () => {
-    if (selectedblock?.id === blockId || typeof document === "undefined")
-      return;
+    if (selectedblock?.id === blockId || typeof document === "undefined") return;
 
     try {
       const iframe = document.querySelector("iframe") as HTMLIFrameElement;
@@ -137,7 +131,7 @@ const StructureItem = ({ blockId, index }: LayterItemProps) => {
         onMouseLeave={handleMouseLeave}
         onClick={handleClick}
         className={classNames(
-          "flex items-center group cursor-pointer py-3 transition-colors duration-150 pe-4",
+          "group flex cursor-pointer items-center py-3 pe-4 transition-colors duration-150",
           isSelected ? "bg-slate-100" : "hover:bg-slate-100"
         )}
         style={{
@@ -147,23 +141,20 @@ const StructureItem = ({ blockId, index }: LayterItemProps) => {
         {/* down arrow */}
         <div
           onClick={toggleCollapse}
-          className={classNames(
-            "cursor-pointer transition-all duration-200 h-full me-2",
-            {
-              "rotate-90": !isCollapsed,
-              invisible: !block.children.length,
-            }
-          )}
+          className={classNames("me-2 h-full cursor-pointer transition-all duration-200", {
+            "rotate-90": !isCollapsed,
+            invisible: !block.children.length,
+          })}
         >
           <FiChevronRight size={16} />
         </div>
 
         {/* Title */}
-        <div className={classNames("flex gap-1.5 w-full items-center ")}>
+        <div className={classNames("flex w-full items-center gap-1.5 ")}>
           {config?.icon ? <config.icon /> : <BsQuestionCircle />}
           <span>{config?.label ?? "Unsupported Block"}</span>
 
-          <div className="ms-auto items-center gap-2 hidden group-hover:flex">
+          <div className="ms-auto hidden items-center gap-2 group-hover:flex">
             {config && (
               <IoDuplicateOutline
                 size={14}
@@ -171,11 +162,7 @@ const StructureItem = ({ blockId, index }: LayterItemProps) => {
                 className="text-slate-600 hover:text-slate-900"
               />
             )}
-            <FiTrash2
-              size={14}
-              onClick={remove}
-              className="text-slate-600 hover:text-slate-900"
-            />
+            <FiTrash2 size={14} onClick={remove} className="text-slate-600 hover:text-slate-900" />
           </div>
         </div>
       </div>
@@ -194,11 +181,7 @@ const StructureItem = ({ blockId, index }: LayterItemProps) => {
             {block.children.map(
               (childId) =>
                 typeof childId === "string" && (
-                  <StructureItem
-                    blockId={childId}
-                    key={childId}
-                    index={index + 1}
-                  />
+                  <StructureItem blockId={childId} key={childId} index={index + 1} />
                 )
             )}
           </div>
@@ -215,7 +198,7 @@ const Structure = () => {
   return (
     <ScrollArea className="h-[calc(100vh-70px)]">
       <div>
-        <div className="text-base font-semibold border-b flex items-center justify-between gap-2 p-4">
+        <div className="flex items-center justify-between gap-2 border-b p-4 text-base font-semibold">
           <div className="flex items-center gap-2">
             <FiLayers />
             Structure
@@ -240,13 +223,9 @@ const Structure = () => {
             )}
           </div>
         ) : (
-          <div className="text-center m-4 rounded-sm p-4">
-            <h4 className="text-lg mb-1 font-medium text-slate-600">
-              No Elements
-            </h4>
-            <p className="text-slate-500">
-              Add an element to your page and it will show up here.
-            </p>
+          <div className="m-4 rounded-sm p-4 text-center">
+            <h4 className="mb-1 text-lg font-medium text-slate-600">No Elements</h4>
+            <p className="text-slate-500">Add an element to your page and it will show up here.</p>
           </div>
         )}
       </div>

@@ -1,6 +1,6 @@
-import { FC } from 'react';
-import { SliderPresets, SliderSettingsProps } from '../../types';
-import PresetOne from './preset-one';
+import { FC } from "react";
+import { SliderPresets, SliderSettingsProps } from "../../types";
+import PresetOne from "./preset-one";
 // import PresetTwo from './preset-2';
 
 type Preset = {

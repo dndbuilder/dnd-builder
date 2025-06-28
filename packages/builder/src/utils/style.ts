@@ -84,14 +84,8 @@ export const generateContentStyles = ({
       acc += generateBlockStyle(block.id, styles);
 
       // Custom CSS
-      if (
-        !blockConfig.disableAdvancedSettings &&
-        block.advancedSettings?.customCss
-      ) {
-        acc += block.advancedSettings.customCss.replaceAll(
-          "selector",
-          `.${block.id}`
-        );
+      if (!blockConfig.disableAdvancedSettings && block.advancedSettings?.customCss) {
+        acc += block.advancedSettings.customCss.replaceAll("selector", `.${block.id}`);
       }
 
       return acc;
@@ -191,73 +185,64 @@ export function generateAdvancedStyle({
     };
   });
 
-  const responsiveStyles = generateResponsiveStyle(
-    breakpoints,
-    (breakpoint) => {
-      const {
-        top: paddingTop,
-        right: paddingRight,
-        bottom: paddingBottom,
-        left: paddingLeft,
-      } = generateSpacingValue(settings.padding?.[breakpoint]);
+  const responsiveStyles = generateResponsiveStyle(breakpoints, (breakpoint) => {
+    const {
+      top: paddingTop,
+      right: paddingRight,
+      bottom: paddingBottom,
+      left: paddingLeft,
+    } = generateSpacingValue(settings.padding?.[breakpoint]);
 
-      const {
-        top: marginTop,
-        right: marginRight,
-        bottom: marginBottom,
-        left: marginLeft,
-      } = generateSpacingValue(settings.margin?.[breakpoint]);
+    const {
+      top: marginTop,
+      right: marginRight,
+      bottom: marginBottom,
+      left: marginLeft,
+    } = generateSpacingValue(settings.margin?.[breakpoint]);
 
-      return {
-        paddingTop,
-        paddingRight,
-        paddingBottom,
-        paddingLeft,
-        marginTop,
-        marginRight,
-        marginBottom,
-        marginLeft,
-        zIndex: settings.zIndex?.[breakpoint],
-        flexOrder:
-          settings.orderCustom?.[breakpoint] ?? settings.order?.[breakpoint],
-        alignSelf: settings.alignSelf?.[breakpoint],
-        flexSize: settings.size?.[breakpoint],
-        flexGrow: settings.grow?.[breakpoint],
-        flexShrink: settings.shrink?.[breakpoint],
-        position: settings.position?.value?.[breakpoint],
-        [`${settings.position?.horizontal?.[breakpoint]}`]: generateUnitValue(
-          settings.position?.horizontalOffset?.[breakpoint]
-        ),
-        [`${settings.position?.vertical?.[breakpoint]}`]: generateUnitValue(
-          settings.position?.verticalOffset?.[breakpoint]
-        ),
+    return {
+      paddingTop,
+      paddingRight,
+      paddingBottom,
+      paddingLeft,
+      marginTop,
+      marginRight,
+      marginBottom,
+      marginLeft,
+      zIndex: settings.zIndex?.[breakpoint],
+      flexOrder: settings.orderCustom?.[breakpoint] ?? settings.order?.[breakpoint],
+      alignSelf: settings.alignSelf?.[breakpoint],
+      flexSize: settings.size?.[breakpoint],
+      flexGrow: settings.grow?.[breakpoint],
+      flexShrink: settings.shrink?.[breakpoint],
+      position: settings.position?.value?.[breakpoint],
+      [`${settings.position?.horizontal?.[breakpoint]}`]: generateUnitValue(
+        settings.position?.horizontalOffset?.[breakpoint]
+      ),
+      [`${settings.position?.vertical?.[breakpoint]}`]: generateUnitValue(
+        settings.position?.verticalOffset?.[breakpoint]
+      ),
 
-        ...generatePseudoStyle((pseudoClass) => {
-          const {
-            top: borderTopWidth,
-            right: borderRightWidth,
-            bottom: borderBottomWidth,
-            left: borderLeftWidth,
-          } = generateSpacingValue(
-            settings.border?.width?.[breakpoint]?.[pseudoClass]
-          );
+      ...generatePseudoStyle((pseudoClass) => {
+        const {
+          top: borderTopWidth,
+          right: borderRightWidth,
+          bottom: borderBottomWidth,
+          left: borderLeftWidth,
+        } = generateSpacingValue(settings.border?.width?.[breakpoint]?.[pseudoClass]);
 
-          return {
-            borderTopWidth,
-            borderRightWidth,
-            borderBottomWidth,
-            borderLeftWidth,
-            backgroundPosition:
-              settings.background?.position?.[breakpoint]?.[pseudoClass],
-            backgroundRepeat:
-              settings.background?.repeat?.[breakpoint]?.[pseudoClass],
-            backgroundSize:
-              settings.background?.size?.[breakpoint]?.[pseudoClass],
-          };
-        }),
-      };
-    }
-  );
+        return {
+          borderTopWidth,
+          borderRightWidth,
+          borderBottomWidth,
+          borderLeftWidth,
+          backgroundPosition: settings.background?.position?.[breakpoint]?.[pseudoClass],
+          backgroundRepeat: settings.background?.repeat?.[breakpoint]?.[pseudoClass],
+          backgroundSize: settings.background?.size?.[breakpoint]?.[pseudoClass],
+        };
+      }),
+    };
+  });
 
   return clean(
     cloneDeep({
@@ -620,10 +605,7 @@ export function generateResponsiveVisibility({
   return { display: undefined };
 }
 
-export function generateTypography(
-  breakpoints: BreakpointConfig[],
-  typography?: TypographyType
-) {
+export function generateTypography(breakpoints: BreakpointConfig[], typography?: TypographyType) {
   return {
     ...generateResponsiveStyle(breakpoints, (breakpoint) => {
       return generateTypographyFromBreakpoint(breakpoint, typography);
@@ -703,40 +685,37 @@ export function generateTypographyStyles(
   // styles.fontStyle = value.fontStyle ? `var(--${key}-font-style)` : undefined;
   // styles.textDecoration = value.textDecoration ? `var(--${key}-text-decoration)` : undefined;
 
-  const responsiveStyles = generateResponsiveStyle(
-    breakpoints,
-    (breakpoint) => {
-      return {
-        fontFamily: !isEmpty(value.fontFamily?.[breakpoint])
-          ? `var(--${key}-${breakpoint}-font-family)`
-          : undefined,
-        fontWeight: !isEmpty(value.fontWeight?.[breakpoint])
-          ? `var(--${key}-${breakpoint}-font-weight)`
-          : undefined,
-        fontSize: !isEmpty(value.fontSize?.[breakpoint])
-          ? `var(--${key}-${breakpoint}-font-size)`
-          : undefined,
-        textTransform: !isEmpty(value.textTransform?.[breakpoint])
-          ? `var(--${key}-${breakpoint}-text-transform)`
-          : undefined,
-        fontStyle: !isEmpty(value.fontStyle?.[breakpoint])
-          ? `var(--${key}-${breakpoint}-font-style)`
-          : undefined,
-        textDecoration: !isEmpty(value.textDecoration?.[breakpoint])
-          ? `var(--${key}-${breakpoint}-text-decoration)`
-          : undefined,
-        lineHeight: !isEmpty(value.lineHeight?.[breakpoint])
-          ? `var(--${key}-${breakpoint}-line-height)`
-          : undefined,
-        letterSpacing: !isEmpty(value.letterSpacing?.[breakpoint])
-          ? `var(--${key}-${breakpoint}-letter-spacing)`
-          : undefined,
-        wordSpacing: !isEmpty(value.wordSpacing?.[breakpoint])
-          ? `var(--${key}-${breakpoint}-word-spacing)`
-          : undefined,
-      };
-    }
-  );
+  const responsiveStyles = generateResponsiveStyle(breakpoints, (breakpoint) => {
+    return {
+      fontFamily: !isEmpty(value.fontFamily?.[breakpoint])
+        ? `var(--${key}-${breakpoint}-font-family)`
+        : undefined,
+      fontWeight: !isEmpty(value.fontWeight?.[breakpoint])
+        ? `var(--${key}-${breakpoint}-font-weight)`
+        : undefined,
+      fontSize: !isEmpty(value.fontSize?.[breakpoint])
+        ? `var(--${key}-${breakpoint}-font-size)`
+        : undefined,
+      textTransform: !isEmpty(value.textTransform?.[breakpoint])
+        ? `var(--${key}-${breakpoint}-text-transform)`
+        : undefined,
+      fontStyle: !isEmpty(value.fontStyle?.[breakpoint])
+        ? `var(--${key}-${breakpoint}-font-style)`
+        : undefined,
+      textDecoration: !isEmpty(value.textDecoration?.[breakpoint])
+        ? `var(--${key}-${breakpoint}-text-decoration)`
+        : undefined,
+      lineHeight: !isEmpty(value.lineHeight?.[breakpoint])
+        ? `var(--${key}-${breakpoint}-line-height)`
+        : undefined,
+      letterSpacing: !isEmpty(value.letterSpacing?.[breakpoint])
+        ? `var(--${key}-${breakpoint}-letter-spacing)`
+        : undefined,
+      wordSpacing: !isEmpty(value.wordSpacing?.[breakpoint])
+        ? `var(--${key}-${breakpoint}-word-spacing)`
+        : undefined,
+    };
+  });
 
   Object.assign(styles, responsiveStyles);
 

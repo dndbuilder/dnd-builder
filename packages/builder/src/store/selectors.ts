@@ -6,8 +6,7 @@ import { createSelector } from "@reduxjs/toolkit";
 import objectPath from "object-path";
 
 // Builder
-export const getContentRoot = (state: RootState) =>
-  state.builder.present.content["root"];
+export const getContentRoot = (state: RootState) => state.builder.present.content["root"];
 
 export const getContent = (state: RootState) => state.builder.present.content;
 
@@ -30,10 +29,7 @@ export const getBlockSettingsValueByKey =
     const settingKey = key
       .replace("{{BREAKPOINT}}", state.builder.present.currentBreakpoint)
       .replace("{{LOCALE}}", state.builder.present.currentLocale);
-    return objectPath.get(
-      state.builder.present.content[id],
-      `settings.${settingKey}`
-    ) as T;
+    return objectPath.get(state.builder.present.content[id], `settings.${settingKey}`) as T;
   };
 
 export const getBlockAdvancedSettings =
@@ -44,48 +40,35 @@ export const getBlockAdvancedSettings =
 export const getBlockAdvancedSettingsValueByKey =
   <T = unknown>(id: Block["id"], key: string) =>
   (state: RootState) => {
-    const settingKey = key.replace(
-      "{{BREAKPOINT}}",
-      state.builder.present.currentBreakpoint
-    );
-    return objectPath.get(
-      state.builder.present.content[id],
-      `advancedSettings.${settingKey}`
-    ) as T;
+    const settingKey = key.replace("{{BREAKPOINT}}", state.builder.present.currentBreakpoint);
+    return objectPath.get(state.builder.present.content[id], `advancedSettings.${settingKey}`) as T;
   };
 
-export const getSelectedBlock = <T extends object = AnyObject>(
-  state: RootState
-) => {
+export const getSelectedBlock = <T extends object = AnyObject>(state: RootState) => {
   if (!state.builder.present.selectedBlockId) {
     return null;
   }
 
-  return state.builder.present.content[
-    state.builder.present.selectedBlockId
-  ] as Block<T>;
+  return state.builder.present.content[state.builder.present.selectedBlockId] as Block<T>;
 };
 
-export const getSelectedBlockId = (state: RootState) =>
-  state.builder.present.selectedBlockId;
+export const getSelectedBlockId = (state: RootState) => state.builder.present.selectedBlockId;
 
-export const getIsAnyChildSelected =
-  (id: Block["id"]) => (state: RootState) => {
-    const isAnyChildSelected = (blockId: Block["id"]): boolean => {
-      return state.builder.present.content[blockId].children.some((childId) => {
-        if (state.builder.present.selectedBlockId === childId) {
-          return true;
-        }
-        return isAnyChildSelected(childId as string);
-      });
-    };
-
-    return isAnyChildSelected(id);
+export const getIsAnyChildSelected = (id: Block["id"]) => (state: RootState) => {
+  const isAnyChildSelected = (blockId: Block["id"]): boolean => {
+    return state.builder.present.content[blockId].children.some((childId) => {
+      if (state.builder.present.selectedBlockId === childId) {
+        return true;
+      }
+      return isAnyChildSelected(childId as string);
+    });
   };
 
+  return isAnyChildSelected(id);
+};
+
 export const getBlockIndex = (id: Block["id"]) => (state: RootState) => {
-  const parentBlock =
-    state.builder.present.content[state.builder.present.content[id].parentId];
+  const parentBlock = state.builder.present.content[state.builder.present.content[id].parentId];
   return parentBlock.children.indexOf(id);
 };
 
@@ -93,21 +76,17 @@ export const getIsBlockSelected = (id: Block["id"]) => (state: RootState) =>
   state.builder.present.selectedBlockId === id;
 
 // Get current breakpoint
-export const getCurrentBreakpoint = (state: RootState) =>
-  state.builder.present.currentBreakpoint;
+export const getCurrentBreakpoint = (state: RootState) => state.builder.present.currentBreakpoint;
 
 // Get current language
-export const getCurrentLocale = (state: RootState) =>
-  state.builder.present.currentLocale;
+export const getCurrentLocale = (state: RootState) => state.builder.present.currentLocale;
 
 // Theme
 export const getActiveTheme = (state: RootState) => state.theme.activeTheme;
 
-export const getActiveThemeId = (state: RootState) =>
-  state.theme.activeTheme.id;
+export const getActiveThemeId = (state: RootState) => state.theme.activeTheme.id;
 
-export const getActiveThemeSettings = (state: RootState) =>
-  state.theme.activeTheme.settings;
+export const getActiveThemeSettings = (state: RootState) => state.theme.activeTheme.settings;
 
 export const getActiveThemeContainerSettings = createSelector(
   getActiveThemeSettings,
@@ -116,12 +95,9 @@ export const getActiveThemeContainerSettings = createSelector(
   }
 );
 
-export const getActiveThemeColorSettings = createSelector(
-  getActiveThemeSettings,
-  (settings) => {
-    return settings.color || {};
-  }
-);
+export const getActiveThemeColorSettings = createSelector(getActiveThemeSettings, (settings) => {
+  return settings.color || {};
+});
 
 export const getActiveThemeSettingsValueByKey =
   <T = unknown>(key: string) =>
@@ -129,12 +105,9 @@ export const getActiveThemeSettingsValueByKey =
     return objectPath.get(state.theme.activeTheme.settings, key) as T;
   };
 
-export const getActiveThemeColorPresets = createSelector(
-  getActiveThemeSettings,
-  (settings) => {
-    return settings.color.presets;
-  }
-);
+export const getActiveThemeColorPresets = createSelector(getActiveThemeSettings, (settings) => {
+  return settings.color.presets;
+});
 
 export const getActiveThemeTypographyPresets = createSelector(
   getActiveThemeSettings,
@@ -143,12 +116,9 @@ export const getActiveThemeTypographyPresets = createSelector(
   }
 );
 
-export const getActiveThemeButtonPresets = createSelector(
-  getActiveThemeSettings,
-  (settings) => {
-    return settings.button.presets;
-  }
-);
+export const getActiveThemeButtonPresets = createSelector(getActiveThemeSettings, (settings) => {
+  return settings.button.presets;
+});
 
 // Get settings
 export const getSettings =
@@ -165,18 +135,14 @@ export const getSettings =
         return state.builder.present.content[selectedBlockId].settings as T;
       }
 
-      return state.builder.present.content[selectedBlockId]
-        .advancedSettings as T;
+      return state.builder.present.content[selectedBlockId].advancedSettings as T;
     }
 
     return state.theme.activeTheme.settings as T;
   };
 
 // Get settings value by key
-export const getSettingsValueByKey = <T = unknown>(
-  key: string,
-  type: SettingsType
-) => {
+export const getSettingsValueByKey = <T = unknown>(key: string, type: SettingsType) => {
   return (state: RootState) => {
     if (type === "block" || type === "advanced") {
       const selectedBlockId = state.builder.present.selectedBlockId;
@@ -185,10 +151,7 @@ export const getSettingsValueByKey = <T = unknown>(
         throw new Error("No block selected");
       }
 
-      const settingKey = key.replace(
-        "{{BREAKPOINT}}",
-        state.builder.present.currentBreakpoint
-      );
+      const settingKey = key.replace("{{BREAKPOINT}}", state.builder.present.currentBreakpoint);
 
       if (type === "block") {
         return objectPath.get(

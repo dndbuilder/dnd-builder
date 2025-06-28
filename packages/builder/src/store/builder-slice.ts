@@ -31,10 +31,7 @@ export const builderSlice = createSlice({
   initialState,
   reducers: {
     // Set builder Content
-    setContent: (
-      state: BuilderState,
-      action: PayloadAction<Record<string, Block>>
-    ) => {
+    setContent: (state: BuilderState, action: PayloadAction<Record<string, Block>>) => {
       if (isEmpty(action.payload)) {
         state.content = {
           ["root"]: createRootBlock(),
@@ -46,11 +43,7 @@ export const builderSlice = createSlice({
 
     // Set Header
     setHeader: (state: BuilderState, action: PayloadAction<Block[]>) => {
-      state.content["root"].children.splice(
-        0,
-        0,
-        ...action.payload.map((block) => block.id)
-      );
+      state.content["root"].children.splice(0, 0, ...action.payload.map((block) => block.id));
       action.payload.forEach((block) => {
         state.content[block.id] = block;
       });
@@ -149,9 +142,9 @@ export const builderSlice = createSlice({
 
       const targetParentId = action.payload.parentId ?? targetBlock.parentId;
 
-      const targetIndex = state.content[
-        targetBlock.parentId
-      ].children.findIndex((id) => id === targetBlockId);
+      const targetIndex = state.content[targetBlock.parentId].children.findIndex(
+        (id) => id === targetBlockId
+      );
 
       const newBlockId = action.payload.newId ?? createId();
 
@@ -192,11 +185,7 @@ export const builderSlice = createSlice({
 
         // Add the duplicated block to the parent's children
         if (blockIndex) {
-          state.content[targetParentId].children.splice(
-            blockIndex,
-            0,
-            newBlock.id
-          );
+          state.content[targetParentId].children.splice(blockIndex, 0, newBlock.id);
         } else {
           state.content[targetParentId].children.push(newBlock.id);
         }
@@ -229,9 +218,9 @@ export const builderSlice = createSlice({
         const parentId = block.parentId;
 
         // Remove the block from the parent's children
-        state.content[parentId].children = state.content[
-          parentId
-        ].children.filter((id) => id !== blockId);
+        state.content[parentId].children = state.content[parentId].children.filter(
+          (id) => id !== blockId
+        );
 
         // Remove the block's children
         block.children.forEach((id) => deleteBlock(id as string));
@@ -271,8 +260,7 @@ export const builderSlice = createSlice({
         newChildren.splice(sourceIndex, 1);
 
         // Insert it at the target position, adjusting for the removal
-        const adjustedTargetIndex =
-          targetIndex > sourceIndex ? targetIndex - 1 : targetIndex;
+        const adjustedTargetIndex = targetIndex > sourceIndex ? targetIndex - 1 : targetIndex;
         newChildren.splice(adjustedTargetIndex, 0, sourceId);
 
         // Update the children array
@@ -280,8 +268,9 @@ export const builderSlice = createSlice({
       } else {
         // Different parents case - original logic
         // Remove from source parent
-        state.content[sourceBlock.parentId].children =
-          sourceParentChildren.filter((id) => id !== sourceId);
+        state.content[sourceBlock.parentId].children = sourceParentChildren.filter(
+          (id) => id !== sourceId
+        );
 
         // Add to target parent
         state.content[targetBlock.id].children.splice(targetIndex, 0, sourceId);
@@ -302,18 +291,12 @@ export const builderSlice = createSlice({
     },
 
     // Set current breakpoint
-    setCurrentBreakpoint: (
-      state: BuilderState,
-      action: PayloadAction<Breakpoint>
-    ) => {
+    setCurrentBreakpoint: (state: BuilderState, action: PayloadAction<Breakpoint>) => {
       state.currentBreakpoint = action.payload;
     },
 
     // Set current language
-    setCurrentLanguage: (
-      state: BuilderState,
-      action: PayloadAction<string>
-    ) => {
+    setCurrentLanguage: (state: BuilderState, action: PayloadAction<string>) => {
       state.currentLocale = action.payload;
     },
 
@@ -363,11 +346,7 @@ export const builderSlice = createSlice({
         const key = value.key
           .replace("{{BREAKPOINT}}", state.currentBreakpoint)
           .replace("{{LOCALE}}", state.currentLocale);
-        objectPath.set(
-          state.content[selectedBlockId],
-          `settings.${key}`,
-          value.value
-        );
+        objectPath.set(state.content[selectedBlockId], `settings.${key}`, value.value);
       });
     },
 
@@ -397,11 +376,7 @@ export const builderSlice = createSlice({
         const key = value.key
           .replace("{{BREAKPOINT}}", state.currentBreakpoint)
           .replace("{{LOCALE}}", state.currentLocale);
-        objectPath.set(
-          state.content[id],
-          `advancedSettings.${key}`,
-          value.value
-        );
+        objectPath.set(state.content[id], `advancedSettings.${key}`, value.value);
       });
     },
 
@@ -422,11 +397,7 @@ export const builderSlice = createSlice({
         const key = value.key
           .replace("{{BREAKPOINT}}", state.currentBreakpoint)
           .replace("{{LOCALE}}", state.currentLocale);
-        objectPath.set(
-          state.content[selectedBlockId],
-          `advancedSettings.${key}`,
-          value.value
-        );
+        objectPath.set(state.content[selectedBlockId], `advancedSettings.${key}`, value.value);
       });
     },
 
@@ -585,19 +556,12 @@ export const builderSlice = createSlice({
       tabs.splice(tabIndex, 1);
 
       const activeTabIndex =
-        tabIndex - 1 >= 0
-          ? tabIndex - 1
-          : tabIndex + 1 < tabs.length
-            ? tabIndex + 1
-            : 0;
+        tabIndex - 1 >= 0 ? tabIndex - 1 : tabIndex + 1 < tabs.length ? tabIndex + 1 : 0;
 
       targetBlock.settings.activeTabId = tabs[activeTabIndex].id;
     },
     // Copy to clipboard
-    copyToClipboard: (
-      state: BuilderState,
-      action: PayloadAction<{ blockId: string }>
-    ) => {
+    copyToClipboard: (state: BuilderState, action: PayloadAction<{ blockId: string }>) => {
       const block = state.content[action.payload.blockId];
 
       if (!block) {
@@ -652,11 +616,10 @@ export const builderSlice = createSlice({
       }>
     ) => {
       const { data, blockId, containerSettings } = action.payload;
-      const closestContainer =
-        builderSlice.caseReducers.getClosestContainerBlock(state, {
-          payload: { blockId, containerSettings, data },
-          type: "builder/getClosestContainerBlock",
-        });
+      const closestContainer = builderSlice.caseReducers.getClosestContainerBlock(state, {
+        payload: { blockId, containerSettings, data },
+        type: "builder/getClosestContainerBlock",
+      });
 
       const block = {
         ...data,
@@ -679,19 +642,17 @@ export const builderSlice = createSlice({
 
           // Tabs block has a special structure
           if (prev && prev.type === BlockType.TABS) {
-            prev.settings.tabs = (prev.settings.tabs as TabType[]).map(
-              (tab) => {
-                return {
-                  ...tab,
-                  children: tab.children.map((c) => {
-                    if (c === child.id) {
-                      return id;
-                    }
-                    return c;
-                  }),
-                };
-              }
-            );
+            prev.settings.tabs = (prev.settings.tabs as TabType[]).map((tab) => {
+              return {
+                ...tab,
+                children: tab.children.map((c) => {
+                  if (c === child.id) {
+                    return id;
+                  }
+                  return c;
+                }),
+              };
+            });
           }
 
           blocks.push({

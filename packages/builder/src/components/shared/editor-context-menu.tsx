@@ -28,10 +28,7 @@ export type EditorContextMenuProps = {
   children: ReactNode;
 };
 
-export const EditorContextMenu: FC<EditorContextMenuProps> = ({
-  blockId,
-  children,
-}) => {
+export const EditorContextMenu: FC<EditorContextMenuProps> = ({ blockId, children }) => {
   const dispatch = useAppDispatch();
 
   const {
@@ -63,38 +60,20 @@ export const EditorContextMenu: FC<EditorContextMenuProps> = ({
         <ContextMenuContent>
           {blockType !== "root" && (
             <>
-              <ContextMenuItem
-                onClick={() => dispatch(setSelectedBlock(blockId))}
-              >
-                Edit{" "}
-                <span className="ml-1.5 capitalize">
-                  {blockType?.split("-")?.join(" ")}
-                </span>
+              <ContextMenuItem onClick={() => dispatch(setSelectedBlock(blockId))}>
+                Edit <span className="ml-1.5 capitalize">{blockType?.split("-")?.join(" ")}</span>
               </ContextMenuItem>
-              <ContextMenuItem
-                onClick={() => dispatch(duplicateBlock({ blockId }))}
-              >
+              <ContextMenuItem onClick={() => dispatch(duplicateBlock({ blockId }))}>
                 Duplicate
               </ContextMenuItem>
               <ContextMenuSeparator />
-              <ContextMenuItem
-                onClick={() => dispatch(copyToClipboard({ blockId }))}
-              >
-                Copy{" "}
-                <ContextMenuShortcut>
-                  {getPlatformSpecificCopyShortcut()}
-                </ContextMenuShortcut>
+              <ContextMenuItem onClick={() => dispatch(copyToClipboard({ blockId }))}>
+                Copy <ContextMenuShortcut>{getPlatformSpecificCopyShortcut()}</ContextMenuShortcut>
               </ContextMenuItem>
             </>
           )}
-          <ContextMenuItem
-            disabled={!pastable}
-            onClick={() => pasteFromClipboard({ blockId })}
-          >
-            Paste{" "}
-            <ContextMenuShortcut>
-              {getPlatformSpecificPasteShortcut()}
-            </ContextMenuShortcut>
+          <ContextMenuItem disabled={!pastable} onClick={() => pasteFromClipboard({ blockId })}>
+            Paste <ContextMenuShortcut>{getPlatformSpecificPasteShortcut()}</ContextMenuShortcut>
           </ContextMenuItem>
           <ContextMenuSeparator />
           <ContextMenuItem
@@ -109,9 +88,7 @@ export const EditorContextMenu: FC<EditorContextMenuProps> = ({
           </ContextMenuItem>
           <ContextMenuItem onClick={save}>
             Save
-            <ContextMenuShortcut>
-              {getPlatformSpecificSaveShortcut()}
-            </ContextMenuShortcut>
+            <ContextMenuShortcut>{getPlatformSpecificSaveShortcut()}</ContextMenuShortcut>
           </ContextMenuItem>
 
           {blockType !== "root" && (

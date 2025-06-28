@@ -49,22 +49,15 @@ const Frame: FunctionComponent<FrameProps> = ({
     const doc = nodeRef.current?.contentDocument;
 
     if (doc) {
-      nodeRef.current.contentWindow?.addEventListener(
-        "DOMContentLoaded",
-        handleLoad
-      );
+      nodeRef.current.contentWindow?.addEventListener("DOMContentLoaded", handleLoad);
 
       return () => {
-        nodeRef.current?.contentWindow?.removeEventListener(
-          "DOMContentLoaded",
-          handleLoad
-        );
+        nodeRef.current?.contentWindow?.removeEventListener("DOMContentLoaded", handleLoad);
       };
     }
   }, []);
 
-  const getDoc = (): Document | null =>
-    nodeRef.current ? nodeRef.current.contentDocument : null;
+  const getDoc = (): Document | null => (nodeRef.current ? nodeRef.current.contentDocument : null);
 
   const getWin = () => {
     const doc = getDoc();
@@ -89,29 +82,17 @@ const Frame: FunctionComponent<FrameProps> = ({
     }
 
     const contents = (
-      <Content
-        contentDidMount={contentDidMount}
-        contentDidUpdate={contentDidUpdate}
-      >
+      <Content contentDidMount={contentDidMount} contentDidUpdate={contentDidUpdate}>
         <FrameContextProvider value={{ document: doc, window: win }}>
           {children}
         </FrameContextProvider>
       </Content>
     );
-    return [
-      ReactDOM.createPortal(head, doc.head),
-      ReactDOM.createPortal(contents, doc.body),
-    ];
+    return [ReactDOM.createPortal(head, doc.head), ReactDOM.createPortal(contents, doc.body)];
   };
 
   return (
-    <iframe
-      {...otherProps}
-      style={style}
-      ref={nodeRef}
-      onLoad={handleLoad}
-      srcDoc={initialContent}
-    >
+    <iframe {...otherProps} style={style} ref={nodeRef} onLoad={handleLoad} srcDoc={initialContent}>
       {iframeLoaded && renderFrameContents()}
     </iframe>
   );
@@ -123,11 +104,7 @@ interface ContentProps {
   contentDidUpdate: () => void;
 }
 
-const Content: React.FC<ContentProps> = ({
-  children,
-  contentDidMount,
-  contentDidUpdate,
-}) => {
+const Content: React.FC<ContentProps> = ({ children, contentDidMount, contentDidUpdate }) => {
   useEffect(() => {
     contentDidMount();
     return () => {

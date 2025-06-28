@@ -76,9 +76,7 @@ const ImageConfig = createBlockConfig<ImageSettingsType>({
             right: borderTopRightRadius,
             bottom: borderBottomRightRadius,
             left: borderBottomLeftRadius,
-          } = generateSpacingValue(
-            settings.wrapper?.border?.radius?.[pseudoClass]
-          );
+          } = generateSpacingValue(settings.wrapper?.border?.radius?.[pseudoClass]);
 
           const borderType = settings.wrapper?.border?.type?.[pseudoClass];
 
@@ -150,9 +148,7 @@ const ImageConfig = createBlockConfig<ImageSettingsType>({
                   right: borderRightWidth,
                   bottom: borderBottomWidth,
                   left: borderLeftWidth,
-                } = generateSpacingValue(
-                  settings.border?.width?.[breakpoint]?.[pseudoClass]
-                );
+                } = generateSpacingValue(settings.border?.width?.[breakpoint]?.[pseudoClass]);
 
                 return {
                   borderTopWidth,

@@ -27,9 +27,7 @@ const SlideHorizontalPosition: FC<Props> = ({ type, fieldName, className }) => {
         },
         {
           tooltipContent: "Center",
-          toggleTrigger: (
-            <MdVerticalAlignCenter className="rotate-90 text-sm" />
-          ),
+          toggleTrigger: <MdVerticalAlignCenter className="rotate-90 text-sm" />,
           value: "center",
         },
         {

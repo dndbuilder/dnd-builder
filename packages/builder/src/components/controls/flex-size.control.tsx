@@ -30,10 +30,7 @@ export const FlexSizeControl: FC<FlexSizeControlProps> = ({
   label = "Size",
 }) => {
   const currentBreakpoint = useAppSelector(getCurrentBreakpoint);
-  const [flexSize] = useSettings<string | undefined>(
-    `${fieldName}.${currentBreakpoint}`,
-    type
-  );
+  const [flexSize] = useSettings<string | undefined>(`${fieldName}.${currentBreakpoint}`, type);
   const [flexGrow, setFlexGrow] = useSettings<number | undefined>(
     `${growFieldName}.${currentBreakpoint}`,
     type
@@ -62,9 +59,7 @@ export const FlexSizeControl: FC<FlexSizeControlProps> = ({
           },
           {
             tooltipContent: "Shrink",
-            toggleTrigger: (
-              <MdVerticalAlignCenter className="rotate-90 text-sm" />
-            ),
+            toggleTrigger: <MdVerticalAlignCenter className="rotate-90 text-sm" />,
             value: "shrink",
           },
           {
@@ -83,9 +78,7 @@ export const FlexSizeControl: FC<FlexSizeControlProps> = ({
           }
         )}
       >
-        <div
-          className={classNames("min-h-0", { "h-auto": flexSize === "custom" })}
-        >
+        <div className={classNames("min-h-0", { "h-auto": flexSize === "custom" })}>
           <Label className="mt-3 flex items-center">
             Flex Grow <BreakpointSelector className="ms-1" />
             <Input

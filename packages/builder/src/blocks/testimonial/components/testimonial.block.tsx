@@ -12,10 +12,7 @@ import { SliderPresets as SliderPresets } from "@/blocks/slider/types";
 import { useAppSelector } from "@/hooks/use-app-selector";
 import { getCurrentBreakpoint } from "@/store/selectors";
 
-const Testimonial: FC<BlockProps<TestimonialSettingsType>> = ({
-  settings,
-  meta,
-}) => {
+const Testimonial: FC<BlockProps<TestimonialSettingsType>> = ({ settings, meta }) => {
   const currentBreakpoint = useAppSelector(getCurrentBreakpoint);
   const columns =
     settings.columns?.[currentBreakpoint] ??
@@ -49,12 +46,7 @@ const Testimonial: FC<BlockProps<TestimonialSettingsType>> = ({
         className={settings.slider?.preset?.desktop || SliderPresets.Preset1}
       >
         {settings.testimonials.map((t) => (
-          <TestimonialCard
-            data={t}
-            key={t.id}
-            settings={settings}
-            meta={meta}
-          />
+          <TestimonialCard data={t} key={t.id} settings={settings} meta={meta} />
         ))}
       </SlickSlider>
     );

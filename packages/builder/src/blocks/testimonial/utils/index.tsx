@@ -12,8 +12,7 @@ export const renderPreset = (
   settings: TestimonialSettingsType,
   meta?: BlockMeta
 ) => {
-  const id: TestimonialPresets =
-    settings.preset?.desktop ?? TestimonialPresets.Preset1;
+  const id: TestimonialPresets = settings.preset?.desktop ?? TestimonialPresets.Preset1;
   const preset = presets[id];
 
   if (!preset) return null;

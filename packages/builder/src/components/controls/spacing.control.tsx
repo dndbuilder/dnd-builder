@@ -90,10 +90,7 @@ export const SpacingControl: FC<SpacingControlProps> = ({
     }
   }, [value]);
 
-  const handleChange = (
-    val: string,
-    property: keyof Omit<SpacingValue, "linked" | "unit">
-  ) => {
+  const handleChange = (val: string, property: keyof Omit<SpacingValue, "linked" | "unit">) => {
     const num = val === "" ? undefined : Number(val);
 
     if (innerValue?.linked) {
@@ -174,9 +171,7 @@ export const SpacingControl: FC<SpacingControlProps> = ({
             value={innerValue?.bottom ?? ""}
             type="number"
           />
-          <p className="mt-0.5 text-center text-[10px] text-slate-400">
-            Bottom
-          </p>
+          <p className="mt-0.5 text-center text-[10px] text-slate-400">Bottom</p>
         </div>
         <div>
           <Input
@@ -225,18 +220,14 @@ export const SpacingControl: FC<SpacingControlProps> = ({
             >
               <Select.Value placeholder="px" />
             </Select.Trigger>
-            <Select.Content
-              alignOffset={-10}
-              sideOffset={-20}
-              className="min-w-[38px] border-0"
-            >
+            <Select.Content alignOffset={-10} sideOffset={-20} className="min-w-[38px] border-0">
               <Select.Group>
                 {units.map((unit) => (
                   <Select.Item
                     showCheck={false}
                     value={unit}
                     key={unit}
-                    className="flex items-center justify-center ps-2 py-1.5 text-xs"
+                    className="flex items-center justify-center py-1.5 ps-2 text-xs"
                   >
                     {unit}
                   </Select.Item>

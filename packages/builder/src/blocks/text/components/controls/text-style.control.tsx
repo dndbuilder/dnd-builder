@@ -6,11 +6,7 @@ import { TextShadowControl } from "@/components/controls/text-shadow.control";
 import { TypographyControl } from "@/components/controls/typography.control";
 import { ToggleGroupControl } from "@/components/controls/toggle-group.control";
 import { PseudoClass } from "@/types/style";
-import {
-  AiOutlineAlignCenter,
-  AiOutlineAlignLeft,
-  AiOutlineAlignRight,
-} from "react-icons/ai";
+import { AiOutlineAlignCenter, AiOutlineAlignLeft, AiOutlineAlignRight } from "react-icons/ai";
 import { TfiAlignJustify } from "react-icons/tfi";
 import { SettingsType } from "@/types";
 
@@ -62,10 +58,7 @@ const TextStyleControl = () => {
           <TypographyControl fieldName="typography" type={SettingsType.BLOCK} />
 
           {/* Text Shadow */}
-          <TextShadowControl
-            fieldName="textShadow.desktop.default"
-            type={SettingsType.BLOCK}
-          />
+          <TextShadowControl fieldName="textShadow.desktop.default" type={SettingsType.BLOCK} />
         </Accordion.Content>
       </Accordion.Item>
     </Accordion>

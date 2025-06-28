@@ -69,9 +69,7 @@ export const AdvancedSettingsControl = () => {
               },
               {
                 tooltipContent: "Center",
-                toggleTrigger: (
-                  <MdOutlineAlignHorizontalCenter className="rotate-90 text-sm" />
-                ),
+                toggleTrigger: <MdOutlineAlignHorizontalCenter className="rotate-90 text-sm" />,
                 value: "center",
               },
               {
@@ -81,9 +79,7 @@ export const AdvancedSettingsControl = () => {
               },
             ]}
           />
-          <InfoMessage>
-            This control will affect contained elements only.
-          </InfoMessage>
+          <InfoMessage>This control will affect contained elements only.</InfoMessage>
 
           {/* Order */}
           <FlexOrderControl
@@ -120,18 +116,10 @@ export const AdvancedSettingsControl = () => {
           />
 
           {/* CSS ID */}
-          <InputControl
-            type={SettingsType.ADVANCED}
-            fieldName="cssId"
-            label="CSS ID"
-          />
+          <InputControl type={SettingsType.ADVANCED} fieldName="cssId" label="CSS ID" />
 
           {/* CSS Classes */}
-          <InputControl
-            type={SettingsType.ADVANCED}
-            fieldName="cssClasses"
-            label="CSS Classes"
-          />
+          <InputControl type={SettingsType.ADVANCED} fieldName="cssClasses" label="CSS Classes" />
         </Accordion.Content>
       </Accordion.Item>
 
@@ -235,12 +223,10 @@ export const AdvancedSettingsControl = () => {
       <Accordion.Item value="Responsive">
         <Accordion.Trigger className="p-4">Responsive</Accordion.Trigger>
         <Accordion.Content className="px-4">
-          <Label className="text-xs font-semibold text-slate-800">
-            Visibility
-          </Label>
+          <Label className="text-xs font-semibold text-slate-800">Visibility</Label>
           <InfoMessage>
-            Responsive visibility will take effect only on preview mode or live
-            page, and not while editing.
+            Responsive visibility will take effect only on preview mode or live page, and not while
+            editing.
           </InfoMessage>
 
           {/* Hide On Desktop */}

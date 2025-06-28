@@ -9,11 +9,7 @@ type EditorRenderChildrenProps = {
   isEditable: boolean;
 };
 
-const EditorRenderChildren: FC<EditorRenderChildrenProps> = ({
-  blocks,
-  meta,
-  isEditable,
-}) => {
+const EditorRenderChildren: FC<EditorRenderChildrenProps> = ({ blocks, meta, isEditable }) => {
   return (
     <>
       {blocks.map((block, index) => (

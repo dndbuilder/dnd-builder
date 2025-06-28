@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  BreakpointSelector,
-  Button,
-  Input,
-  Label,
-  ScrollArea,
-} from "@/components";
+import { BreakpointSelector, Button, Input, Label, ScrollArea } from "@/components";
 import { RenderIcon } from "@/components/shared/render-icon";
 import { collections } from "@/config/icon.config";
 import { useIcons, useSettings } from "@/hooks";
@@ -57,9 +51,7 @@ export const IconControl: FC<IconControlProps> = ({
   );
 
   const [open, setOpen] = useState(false);
-  const [selectedIcon, setSelectedIcon] = useState<string>(
-    value?.iconName ?? ""
-  );
+  const [selectedIcon, setSelectedIcon] = useState<string>(value?.iconName ?? "");
   const [selectedCollection, setSelectedCollection] = useState<string>(
     value?.iconSet ?? iconCollections[0]?.value ?? ""
   );
@@ -67,14 +59,10 @@ export const IconControl: FC<IconControlProps> = ({
   const renderIcon = () => {
     if (value?.iconSet && value.iconName) {
       return (
-        <div className="flex items-center justify-center h-full">
+        <div className="flex h-full items-center justify-center">
           <div className="text-center">
-            <div className="text-2xl mb-1">
-              <RenderIcon
-                iconSet={value.iconSet}
-                iconName={value.iconName}
-                size="2em"
-              />
+            <div className="mb-1 text-2xl">
+              <RenderIcon iconSet={value.iconSet} iconName={value.iconName} size="2em" />
             </div>
             <div className="text-xs text-slate-600">
               {value.iconSet}:{value.iconName}
@@ -89,14 +77,14 @@ export const IconControl: FC<IconControlProps> = ({
   return (
     <div className={classNames("mt-4", className)}>
       {label && (
-        <Label className="flex flex-1 items-center gap-1 mb-1.5">
+        <Label className="mb-1.5 flex flex-1 items-center gap-1">
           {label} {responsive && <BreakpointSelector />}
         </Label>
       )}
 
       <Dialog.Root open={open} onOpenChange={setOpen}>
         <Dialog.Trigger asChild>
-          <div className="group p-0  relative h-32 w-full cursor-pointer overflow-hidden  transition duration-200 control-media-area">
+          <div className="control-media-area group  relative h-32 w-full cursor-pointer overflow-hidden  p-0 transition duration-200">
             <div className="flex h-full w-full items-center justify-center text-2xl text-slate-600">
               {value ? renderIcon() : <HiPlusCircle />}
             </div>
@@ -118,12 +106,10 @@ export const IconControl: FC<IconControlProps> = ({
           </div>
         </Dialog.Trigger>
         <Dialog.Portal>
-          <Dialog.Overlay className="fixed inset-0 z-50 bg-[rgba(0,0,0,0.7)] data-[state=open]:animate-overlay-show" />
-          <Dialog.Content className="fixed left-[50%] top-[50%] z-60 w-full max-w-5xl translate-x-[-50%] translate-y-[-50%] rounded-[6px] bg-white focus:outline-hidden data-[state=open]:animate-content-show">
-            <Dialog.Title className="flex justify-between p-4 border-b">
-              <p className="text-xl font-semibold text-slate-800">
-                Insert Icon
-              </p>
+          <Dialog.Overlay className="data-[state=open]:animate-overlay-show fixed inset-0 z-50 bg-[rgba(0,0,0,0.7)]" />
+          <Dialog.Content className="z-60 focus:outline-hidden data-[state=open]:animate-content-show fixed left-[50%] top-[50%] w-full max-w-5xl translate-x-[-50%] translate-y-[-50%] rounded-[6px] bg-white">
+            <Dialog.Title className="flex justify-between border-b p-4">
+              <p className="text-xl font-semibold text-slate-800">Insert Icon</p>
 
               <Dialog.Close className="cursor-pointer">
                 <FiX />
@@ -144,11 +130,7 @@ export const IconControl: FC<IconControlProps> = ({
                 </div>
 
                 {/* Footer */}
-                <div
-                  className={
-                    " border-t border-slate-300 flex justify-end gap-2 p-4"
-                  }
-                >
+                <div className={" flex justify-end gap-2 border-t border-slate-300 p-4"}>
                   <Button onClick={() => setOpen(false)} variant={"secondary"}>
                     Cancel
                   </Button>
@@ -259,15 +241,15 @@ export function IconSetViewer({
     <Tabs.Root
       value={selectedCollection}
       onValueChange={handleCollectionChange}
-      className="flex w-full h-full"
+      className="flex h-full w-full"
     >
       {/* Vertical tabs for icon collections */}
-      <Tabs.List className="flex flex-col w-[200px] border-r overflow-y-auto">
+      <Tabs.List className="flex w-[200px] flex-col overflow-y-auto border-r">
         {iconCollections.map((collection) => (
           <Tabs.Trigger
             key={collection.value}
             value={collection.value}
-            className="px-4 py-3 text-left border-l-2 border-transparent hover:bg-slate-100 data-[state=active]:border-slate-600 data-[state=active]:bg-slate-100 text-sm  transition-colors font-medium text-slate-800"
+            className="border-l-2 border-transparent px-4 py-3 text-left text-sm font-medium text-slate-800 transition-colors  hover:bg-slate-100 data-[state=active]:border-slate-600 data-[state=active]:bg-slate-100"
           >
             {collection.name}
           </Tabs.Trigger>
@@ -277,14 +259,10 @@ export function IconSetViewer({
       {/* Content area for icons */}
       <div className="flex-1 overflow-hidden">
         {iconCollections.map((collection) => (
-          <Tabs.Content
-            key={collection.value}
-            value={collection.value}
-            className="h-full"
-          >
-            <div className="flex flex-col h-full">
+          <Tabs.Content key={collection.value} value={collection.value} className="h-full">
+            <div className="flex h-full flex-col">
               {/* Search bar inside the IconSetViewer */}
-              <div className="flex justify-end py-3 px-5">
+              <div className="flex justify-end px-5 py-3">
                 <Input
                   placeholder="Search..."
                   className="w-[200px]"
@@ -298,20 +276,18 @@ export function IconSetViewer({
                 <div ref={scrollRef}>
                   <div
                     ref={ref}
-                    className="grid grid-cols-4 sm:grid-cols-4 lg:grid-cols-6 px-4 py-2 gap-4"
+                    className="grid grid-cols-4 gap-4 px-4 py-2 sm:grid-cols-4 lg:grid-cols-6"
                   >
                     {/* Render actual icons */}
                     {iconData?.pages &&
                     iconData.pages.length > 0 &&
-                    iconData.pages.some(
-                      (page) => Object.keys(page?.icons ?? {}).length > 0
-                    ) ? (
+                    iconData.pages.some((page) => Object.keys(page?.icons ?? {}).length > 0) ? (
                       iconData.pages.flatMap((page) =>
                         Object.keys(page?.icons ?? {}).map((iconName) => (
                           <div
                             key={iconName}
                             className={classNames(
-                              "p-4 cursor-pointer rounded text-center transition-colors border border-slate-300",
+                              "cursor-pointer rounded border border-slate-300 p-4 text-center transition-colors",
                               selectedIcon === iconName
                                 ? "bg-slate-100 ring-2 ring-slate-600"
                                 : "hover:bg-slate-100"
@@ -324,18 +300,14 @@ export function IconSetViewer({
                               size="1.5rem"
                               className="text-slate-800"
                             />
-                            <div className="text-xs text-slate-600 mt-1">
-                              {iconName}
-                            </div>
+                            <div className="mt-1 text-xs text-slate-600">{iconName}</div>
                           </div>
                         ))
                       )
                     ) : isError ? (
-                      <div className="col-span-full flex flex-col items-center justify-center py-10 h-[350px] text-slate-500">
-                        <MdErrorOutline className="h-12 w-12 mb-2" />
-                        <div className="text-lg font-semibold mb-1">
-                          Something went wrong
-                        </div>
+                      <div className="col-span-full flex h-[350px] flex-col items-center justify-center py-10 text-slate-500">
+                        <MdErrorOutline className="mb-2 h-12 w-12" />
+                        <div className="mb-1 text-lg font-semibold">Something went wrong</div>
                         <div className="text-sm">
                           Please try again or select a different icon set
                         </div>
@@ -346,34 +318,27 @@ export function IconSetViewer({
                         .map((_, index) => (
                           <div
                             key={index}
-                            className="h-20 flex-col cursor-pointer rounded flex items-center justify-center transition-colors border border-slate-300"
+                            className="flex h-20 cursor-pointer flex-col items-center justify-center rounded border border-slate-300 transition-colors"
                           >
                             {/* Placeholder for loading state */}
-                            <div className="h-[1.5rem] w-[1.5rem] bg-slate-300 animate-pulse rounded"></div>
-                            <div className="text-xs text-slate-600 mt-2 text-center  w-16">
+                            <div className="h-[1.5rem] w-[1.5rem] animate-pulse rounded bg-slate-300"></div>
+                            <div className="mt-2 w-16 text-center text-xs  text-slate-600">
                               Loading...
                             </div>
                           </div>
                         ))
                     ) : (
-                      <div className="col-span-full flex flex-col items-center justify-center py-10 h-[350px] text-slate-500">
-                        <LuSearchX className="h-12 w-12 mb-2" />
-                        <div className="text-lg font-semibold mb-1">
-                          No icons found
-                        </div>
-                        <div className="text-sm">
-                          Try a different search or icon set.
-                        </div>
+                      <div className="col-span-full flex h-[350px] flex-col items-center justify-center py-10 text-slate-500">
+                        <LuSearchX className="mb-2 h-12 w-12" />
+                        <div className="mb-1 text-lg font-semibold">No icons found</div>
+                        <div className="text-sm">Try a different search or icon set.</div>
                       </div>
                     )}
                   </div>
 
                   {/* Sentinel element for intersection observer */}
                   {hasNextPage && (
-                    <div
-                      ref={loadMoreRef}
-                      className="flex justify-center mt-4 mb-2 h-10"
-                    >
+                    <div ref={loadMoreRef} className="mb-2 mt-4 flex h-10 justify-center">
                       {isFetchingNextPage && (
                         <CgSpinner className="animate-spin text-2xl text-slate-600" />
                       )}

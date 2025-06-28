@@ -92,7 +92,7 @@ export const FlexGapControl: FC<FlexGapsControlProps> = ({
   return (
     <div className={classNames("mt-4", className)} {...props}>
       {label && (
-        <Label className="mb-1.5 gap-1 flex items-center">
+        <Label className="mb-1.5 flex items-center gap-1">
           {label} {responsive && <BreakpointSelector />}
         </Label>
       )}
@@ -118,9 +118,7 @@ export const FlexGapControl: FC<FlexGapsControlProps> = ({
             type="number"
             inputMode="numeric"
           />
-          <p className="mt-0.5 text-center text-[10px] text-slate-400">
-            Column
-          </p>
+          <p className="mt-0.5 text-center text-[10px] text-slate-400">Column</p>
         </div>
         <div>
           <div className="w-full rounded-sm border border-slate-300 ">
@@ -155,11 +153,7 @@ export const FlexGapControl: FC<FlexGapsControlProps> = ({
             >
               <Select.Value placeholder="px" />
             </Select.Trigger>
-            <Select.Content
-              alignOffset={-10}
-              sideOffset={-20}
-              className="min-w-[38px] border-0"
-            >
+            <Select.Content alignOffset={-10} sideOffset={-20} className="min-w-[38px] border-0">
               <Select.Group>
                 {units.map((unit) => (
                   <Select.Item

@@ -17,11 +17,7 @@ const FaqContentControl = () => {
 
           <Separator className="my-4" />
 
-          <SwitchControl
-            type={SettingsType.BLOCK}
-            fieldName="isAccordion"
-            label="Accordion"
-          />
+          <SwitchControl type={SettingsType.BLOCK} fieldName="isAccordion" label="Accordion" />
           <SwitchControl
             type={SettingsType.BLOCK}
             fieldName="isOpenFirstItem"

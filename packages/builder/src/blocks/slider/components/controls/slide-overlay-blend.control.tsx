@@ -11,12 +11,7 @@ type Props = {
   overlayField: string;
 } & HTMLAttributes<HTMLDivElement>;
 
-const SlideOverlayBlendControl: FC<Props> = ({
-  type,
-  fieldName,
-  overlayField,
-  className,
-}) => {
+const SlideOverlayBlendControl: FC<Props> = ({ type, fieldName, overlayField, className }) => {
   const [overlay] = useSettings<string | undefined>(overlayField, type);
   return overlay ? (
     <SelectControl

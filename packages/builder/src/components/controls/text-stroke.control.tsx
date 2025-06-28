@@ -14,11 +14,7 @@ export type TextStrokeProps = {
   label?: ReactNode;
 } & HTMLAttributes<HTMLDivElement>;
 
-export const TextStrokeControl: FC<TextStrokeProps> = ({
-  label,
-  type,
-  fieldName,
-}) => {
+export const TextStrokeControl: FC<TextStrokeProps> = ({ label, type, fieldName }) => {
   return (
     <div className="mt-4 flex items-center justify-between gap-1.5">
       {label && <Label>{label}</Label>}
@@ -43,11 +39,7 @@ export const TextStrokeControl: FC<TextStrokeProps> = ({
               className="mt-0"
             />
 
-            <ColorControl
-              type={type}
-              label="Stroke Color"
-              fieldName={`${fieldName}.color`}
-            />
+            <ColorControl type={type} label="Stroke Color" fieldName={`${fieldName}.color`} />
             <Popover.Arrow width={20} height={9} fill="white" />
           </Popover.Content>
         </Popover.Portal>

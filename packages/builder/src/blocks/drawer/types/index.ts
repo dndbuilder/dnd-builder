@@ -30,9 +30,7 @@ export type DrawerSettingsType = {
     height?: ResponsiveValue<UnitValue>;
     width?: ResponsiveValue<UnitValue>;
     spacing?: ResponsiveValue<UnitValue>;
-    align?: ResponsiveValue<
-      "flex-start" | "center" | "flex-end" | "space-between"
-    >;
+    align?: ResponsiveValue<"flex-start" | "center" | "flex-end" | "space-between">;
     padding?: ResponsiveValue<SpacingValue>;
     margin?: ResponsiveValue<SpacingValue>;
     typography?: TypographyType;
