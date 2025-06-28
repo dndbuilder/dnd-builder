@@ -11,9 +11,7 @@ async function fetchContent(): Promise<Record<string, Block>> {
     const db = client.db("pageBuilder");
 
     // Get the latest content
-    const contentDoc = await db
-      .collection("builderContent")
-      .findOne({}, { sort: { _id: -1 } });
+    const contentDoc = await db.collection("builderContent").findOne({}, { sort: { _id: -1 } });
 
     if (contentDoc && contentDoc.data) {
       content = contentDoc.data;

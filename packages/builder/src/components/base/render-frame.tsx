@@ -7,11 +7,7 @@ type RenderFrameProps = {
   children: ReactNode;
 } & FrameProps;
 
-const RenderFrame: FC<RenderFrameProps> = ({
-  children,
-  className,
-  ...rest
-}) => {
+const RenderFrame: FC<RenderFrameProps> = ({ children, className, ...rest }) => {
   const [frameContent, setFrameContent] = useState<string | null>();
 
   useEffect(() => {

@@ -66,9 +66,7 @@ export const SliderInputControl: FC<SliderInputControlProps> = ({
           type="number"
           value={value ?? ""}
           onChange={(e) => {
-            setValue(
-              e.target.value === "" ? undefined : Number(e.target.value)
-            );
+            setValue(e.target.value === "" ? undefined : Number(e.target.value));
           }}
           min={min}
           max={max}

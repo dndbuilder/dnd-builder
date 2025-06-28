@@ -15,14 +15,12 @@ export type PositionControlProps = {
   fieldName?: string;
 };
 
-export const PositionControl: FC<PositionControlProps> = ({
-  type,
-  fieldName = "position",
-}) => {
+export const PositionControl: FC<PositionControlProps> = ({ type, fieldName = "position" }) => {
   const currentBreakpoint = useAppSelector(getCurrentBreakpoint);
-  const [position] = useSettings<
-    "relative" | "absolute" | "fixed" | "sticky" | undefined
-  >(`${fieldName}.value.${currentBreakpoint}`, type);
+  const [position] = useSettings<"relative" | "absolute" | "fixed" | "sticky" | undefined>(
+    `${fieldName}.value.${currentBreakpoint}`,
+    type
+  );
 
   return (
     <div>

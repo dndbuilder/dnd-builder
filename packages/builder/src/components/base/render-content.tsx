@@ -12,11 +12,7 @@ export type RenderContentProps = {
   builderConfig?: BuilderConfig; // Add builderConfig prop
 };
 
-export const RenderContent: FC<RenderContentProps> = ({
-  content,
-  meta,
-  builderConfig,
-}) => {
+export const RenderContent: FC<RenderContentProps> = ({ content, meta, builderConfig }) => {
   if (builderConfig) {
     BuilderConfiguration.mergeConfig(builderConfig);
   }
@@ -35,19 +31,11 @@ export const RenderContent: FC<RenderContentProps> = ({
         {root.children.map(
           (block, index) =>
             typeof block !== "string" && (
-              <RenderBlock
-                index={index}
-                block={block}
-                key={block.id}
-                meta={meta}
-              />
+              <RenderBlock index={index} block={block} key={block.id} meta={meta} />
             )
         )}
       </main>
-      <StyleManager
-        content={content}
-        themeSettings={ThemeConfiguration.settings}
-      />
+      <StyleManager content={content} themeSettings={ThemeConfiguration.settings} />
     </>
   );
 };

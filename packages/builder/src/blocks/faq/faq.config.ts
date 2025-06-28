@@ -162,9 +162,7 @@ const FaqConfig = createBlockConfig<FaqSettingsType>({
               right: borderRightWidth,
               bottom: borderBottomWidth,
               left: borderLeftWidth,
-            } = generateSpacingValue(
-              settings.item?.border?.width?.[breakpoint]
-            );
+            } = generateSpacingValue(settings.item?.border?.width?.[breakpoint]);
 
             const {
               top: paddingTop,
@@ -190,19 +188,14 @@ const FaqConfig = createBlockConfig<FaqSettingsType>({
 
             ...generateResponsiveStyle(breakpoints, (breakpoint) => {
               return {
-                marginBottom: generateUnitValue(
-                  settings.title?.spacing?.[breakpoint]
-                ),
+                marginBottom: generateUnitValue(settings.title?.spacing?.[breakpoint]),
               };
             }),
           },
           "& .description": {
             color: settings.description?.color?.default,
 
-            ...generateTypography(
-              breakpoints,
-              settings.description?.typography
-            ),
+            ...generateTypography(breakpoints, settings.description?.typography),
           },
         },
       },

@@ -38,9 +38,7 @@ const TextConfig = createBlockConfig<TextSettingsType>({
   controls: [
     {
       label: "Content",
-      component: lazy(
-        () => import("./components/controls/text-content.control")
-      ),
+      component: lazy(() => import("./components/controls/text-content.control")),
     },
     {
       label: "Style",

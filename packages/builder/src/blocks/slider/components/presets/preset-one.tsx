@@ -24,10 +24,8 @@ const PresetOne: FC<SliderSettingsProps> = ({ settings, meta }) => {
       customPaging={() => <CustomDot />}
       className={classNames(
         settings.preset?.desktop ?? SliderPresets.Preset1,
-        settings.navigation?.arrowPlacement?.desktop === "outside" &&
-          "arrows-outside",
-        settings.navigation?.dotPlacement?.desktop === "outside" &&
-          "dots-outside"
+        settings.navigation?.arrowPlacement?.desktop === "outside" && "arrows-outside",
+        settings.navigation?.dotPlacement?.desktop === "outside" && "dots-outside"
       )}
     >
       {settings.slides?.map((slide, index) => {
@@ -40,12 +38,7 @@ const PresetOne: FC<SliderSettingsProps> = ({ settings, meta }) => {
         return (
           <div key={index} className={`slide-item slide-item-${slide.id}`}>
             <div className="slide-content">
-              {title && (
-                <div
-                  className="title"
-                  dangerouslySetInnerHTML={{ __html: title }}
-                ></div>
-              )}
+              {title && <div className="title" dangerouslySetInnerHTML={{ __html: title }}></div>}
               {description && (
                 <div
                   className="description"
@@ -59,9 +52,7 @@ const PresetOne: FC<SliderSettingsProps> = ({ settings, meta }) => {
                       className="btn"
                       href={slide.button?.link?.url}
                       rel={slide.button?.link.nofollow ? "nofollow" : undefined}
-                      target={
-                        slide.button?.link.newWindow ? "_blank" : undefined
-                      }
+                      target={slide.button?.link.newWindow ? "_blank" : undefined}
                     >
                       <span>{buttonText}</span>
                     </a>

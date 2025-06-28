@@ -1,11 +1,6 @@
 import { ResponsiveValue } from "@/types/responsive";
 import { LocalizedValue } from "@/types";
-import {
-  SpacingValue,
-  TypographyType,
-  UnitValue,
-  WithPseudoClass,
-} from "@/types/style";
+import { SpacingValue, TypographyType, UnitValue, WithPseudoClass } from "@/types/style";
 
 export type FaqItem = {
   id: string;

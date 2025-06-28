@@ -2,14 +2,7 @@
 
 import { classNames } from "@/utils";
 import { Root as SlotRoot } from "@radix-ui/react-slot";
-import React, {
-  createContext,
-  ReactNode,
-  useCallback,
-  useContext,
-  useRef,
-  useState,
-} from "react";
+import React, { createContext, ReactNode, useCallback, useContext, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { cva } from "class-variance-authority";
 
@@ -203,11 +196,11 @@ Drawer.Content = function DrawerContent({
     <dialog
       ref={ctx.dialogRef}
       onKeyDown={handleKeyDown}
-      className={"w-full h-full bg-transparent fixed inset-0 z-50"}
+      className={"fixed inset-0 z-50 h-full w-full bg-transparent"}
     >
       <div
         className={classNames(
-          "drawer-content fixed flex flex-col z-50 bg-white shadow-lg transition-transform duration-300 ease-out",
+          "drawer-content fixed z-50 flex flex-col bg-white shadow-lg transition-transform duration-300 ease-out",
           directionClass,
           className
         )}
@@ -245,11 +238,7 @@ export type DrawerCloseButtonProps = React.HTMLAttributes<HTMLButtonElement> & {
   children?: ReactNode;
 };
 
-function DrawerCloseButton({
-  children,
-  className,
-  ...rest
-}: DrawerCloseButtonProps) {
+function DrawerCloseButton({ children, className, ...rest }: DrawerCloseButtonProps) {
   const ctx = useContext(DrawerContext);
   if (!ctx) return null;
   return (

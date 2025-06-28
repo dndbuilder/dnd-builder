@@ -14,11 +14,7 @@ import { Separator } from "@/components/shared/separator";
 import { Tabs } from "@/components/shared/tabs";
 import { SettingsType } from "@/types";
 import { PseudoClass, Unit } from "@/types/style";
-import {
-  AiOutlineAlignCenter,
-  AiOutlineAlignLeft,
-  AiOutlineAlignRight,
-} from "react-icons/ai";
+import { AiOutlineAlignCenter, AiOutlineAlignLeft, AiOutlineAlignRight } from "react-icons/ai";
 
 const ProgressBarStyleControl = () => {
   return (
@@ -33,10 +29,7 @@ const ProgressBarStyleControl = () => {
             label="Color"
           />
 
-          <TypographyControl
-            fieldName="title.typography"
-            type={SettingsType.BLOCK}
-          />
+          <TypographyControl fieldName="title.typography" type={SettingsType.BLOCK} />
 
           <ColorControl
             type={SettingsType.BLOCK}
@@ -163,10 +156,7 @@ const ProgressBarStyleControl = () => {
             label="Background Color"
           />
 
-          <TypographyControl
-            fieldName="percentage.typography"
-            type={SettingsType.BLOCK}
-          />
+          <TypographyControl fieldName="percentage.typography" type={SettingsType.BLOCK} />
 
           <SpacingControl
             type={SettingsType.BLOCK}

@@ -55,11 +55,7 @@ const DropdownContentControl = () => {
             type={SettingsType.BLOCK}
             responsive
           />
-          <IconControl
-            label="Icon"
-            fieldName="button.icon"
-            type={SettingsType.BLOCK}
-          />
+          <IconControl label="Icon" fieldName="button.icon" type={SettingsType.BLOCK} />
           <InputControl
             label="Order"
             fieldName="button.icon.order"
@@ -79,11 +75,7 @@ const DropdownContentControl = () => {
             type={SettingsType.BLOCK}
             responsive
           />
-          <MediaControl
-            label="Media"
-            fieldName="button.image.media"
-            type={SettingsType.BLOCK}
-          />
+          <MediaControl label="Media" fieldName="button.image.media" type={SettingsType.BLOCK} />
           <InputControl
             label="Order"
             fieldName="button.image.order"
@@ -110,23 +102,17 @@ const DropdownContentControl = () => {
             controls={[
               {
                 tooltipContent: "Top",
-                toggleTrigger: (
-                  <GoSidebarExpand className="text-sm rotate-90" />
-                ),
+                toggleTrigger: <GoSidebarExpand className="rotate-90 text-sm" />,
                 value: "top",
               },
               {
                 tooltipContent: "Right",
-                toggleTrigger: (
-                  <GoSidebarExpand className="text-sm rotate-180" />
-                ),
+                toggleTrigger: <GoSidebarExpand className="rotate-180 text-sm" />,
                 value: "right",
               },
               {
                 tooltipContent: "Bottom",
-                toggleTrigger: (
-                  <GoSidebarExpand className="text-sm -rotate-90" />
-                ),
+                toggleTrigger: <GoSidebarExpand className="-rotate-90 text-sm" />,
                 value: "bottom",
               },
               {
@@ -160,9 +146,7 @@ const DropdownContentControl = () => {
               },
               {
                 tooltipContent: "Center",
-                toggleTrigger: (
-                  <MdOutlineAlignHorizontalCenter className="rotate-90 text-sm" />
-                ),
+                toggleTrigger: <MdOutlineAlignHorizontalCenter className="rotate-90 text-sm" />,
                 value: "center",
               },
               {

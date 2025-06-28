@@ -10,20 +10,11 @@ type Props = {
   mediaField: string;
 } & HTMLAttributes<HTMLDivElement>;
 
-const SlideOverlayControl: FC<Props> = ({
-  type,
-  fieldName,
-  mediaField,
-  className,
-}) => {
+const SlideOverlayControl: FC<Props> = ({ type, fieldName, mediaField, className }) => {
   const [media] = useSettings<string | undefined>(mediaField, type);
   return media ? (
     <div className={classNames("mt-4", className)}>
-      <SwitchControl
-        type={type}
-        fieldName={fieldName}
-        label="Background Overlay"
-      />
+      <SwitchControl type={type} fieldName={fieldName} label="Background Overlay" />
     </div>
   ) : null;
 };

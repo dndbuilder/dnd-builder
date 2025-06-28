@@ -31,9 +31,7 @@ const ThemeButtonPresets = () => {
               newPresets[index].name = value;
               setPresets(newPresets);
             }}
-            onKeyDown={(e: React.KeyboardEvent) =>
-              e.key === "Enter" && e.preventDefault()
-            }
+            onKeyDown={(e: React.KeyboardEvent) => e.key === "Enter" && e.preventDefault()}
             html={preset.name}
             tagName="p"
             className="me-auto rounded-sm border border-transparent px-2 py-1 text-xs hover:border-slate-100 focus-visible:border-slate-100 focus-visible:outline-0"

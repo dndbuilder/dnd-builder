@@ -18,14 +18,8 @@ import { useSettings } from "@/hooks/use-settings";
 import { Separator } from "@/components/shared/separator";
 
 const SliderStyleControl = () => {
-  const [showDots] = useSettings<boolean>(
-    "showDots.desktop",
-    SettingsType.BLOCK
-  );
-  const [showArrows] = useSettings<boolean>(
-    "showArrows.desktop",
-    SettingsType.BLOCK
-  );
+  const [showDots] = useSettings<boolean>("showDots.desktop", SettingsType.BLOCK);
+  const [showArrows] = useSettings<boolean>("showArrows.desktop", SettingsType.BLOCK);
 
   return (
     <Accordion defaultValue="Slides" type="single" collapsible>
@@ -52,14 +46,8 @@ const SliderStyleControl = () => {
             type={SettingsType.BLOCK}
             fieldName="horizontalPosition.desktop"
           />
-          <SlideVerticalPosition
-            type={SettingsType.BLOCK}
-            fieldName="verticalPosition.desktop"
-          />
-          <SlideTextAlignControl
-            type={SettingsType.BLOCK}
-            fieldName="textAlign.desktop"
-          />
+          <SlideVerticalPosition type={SettingsType.BLOCK} fieldName="verticalPosition.desktop" />
+          <SlideTextAlignControl type={SettingsType.BLOCK} fieldName="textAlign.desktop" />
         </Accordion.Content>
       </Accordion.Item>
       <Accordion.Item value="Title">
@@ -72,14 +60,8 @@ const SliderStyleControl = () => {
             className="mt-0"
             responsive
           />
-          <ColorControl
-            type={SettingsType.BLOCK}
-            fieldName="title.color.desktop.default"
-          />
-          <TypographyControl
-            type={SettingsType.BLOCK}
-            fieldName="title.typography"
-          />
+          <ColorControl type={SettingsType.BLOCK} fieldName="title.color.desktop.default" />
+          <TypographyControl type={SettingsType.BLOCK} fieldName="title.typography" />
         </Accordion.Content>
       </Accordion.Item>
       <Accordion.Item value="Description">
@@ -92,14 +74,8 @@ const SliderStyleControl = () => {
             className="mt-0"
             responsive
           />
-          <ColorControl
-            type={SettingsType.BLOCK}
-            fieldName="description.color.desktop.default"
-          />
-          <TypographyControl
-            type={SettingsType.BLOCK}
-            fieldName="description.typography"
-          />
+          <ColorControl type={SettingsType.BLOCK} fieldName="description.color.desktop.default" />
+          <TypographyControl type={SettingsType.BLOCK} fieldName="description.typography" />
         </Accordion.Content>
       </Accordion.Item>
       <Accordion.Item value="Button">
@@ -121,10 +97,7 @@ const SliderStyleControl = () => {
             className="mt-0"
           />
 
-          <TypographyControl
-            type={SettingsType.BLOCK}
-            fieldName="button.typography"
-          />
+          <TypographyControl type={SettingsType.BLOCK} fieldName="button.typography" />
           <SliderUnitControl
             type={SettingsType.BLOCK}
             fieldName="button.border.width"

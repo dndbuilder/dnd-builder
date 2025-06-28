@@ -35,8 +35,7 @@ export const CanvasArea: FC = () => {
 
   const currentLocale = useAppSelector(getCurrentLocale);
 
-  const { previewWidth } =
-    BuilderConfiguration.getBreakpoint(currentBreakpoint);
+  const { previewWidth } = BuilderConfiguration.getBreakpoint(currentBreakpoint);
 
   const frameWrapperRef = useRef<HTMLDivElement>(null);
 
@@ -95,7 +94,7 @@ export const CanvasArea: FC = () => {
   return (
     <div
       className={classNames(
-        "relative flex grow justify-center p-4 transition-all duration-300 bg-slate-100",
+        "relative flex grow justify-center bg-slate-100 p-4 transition-all duration-300",
         !isLeftPanelOpen ? "ms-0" : "ms-[290px]",
         !activeRightPanel ? "me-0" : "me-[290px]"
       )}
@@ -103,30 +102,21 @@ export const CanvasArea: FC = () => {
       <ErrorBoundary fallbackRender={ErrorFallback}>
         <div
           className={classNames(
-            "relative flex h-full w-full shadow-sm border border-slate-200 transition-width duration-300"
+            "transition-width relative flex h-full w-full border border-slate-200 shadow-sm duration-300"
           )}
           onClick={handleUnselect}
           ref={frameWrapperRef}
           style={{
-            width:
-              currentBreakpoint === Breakpoint.DESKTOP
-                ? "100%"
-                : `${previewWidth}px`,
+            width: currentBreakpoint === Breakpoint.DESKTOP ? "100%" : `${previewWidth}px`,
           }}
         >
-          <ClientOnlyRenderFrame
-            className="absolute mx-auto"
-            style={frameStyles}
-          >
+          <ClientOnlyRenderFrame className="absolute mx-auto" style={frameStyles}>
             <FrameContextManager>
               <EditorRenderContent content={content} meta={meta} />
 
               <AddNewSection className="p-10" />
 
-              <EditorStyleManager
-                content={content}
-                themeSettings={themeSettings}
-              />
+              <EditorStyleManager content={content} themeSettings={themeSettings} />
             </FrameContextManager>
           </ClientOnlyRenderFrame>
         </div>

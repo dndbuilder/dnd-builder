@@ -13,11 +13,7 @@ import { Separator } from "@/components/shared/separator";
 import { Tabs } from "@/components/shared/tabs";
 import { SettingsType } from "@/types";
 import { PseudoClass, Unit } from "@/types/style";
-import {
-  AiOutlineAlignCenter,
-  AiOutlineAlignLeft,
-  AiOutlineAlignRight,
-} from "react-icons/ai";
+import { AiOutlineAlignCenter, AiOutlineAlignLeft, AiOutlineAlignRight } from "react-icons/ai";
 
 const ImageStyleControl = () => {
   return (
@@ -177,10 +173,7 @@ const ImageStyleControl = () => {
           />
 
           {/* Typography */}
-          <TypographyControl
-            type={SettingsType.BLOCK}
-            fieldName="caption.typography"
-          />
+          <TypographyControl type={SettingsType.BLOCK} fieldName="caption.typography" />
 
           {/* <Alignment /> */}
           <ToggleGroupControl

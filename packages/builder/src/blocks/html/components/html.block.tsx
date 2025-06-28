@@ -6,7 +6,7 @@ import { HtmlSettingsType } from "../types";
 const Html: FC<BlockProps<HtmlSettingsType>> = ({ settings }) => {
   if (!settings.code)
     return (
-      <div className="flex justify-center bg-dark-100 p-3">
+      <div className="bg-dark-100 flex justify-center p-3">
         <IoCodeSlashOutline size={20} className="text-dark-600" />
       </div>
     );

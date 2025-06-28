@@ -2,8 +2,7 @@
 import { classNames } from "@/utils";
 import { FC, HTMLAttributes } from "react";
 
-export interface InfoMessageProps
-  extends HTMLAttributes<HTMLParagraphElement> {}
+export interface InfoMessageProps extends HTMLAttributes<HTMLParagraphElement> {}
 
 export const InfoMessage: FC<InfoMessageProps> = ({ children, className }) => {
   return (

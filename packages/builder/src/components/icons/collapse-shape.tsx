@@ -14,7 +14,7 @@ const CollapseShape: FC<CollapseShapeProps> = () => {
         setIsLeftPanelOpen(!isLeftPanelOpen);
       }}
       className={classNames(
-        "absolute right-[-18px] top-[50%] z-[1000] flex h-[50px] w-[18px] translate-y-[-50%] cursor-pointer items-center justify-center rounded-r bg-white border border-l-0 shadow-[rgba(0,0,0,15%)_1px_0px_2px] hover:bg-slate-200"
+        "absolute right-[-18px] top-[50%] z-[1000] flex h-[50px] w-[18px] translate-y-[-50%] cursor-pointer items-center justify-center rounded-r border border-l-0 bg-white shadow-[rgba(0,0,0,15%)_1px_0px_2px] hover:bg-slate-200"
       )}
     >
       <FiChevronLeft

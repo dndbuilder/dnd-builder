@@ -44,7 +44,7 @@ export const FontFamilyControl: FC<FontFamilyControlProps> = ({
 
   return (
     <div className={classNames("mt-4 flex flex-col gap-1.5", className)}>
-      {label && <Label className="whitespace-nowrap flex-1">{label}</Label>}
+      {label && <Label className="flex-1 whitespace-nowrap">{label}</Label>}
 
       <FontSelector
         value={fontFamily}

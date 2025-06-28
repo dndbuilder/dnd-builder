@@ -31,7 +31,7 @@ const Content = forwardRef<
   return (
     <DialogPrimitive.Content
       className={classNames(
-        "data-[state=open]:animate-content-show fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] rounded-sm bg-white shadow-[hsl(206_22%_7%/35%)_0px_10px_38px_-10px,hsl(206_22%_7%/20%)_0px_10px_20px_-15px] focus:outline-hidden z-1000",
+        "data-[state=open]:animate-content-show focus:outline-hidden z-1000 fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] rounded-sm bg-white shadow-[hsl(206_22%_7%/35%)_0px_10px_38px_-10px,hsl(206_22%_7%/20%)_0px_10px_20px_-15px]",
         className
       )}
       ref={ref}
@@ -51,7 +51,7 @@ const Overlay = forwardRef<
   return (
     <DialogPrimitive.Overlay
       className={classNames(
-        "bg-slate-900 bg-opacity-10 z-100 data-[state=open]:animate-overlay-show fixed inset-0"
+        "z-100 data-[state=open]:animate-overlay-show fixed inset-0 bg-slate-900 bg-opacity-10"
       )}
       ref={ref}
       {...props}
@@ -68,4 +68,3 @@ Dialog.Title = DialogPrimitive.Title;
 Dialog.Description = DialogPrimitive.Description;
 Dialog.Portal = DialogPrimitive.Portal;
 Dialog.Close = DialogPrimitive.Close;
-

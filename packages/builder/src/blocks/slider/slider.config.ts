@@ -265,39 +265,27 @@ const SliderConfig = createBlockConfig<SliderSettingsType>({
               backgroundSize: obj.background?.size?.[breakpoint]?.default,
               backgroundPositionX:
                 bgPosition === "custom"
-                  ? generateUnitValue(
-                      obj.background?.positionX?.[breakpoint]?.default
-                    )
+                  ? generateUnitValue(obj.background?.positionX?.[breakpoint]?.default)
                   : undefined,
               backgroundPositionY:
                 bgPosition === "custom"
-                  ? generateUnitValue(
-                      obj.background?.positionY?.[breakpoint]?.default
-                    )
+                  ? generateUnitValue(obj.background?.positionY?.[breakpoint]?.default)
                   : undefined,
-              backgroundPosition:
-                bgPosition === "custom" ? undefined : bgPosition,
+              backgroundPosition: bgPosition === "custom" ? undefined : bgPosition,
               backgroundRepeat: obj.background?.repeat?.[breakpoint]?.default,
               color: obj.contentColor?.default,
               justifyContent:
-                obj.horizontalPosition?.[breakpoint] ??
-                settings.horizontalPosition?.[breakpoint],
+                obj.horizontalPosition?.[breakpoint] ?? settings.horizontalPosition?.[breakpoint],
               alignItems:
-                obj.verticalPosition?.[breakpoint] ??
-                settings.verticalPosition?.[breakpoint],
+                obj.verticalPosition?.[breakpoint] ?? settings.verticalPosition?.[breakpoint],
 
               ["& .slide-content"]: {
-                textAlign:
-                  obj.textAlign?.desktop ?? settings.textAlign?.desktop,
+                textAlign: obj.textAlign?.desktop ?? settings.textAlign?.desktop,
                 ["& .title"]: {
-                  color:
-                    settings.title?.color?.desktop?.default ??
-                    obj.contentColor?.default,
+                  color: settings.title?.color?.desktop?.default ?? obj.contentColor?.default,
                 },
                 ["& .description"]: {
-                  color:
-                    settings.description?.color?.desktop?.default ??
-                    obj.contentColor?.default,
+                  color: settings.description?.color?.desktop?.default ?? obj.contentColor?.default,
                 },
               },
             };
@@ -345,17 +333,10 @@ const SliderConfig = createBlockConfig<SliderSettingsType>({
               zIndex: 2,
               ...generateResponsiveStyle(breakpoints, (breakpoint) => {
                 return {
-                  maxWidth: generateUnitValue(
-                    settings.contentWidth?.[breakpoint]
-                  ),
+                  maxWidth: generateUnitValue(settings.contentWidth?.[breakpoint]),
                   "& .title": {
-                    marginBottom: generateUnitValue(
-                      settings.title?.marginBottom?.[breakpoint]
-                    ),
-                    ...generateTypographyFromBreakpoint(
-                      breakpoint,
-                      settings.title?.typography
-                    ),
+                    marginBottom: generateUnitValue(settings.title?.marginBottom?.[breakpoint]),
+                    ...generateTypographyFromBreakpoint(breakpoint, settings.title?.typography),
                   },
                   "& .description": {
                     marginBottom: generateUnitValue(
@@ -374,52 +355,24 @@ const SliderConfig = createBlockConfig<SliderSettingsType>({
 
                       backgroundColor:
                         settings.button?.background.type?.[pseudoClass] ===
-                          BackgroundType.CLASSIC &&
-                        settings.button?.background.color?.[pseudoClass]
+                          BackgroundType.CLASSIC && settings.button?.background.color?.[pseudoClass]
                           ? settings.button?.background.color?.[pseudoClass]
                           : "transparent",
                       backgroundImage: generateBgGradient({
                         type: settings.button?.background.type?.[pseudoClass],
-                        color1:
-                          settings.button?.background.gradient?.color1?.[
-                            pseudoClass
-                          ],
-                        color2:
-                          settings.button?.background.gradient?.color2?.[
-                            pseudoClass
-                          ],
-                        location1:
-                          settings.button?.background.gradient?.location1?.[
-                            pseudoClass
-                          ],
-                        location2:
-                          settings.button?.background.gradient?.location2?.[
-                            pseudoClass
-                          ],
-                        angle:
-                          settings.button?.background.gradient?.angle?.[
-                            pseudoClass
-                          ],
-                        gradientType:
-                          settings.button?.background.gradient?.type?.[
-                            pseudoClass
-                          ],
-                        position:
-                          settings.button?.background.gradient?.position?.[
-                            pseudoClass
-                          ],
+                        color1: settings.button?.background.gradient?.color1?.[pseudoClass],
+                        color2: settings.button?.background.gradient?.color2?.[pseudoClass],
+                        location1: settings.button?.background.gradient?.location1?.[pseudoClass],
+                        location2: settings.button?.background.gradient?.location2?.[pseudoClass],
+                        angle: settings.button?.background.gradient?.angle?.[pseudoClass],
+                        gradientType: settings.button?.background.gradient?.type?.[pseudoClass],
+                        position: settings.button?.background.gradient?.position?.[pseudoClass],
                       }),
                       borderWidth: settings.button?.border.width?.value,
-                      borderColor:
-                        settings.button?.border.color?.[pseudoClass] ?? "#fff",
+                      borderColor: settings.button?.border.color?.[pseudoClass] ?? "#fff",
                       borderStyle: "solid",
-                      borderRadius: generateUnitValue(
-                        settings.button?.border.radius
-                      ),
-                      ...generateTypographyFromBreakpoint(
-                        breakpoint,
-                        settings.button?.typography
-                      ),
+                      borderRadius: generateUnitValue(settings.button?.border.radius),
+                      ...generateTypographyFromBreakpoint(breakpoint, settings.button?.typography),
                       color: settings.button?.textColor?.[pseudoClass],
                     })),
                     transition: `all 200ms ease-in-out`,
@@ -441,32 +394,18 @@ const SliderConfig = createBlockConfig<SliderSettingsType>({
           zIndex: 2,
           transition: "all 200ms ease-in-out",
           ...generateResponsiveStyle(breakpoints, (breakpoint) => {
-            const leftArrow =
-              settings.navigation?.leftArrowPosition?.[breakpoint];
-            const rightArrow =
-              settings.navigation?.rightArrowPosition?.[breakpoint];
+            const leftArrow = settings.navigation?.leftArrowPosition?.[breakpoint];
+            const rightArrow = settings.navigation?.rightArrowPosition?.[breakpoint];
 
             return {
-              width: generateUnitValue(
-                settings.navigation?.arrowWidth?.[breakpoint]
-              ),
-              height: generateUnitValue(
-                settings.navigation?.arrowHeight?.[breakpoint]
-              ),
-              fontSize:
-                generateUnitValue(
-                  settings.navigation?.arrowSize?.[breakpoint]
-                ) ?? "22px",
+              width: generateUnitValue(settings.navigation?.arrowWidth?.[breakpoint]),
+              height: generateUnitValue(settings.navigation?.arrowHeight?.[breakpoint]),
+              fontSize: generateUnitValue(settings.navigation?.arrowSize?.[breakpoint]) ?? "22px",
               ...generatePseudoStyle((pseudoClass) => ({
-                color:
-                  settings.navigation?.arrowColor?.[breakpoint]?.[pseudoClass],
+                color: settings.navigation?.arrowColor?.[breakpoint]?.[pseudoClass],
                 backgroundColor:
-                  settings.navigation?.arrowBackgroudColor?.[breakpoint]?.[
-                    pseudoClass
-                  ],
-                boxShadow: generateBoxShadow(
-                  settings.navigation?.arrowBoxShadow?.[pseudoClass]
-                ),
+                  settings.navigation?.arrowBackgroudColor?.[breakpoint]?.[pseudoClass],
+                boxShadow: generateBoxShadow(settings.navigation?.arrowBoxShadow?.[pseudoClass]),
                 ...generateBorderRadius(
                   settings.navigation?.arrowRadius?.[breakpoint]?.[pseudoClass]
                 ),
@@ -498,25 +437,14 @@ const SliderConfig = createBlockConfig<SliderSettingsType>({
           height: "fit-content",
           width: "fit-content",
           ...generateResponsiveStyle(breakpoints, (breakpoint) => {
-            const position = generateSpacingValue(
-              settings.navigation?.dotsPosition?.[breakpoint]
-            );
+            const position = generateSpacingValue(settings.navigation?.dotsPosition?.[breakpoint]);
             return {
-              gap:
-                generateUnitValue(settings.navigation?.dotGap?.[breakpoint]) ??
-                "15px",
+              gap: generateUnitValue(settings.navigation?.dotGap?.[breakpoint]) ?? "15px",
               top: position.top,
               right: position.right,
               bottom: position.bottom ?? "10px",
-              left: position.left
-                ? position.left
-                : position.right
-                  ? undefined
-                  : "50%",
-              transform:
-                position.left || position.right
-                  ? undefined
-                  : "translateX(-50%)",
+              left: position.left ? position.left : position.right ? undefined : "50%",
+              transform: position.left || position.right ? undefined : "translateX(-50%)",
             };
           }),
           "& > li": {
@@ -527,38 +455,23 @@ const SliderConfig = createBlockConfig<SliderSettingsType>({
               alignItems: "center",
               "& .dot": {
                 display: "block",
-                width:
-                  generateUnitValue(
-                    settings.navigation?.dotWidth?.[breakpoint]
-                  ) ?? "10px",
-                height:
-                  generateUnitValue(
-                    settings.navigation?.dotHeight?.[breakpoint]
-                  ) ?? "10px",
+                width: generateUnitValue(settings.navigation?.dotWidth?.[breakpoint]) ?? "10px",
+                height: generateUnitValue(settings.navigation?.dotHeight?.[breakpoint]) ?? "10px",
                 borderRadius:
-                  generateUnitValue(
-                    settings.navigation?.dotRadius?.[breakpoint]
-                  ) ?? "50%",
-                backgroundColor:
-                  settings.navigation?.dotColor?.[breakpoint]?.default,
+                  generateUnitValue(settings.navigation?.dotRadius?.[breakpoint]) ?? "50%",
+                backgroundColor: settings.navigation?.dotColor?.[breakpoint]?.default,
                 cursor: "pointer",
                 transition: "all 200ms ease-in-out",
               },
               "&:hover .dot": {
-                backgroundColor:
-                  settings.navigation?.dotActiveColor?.[breakpoint]?.default,
+                backgroundColor: settings.navigation?.dotActiveColor?.[breakpoint]?.default,
               },
               "&.slick-active .dot": {
-                backgroundColor:
-                  settings.navigation?.dotActiveColor?.[breakpoint]?.default,
+                backgroundColor: settings.navigation?.dotActiveColor?.[breakpoint]?.default,
                 width:
-                  generateUnitValue(
-                    settings.navigation?.activeDotWidth?.[breakpoint]
-                  ) ?? "10px",
+                  generateUnitValue(settings.navigation?.activeDotWidth?.[breakpoint]) ?? "10px",
                 height:
-                  generateUnitValue(
-                    settings.navigation?.activeDotHeight?.[breakpoint]
-                  ) ?? "10px",
+                  generateUnitValue(settings.navigation?.activeDotHeight?.[breakpoint]) ?? "10px",
               },
             })),
           },
@@ -569,15 +482,11 @@ const SliderConfig = createBlockConfig<SliderSettingsType>({
   controls: [
     {
       label: "Content",
-      component: lazy(
-        () => import("./components/controls/slider-content.control")
-      ),
+      component: lazy(() => import("./components/controls/slider-content.control")),
     },
     {
       label: "Style",
-      component: lazy(
-        () => import("./components/controls/slider-style.control")
-      ),
+      component: lazy(() => import("./components/controls/slider-style.control")),
     },
   ],
 });

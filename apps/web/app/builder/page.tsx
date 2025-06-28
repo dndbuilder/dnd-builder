@@ -9,9 +9,7 @@ import { BuilderProvider, Editor } from "@repo/builder/components";
 import { store } from "@repo/builder/store";
 
 export default function BuilderPage() {
-  const [initialContent, setInitialContent] = useState<Record<string, Block>>(
-    {}
-  );
+  const [initialContent, setInitialContent] = useState<Record<string, Block>>({});
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -50,7 +48,7 @@ export default function BuilderPage() {
 
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center h-screen">
+      <div className="flex h-screen items-center justify-center">
         <CgSpinner className="animate-spin text-4xl text-gray-500" size={50} />
       </div>
     );

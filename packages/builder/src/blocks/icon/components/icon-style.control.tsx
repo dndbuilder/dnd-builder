@@ -13,9 +13,10 @@ import { PseudoClass, Unit } from "@/types/style";
 const IconStyleControl = () => {
   const [view] = useSettings("view.desktop", SettingsType.BLOCK);
 
-  const [rotationUnit] = useSettings<
-    Unit.DEG | Unit.GRAD | Unit.RAD | Unit.TURN | undefined
-  >("rotate.{{BREAKPOINT}}.unit", SettingsType.BLOCK);
+  const [rotationUnit] = useSettings<Unit.DEG | Unit.GRAD | Unit.RAD | Unit.TURN | undefined>(
+    "rotate.{{BREAKPOINT}}.unit",
+    SettingsType.BLOCK
+  );
 
   const rotationUnitMap = {
     [Unit.DEG]: { min: 1, max: 360, step: 1 },

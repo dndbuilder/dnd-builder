@@ -18,9 +18,7 @@ const Button: FC<BlockProps<ButtonSettingsType>> = ({ settings, meta }) => {
           {buttonText}
         </a>
       ) : (
-        <button className="btn transition-colors duration-300">
-          {buttonText}
-        </button>
+        <button className="btn transition-colors duration-300">{buttonText}</button>
       )}
     </div>
   );

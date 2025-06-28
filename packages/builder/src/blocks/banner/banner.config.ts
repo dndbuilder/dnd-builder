@@ -90,9 +90,7 @@ const BannerConfig = createBlockConfig<BannerSettingsType>({
           ...generateResponsiveStyle(breakpoints, (breakpoint) => {
             return {
               textAlign: settings.title?.alignment?.[breakpoint],
-              marginBottom: generateUnitValue(
-                settings.title?.spacing?.[breakpoint]
-              ),
+              marginBottom: generateUnitValue(settings.title?.spacing?.[breakpoint]),
             };
           }),
           // Typography end
@@ -103,9 +101,7 @@ const BannerConfig = createBlockConfig<BannerSettingsType>({
           ...generateResponsiveStyle(breakpoints, (breakpoint) => {
             return {
               textAlign: settings.subTitle?.alignment?.[breakpoint],
-              marginBottom: generateUnitValue(
-                settings.subTitle?.spacing?.[breakpoint]
-              ),
+              marginBottom: generateUnitValue(settings.subTitle?.spacing?.[breakpoint]),
             };
           }),
           // Typography end
@@ -116,9 +112,7 @@ const BannerConfig = createBlockConfig<BannerSettingsType>({
           ...generateResponsiveStyle(breakpoints, (breakpoint) => {
             return {
               textAlign: settings.description?.alignment?.[breakpoint],
-              marginBottom: generateUnitValue(
-                settings.description?.spacing?.[breakpoint]
-              ),
+              marginBottom: generateUnitValue(settings.description?.spacing?.[breakpoint]),
             };
           }),
           // Typography end

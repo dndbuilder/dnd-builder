@@ -7,8 +7,8 @@ import { useAppDispatch } from "@/hooks/use-app-dispatch";
 import { useAppSelector } from "@/hooks/use-app-selector";
 import { classNames } from "@/utils";
 import { FiChevronLeft } from "react-icons/fi";
-import {BlockControlPanel} from "./block-control-panel";
-import {BlockNavigation} from "./block-navigation";
+import { BlockControlPanel } from "./block-control-panel";
+import { BlockNavigation } from "./block-navigation";
 import CollapseShape from "../icons/collapse-shape";
 
 export const LeftPanel = () => {
@@ -25,7 +25,7 @@ export const LeftPanel = () => {
   return (
     <div
       className={classNames(
-        "absolute z-30 h-full w-[290px] bg-white shadow-sm border-r transition-all duration-300",
+        "absolute z-30 h-full w-[290px] border-r bg-white shadow-sm transition-all duration-300",
         !isLeftPanelOpen ? "left-[-290px]" : "left-0"
       )}
     >
@@ -35,10 +35,7 @@ export const LeftPanel = () => {
           className="relative flex h-14 w-[290px] items-center justify-center border-b bg-white"
           onClick={goBack}
         >
-          <FiChevronLeft
-            size={20}
-            className="absolute left-2 top-1/2 -translate-y-1/2"
-          />
+          <FiChevronLeft size={20} className="absolute left-2 top-1/2 -translate-y-1/2" />
           <span className="text-base font-semibold">
             Edit {BuilderConfiguration.getBlock(selectedBlock.type)?.label}
           </span>
@@ -56,4 +53,3 @@ export const LeftPanel = () => {
     </div>
   );
 };
-

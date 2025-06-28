@@ -14,8 +14,8 @@ type Props = {
 const ThemeLinkSettings: FC<Props> = ({ setCurrentSetting }) => {
   return (
     <>
-      <div className="flex items-center justify-between p-4 border-b">
-        <div className="text-base font-semibold flex items-center gap-2">
+      <div className="flex items-center justify-between border-b p-4">
+        <div className="flex items-center gap-2 text-base font-semibold">
           <FiLink />
           Link
         </div>

@@ -24,8 +24,8 @@ const TypographySettings: FC<Props> = ({ setCurrentSetting }) => {
   >("typography.presets", SettingsType.THEME);
   return (
     <>
-      <div className="flex items-center justify-between p-4 border-b">
-        <div className="text-base font-semibold flex items-center gap-2">
+      <div className="flex items-center justify-between border-b p-4">
+        <div className="flex items-center gap-2 text-base font-semibold">
           <TbTypography size={18} />
           Typography
         </div>
@@ -102,12 +102,9 @@ const TypographySettings: FC<Props> = ({ setCurrentSetting }) => {
 
         <Accordion.Item value="custom">
           <Accordion.Trigger className="px-4">Custom</Accordion.Trigger>
-          <Accordion.Content className="ps-2 pe-4">
+          <Accordion.Content className="pe-4 ps-2">
             {presets.map((preset, index) => (
-              <div
-                key={index}
-                className="group mb-4 flex items-center justify-between gap-2"
-              >
+              <div key={index} className="group mb-4 flex items-center justify-between gap-2">
                 <ContentEditable
                   onChange={(e) => {
                     const value = e.target.value;
@@ -115,9 +112,7 @@ const TypographySettings: FC<Props> = ({ setCurrentSetting }) => {
                     newPresets[index].name = value;
                     setPresets(newPresets);
                   }}
-                  onKeyDown={(e: React.KeyboardEvent) =>
-                    e.key === "Enter" && e.preventDefault()
-                  }
+                  onKeyDown={(e: React.KeyboardEvent) => e.key === "Enter" && e.preventDefault()}
                   html={preset.name}
                   tagName="p"
                   className="me-auto rounded-sm border border-transparent px-2 py-1 text-xs hover:border-slate-100 focus-visible:border-slate-100 focus-visible:outline-0"
@@ -130,7 +125,7 @@ const TypographySettings: FC<Props> = ({ setCurrentSetting }) => {
                       newPresets.splice(index, 1);
                       setPresets(newPresets);
                     }}
-                    className="mx-2  cursor-pointer hover:text-danger-500 "
+                    className="hover:text-danger-500  mx-2 cursor-pointer "
                   />
                 </Label>
 

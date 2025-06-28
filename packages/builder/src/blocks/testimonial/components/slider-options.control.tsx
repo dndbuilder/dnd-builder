@@ -9,10 +9,7 @@ import { Unit } from "@/types/style";
 const SliderOptionsControl = () => {
   const [layout] = useSettings<string>("layout.desktop", SettingsType.BLOCK);
 
-  const [autoPlay] = useSettings<boolean>(
-    "slider.autoPlay.desktop",
-    SettingsType.BLOCK
-  );
+  const [autoPlay] = useSettings<boolean>("slider.autoPlay.desktop", SettingsType.BLOCK);
 
   if (layout !== "slider") {
     return null;
@@ -30,11 +27,7 @@ const SliderOptionsControl = () => {
           className="mt-0"
         />
 
-        <SwitchControl
-          type={SettingsType.BLOCK}
-          fieldName="slider.showDots.desktop"
-          label="Dots"
-        />
+        <SwitchControl type={SettingsType.BLOCK} fieldName="slider.showDots.desktop" label="Dots" />
         <SwitchControl
           type={SettingsType.BLOCK}
           fieldName="slider.showArrows.desktop"

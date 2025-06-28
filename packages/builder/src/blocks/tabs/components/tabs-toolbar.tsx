@@ -32,16 +32,14 @@ const TabsToolbar: FC<BlockToolbarProps> = memo(({ blockId, blockType }) => {
   return (
     <div
       className={classNames(
-        "flex items-center gap-3 bg-slate-800 px-2 py-1 text-slate-300 rounded-sm"
+        "flex items-center gap-3 rounded-sm bg-slate-800 px-2 py-1 text-slate-300"
       )}
     >
       <div
         role="button"
         className="flex items-center gap-1 bg-transparent text-slate-100 hover:bg-transparent hover:text-white"
       >
-        <Suspense fallback={null}>
-          {blockConfig.icon && <blockConfig.icon />}
-        </Suspense>
+        <Suspense fallback={null}>{blockConfig.icon && <blockConfig.icon />}</Suspense>
         <span className="text-xs">{blockConfig.label}</span>
       </div>
       {/* Duplicate */}

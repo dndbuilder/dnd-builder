@@ -12,9 +12,7 @@ type StructureToggleProps = {
 };
 
 const StructureToggle: FC<StructureToggleProps> = ({ className }) => {
-  const activeRightPanel = useAppSelector(
-    (state) => state.app.activeBuilderRightPanel
-  );
+  const activeRightPanel = useAppSelector((state) => state.app.activeBuilderRightPanel);
 
   const { toggleRightPanel } = useActionContext();
 

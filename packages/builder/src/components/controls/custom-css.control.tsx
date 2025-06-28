@@ -12,15 +12,8 @@ type CustomCSSControlProps = {
   fieldName: string;
 };
 
-export const CustomCSSControl: FC<CustomCSSControlProps> = ({
-  type,
-  label,
-  fieldName,
-}) => {
-  const [customCss, setCustomCSS] = useSettings<string | undefined>(
-    fieldName,
-    type
-  );
+export const CustomCSSControl: FC<CustomCSSControlProps> = ({ type, label, fieldName }) => {
+  const [customCss, setCustomCSS] = useSettings<string | undefined>(fieldName, type);
   const [errors, setErrors] = useState<any[]>([]);
   let hasError = false;
 
@@ -41,9 +34,7 @@ export const CustomCSSControl: FC<CustomCSSControlProps> = ({
         <Editor
           defaultValue={customCss ?? defaultValue}
           onValidate={(markers) => {
-            const errors = markers.filter(
-              (marker) => marker.code !== "emptyRules"
-            );
+            const errors = markers.filter((marker) => marker.code !== "emptyRules");
             hasError = Boolean(errors.length);
             setErrors(errors);
           }}
@@ -56,9 +47,9 @@ export const CustomCSSControl: FC<CustomCSSControlProps> = ({
           className="rounded border"
         />
       </div>
-      <ol className="px-4 pt-4 list-decimal flex flex-col gap-1">
+      <ol className="flex list-decimal flex-col gap-1 px-4 pt-4">
         {errors.map((error, i) => (
-          <li key={i} className="text-red-500 text-sm">
+          <li key={i} className="text-sm text-red-500">
             {error.message} : End Line Number {error.endLineNumber}
           </li>
         ))}

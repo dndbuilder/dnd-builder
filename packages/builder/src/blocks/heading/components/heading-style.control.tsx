@@ -54,11 +54,7 @@ const HeadingStyleControl = () => {
           <TypographyControl fieldName="typography" type={SettingsType.BLOCK} />
 
           {/* Text Stroke */}
-          <TextStrokeControl
-            type={SettingsType.BLOCK}
-            fieldName="textStroke"
-            label="Text Stroke"
-          />
+          <TextStrokeControl type={SettingsType.BLOCK} fieldName="textStroke" label="Text Stroke" />
 
           {/* Text Shadow */}
           <TextShadowControl type={SettingsType.BLOCK} />

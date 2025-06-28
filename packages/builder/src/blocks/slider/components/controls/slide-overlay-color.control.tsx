@@ -12,12 +12,7 @@ type Props = {
   overlayField: string;
 } & HTMLAttributes<HTMLDivElement>;
 
-const SlideOverlayColorControl: FC<Props> = ({
-  type,
-  fieldName,
-  overlayField,
-  className,
-}) => {
+const SlideOverlayColorControl: FC<Props> = ({ type, fieldName, overlayField, className }) => {
   const [overlay] = useSettings<string | undefined>(overlayField, type);
   return overlay ? (
     <div className={classNames("mt-4", className)}>

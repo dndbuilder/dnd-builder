@@ -16,12 +16,12 @@ const PresetOne: FC<PresetPropsType> = ({ data, meta }) => {
 
   return (
     <figure className="testimonial-card">
-      <blockquote className="text-lg review-msg tracking-tight text-dark-800">
+      <blockquote className="review-msg text-dark-800 text-lg tracking-tight">
         <p>{content}</p>
       </blockquote>
 
       {data.showRating && (
-        <div className="mt-3 flex gap-x-1 text-dark-700">
+        <div className="text-dark-700 mt-3 flex gap-x-1">
           <Rating count={5} value={data.rating ?? 0} size={14} />
         </div>
       )}
@@ -31,21 +31,21 @@ const PresetOne: FC<PresetPropsType> = ({ data, meta }) => {
         <div className="image-wrapper flex h-12 w-12 items-center justify-center rounded-full border">
           {data.image ? (
             <img
-              className="rounded-full w-full h-full bg-dark-50"
+              className="bg-dark-50 h-full w-full rounded-full"
               src={data.image.url}
               alt={name}
             />
           ) : (
-            <MdFaceRetouchingNatural className="text-lg text-dark-400" />
+            <MdFaceRetouchingNatural className="text-dark-400 text-lg" />
           )}
         </div>
 
         <div className="text-sm leading-4">
           {/* Name */}
-          <div className="font-semibold text-dark-900">{name}</div>
+          <div className="text-dark-900 font-semibold">{name}</div>
 
           {/* Positio */}
-          {position && <div className="mt-0.5 text-dark-600">{position}</div>}
+          {position && <div className="text-dark-600 mt-0.5">{position}</div>}
         </div>
       </figcaption>
     </figure>

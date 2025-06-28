@@ -42,9 +42,7 @@ export const FontSelector: FC<{
   const [isOpen, setIsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const scrollParentRef = useRef<HTMLDivElement>(null);
-  const [WebFont, setWebFont] = useState<
-    typeof import("webfontloader") | undefined
-  >(undefined);
+  const [WebFont, setWebFont] = useState<typeof import("webfontloader") | undefined>(undefined);
 
   const value = controlledValue ?? selectedFont;
 
@@ -139,7 +137,7 @@ export const FontSelector: FC<{
           variant="outline"
           role="combobox"
           className={classNames(
-            "w-full justify-between whitespace-nowrap border-dark-300",
+            "border-dark-300 w-full justify-between whitespace-nowrap",
             className
           )}
           aria-expanded={isOpen}
@@ -163,15 +161,13 @@ export const FontSelector: FC<{
             value={searchQuery}
             onChange={handleSearch}
             type="text"
-            className="w-full border-0 px-1 focus:ring-0 placeholder:text-sm text-sm"
+            className="w-full border-0 px-1 text-sm placeholder:text-sm focus:ring-0"
             placeholder="Search..."
           />
         </div>
 
         {filteredFonts.length === 0 ? (
-          <div className="p-4 text-center text-sm text-gray-500">
-            No fonts found
-          </div>
+          <div className="p-4 text-center text-sm text-gray-500">No fonts found</div>
         ) : (
           <ScrollArea.Root
             className="w-full"
@@ -179,10 +175,7 @@ export const FontSelector: FC<{
               height: filteredFonts.length > 8 ? "285px" : "auto",
             }}
           >
-            <ScrollArea.Viewport
-              ref={scrollParentRef}
-              className="h-full w-full"
-            >
+            <ScrollArea.Viewport ref={scrollParentRef} className="h-full w-full">
               <div
                 style={{
                   height: `${virtualizer.getTotalSize()}px`,
@@ -199,7 +192,7 @@ export const FontSelector: FC<{
                       <div
                         // data-is-focused={isFocused}
                         className={classNames(
-                          "font-item px-4 text-sm absolute top-0 left-0 flex items-center gap-2 w-full hover:bg-dark-100 cursor-pointer",
+                          "font-item hover:bg-dark-100 absolute left-0 top-0 flex w-full cursor-pointer items-center gap-2 px-4 text-sm",
                           font.family.length > 25 ? "text-xs" : "text-sm"
                         )}
                         style={{
@@ -207,9 +200,7 @@ export const FontSelector: FC<{
                           transform: `translateY(${virtualItem.start}px)`,
                           fontFamily: font.family,
                         }}
-                        onClick={() =>
-                          handleFontChange(font.family, virtualItem.index)
-                        }
+                        onClick={() => handleFontChange(font.family, virtualItem.index)}
                         role="option"
                         aria-selected={value === font.family}
                       >
@@ -218,9 +209,7 @@ export const FontSelector: FC<{
                           <FiCheck
                             className={classNames(
                               "ms-auto h-4 w-4",
-                              value === font.family
-                                ? "opacity-100"
-                                : "opacity-0"
+                              value === font.family ? "opacity-100" : "opacity-0"
                             )}
                           />
                         )}
@@ -231,10 +220,10 @@ export const FontSelector: FC<{
               </div>
             </ScrollArea.Viewport>
             <ScrollArea.Scrollbar
-              className="flex select-none touch-none bg-zinc-100 p-0.5 transition-colors duration-150 ease-out hover:bg-zinc-200 data-[orientation=vertical]:w-2.5"
+              className="flex touch-none select-none bg-zinc-100 p-0.5 transition-colors duration-150 ease-out hover:bg-zinc-200 data-[orientation=vertical]:w-2.5"
               orientation="vertical"
             >
-              <ScrollArea.Thumb className="relative flex-1 rounded-lg bg-zinc-300 hover:bg-zinc-400 before:absolute before:left-1/2 before:top-1/2 before:h-full before:min-h-[44px] before:w-full before:min-w-[44px] before:-translate-x-1/2 before:-translate-y-1/2 before:content-['']" />
+              <ScrollArea.Thumb className="relative flex-1 rounded-lg bg-zinc-300 before:absolute before:left-1/2 before:top-1/2 before:h-full before:min-h-[44px] before:w-full before:min-w-[44px] before:-translate-x-1/2 before:-translate-y-1/2 before:content-[''] hover:bg-zinc-400" />
             </ScrollArea.Scrollbar>
             <ScrollArea.Corner className="bg-zinc-200" />
           </ScrollArea.Root>

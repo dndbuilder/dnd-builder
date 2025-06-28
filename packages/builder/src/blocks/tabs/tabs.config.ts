@@ -54,8 +54,7 @@ const TabsConfig = createBlockConfig<TabsSettingsType>({
       ["& .tabs"]: {
         display: "flex",
         ...generateResponsiveStyle(breakpoints, (breakpoint) => {
-          const orientation =
-            settings.list?.orientation?.[breakpoint] ?? "horizontal";
+          const orientation = settings.list?.orientation?.[breakpoint] ?? "horizontal";
 
           return {
             flexDirection: orientation === "horizontal" ? "column" : "row",
@@ -65,8 +64,7 @@ const TabsConfig = createBlockConfig<TabsSettingsType>({
         [".tab-list"]: {
           display: "flex",
           ...generateResponsiveStyle(breakpoints, (breakpoint) => {
-            const orientation =
-              settings.list?.orientation?.[breakpoint] ?? "horizontal";
+            const orientation = settings.list?.orientation?.[breakpoint] ?? "horizontal";
 
             const {
               top: marginTop,
@@ -85,8 +83,7 @@ const TabsConfig = createBlockConfig<TabsSettingsType>({
             return {
               width: orientation === "horizontal" ? "100%" : "auto",
               flexDirection: orientation === "horizontal" ? "row" : "column",
-              justifyContent:
-                settings.list?.alignment?.[breakpoint] ?? "flex-start",
+              justifyContent: settings.list?.alignment?.[breakpoint] ?? "flex-start",
               gap: generateUnitValue(settings.list?.spacing?.[breakpoint]),
               marginTop,
               marginBottom,
@@ -121,8 +118,7 @@ const TabsConfig = createBlockConfig<TabsSettingsType>({
             return {
               width: generateUnitValue(settings.button?.width?.[breakpoint]),
               height: generateUnitValue(settings.button?.height?.[breakpoint]),
-              justifyContent:
-                settings.button?.alignment?.[breakpoint] ?? "flex-start",
+              justifyContent: settings.button?.alignment?.[breakpoint] ?? "flex-start",
               gap: generateUnitValue(settings.button?.spacing?.[breakpoint]),
               marginTop,
               marginBottom,
@@ -143,23 +139,18 @@ const TabsConfig = createBlockConfig<TabsSettingsType>({
               right: borderTopRightRadius,
               bottom: borderBottomRightRadius,
               left: borderBottomLeftRadius,
-            } = generateSpacingValue(
-              settings.button?.border?.radius?.[pseudoClass]
-            );
+            } = generateSpacingValue(settings.button?.border?.radius?.[pseudoClass]);
 
             const {
               top: borderTopWidth,
               right: borderRightWidth,
               bottom: borderBottomWidth,
               left: borderLeftWidth,
-            } = generateSpacingValue(
-              settings.button?.border?.width?.[pseudoClass]
-            );
+            } = generateSpacingValue(settings.button?.border?.width?.[pseudoClass]);
 
             return {
               color: settings.button?.color?.[pseudoClass],
-              backgroundColor:
-                settings.button?.background?.color?.[pseudoClass],
+              backgroundColor: settings.button?.background?.color?.[pseudoClass],
               borderTopWidth,
               borderRightWidth,
               borderBottomWidth,
@@ -170,9 +161,7 @@ const TabsConfig = createBlockConfig<TabsSettingsType>({
               borderBottomLeftRadius,
               borderStyle: borderType,
               borderColor: settings.button?.border?.color?.[pseudoClass],
-              boxShadow: generateBoxShadow(
-                settings.button?.boxShadow?.[pseudoClass]
-              ),
+              boxShadow: generateBoxShadow(settings.button?.boxShadow?.[pseudoClass]),
             };
           }),
         },
@@ -180,30 +169,16 @@ const TabsConfig = createBlockConfig<TabsSettingsType>({
         ['.tab-button[data-state="active"]']: {
           color: settings.button?.color?.active,
           backgroundColor: settings.button?.background?.color?.active,
-          borderTopWidth: generateSpacingValue(
-            settings.button?.border?.width?.active
-          ).top,
-          borderRightWidth: generateSpacingValue(
-            settings.button?.border?.width?.active
-          ).right,
-          borderBottomWidth: generateSpacingValue(
-            settings.button?.border?.width?.active
-          ).bottom,
-          borderLeftWidth: generateSpacingValue(
-            settings.button?.border?.width?.active
-          ).left,
-          borderTopLeftRadius: generateSpacingValue(
-            settings.button?.border?.radius?.active
-          ).top,
-          borderTopRightRadius: generateSpacingValue(
-            settings.button?.border?.radius?.active
-          ).right,
-          borderBottomRightRadius: generateSpacingValue(
-            settings.button?.border?.radius?.active
-          ).bottom,
-          borderBottomLeftRadius: generateSpacingValue(
-            settings.button?.border?.radius?.active
-          ).left,
+          borderTopWidth: generateSpacingValue(settings.button?.border?.width?.active).top,
+          borderRightWidth: generateSpacingValue(settings.button?.border?.width?.active).right,
+          borderBottomWidth: generateSpacingValue(settings.button?.border?.width?.active).bottom,
+          borderLeftWidth: generateSpacingValue(settings.button?.border?.width?.active).left,
+          borderTopLeftRadius: generateSpacingValue(settings.button?.border?.radius?.active).top,
+          borderTopRightRadius: generateSpacingValue(settings.button?.border?.radius?.active).right,
+          borderBottomRightRadius: generateSpacingValue(settings.button?.border?.radius?.active)
+            .bottom,
+          borderBottomLeftRadius: generateSpacingValue(settings.button?.border?.radius?.active)
+            .left,
           borderStyle: settings.button?.border?.type?.active,
           borderColor: settings.button?.border?.color?.active,
           boxShadow: generateBoxShadow(settings.button?.boxShadow?.active),
@@ -236,24 +211,16 @@ const TabsConfig = createBlockConfig<TabsSettingsType>({
               paddingBottom,
               paddingLeft,
               paddingRight,
-              borderTopWidth: generateSpacingValue(
-                settings?.content?.border?.width?.default
-              ).top,
-              borderRightWidth: generateSpacingValue(
-                settings?.content?.border?.width?.default
-              ).right,
-              borderBottomWidth: generateSpacingValue(
-                settings?.content?.border?.width?.default
-              ).bottom,
-              borderLeftWidth: generateSpacingValue(
-                settings?.content?.border?.width?.default
-              ).left,
-              borderTopLeftRadius: generateSpacingValue(
-                settings?.content?.border?.radius?.default
-              ).top,
-              borderTopRightRadius: generateSpacingValue(
-                settings?.content?.border?.radius?.default
-              ).right,
+              borderTopWidth: generateSpacingValue(settings?.content?.border?.width?.default).top,
+              borderRightWidth: generateSpacingValue(settings?.content?.border?.width?.default)
+                .right,
+              borderBottomWidth: generateSpacingValue(settings?.content?.border?.width?.default)
+                .bottom,
+              borderLeftWidth: generateSpacingValue(settings?.content?.border?.width?.default).left,
+              borderTopLeftRadius: generateSpacingValue(settings?.content?.border?.radius?.default)
+                .top,
+              borderTopRightRadius: generateSpacingValue(settings?.content?.border?.radius?.default)
+                .right,
               borderBottomRightRadius: generateSpacingValue(
                 settings?.content?.border?.radius?.default
               ).bottom,

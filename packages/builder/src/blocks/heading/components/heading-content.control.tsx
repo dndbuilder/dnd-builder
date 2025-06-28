@@ -6,11 +6,7 @@ import { Separator } from "@/components/shared/separator";
 import { LinkControl } from "@/components/controls/link.control";
 import { SelectControl } from "@/components/controls/select.control";
 import { ToggleGroupControl } from "@/components/controls/toggle-group.control";
-import {
-  AiOutlineAlignCenter,
-  AiOutlineAlignLeft,
-  AiOutlineAlignRight,
-} from "react-icons/ai";
+import { AiOutlineAlignCenter, AiOutlineAlignLeft, AiOutlineAlignRight } from "react-icons/ai";
 import { TfiAlignJustify } from "react-icons/tfi";
 import { TextareaControl } from "@/components/controls/textarea.control";
 import { SettingsType } from "@/types";

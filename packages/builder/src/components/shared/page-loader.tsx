@@ -9,12 +9,7 @@ export type PageLoaderProps = {
 
 export const PageLoader: FC<PageLoaderProps> = ({ className }) => {
   return (
-    <div
-      className={classNames(
-        "flex h-screen w-full items-center justify-center",
-        className
-      )}
-    >
+    <div className={classNames("flex h-screen w-full items-center justify-center", className)}>
       <Spinner className="h-10 w-10" />
     </div>
   );

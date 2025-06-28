@@ -1,7 +1,7 @@
-import { FC } from 'react';
-import { PresetPropsType, TestimonialPresets } from '../../types';
-import PresetOne from './preset-one';
-import PresetTwo from './preset-two';
+import { FC } from "react";
+import { PresetPropsType, TestimonialPresets } from "../../types";
+import PresetOne from "./preset-one";
+import PresetTwo from "./preset-two";
 
 type Preset = {
   Component: FC<PresetPropsType>;

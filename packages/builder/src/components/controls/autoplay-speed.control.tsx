@@ -18,20 +18,9 @@ export const AutoplaySpeedControl: FC<AutoPlaySpeedControlProps> = ({ className,
   }
 
   return (
-    <div
-      className={classNames(
-        "mt-5 flex items-center justify-between",
-        className
-      )}
-    >
+    <div className={classNames("mt-5 flex items-center justify-between", className)}>
       <Label className="flex">Autoplay Speed</Label>
-      <Input
-        defaultValue={value}
-        onChange={handleChange}
-        type="number"
-        className="w-[70px]"
-      />
+      <Input defaultValue={value} onChange={handleChange} type="number" className="w-[70px]" />
     </div>
   );
 };
-

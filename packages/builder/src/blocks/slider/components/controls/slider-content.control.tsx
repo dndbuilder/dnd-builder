@@ -12,10 +12,7 @@ import { useSettings } from "@/hooks/use-settings";
 // import SliderPresetsControl from './slider-presets-control';
 
 const SliderContentControl = () => {
-  const [autoPlay] = useSettings<boolean>(
-    "autoPlay.desktop",
-    SettingsType.BLOCK
-  );
+  const [autoPlay] = useSettings<boolean>("autoPlay.desktop", SettingsType.BLOCK);
 
   return (
     <Accordion defaultValue="Carousel" type="single" collapsible>
@@ -37,21 +34,9 @@ const SliderContentControl = () => {
             units={[Unit.PX, Unit.PERCENTAGE, Unit.REM, Unit.EM]}
             className="mt-0"
           />
-          <SwitchControl
-            type={SettingsType.BLOCK}
-            fieldName="showDots.desktop"
-            label="Dots"
-          />
-          <SwitchControl
-            type={SettingsType.BLOCK}
-            fieldName="showArrows.desktop"
-            label="Arrows"
-          />
-          <SwitchControl
-            type={SettingsType.BLOCK}
-            fieldName="autoPlay.desktop"
-            label="AutoPlay"
-          />
+          <SwitchControl type={SettingsType.BLOCK} fieldName="showDots.desktop" label="Dots" />
+          <SwitchControl type={SettingsType.BLOCK} fieldName="showArrows.desktop" label="Arrows" />
+          <SwitchControl type={SettingsType.BLOCK} fieldName="autoPlay.desktop" label="AutoPlay" />
           <SwitchControl
             type={SettingsType.BLOCK}
             fieldName="pauseOnHover.desktop"
@@ -63,9 +48,7 @@ const SliderContentControl = () => {
             label="Infinite Loop"
           />
 
-          {autoPlay && (
-            <AutoplaySpeedControl fieldName="autoplaySpeed.desktop" />
-          )}
+          {autoPlay && <AutoplaySpeedControl fieldName="autoplaySpeed.desktop" />}
         </Accordion.Content>
       </Accordion.Item>
 

@@ -40,71 +40,68 @@ const HeadingConfig = createBlockConfig<HeadingSettingsType>({
       h6: "1rem",
     };
 
-    const responsiveStyle = generateResponsiveStyle(
-      breakpoints,
-      (breakpoint) => {
-        function getFontSize(): string | undefined {
-          if (typo?.fontSize?.[breakpoint]?.value) {
-            return generateUnitValue(typo?.fontSize?.[breakpoint]);
-          } else if (settings.size?.[breakpoint]) {
-            return generateFontSize(settings.size?.[breakpoint]).fontSize;
-          } else if (typo.fontSize?.tablet?.value) {
-            return generateUnitValue(typo.fontSize?.tablet);
-          } else if (settings.size?.tablet) {
-            return generateFontSize(settings.size?.tablet).fontSize;
-          } else if (typo.fontSize?.desktop?.value) {
-            return generateUnitValue(typo.fontSize?.desktop);
-          } else if (settings.size?.desktop) {
-            return generateFontSize(settings.size?.desktop).fontSize;
-          }
-
-          return headingMap[settings.htmlTag!];
+    const responsiveStyle = generateResponsiveStyle(breakpoints, (breakpoint) => {
+      function getFontSize(): string | undefined {
+        if (typo?.fontSize?.[breakpoint]?.value) {
+          return generateUnitValue(typo?.fontSize?.[breakpoint]);
+        } else if (settings.size?.[breakpoint]) {
+          return generateFontSize(settings.size?.[breakpoint]).fontSize;
+        } else if (typo.fontSize?.tablet?.value) {
+          return generateUnitValue(typo.fontSize?.tablet);
+        } else if (settings.size?.tablet) {
+          return generateFontSize(settings.size?.tablet).fontSize;
+        } else if (typo.fontSize?.desktop?.value) {
+          return generateUnitValue(typo.fontSize?.desktop);
+        } else if (settings.size?.desktop) {
+          return generateFontSize(settings.size?.desktop).fontSize;
         }
-        const {
-          top: paddingTop,
-          right: paddingRight,
-          bottom: paddingBottom,
-          left: paddingLeft,
-        } = generateSpacingValue(settings.padding?.[breakpoint]);
 
-        const {
-          top: marginTop,
-          right: marginRight,
-          bottom: marginBottom,
-          left: marginLeft,
-        } = generateSpacingValue(settings.margin?.[breakpoint]);
-
-        return {
-          marginTop,
-          marginRight,
-          marginBottom,
-          marginLeft,
-          paddingTop,
-          paddingRight,
-          paddingBottom,
-          paddingLeft,
-          fontSize: getFontSize(),
-          lineHeight: typo?.lineHeight?.[breakpoint]?.value
-            ? generateUnitValue(typo?.lineHeight?.[breakpoint])
-            : generateFontSize(settings.size?.[breakpoint]).lineHeight,
-          letterSpacing: generateUnitValue(typo?.letterSpacing?.[breakpoint]),
-          wordSpacing: generateUnitValue(typo?.wordSpacing?.[breakpoint]),
-          fontWeight: typo?.fontWeight?.[breakpoint],
-          textTransform: typo?.textTransform?.[breakpoint],
-          fontStyle: typo?.fontStyle?.[breakpoint],
-          textDecoration: typo?.textDecoration?.[breakpoint],
-          //
-          textAlign: settings.alignment?.[breakpoint],
-          textStroke: `${generateUnitValue({ value: settings.textStroke?.width?.[breakpoint]?.value, unit: Unit.PX })} ${
-            settings.textStroke?.color ?? ""
-          }`,
-          "-webkit-text-stroke": `${generateUnitValue({
-            value: settings.textStroke?.width?.[breakpoint]?.value,
-            unit: Unit.PX,
-          })} ${settings.textStroke?.color ?? ""}`,
-        };
+        return headingMap[settings.htmlTag!];
       }
-    );
+      const {
+        top: paddingTop,
+        right: paddingRight,
+        bottom: paddingBottom,
+        left: paddingLeft,
+      } = generateSpacingValue(settings.padding?.[breakpoint]);
+
+      const {
+        top: marginTop,
+        right: marginRight,
+        bottom: marginBottom,
+        left: marginLeft,
+      } = generateSpacingValue(settings.margin?.[breakpoint]);
+
+      return {
+        marginTop,
+        marginRight,
+        marginBottom,
+        marginLeft,
+        paddingTop,
+        paddingRight,
+        paddingBottom,
+        paddingLeft,
+        fontSize: getFontSize(),
+        lineHeight: typo?.lineHeight?.[breakpoint]?.value
+          ? generateUnitValue(typo?.lineHeight?.[breakpoint])
+          : generateFontSize(settings.size?.[breakpoint]).lineHeight,
+        letterSpacing: generateUnitValue(typo?.letterSpacing?.[breakpoint]),
+        wordSpacing: generateUnitValue(typo?.wordSpacing?.[breakpoint]),
+        fontWeight: typo?.fontWeight?.[breakpoint],
+        textTransform: typo?.textTransform?.[breakpoint],
+        fontStyle: typo?.fontStyle?.[breakpoint],
+        textDecoration: typo?.textDecoration?.[breakpoint],
+        //
+        textAlign: settings.alignment?.[breakpoint],
+        textStroke: `${generateUnitValue({ value: settings.textStroke?.width?.[breakpoint]?.value, unit: Unit.PX })} ${
+          settings.textStroke?.color ?? ""
+        }`,
+        "-webkit-text-stroke": `${generateUnitValue({
+          value: settings.textStroke?.width?.[breakpoint]?.value,
+          unit: Unit.PX,
+        })} ${settings.textStroke?.color ?? ""}`,
+      };
+    });
 
     return {
       // flex: 1,
@@ -113,8 +110,7 @@ const HeadingConfig = createBlockConfig<HeadingSettingsType>({
         mixBlendMode: settings.blendMode?.desktop,
         color: settings.textColor?.default,
         backgroundColor: settings.backgroundColor?.default,
-        textShadow:
-          settings.textShadow && generateTextShadow(settings.textShadow),
+        textShadow: settings.textShadow && generateTextShadow(settings.textShadow),
 
         "&:hover": {
           color: settings.textColor?.hover,

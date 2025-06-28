@@ -57,24 +57,19 @@ const SlidesControl = () => {
         {slides?.map((slide, index) => (
           <div key={slide.id} className="mb-1.5">
             <SortableItem key={slide.id}>
-              <div className="bg-[#F8F9F8] z-[99] px-2">
-                <div className="min-h-[40px] flex items-center">
+              <div className="z-[99] bg-[#F8F9F8] px-2">
+                <div className="flex min-h-[40px] items-center">
                   <button className={"me-1 cursor-move"}>
                     <BiGridVertical size={14} color={"#828282"} />
                   </button>
 
                   <Label
                     onClick={() => {
-                      setActiveSlide((prevState) =>
-                        prevState === slide.id ? "" : slide.id
-                      );
+                      setActiveSlide((prevState) => (prevState === slide.id ? "" : slide.id));
                     }}
-                    className="flex h-full flex-1 text-xs cursor-pointer items-center py-1 hover:bg-slate-50"
+                    className="flex h-full flex-1 cursor-pointer items-center py-1 text-xs hover:bg-slate-50"
                   >
-                    {getTitle(
-                      slide.title?.[currentLocale] || slide.title?.en,
-                      index
-                    )}
+                    {getTitle(slide.title?.[currentLocale] || slide.title?.en, index)}
                   </Label>
 
                   <div
@@ -87,7 +82,7 @@ const SlidesControl = () => {
                       });
                       setSlides(newSlides);
                     }}
-                    className="flex h-full cursor-pointer me-1.5 items-center justify-center hover:bg-slate-50"
+                    className="me-1.5 flex h-full cursor-pointer items-center justify-center hover:bg-slate-50"
                   >
                     <FaRegCopy />
                   </div>
@@ -107,7 +102,7 @@ const SlidesControl = () => {
             </SortableItem>
             <div
               className={classNames(
-                "grid grid-rows-[0fr] bg-[#F8F9F8] overflow-hidden transition-[grid-template-rows] duration-200",
+                "grid grid-rows-[0fr] overflow-hidden bg-[#F8F9F8] transition-[grid-template-rows] duration-200",
                 {
                   "grid-rows-[1fr]": activeSlide === slide.id,
                 }

@@ -5,9 +5,7 @@ import { BlockMeta } from "@/types/block";
 import { FC, useRef } from "react";
 import sanitizeHtml from "sanitize-html";
 import { HeadingSettingsType } from "../types";
-import ContentEditable, {
-  ContentEditableEvent,
-} from "@/components/shared/content-editable";
+import ContentEditable, { ContentEditableEvent } from "@/components/shared/content-editable";
 
 const HeadingEditable: FC<{
   settings: HeadingSettingsType;
@@ -21,18 +19,7 @@ const HeadingEditable: FC<{
   const text = useRef<string>("");
 
   const sanitizeConf = {
-    allowedTags: [
-      "div",
-      "span",
-      "br",
-      "p",
-      "strong",
-      "small",
-      "abbr",
-      "sub",
-      "mark",
-      "em",
-    ],
+    allowedTags: ["div", "span", "br", "p", "strong", "small", "abbr", "sub", "mark", "em"],
   };
 
   const handleChange = (e: ContentEditableEvent) => {
@@ -55,7 +42,7 @@ const HeadingEditable: FC<{
       onChange={handleChange}
       onBlur={handleBlur}
       html={title || defaultTitle}
-      className="heading focus-visible:outline-0 leading-5"
+      className="heading leading-5 focus-visible:outline-0"
     />
   );
 };

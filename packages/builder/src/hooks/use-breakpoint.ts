@@ -4,9 +4,7 @@ import { useEffect, useState } from "react";
 
 export const useBreakpoint = () => {
   // Initialize with default breakpoint
-  const [calculatedBreakpoint, setCalculatedBreakpoint] = useState<Breakpoint>(
-    Breakpoint.DESKTOP
-  );
+  const [calculatedBreakpoint, setCalculatedBreakpoint] = useState<Breakpoint>(Breakpoint.DESKTOP);
 
   // Only access window in useEffect to avoid SSR issues
   useEffect(() => {
@@ -19,13 +17,9 @@ export const useBreakpoint = () => {
       actualWindow.document.body.clientWidth;
 
     // Set initial breakpoint based on window width
-    if (
-      width < BuilderConfiguration.getBreakpoint(Breakpoint.TABLET).minWidth
-    ) {
+    if (width < BuilderConfiguration.getBreakpoint(Breakpoint.TABLET).minWidth) {
       setCalculatedBreakpoint(Breakpoint.MOBILE);
-    } else if (
-      width < BuilderConfiguration.getBreakpoint(Breakpoint.DESKTOP).minWidth
-    ) {
+    } else if (width < BuilderConfiguration.getBreakpoint(Breakpoint.DESKTOP).minWidth) {
       setCalculatedBreakpoint(Breakpoint.TABLET);
     } else {
       setCalculatedBreakpoint(Breakpoint.DESKTOP);
@@ -43,13 +37,9 @@ export const useBreakpoint = () => {
         actualWindow.document.documentElement.clientWidth ||
         actualWindow.document.body.clientWidth;
 
-      if (
-        width < BuilderConfiguration.getBreakpoint(Breakpoint.TABLET).minWidth
-      ) {
+      if (width < BuilderConfiguration.getBreakpoint(Breakpoint.TABLET).minWidth) {
         setCalculatedBreakpoint(Breakpoint.MOBILE);
-      } else if (
-        width < BuilderConfiguration.getBreakpoint(Breakpoint.DESKTOP).minWidth
-      ) {
+      } else if (width < BuilderConfiguration.getBreakpoint(Breakpoint.DESKTOP).minWidth) {
         setCalculatedBreakpoint(Breakpoint.TABLET);
       } else {
         setCalculatedBreakpoint(Breakpoint.DESKTOP);

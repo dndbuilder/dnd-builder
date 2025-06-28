@@ -98,9 +98,7 @@ const ButtonConfig = createBlockConfig<ButtonSettingsType>({
           paddingRight,
           paddingBottom,
           paddingLeft,
-          ...generateBorderRadius(
-            settings.border?.radius?.[breakpoint]?.default
-          ),
+          ...generateBorderRadius(settings.border?.radius?.[breakpoint]?.default),
           ...generateBorderWidth(settings.border?.width?.[breakpoint]?.default),
           width: align === TextAlignType.JUSTIFY ? "100%" : null,
         };

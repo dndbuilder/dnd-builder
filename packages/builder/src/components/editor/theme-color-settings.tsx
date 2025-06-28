@@ -19,10 +19,7 @@ type Props = {
 };
 
 const ThemeColorSettings: FC<Props> = ({ setCurrentSetting }) => {
-  const [textColor, setTextColor] = useSettings<string>(
-    "color.textColor",
-    SettingsType.THEME
-  );
+  const [textColor, setTextColor] = useSettings<string>("color.textColor", SettingsType.THEME);
   const [accentColor, setAccentColor] = useSettings<string>(
     "color.accentColor",
     SettingsType.THEME
@@ -31,13 +28,14 @@ const ThemeColorSettings: FC<Props> = ({ setCurrentSetting }) => {
     "color.backgroundColor",
     SettingsType.THEME
   );
-  const [presets, setPresets] = useSettings<
-    Array<{ id: string; name: string; value?: string }>
-  >("color.presets", SettingsType.THEME);
+  const [presets, setPresets] = useSettings<Array<{ id: string; name: string; value?: string }>>(
+    "color.presets",
+    SettingsType.THEME
+  );
   return (
     <>
-      <div className="flex items-center justify-between p-4 border-b">
-        <div className="text-base font-semibold flex items-center gap-2">
+      <div className="flex items-center justify-between border-b p-4">
+        <div className="flex items-center gap-2 text-base font-semibold">
           <VscSymbolColor />
           Global Colors
         </div>
@@ -61,24 +59,14 @@ const ThemeColorSettings: FC<Props> = ({ setCurrentSetting }) => {
 
               <Popover>
                 <Popover.Trigger className="cursor-pointer rounded-sm border p-1.5">
-                  <BsFillSquareFill
-                    color={backgroundColor}
-                    className=" text-sm"
-                  />
+                  <BsFillSquareFill color={backgroundColor} className=" text-sm" />
                 </Popover.Trigger>
 
                 <Popover.Portal>
-                  <Popover.Content
-                    align="end"
-                    alignOffset={-10}
-                    className="w-[270px] p-0"
-                  >
+                  <Popover.Content align="end" alignOffset={-10} className="w-[270px] p-0">
                     <p className="px-4 py-3 shadow-md">Color Picker</p>
                     <div className="p-4">
-                      <ColorPicker
-                        color={backgroundColor}
-                        onChange={setBackgroundColor}
-                      />
+                      <ColorPicker color={backgroundColor} onChange={setBackgroundColor} />
                     </div>
 
                     <Popover.Arrow width={16} height={8} fill="white" />
@@ -99,18 +87,10 @@ const ThemeColorSettings: FC<Props> = ({ setCurrentSetting }) => {
                 </Popover.Trigger>
 
                 <Popover.Portal>
-                  <Popover.Content
-                    align="end"
-                    alignOffset={-10}
-                    className="w-[270px] p-0"
-                  >
+                  <Popover.Content align="end" alignOffset={-10} className="w-[270px] p-0">
                     <p className="px-4 py-3 shadow-md">Color Picker</p>
                     <div className="p-4">
-                      <ColorPicker
-                        disableAlpha
-                        color={accentColor}
-                        onChange={setAccentColor}
-                      />
+                      <ColorPicker disableAlpha color={accentColor} onChange={setAccentColor} />
                     </div>
 
                     <Popover.Arrow width={16} height={8} fill="white" />
@@ -131,11 +111,7 @@ const ThemeColorSettings: FC<Props> = ({ setCurrentSetting }) => {
                 </Popover.Trigger>
 
                 <Popover.Portal>
-                  <Popover.Content
-                    align="end"
-                    alignOffset={-10}
-                    className="w-[270px] p-0"
-                  >
+                  <Popover.Content align="end" alignOffset={-10} className="w-[270px] p-0">
                     <p className="px-4 py-3 shadow-md">Color Picker</p>
                     <div className="p-4">
                       <ColorPicker color={textColor} onChange={setTextColor} />
@@ -151,12 +127,9 @@ const ThemeColorSettings: FC<Props> = ({ setCurrentSetting }) => {
 
         <Accordion.Item value="custom">
           <Accordion.Trigger className="px-4">Custom Colors</Accordion.Trigger>
-          <Accordion.Content className="ps-2 pe-4">
+          <Accordion.Content className="pe-4 ps-2">
             {presets.map((preset, index) => (
-              <div
-                key={index}
-                className="group mt-4 flex items-center gap-2 first:mt-2 "
-              >
+              <div key={index} className="group mt-4 flex items-center gap-2 first:mt-2 ">
                 <ContentEditable
                   onChange={(e) => {
                     const value = e.target.value;
@@ -164,9 +137,7 @@ const ThemeColorSettings: FC<Props> = ({ setCurrentSetting }) => {
                     newPresets[index].name = value;
                     setPresets(newPresets);
                   }}
-                  onKeyDown={(e: React.KeyboardEvent) =>
-                    e.key === "Enter" && e.preventDefault()
-                  }
+                  onKeyDown={(e: React.KeyboardEvent) => e.key === "Enter" && e.preventDefault()}
                   html={preset.name}
                   tagName="p"
                   className="me-auto rounded-sm border border-transparent px-2 py-1 text-xs hover:border-slate-100 focus-visible:border-slate-100 focus-visible:outline-0"
@@ -179,24 +150,17 @@ const ThemeColorSettings: FC<Props> = ({ setCurrentSetting }) => {
                       newPresets.splice(index, 1);
                       setPresets(newPresets);
                     }}
-                    className="mx-2 hidden cursor-pointer hover:text-danger-500 group-hover:block"
+                    className="hover:text-danger-500 mx-2 hidden cursor-pointer group-hover:block"
                   />
                 </Label>
 
                 <Popover>
                   <Popover.Trigger className="cursor-pointer rounded-sm border p-1.5">
-                    <BsFillSquareFill
-                      color={preset.value}
-                      className=" text-sm"
-                    />
+                    <BsFillSquareFill color={preset.value} className=" text-sm" />
                   </Popover.Trigger>
 
                   <Popover.Portal>
-                    <Popover.Content
-                      align="end"
-                      alignOffset={-10}
-                      className="w-[270px] p-0"
-                    >
+                    <Popover.Content align="end" alignOffset={-10} className="w-[270px] p-0">
                       <p className="px-4 py-3 shadow-md">Color Picker</p>
                       <div className="p-4">
                         <ColorPicker

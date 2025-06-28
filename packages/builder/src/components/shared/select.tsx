@@ -29,11 +29,7 @@ const SelectValue = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.SelectValue>
 >(({ children, className, ...props }, ref) => {
   return (
-    <SelectPrimitive.Value
-      className={classNames("", className)}
-      ref={ref}
-      {...props}
-    >
+    <SelectPrimitive.Value className={classNames("", className)} ref={ref} {...props}>
       {children}
     </SelectPrimitive.Value>
   );
@@ -52,7 +48,7 @@ const SelectTrigger = React.forwardRef<
   <SelectPrimitive.Trigger
     ref={ref}
     className={classNames(
-      "flex h-[30px] w-full  items-center justify-between whitespace-nowrap rounded-sm border border-slate-300 bg-transparent  p-2 text-xs text-slate-800 placeholder:text-slate-300 focus:border-slate-500 focus:outline-hidden focus:ring-0 disabled:cursor-not-allowed disabled:opacity-50",
+      "focus:outline-hidden flex h-[30px]  w-full items-center justify-between whitespace-nowrap rounded-sm border border-slate-300  bg-transparent p-2 text-xs text-slate-800 placeholder:text-slate-300 focus:border-slate-500 focus:ring-0 disabled:cursor-not-allowed disabled:opacity-50",
       className
     )}
     {...props}
@@ -71,37 +67,32 @@ SelectTrigger.displayName = SelectPrimitive.Trigger.displayName;
 const SelectContent = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Content>
->(
-  (
-    { className, sideOffset = -40, children, position = "popper", ...props },
-    ref
-  ) => (
-    <SelectPrimitive.Portal>
-      <SelectPrimitive.Content
-        ref={ref}
+>(({ className, sideOffset = -40, children, position = "popper", ...props }, ref) => (
+  <SelectPrimitive.Portal>
+    <SelectPrimitive.Content
+      ref={ref}
+      className={classNames(
+        "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2  data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 relative z-50 min-w-32 overflow-hidden rounded-sm border bg-white shadow-md",
+        position === "popper" &&
+          "data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1",
+        className
+      )}
+      sideOffset={sideOffset}
+      position={position}
+      {...props}
+    >
+      <SelectPrimitive.Viewport
         className={classNames(
-          "relative z-50 min-w-32 overflow-hidden rounded-sm border bg-white  shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+          // 'p-1',
           position === "popper" &&
-            "data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1",
-          className
+            "h-(--radix-select-trigger-height) min-w-(--radix-select-trigger-width) w-full"
         )}
-        sideOffset={sideOffset}
-        position={position}
-        {...props}
       >
-        <SelectPrimitive.Viewport
-          className={classNames(
-            // 'p-1',
-            position === "popper" &&
-              "h-(--radix-select-trigger-height) w-full min-w-(--radix-select-trigger-width)"
-          )}
-        >
-          {children}
-        </SelectPrimitive.Viewport>
-      </SelectPrimitive.Content>
-    </SelectPrimitive.Portal>
-  )
-);
+        {children}
+      </SelectPrimitive.Viewport>
+    </SelectPrimitive.Content>
+  </SelectPrimitive.Portal>
+));
 SelectContent.displayName = SelectPrimitive.Content.displayName;
 
 const SelectLabel = React.forwardRef<
@@ -110,7 +101,7 @@ const SelectLabel = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
   <SelectPrimitive.Label
     ref={ref}
-    className={classNames("py-1.5 ps-8 pe-2 text-sm font-semibold", className)}
+    className={classNames("py-1.5 pe-2 ps-8 text-sm font-semibold", className)}
     {...props}
   >
     {children}
@@ -122,29 +113,28 @@ export interface SelectItemProps
   extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Item> {
   showCheck?: boolean;
 }
-const SelectItem = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Item>,
-  SelectItemProps
->(({ className, children, showCheck = true, ...props }, ref) => (
-  <SelectPrimitive.Item
-    ref={ref}
-    className={classNames(
-      "relative flex w-full cursor-default select-none items-center rounded-xs py-1.5 ps-8 pe-2 text-xs text-slate-800 outline-hidden focus:bg-slate-100 focus:text-slate-900 data-disabled:pointer-events-none data-disabled:opacity-50",
-      className
-    )}
-    {...props}
-  >
-    {showCheck && (
-      <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
-        <SelectPrimitive.ItemIndicator>
-          <BsCheck2 className="h-4 w-4" />
-        </SelectPrimitive.ItemIndicator>
-      </span>
-    )}
+const SelectItem = React.forwardRef<React.ElementRef<typeof SelectPrimitive.Item>, SelectItemProps>(
+  ({ className, children, showCheck = true, ...props }, ref) => (
+    <SelectPrimitive.Item
+      ref={ref}
+      className={classNames(
+        "rounded-xs outline-hidden data-disabled:pointer-events-none data-disabled:opacity-50 relative flex w-full cursor-default select-none items-center py-1.5 pe-2 ps-8 text-xs text-slate-800 focus:bg-slate-100 focus:text-slate-900",
+        className
+      )}
+      {...props}
+    >
+      {showCheck && (
+        <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
+          <SelectPrimitive.ItemIndicator>
+            <BsCheck2 className="h-4 w-4" />
+          </SelectPrimitive.ItemIndicator>
+        </span>
+      )}
 
-    <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
-  </SelectPrimitive.Item>
-));
+      <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
+    </SelectPrimitive.Item>
+  )
+);
 SelectItem.displayName = SelectPrimitive.Item.displayName;
 
 const SelectSeparator = React.forwardRef<

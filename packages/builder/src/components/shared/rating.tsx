@@ -50,12 +50,7 @@ export const Rating: React.FC<RatingProps> = (props) => {
   }
 
   return (
-    <div
-      className={twMerge(
-        "flex items-center gap-0.5 text-yellow-400 text-lg",
-        className
-      )}
-    >
+    <div className={twMerge("flex items-center gap-0.5 text-lg text-yellow-400", className)}>
       {stars}
     </div>
   );

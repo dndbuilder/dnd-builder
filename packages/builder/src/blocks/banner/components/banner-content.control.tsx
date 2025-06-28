@@ -9,10 +9,7 @@ import { useSettings } from "@/hooks/use-settings";
 import { SettingsType } from "@/types";
 
 const BannerContentControl = () => {
-  const [buttonText] = useSettings<string>(
-    "button.text.{{LOCALE}}",
-    SettingsType.BLOCK
-  );
+  const [buttonText] = useSettings<string>("button.text.{{LOCALE}}", SettingsType.BLOCK);
   return (
     <Accordion defaultValue={"General"} type="single" collapsible>
       <Accordion.Item value="General">
@@ -57,11 +54,7 @@ const BannerContentControl = () => {
                 type={SettingsType.BLOCK}
                 isLocalized
               />
-              <LinkControl
-                label="Link"
-                fieldName="button.link"
-                type={SettingsType.BLOCK}
-              />
+              <LinkControl label="Link" fieldName="button.link" type={SettingsType.BLOCK} />
             </>
           )}
         </Accordion.Content>

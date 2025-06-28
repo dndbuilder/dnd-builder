@@ -7,10 +7,7 @@ import { IconSettingsType } from "../types";
 
 const Icon: FC<BlockProps<IconSettingsType>> = ({ settings }) => {
   const icon = (
-    <RenderIcon
-      iconSet={settings.icon?.iconSet}
-      iconName={settings.icon?.iconName}
-    ></RenderIcon>
+    <RenderIcon iconSet={settings.icon?.iconSet} iconName={settings.icon?.iconName}></RenderIcon>
   );
 
   return (

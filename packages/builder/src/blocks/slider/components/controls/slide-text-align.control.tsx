@@ -1,11 +1,7 @@
 import { ToggleGroupControl } from "@/components/controls/toggle-group.control";
 import { SettingsType } from "@/types";
 import { FC, HTMLAttributes, ReactNode } from "react";
-import {
-  AiOutlineAlignCenter,
-  AiOutlineAlignLeft,
-  AiOutlineAlignRight,
-} from "react-icons/ai";
+import { AiOutlineAlignCenter, AiOutlineAlignLeft, AiOutlineAlignRight } from "react-icons/ai";
 
 type Props = {
   label?: ReactNode;
@@ -13,12 +9,7 @@ type Props = {
   fieldName: string;
 } & HTMLAttributes<HTMLDivElement>;
 
-const SlideTextAlignControl: FC<Props> = ({
-  type,
-  className,
-  label = "Text Align",
-  fieldName,
-}) => {
+const SlideTextAlignControl: FC<Props> = ({ type, className, label = "Text Align", fieldName }) => {
   return (
     <ToggleGroupControl
       type={type}

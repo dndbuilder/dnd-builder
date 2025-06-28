@@ -16,9 +16,7 @@ export interface BreakpointSelectorProps {
   className?: string;
 }
 
-export const BreakpointSelector: FC<BreakpointSelectorProps> = ({
-  className,
-}) => {
+export const BreakpointSelector: FC<BreakpointSelectorProps> = ({ className }) => {
   const currentBreakpoint = useAppSelector(getCurrentBreakpoint);
   const dispatch = useAppDispatch();
 
@@ -31,10 +29,7 @@ export const BreakpointSelector: FC<BreakpointSelectorProps> = ({
       defaultValue={Breakpoint.DESKTOP}
     >
       <Select.Trigger
-        className={classNames(
-          "h-3 w-7 border-0 p-1 focus:ring-0 focus:ring-offset-0",
-          className
-        )}
+        className={classNames("h-3 w-7 border-0 p-1 focus:ring-0 focus:ring-offset-0", className)}
         chevronDown={false}
       >
         {currentBreakpoint === Breakpoint.DESKTOP && (
@@ -71,11 +66,7 @@ export const BreakpointSelector: FC<BreakpointSelectorProps> = ({
         )}
       </Select.Trigger>
 
-      <Select.Content
-        alignOffset={0}
-        sideOffset={-23}
-        className="min-w-[30px] border-0"
-      >
+      <Select.Content alignOffset={0} sideOffset={-23} className="min-w-[30px] border-0">
         <Select.Group>
           <Select.Item
             className="flex justify-center px-0 py-1.5"

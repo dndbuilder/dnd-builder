@@ -7,14 +7,11 @@ export type NotSupportedBlockProps = {
   children?: React.ReactNode;
 };
 
-export const NotSupportedBlock: FC<NotSupportedBlockProps> = ({
-  className,
-  children,
-}) => {
+export const NotSupportedBlock: FC<NotSupportedBlockProps> = ({ className, children }) => {
   return (
     <div
       className={classNames(
-        "px-4 py-2 border border-dashed rounded-sm border-danger-500 text-danger-500 text-center",
+        "border-danger-500 text-danger-500 rounded-sm border border-dashed px-4 py-2 text-center",
         className
       )}
     >

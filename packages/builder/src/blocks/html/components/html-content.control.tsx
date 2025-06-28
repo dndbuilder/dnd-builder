@@ -6,10 +6,7 @@ import { SettingsType } from "@/types";
 import Editor from "@monaco-editor/react";
 
 const HtmlContentControl = () => {
-  const [code, setCode] = useSettings<string | undefined>(
-    "code",
-    SettingsType.BLOCK
-  );
+  const [code, setCode] = useSettings<string | undefined>("code", SettingsType.BLOCK);
   return (
     <Accordion defaultValue="HTML" type="single" collapsible>
       <Accordion.Item value="HTML">

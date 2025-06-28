@@ -38,7 +38,7 @@ const BlockToolbar: FC<BlockToolbarProps> = memo(
           side={"top"}
           align="start"
           alignOffset={-1}
-          className="p-0 max-w-fit outline-hidden"
+          className="outline-hidden max-w-fit p-0"
           collisionPadding={{ top: 100 }}
           hideWhenDetached
           avoidCollisions
@@ -58,22 +58,19 @@ const BlockToolbar: FC<BlockToolbarProps> = memo(
           ) : (
             <>
               {blockConfig.previewImage && (
-                <DragPreviewImage
-                  connect={previewRef}
-                  src={blockConfig.previewImage}
-                />
+                <DragPreviewImage connect={previewRef} src={blockConfig.previewImage} />
               )}
 
               <div
                 className={classNames(
-                  "flex items-center bg-slate-800 px-1 text-slate-300 rounded-sm"
+                  "flex items-center rounded-sm bg-slate-800 px-1 text-slate-300"
                 )}
               >
                 {/* Toolbar Controls */}
                 <div
                   role="button"
                   className={classNames(
-                    "flex cursor-grab! items-center gap-1 text-slate-100 hover:bg-transparent py-1 px-1 hover:text-white"
+                    "cursor-grab! flex items-center gap-1 px-1 py-1 text-slate-100 hover:bg-transparent hover:text-white"
                   )}
                   // @ts-ignore-disable-next-line
                   ref={dragRef} // TODO: Fix this
@@ -88,7 +85,7 @@ const BlockToolbar: FC<BlockToolbarProps> = memo(
                     e.stopPropagation();
                     console.log("Duplicate block", blockId);
                   }}
-                  className="rounded-tr text-slate-100 hover:bg-transparent py-1 hover:text-white mx-1"
+                  className="mx-1 rounded-tr py-1 text-slate-100 hover:bg-transparent hover:text-white"
                 >
                   <IoDuplicateOutline size={16} />
                 </div>
@@ -96,7 +93,7 @@ const BlockToolbar: FC<BlockToolbarProps> = memo(
                 <div
                   role="button"
                   onClick={remove}
-                  className="rounded-tr text-slate-100 hover:bg-transparent py-1 hover:text-white mx-1"
+                  className="mx-1 rounded-tr py-1 text-slate-100 hover:bg-transparent hover:text-white"
                 >
                   <FiTrash2 size={16} />
                 </div>

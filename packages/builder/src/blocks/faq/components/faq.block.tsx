@@ -10,8 +10,7 @@ const Faq: FC<BlockProps<FaqSettingsType>> = ({ settings, meta }) => {
   const locale = meta?.locale || "en";
 
   const [openItems, setOpenItems] = useState<string[]>(() => {
-    if (settings.isOpenFirstItem && settings.items?.length)
-      return [settings.items?.[0].id];
+    if (settings.isOpenFirstItem && settings.items?.length) return [settings.items?.[0].id];
     return [];
   });
 
@@ -21,8 +20,7 @@ const Faq: FC<BlockProps<FaqSettingsType>> = ({ settings, meta }) => {
         if (prevState.includes(id)) return [];
         else return [id];
       } else {
-        if (prevState.includes(id))
-          return prevState.filter((item) => item !== id);
+        if (prevState.includes(id)) return prevState.filter((item) => item !== id);
         else return [...prevState, id];
       }
     });
@@ -35,14 +33,8 @@ const Faq: FC<BlockProps<FaqSettingsType>> = ({ settings, meta }) => {
             onClick={() => toggleOpenItems(item.id)}
             className="flex cursor-pointer items-center justify-between"
           >
-            <span className="title">
-              {item.title?.text?.[locale] || item.title?.text?.en}
-            </span>
-            {openItems.includes(item.id) ? (
-              <AiOutlineMinus />
-            ) : (
-              <AiOutlinePlus />
-            )}
+            <span className="title">{item.title?.text?.[locale] || item.title?.text?.en}</span>
+            {openItems.includes(item.id) ? <AiOutlineMinus /> : <AiOutlinePlus />}
           </div>
 
           <div

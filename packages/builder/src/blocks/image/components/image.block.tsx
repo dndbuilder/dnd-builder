@@ -22,9 +22,7 @@ const ImageBlock: FC<BlockProps<ImageSettingsType>> = ({ settings, meta }) => {
         }
         alt={settings.media?.name ?? "image"}
       />
-      {captionText && (
-        <figcaption className="block-img-caption">{captionText}</figcaption>
-      )}
+      {captionText && <figcaption className="block-img-caption">{captionText}</figcaption>}
     </>
   );
 

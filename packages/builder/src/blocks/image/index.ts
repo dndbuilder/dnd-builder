@@ -1,3 +1,3 @@
-export { default } from './components/image.block';
+export { default } from "./components/image.block";
 
-export { default as ImageConfig } from './image.config';
+export { default as ImageConfig } from "./image.config";

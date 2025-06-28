@@ -21,12 +21,7 @@ export type EditorProps = {
   builderConfig?: BuilderConfig; // Add builderConfig prop
 } & Omit<React.HTMLAttributes<HTMLDivElement>, "content" | "className">;
 
-export const Editor: FC<EditorProps> = ({
-  content,
-  className,
-  builderConfig,
-  ...props
-}) => {
+export const Editor: FC<EditorProps> = ({ content, className, builderConfig, ...props }) => {
   const dispatch = useAppDispatch();
 
   const contentState = useAppSelector(getContent);
@@ -81,10 +76,7 @@ export const Editor: FC<EditorProps> = ({
   return (
     <DndProvider backend={HTML5Backend}>
       <div
-        className={classNames(
-          "relative flex h-full w-full flex-wrap overflow-hidden",
-          className
-        )}
+        className={classNames("relative flex h-full w-full flex-wrap overflow-hidden", className)}
         {...props}
       >
         {/* Builder Left Sidebar Panel */}

@@ -109,9 +109,7 @@ const DrawerConfig = createBlockConfig<DrawerSettingsType>({
         [".drawer-trigger-text"]: {
           ...generateResponsiveStyle(breakpoints, (breakpoint) => {
             return {
-              display: settings?.trigger?.text?.show?.[breakpoint]
-                ? "inline-block"
-                : "none",
+              display: settings?.trigger?.text?.show?.[breakpoint] ? "inline-block" : "none",
               order: settings?.trigger?.text?.order?.[breakpoint],
             };
           }),
@@ -120,13 +118,9 @@ const DrawerConfig = createBlockConfig<DrawerSettingsType>({
           color: settings?.trigger?.icon?.color?.default,
           ...generateResponsiveStyle(breakpoints, (breakpoint) => {
             return {
-              display: settings?.trigger?.icon?.show?.[breakpoint]
-                ? "inline-block"
-                : "none",
+              display: settings?.trigger?.icon?.show?.[breakpoint] ? "inline-block" : "none",
               order: settings?.trigger?.icon?.order?.[breakpoint],
-              fontSize: generateUnitValue(
-                settings?.trigger?.icon?.size?.[breakpoint]?.default
-              ),
+              fontSize: generateUnitValue(settings?.trigger?.icon?.size?.[breakpoint]?.default),
             };
           }),
         },
@@ -136,9 +130,7 @@ const DrawerConfig = createBlockConfig<DrawerSettingsType>({
         color: settings?.trigger?.icon?.color?.hover,
         ...generateResponsiveStyle(breakpoints, (breakpoint) => {
           return {
-            fontSize: generateUnitValue(
-              settings?.trigger?.icon?.size?.[breakpoint]?.hover
-            ),
+            fontSize: generateUnitValue(settings?.trigger?.icon?.size?.[breakpoint]?.hover),
           };
         }),
       },
@@ -147,9 +139,7 @@ const DrawerConfig = createBlockConfig<DrawerSettingsType>({
         color: settings?.trigger?.icon?.color?.focus,
         ...generateResponsiveStyle(breakpoints, (breakpoint) => {
           return {
-            fontSize: generateUnitValue(
-              settings?.trigger?.icon?.size?.[breakpoint]?.hover
-            ),
+            fontSize: generateUnitValue(settings?.trigger?.icon?.size?.[breakpoint]?.hover),
           };
         }),
       },
@@ -217,9 +207,7 @@ const DrawerConfig = createBlockConfig<DrawerSettingsType>({
             borderBottomLeftRadius,
             borderStyle: Boolean(borderType) ? borderType : undefined,
             borderColor: settings?.content?.border?.color?.[pseudo],
-            boxShadow: generateBoxShadow(
-              settings?.content?.boxShadow?.[pseudo]
-            ),
+            boxShadow: generateBoxShadow(settings?.content?.boxShadow?.[pseudo]),
           };
         }),
       },

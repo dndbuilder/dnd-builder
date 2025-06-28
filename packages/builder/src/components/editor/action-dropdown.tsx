@@ -92,11 +92,11 @@ const ActionDropdown: FC = () => {
   const { isSaving, save } = useActionContext();
 
   return (
-    <div className="flex h-9 bg-slate-900 rounded-sm text-white divide-x divide-indigo-700 overflow-hidden">
+    <div className="flex h-9 divide-x divide-indigo-700 overflow-hidden rounded-sm bg-slate-900 text-white">
       <Tooltip>
         <Tooltip.Trigger asChild>
           <button
-            className="px-5 h-full text-sm flex items-center gap-2 enabled:hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-50"
+            className="flex h-full items-center gap-2 px-5 text-sm enabled:hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-50"
             onClick={save}
             disabled={isSaving}
           >
@@ -108,19 +108,16 @@ const ActionDropdown: FC = () => {
       </Tooltip>
       <Popover modal>
         <Popover.Trigger asChild>
-          <button className="px-2.5 h-full enabled:hover:bg-indigo-700">
+          <button className="h-full px-2.5 enabled:hover:bg-indigo-700">
             <FiChevronDown />
           </button>
         </Popover.Trigger>
         <Popover.Portal>
-          <Popover.Content
-            className="w-[160px] px-0 py-1 overflow-hidden bg-slate-800"
-            align="end"
-          >
+          <Popover.Content className="w-[160px] overflow-hidden bg-slate-800 px-0 py-1" align="end">
             {/* Import */}
             <Popover.Close
               onClick={importContent}
-              className="flex gap-2 items-center px-4 py-2 enabled:hover:bg-slate-700 text-slate-100 w-full text-sm"
+              className="flex w-full items-center gap-2 px-4 py-2 text-sm text-slate-100 enabled:hover:bg-slate-700"
             >
               <CiImport /> Import Content
             </Popover.Close>
@@ -128,7 +125,7 @@ const ActionDropdown: FC = () => {
             {/* Export */}
             <Popover.Close
               onClick={exportContent}
-              className="flex gap-2 items-center px-4 py-2 enabled:hover:bg-slate-700 text-slate-100 w-full text-sm"
+              className="flex w-full items-center gap-2 px-4 py-2 text-sm text-slate-100 enabled:hover:bg-slate-700"
             >
               <CiExport /> Export Content
             </Popover.Close>
@@ -136,7 +133,7 @@ const ActionDropdown: FC = () => {
             {/* Clear Content */}
             <Popover.Close
               onClick={clearPresentContent}
-              className="flex gap-2 items-center px-4 py-2 enabled:hover:bg-slate-700 text-slate-100 w-full text-sm"
+              className="flex w-full items-center gap-2 px-4 py-2 text-sm text-slate-100 enabled:hover:bg-slate-700"
             >
               <AiOutlineClear /> Clear Content
             </Popover.Close>

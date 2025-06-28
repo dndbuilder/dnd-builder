@@ -12,16 +12,10 @@ type Props = {
   className?: string;
 };
 
-const ButtonSizeControl: FC<Props> = ({
-  fieldName,
-  className,
-  label = "Size",
-}) => {
+const ButtonSizeControl: FC<Props> = ({ fieldName, className, label = "Size" }) => {
   const currentBreakpoint = useAppSelector(getCurrentBreakpoint);
   const [, setPadding] = useSettings<SpacingValue>(
-    fieldName
-      ? `${fieldName}.padding.${currentBreakpoint}`
-      : `padding.${currentBreakpoint}`,
+    fieldName ? `${fieldName}.padding.${currentBreakpoint}` : `padding.${currentBreakpoint}`,
     SettingsType.BLOCK
   );
   const [typography, setTypography] = useSettings<TypographyType | undefined>(

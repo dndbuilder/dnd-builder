@@ -79,11 +79,7 @@ const LinkStyleControl = () => {
 
           <Separator className="my-3" />
 
-          <TypographyControl
-            type={SettingsType.BLOCK}
-            fieldName="typography"
-            label="Typography"
-          />
+          <TypographyControl type={SettingsType.BLOCK} fieldName="typography" label="Typography" />
         </Accordion.Content>
       </Accordion.Item>
     </Accordion>

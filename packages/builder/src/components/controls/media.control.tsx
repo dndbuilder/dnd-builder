@@ -107,9 +107,7 @@ export const MediaControl: FC<MediaProps> = ({
       setOpen(false);
       setUrlInput("");
     } catch (err) {
-      setError(
-        "Failed to load image from URL. Please check the URL and try again."
-      );
+      setError("Failed to load image from URL. Please check the URL and try again.");
       console.error("Error loading image from URL:", err);
     } finally {
       setIsLoading(false);
@@ -225,9 +223,9 @@ export const MediaControl: FC<MediaProps> = ({
           </div>
         </Dialog.Trigger>
         <Dialog.Portal>
-          <Dialog.Overlay className="fixed inset-0 z-50 bg-[rgba(0,0,0,0.7)] data-[state=open]:animate-overlay-show" />
-          <Dialog.Content className="fixed left-[50%] top-[50%] z-[60] w-[500px] max-h-[600px] overflow-auto translate-x-[-50%] translate-y-[-50%] rounded-[6px] bg-white focus:outline-none data-[state=open]:animate-content-show">
-            <Dialog.Title className="flex justify-between p-4 border-b">
+          <Dialog.Overlay className="data-[state=open]:animate-overlay-show fixed inset-0 z-50 bg-[rgba(0,0,0,0.7)]" />
+          <Dialog.Content className="data-[state=open]:animate-content-show fixed left-[50%] top-[50%] z-[60] max-h-[600px] w-[500px] translate-x-[-50%] translate-y-[-50%] overflow-auto rounded-[6px] bg-white focus:outline-none">
+            <Dialog.Title className="flex justify-between border-b p-4">
               <p className="text-base font-semibold">Upload Image</p>
 
               <Dialog.Close className="cursor-pointer">
@@ -239,13 +237,13 @@ export const MediaControl: FC<MediaProps> = ({
               <Tabs.List className="flex border-b">
                 <Tabs.Trigger
                   value="url"
-                  className="px-4 py-2 border-b-2 border-transparent data-[state=active]:border-slate-500 data-[state=active]:font-semibold text-sm font-medium"
+                  className="border-b-2 border-transparent px-4 py-2 text-sm font-medium data-[state=active]:border-slate-500 data-[state=active]:font-semibold"
                 >
                   From URL
                 </Tabs.Trigger>
                 <Tabs.Trigger
                   value="local"
-                  className="px-4 py-2 border-b-2 border-transparent data-[state=active]:border-slate-500 data-[state=active]:font-semibold text-sm font-medium"
+                  className="border-b-2 border-transparent px-4 py-2 text-sm font-medium data-[state=active]:border-slate-500 data-[state=active]:font-semibold"
                 >
                   From Device
                 </Tabs.Trigger>
@@ -260,17 +258,13 @@ export const MediaControl: FC<MediaProps> = ({
                     value={urlInput}
                     onChange={handleUrlInputChange}
                     placeholder="https://example.com/image.jpg"
-                    className="w-full px-3 py-2 ring-1 rounded focus:outline-none focus:ring-2 focus:ring-slate-600 text-sm placeholder:text-sm"
+                    className="w-full rounded px-3 py-2 text-sm ring-1 placeholder:text-sm focus:outline-none focus:ring-2 focus:ring-slate-600"
                   />
                 </div>
 
                 {error && <p className="text-danger-500 text-sm">{error}</p>}
 
-                <Button
-                  onClick={handleUrlSubmit}
-                  disabled={isLoading}
-                  className="w-full"
-                >
+                <Button onClick={handleUrlSubmit} disabled={isLoading} className="w-full">
                   {isLoading ? "Loading..." : "Upload Image"}
                 </Button>
               </Tabs.Content>
@@ -279,22 +273,21 @@ export const MediaControl: FC<MediaProps> = ({
                 <div
                   {...getRootProps()}
                   className={classNames(
-                    "border-2 border-dashed rounded p-8 text-center cursor-pointer transition-colors",
+                    "cursor-pointer rounded border-2 border-dashed p-8 text-center transition-colors",
                     isDragActive
                       ? "border-slate-600 bg-slate-50"
                       : "border-slate-300 hover:border-slate-600"
                   )}
                 >
                   <input {...getInputProps()} />
-                  <BsUpload className="mx-auto text-3xl mb-2 text-slate-400" />
-                  <p className="text-slate-600 text-sm">
+                  <BsUpload className="mx-auto mb-2 text-3xl text-slate-400" />
+                  <p className="text-sm text-slate-600">
                     {isDragActive
                       ? "Drop the image here"
                       : "Drag and drop an image here, or click to select"}
                   </p>
-                  <p className="text-slate-400 text-xs mt-2">
-                    Supported formats: JPG, PNG, GIF, WEBP (Max size:{" "}
-                    {maxSize / 1024 / 1024}MB)
+                  <p className="mt-2 text-xs text-slate-400">
+                    Supported formats: JPG, PNG, GIF, WEBP (Max size: {maxSize / 1024 / 1024}MB)
                   </p>
                 </div>
 

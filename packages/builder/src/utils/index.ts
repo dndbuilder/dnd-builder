@@ -142,10 +142,7 @@ export function objectKeys<T extends object>(obj: T) {
 }
 
 export const pluralize = <T extends string>(word: T) => {
-  if (
-    word.endsWith("y") &&
-    !["a", "e", "i", "o", "u"].includes(word[word.length - 2])
-  ) {
+  if (word.endsWith("y") && !["a", "e", "i", "o", "u"].includes(word[word.length - 2])) {
     return word.slice(0, -1) + "ies";
   } else if (
     word.endsWith("s") ||
@@ -179,9 +176,7 @@ export const singularize = <T extends string>(word: T) => {
 export function bytesToSize(bytes: number): string {
   const sizes: string[] = ["Bytes", "KB", "MB", "GB", "TB"];
   if (bytes === 0) return "n/a";
-  const i: number = parseInt(
-    Math.floor(Math.log(bytes) / Math.log(1024)).toString()
-  );
+  const i: number = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)).toString());
   if (i === 0) return `${bytes} ${sizes[i]}`;
   return `${(bytes / Math.pow(1024, i)).toFixed(1)} ${sizes[i]}`;
 }

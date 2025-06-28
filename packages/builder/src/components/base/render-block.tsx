@@ -23,7 +23,7 @@ export const RenderBlock = ({ block, index, meta }: RenderBlockProps) => {
 
   if (!Component) {
     return (
-      <div className="px-4 py-2 border border-dashed rounded-sm border-danger-500 text-danger-500 text-center">
+      <div className="border-danger-500 text-danger-500 rounded-sm border border-dashed px-4 py-2 text-center">
         <p>Block type &quot;{block.type}&quot; not found</p>
       </div>
     );

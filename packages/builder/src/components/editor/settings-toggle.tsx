@@ -12,9 +12,7 @@ type SettingsToggleProps = {
 };
 
 const SettingsToggle: FC<SettingsToggleProps> = ({ className }) => {
-  const activeRightPanel = useAppSelector(
-    (state) => state.app.activeBuilderRightPanel
-  );
+  const activeRightPanel = useAppSelector((state) => state.app.activeBuilderRightPanel);
 
   const { toggleRightPanel } = useActionContext();
 
@@ -26,8 +24,7 @@ const SettingsToggle: FC<SettingsToggleProps> = ({ className }) => {
         }}
         className={classNames(
           "text-slate-100 hover:text-slate-800",
-          activeRightPanel === BuilderRightPanelType.SETTINGS &&
-            "text-slate-800",
+          activeRightPanel === BuilderRightPanelType.SETTINGS && "text-slate-800",
           className
         )}
       >

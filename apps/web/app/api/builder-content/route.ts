@@ -7,9 +7,7 @@ export async function GET() {
     const db = client.db("pageBuilder");
 
     // Get the latest content (assuming we only store one document for simplicity)
-    const content = await db
-      .collection("builderContent")
-      .findOne({}, { sort: { _id: -1 } });
+    const content = await db.collection("builderContent").findOne({}, { sort: { _id: -1 } });
 
     if (!content) {
       return NextResponse.json({ content: {} });
@@ -18,10 +16,7 @@ export async function GET() {
     return NextResponse.json({ content: content.data });
   } catch (error) {
     console.error("Database error:", error);
-    return NextResponse.json(
-      { error: "Failed to fetch content" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Failed to fetch content" }, { status: 500 });
   }
 }
 
@@ -41,9 +36,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Database error:", error);
-    return NextResponse.json(
-      { error: "Failed to save content" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Failed to save content" }, { status: 500 });
   }
 }

@@ -45,10 +45,7 @@ export const BlockPagination = ({
 
   return (
     <div
-      className={classNames(
-        "inline-flex items-center justify-between gap-2 text-sm",
-        className
-      )}
+      className={classNames("inline-flex items-center justify-between gap-2 text-sm", className)}
       {...rest}
     >
       <button
@@ -71,7 +68,7 @@ export const BlockPagination = ({
             <button
               disabled
               key={index}
-              className="reset flex h-8 w-8 items-center justify-center rounded-sm border cursor-not-allowed text-slate-400 hover:bg-transparent active"
+              className="reset active flex h-8 w-8 cursor-not-allowed items-center justify-center rounded-sm border text-slate-400 hover:bg-transparent"
             >
               {pageNo}{" "}
             </button>
@@ -83,7 +80,7 @@ export const BlockPagination = ({
               onPageChange?.(pageNo);
             }}
             key={index}
-            className="reset flex h-8 w-8 items-center justify-center rounded-sm border text-slate-800 hover:border-primary-500 hover:bg-primary-50 hover:text-primary-500"
+            className="reset hover:border-primary-500 hover:bg-primary-50 hover:text-primary-500 flex h-8 w-8 items-center justify-center rounded-sm border text-slate-800"
           >
             {pageNo}{" "}
           </button>

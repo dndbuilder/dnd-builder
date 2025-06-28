@@ -1,7 +1,7 @@
 export type Media = {
   id: string;
   url: string;
-  source?: 'library' | 'url' | 'local';
+  source?: "library" | "url" | "local";
   base64Data?: string;
   height?: number;
   width?: number;

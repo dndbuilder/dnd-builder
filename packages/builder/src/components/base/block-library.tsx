@@ -13,12 +13,12 @@ const BlockLibrary: FC<BlockLibraryProps> = ({ children }) => {
       <Dialog.Trigger asChild>{children}</Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay />
-        <Dialog.Content className=" w-full max-w-5xl flex flex-col">
-          <Dialog.Title className="p-4 border-b flex justify-between">
-            <div className="font-bold text-xl">Block Library</div>
+        <Dialog.Content className=" flex w-full max-w-5xl flex-col">
+          <Dialog.Title className="flex justify-between border-b p-4">
+            <div className="text-xl font-bold">Block Library</div>
             <Dialog.Close asChild>
               <button
-                className="text-slate-500 hover:text-slate-700 transition-colors duration-150 focus:outline-hidden"
+                className="focus:outline-hidden text-slate-500 transition-colors duration-150 hover:text-slate-700"
                 aria-label="Close"
               >
                 <FiX size={20} />
@@ -26,7 +26,7 @@ const BlockLibrary: FC<BlockLibraryProps> = ({ children }) => {
             </Dialog.Close>
           </Dialog.Title>
 
-          <div className="p-4 grow text-center pt-20 pb-28">
+          <div className="grow p-4 pb-28 pt-20 text-center">
             <p className="text-3xl font-semibold tracking-wide">Coming Soon</p>
             <p className="mt-2 text-slate-600">
               Our block library is under construction. Stay tuned!

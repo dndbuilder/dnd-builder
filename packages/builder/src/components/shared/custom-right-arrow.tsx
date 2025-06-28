@@ -1,7 +1,7 @@
 "use client";
-import { classNames } from '@/utils';
-import { FC } from 'react';
-import { FiChevronRight } from 'react-icons/fi';
+import { classNames } from "@/utils";
+import { FC } from "react";
+import { FiChevronRight } from "react-icons/fi";
 
 type Props = {
   onClick?: () => void;
@@ -10,7 +10,7 @@ type Props = {
 
 const CustomRightArrow: FC<Props> = ({ onClick, classes }) => {
   return (
-    <div onClick={onClick} className={classNames('arrow arrow-right', classes)}>
+    <div onClick={onClick} className={classNames("arrow arrow-right", classes)}>
       <FiChevronRight />
     </div>
   );

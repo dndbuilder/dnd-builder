@@ -60,9 +60,7 @@ const Dropdown: FC<BlockProps<DropdownSettingsType>> = ({
           sideOffset={Number(sideOffset)}
           align={align}
           alignOffset={Number(alignOffset)}
-          avoidCollisions={
-            settings?.content?.avoidCollisions?.[breakpoint] ?? false
-          }
+          avoidCollisions={settings?.content?.avoidCollisions?.[breakpoint] ?? false}
         >
           {children.map((block, index) => (
             <EditorRenderBlock
@@ -73,9 +71,7 @@ const Dropdown: FC<BlockProps<DropdownSettingsType>> = ({
               isEditable={isEditable ?? false}
             />
           ))}
-          {isEditable && (
-            <AddNewSection blockId={id} showBlockLibrary={false} />
-          )}
+          {isEditable && <AddNewSection blockId={id} showBlockLibrary={false} />}
         </Popover.Content>
       </Popover>
     </div>

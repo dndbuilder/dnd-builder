@@ -41,10 +41,7 @@ export const BackgroundControl: FC<BackgroundProps> = ({
     mode ? `${fieldName}.image.${mode}` : `${fieldName}.image`,
     type
   );
-  const [backgroundGradientType] = useSettings<string>(
-    `${fieldName}.gradient.type`,
-    type
-  );
+  const [backgroundGradientType] = useSettings<string>(`${fieldName}.gradient.type`, type);
   return (
     <div>
       {/* Background Type */}

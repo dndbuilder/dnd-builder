@@ -5,11 +5,7 @@ import { LinkControl } from "@/components/controls/link.control";
 import { ToggleGroupControl } from "@/components/controls/toggle-group.control";
 import { Accordion } from "@/components/shared/accordion";
 import { SettingsType } from "@/types";
-import {
-  AiOutlineAlignCenter,
-  AiOutlineAlignLeft,
-  AiOutlineAlignRight,
-} from "react-icons/ai";
+import { AiOutlineAlignCenter, AiOutlineAlignLeft, AiOutlineAlignRight } from "react-icons/ai";
 import { TfiAlignJustify } from "react-icons/tfi";
 
 const LinkContentControl = () => {

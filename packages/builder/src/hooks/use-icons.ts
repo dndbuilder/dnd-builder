@@ -19,11 +19,7 @@ export interface UseIconsParams {
  * @param params Object containing hook parameters
  * @returns Object containing collection data, icon data, and loading/error states
  */
-export function useIcons({
-  collection,
-  pageSize = 50,
-  searchText = "",
-}: UseIconsParams) {
+export function useIcons({ collection, pageSize = 50, searchText = "" }: UseIconsParams) {
   // Fetch collection data
   const {
     data: collectionData,
@@ -57,10 +53,7 @@ export function useIcons({
     hasNextPage,
     isFetchingNextPage,
   } = useInfiniteQuery({
-    queryKey: [
-      "collection-icon-data",
-      { collection, icons: filteredIcons, searchText },
-    ],
+    queryKey: ["collection-icon-data", { collection, icons: filteredIcons, searchText }],
     queryFn: ({ pageParam = 0 }: { pageParam?: number }) => {
       const start = (pageParam ?? 0) * pageSize;
       const end = start + pageSize;

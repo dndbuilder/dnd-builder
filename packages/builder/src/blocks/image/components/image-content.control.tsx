@@ -7,11 +7,7 @@ import { ToggleGroupControl } from "@/components/controls/toggle-group.control";
 import { Accordion } from "@/components/shared/accordion";
 import { SettingsType } from "@/types";
 import { FC, HTMLAttributes } from "react";
-import {
-  AiOutlineAlignCenter,
-  AiOutlineAlignLeft,
-  AiOutlineAlignRight,
-} from "react-icons/ai";
+import { AiOutlineAlignCenter, AiOutlineAlignLeft, AiOutlineAlignRight } from "react-icons/ai";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {}
 

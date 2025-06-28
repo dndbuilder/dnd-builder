@@ -1,1 +1,1 @@
-export { default as SliderConfig } from './slider.config';
+export { default as SliderConfig } from "./slider.config";

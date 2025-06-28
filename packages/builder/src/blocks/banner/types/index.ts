@@ -1,12 +1,7 @@
 import { LinkType } from "@/types/block";
 import { ResponsiveValue } from "@/types/responsive";
 import { LocalizedValue } from "@/types";
-import {
-  TextAlignType,
-  TypographyType,
-  UnitValue,
-  WithPseudoClass,
-} from "@/types/style";
+import { TextAlignType, TypographyType, UnitValue, WithPseudoClass } from "@/types/style";
 import { Media } from "@/types/media";
 
 export type BannerSettingsType = {

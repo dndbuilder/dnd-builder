@@ -3,12 +3,7 @@ import { FC } from "react";
 import { HeadingSettingsType } from "../types";
 import HeadingEditable from "./heading-editable";
 
-const Heading: FC<BlockProps<HeadingSettingsType>> = ({
-  id,
-  settings,
-  meta,
-  isEditable,
-}) => {
+const Heading: FC<BlockProps<HeadingSettingsType>> = ({ id, settings, meta, isEditable }) => {
   if (!isEditable) {
     const TagName = settings.htmlTag || "h2";
     const defaultTitle = settings.title?.["en"] || "";

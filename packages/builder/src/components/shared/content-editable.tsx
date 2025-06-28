@@ -5,9 +5,7 @@ import { JSX, useEffect, useRef } from "react";
 import deepEqual from "fast-deep-equal";
 
 function normalizeHtml(str: string): string {
-  return (
-    str && str.replace(/&nbsp;|\u202F|\u00A0/g, " ").replace(/<br \/>/g, "<br>")
-  );
+  return str && str.replace(/&nbsp;|\u202F|\u00A0/g, " ").replace(/<br \/>/g, "<br>");
 }
 
 function replaceCaret(el: HTMLElement) {

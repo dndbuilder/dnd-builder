@@ -12,13 +12,13 @@ const Header: FC = () => {
 
   return (
     <>
-      <div className="absolute top-0 z-50 flex h-[60px] gap-4 w-full items-center bg-slate-900 shadow-sm px-4 min-w-[1024px]">
+      <div className="absolute top-0 z-50 flex h-[60px] w-full min-w-[1024px] items-center gap-4 bg-slate-900 px-4 shadow-sm">
         <div className="flex items-center gap-4">
           {/* Logo */}
-          <div className="flex items-center lg:w-[290px] h-full">Logo</div>
+          <div className="flex h-full items-center lg:w-[290px]">Logo</div>
         </div>
 
-        <div className="flex grow h-full items-center justify-center gap-4">
+        <div className="flex h-full grow items-center justify-center gap-4">
           {/* Breakpoint Switcher */}
           <BreakpointSwitch />
 

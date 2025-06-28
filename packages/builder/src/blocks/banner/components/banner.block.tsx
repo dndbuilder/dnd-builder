@@ -17,9 +17,7 @@ const Banner: FC<BlockProps<BannerSettingsType>> = ({ settings, meta }) => {
       <div className="content">
         {title?.trim() !== "" && <div className="sub-title ">{title}</div>}
         {subTitle?.trim() !== "" && <div className="title">{subTitle}</div>}
-        {description?.trim() !== "" && (
-          <div className="description">{description}</div>
-        )}
+        {description?.trim() !== "" && <div className="description">{description}</div>}
 
         {buttonText?.trim() !== "" && (
           <div className="button-wrapper">

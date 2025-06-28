@@ -44,13 +44,9 @@ const TextEditorContent: FC<Props> = ({
   const autoId = useId();
 
   return (
-    <div className={classNames("mt-4 flex flex-col w-full gap-1.5", className)}>
+    <div className={classNames("mt-4 flex w-full flex-col gap-1.5", className)}>
       {label && (
-        <Label
-          htmlFor={autoId}
-          className="flex flex-1 items-center gap-1"
-          {...labelProps}
-        >
+        <Label htmlFor={autoId} className="flex flex-1 items-center gap-1" {...labelProps}>
           {label} {responsive && <BreakpointSelector />}{" "}
           {isLocalized && <LanguageSelector className="ms-auto" />}
         </Label>
@@ -59,7 +55,7 @@ const TextEditorContent: FC<Props> = ({
         placeholder={placeholder}
         value={text}
         onChange={setText}
-        className="pb-4 control"
+        className="control pb-4"
       />
     </div>
   );

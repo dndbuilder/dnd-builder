@@ -54,9 +54,7 @@ const ProgressBarConfig = createBlockConfig<ProgressBarSettingsType>({
             } = generateSpacingValue(settings?.title?.padding?.[breakpoint]);
 
             return {
-              display: settings?.title?.show?.[breakpoint]
-                ? "inline-block"
-                : "none",
+              display: settings?.title?.show?.[breakpoint] ? "inline-block" : "none",
               marginTop,
               marginRight,
               marginBottom,
@@ -83,18 +81,14 @@ const ProgressBarConfig = createBlockConfig<ProgressBarSettingsType>({
               right: marginRight,
               bottom: marginBottom,
               left: marginLeft,
-            } = generateSpacingValue(
-              settings?.progressBar?.margin?.[breakpoint]
-            );
+            } = generateSpacingValue(settings?.progressBar?.margin?.[breakpoint]);
 
             const {
               top: paddingTop,
               right: paddingRight,
               bottom: paddingBottom,
               left: paddingLeft,
-            } = generateSpacingValue(
-              settings?.progressBar?.padding?.[breakpoint]
-            );
+            } = generateSpacingValue(settings?.progressBar?.padding?.[breakpoint]);
 
             return {
               marginTop,
@@ -105,12 +99,8 @@ const ProgressBarConfig = createBlockConfig<ProgressBarSettingsType>({
               paddingRight,
               paddingBottom,
               paddingLeft,
-              height: generateUnitValue(
-                settings?.progressBar?.height?.[breakpoint]
-              ),
-              maxWidth: generateUnitValue(
-                settings?.progressBar?.maxWidth?.[breakpoint]
-              ),
+              height: generateUnitValue(settings?.progressBar?.height?.[breakpoint]),
+              maxWidth: generateUnitValue(settings?.progressBar?.maxWidth?.[breakpoint]),
               ...generatePseudoStyle((pseudoClass) => {
                 const {
                   top: borderTopWidth,
@@ -118,9 +108,7 @@ const ProgressBarConfig = createBlockConfig<ProgressBarSettingsType>({
                   bottom: borderBottomWidth,
                   left: borderLeftWidth,
                 } = generateSpacingValue(
-                  settings?.progressBar?.border?.width?.[breakpoint]?.[
-                    pseudoClass
-                  ]
+                  settings?.progressBar?.border?.width?.[breakpoint]?.[pseudoClass]
                 );
 
                 return {
@@ -139,15 +127,11 @@ const ProgressBarConfig = createBlockConfig<ProgressBarSettingsType>({
               right: borderTopRightRadius,
               bottom: borderBottomRightRadius,
               left: borderBottomLeftRadius,
-            } = generateSpacingValue(
-              settings?.progressBar?.border?.radius?.[pseudoClass]
-            );
-            const borderType =
-              settings.progressBar?.border?.type?.[pseudoClass];
+            } = generateSpacingValue(settings?.progressBar?.border?.radius?.[pseudoClass]);
+            const borderType = settings.progressBar?.border?.type?.[pseudoClass];
 
             return {
-              backgroundColor:
-                settings?.progressBar?.background?.color?.[pseudoClass],
+              backgroundColor: settings?.progressBar?.background?.color?.[pseudoClass],
               borderTopLeftRadius,
               borderTopRightRadius,
               borderBottomRightRadius,
@@ -165,18 +149,14 @@ const ProgressBarConfig = createBlockConfig<ProgressBarSettingsType>({
               right: marginRight,
               bottom: marginBottom,
               left: marginLeft,
-            } = generateSpacingValue(
-              settings?.progressFill?.margin?.[breakpoint]
-            );
+            } = generateSpacingValue(settings?.progressFill?.margin?.[breakpoint]);
 
             const {
               top: paddingTop,
               right: paddingRight,
               bottom: paddingBottom,
               left: paddingLeft,
-            } = generateSpacingValue(
-              settings?.progressFill?.padding?.[breakpoint]
-            );
+            } = generateSpacingValue(settings?.progressFill?.padding?.[breakpoint]);
             return {
               marginTop,
               marginRight,
@@ -193,9 +173,7 @@ const ProgressBarConfig = createBlockConfig<ProgressBarSettingsType>({
                   bottom: borderBottomWidth,
                   left: borderLeftWidth,
                 } = generateSpacingValue(
-                  settings?.progressFill?.border?.width?.[breakpoint]?.[
-                    pseudoClass
-                  ]
+                  settings?.progressFill?.border?.width?.[breakpoint]?.[pseudoClass]
                 );
 
                 return {
@@ -214,15 +192,12 @@ const ProgressBarConfig = createBlockConfig<ProgressBarSettingsType>({
               right: borderTopRightRadius,
               bottom: borderBottomRightRadius,
               left: borderBottomLeftRadius,
-            } = generateSpacingValue(
-              settings?.progressFill?.border?.radius?.[pseudo]
-            );
+            } = generateSpacingValue(settings?.progressFill?.border?.radius?.[pseudo]);
 
             const borderType = settings.progressFill?.border?.type?.[pseudo];
 
             return {
-              backgroundColor:
-                settings?.progressFill?.background?.color?.[pseudo],
+              backgroundColor: settings?.progressFill?.background?.color?.[pseudo],
               borderTopLeftRadius,
               borderTopRightRadius,
               borderBottomRightRadius,
@@ -240,18 +215,14 @@ const ProgressBarConfig = createBlockConfig<ProgressBarSettingsType>({
               right: marginRight,
               bottom: marginBottom,
               left: marginLeft,
-            } = generateSpacingValue(
-              settings?.percentage?.margin?.[breakpoint]
-            );
+            } = generateSpacingValue(settings?.percentage?.margin?.[breakpoint]);
 
             const {
               top: paddingTop,
               right: paddingRight,
               bottom: paddingBottom,
               left: paddingLeft,
-            } = generateSpacingValue(
-              settings?.percentage?.padding?.[breakpoint]
-            );
+            } = generateSpacingValue(settings?.percentage?.padding?.[breakpoint]);
 
             return {
               marginTop,
@@ -262,18 +233,14 @@ const ProgressBarConfig = createBlockConfig<ProgressBarSettingsType>({
               paddingRight,
               paddingBottom,
               paddingLeft,
-              display: settings?.percentage?.show?.[breakpoint]
-                ? "flex"
-                : "none",
-              justifyContent:
-                settings?.percentage?.alignment?.[breakpoint] || "center",
+              display: settings?.percentage?.show?.[breakpoint] ? "flex" : "none",
+              justifyContent: settings?.percentage?.alignment?.[breakpoint] || "center",
             };
           }),
           ...generateTypography(breakpoints, settings?.percentage?.typography),
           ...generatePseudoStyle((pseudoClass) => ({
             color: settings?.percentage?.color?.[pseudoClass],
-            backgroundColor:
-              settings?.percentage?.background?.color?.[pseudoClass],
+            backgroundColor: settings?.percentage?.background?.color?.[pseudoClass],
           })),
         },
       },
@@ -282,9 +249,7 @@ const ProgressBarConfig = createBlockConfig<ProgressBarSettingsType>({
   controls: [
     {
       label: "Content",
-      component: lazy(
-        () => import("./components/progress-bar-content.control")
-      ),
+      component: lazy(() => import("./components/progress-bar-content.control")),
     },
     {
       label: "Style",

@@ -7,11 +7,7 @@ export type PlaceholderProps = {
   className?: string;
 };
 
-export const Placeholder = ({
-  width = 42,
-  height = 42,
-  className,
-}: PlaceholderProps) => {
+export const Placeholder = ({ width = 42, height = 42, className }: PlaceholderProps) => {
   return (
     <svg
       className={classNames(className)}

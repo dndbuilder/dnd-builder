@@ -40,22 +40,17 @@ const FaqsControl = () => {
           <div key={item.id} className="mb-1.5">
             <SortableItem key={item.id}>
               <div className="z-[99] bg-[#F8F9F8] px-2" key={item.id}>
-                <div className="min-h-[40px] flex  items-center">
+                <div className="flex min-h-[40px]  items-center">
                   <button className={"me-1 cursor-move"}>
                     <BiGridVertical size={14} color={"#828282"} />
                   </button>
                   <Label
                     onClick={() => {
-                      setActiveItem((prevState) =>
-                        prevState === item.id ? "" : item.id
-                      );
+                      setActiveItem((prevState) => (prevState === item.id ? "" : item.id));
                     }}
-                    className="flex text-xs line-clamp-2 h-full flex-1 cursor-pointer items-center py-1 hover:bg-slate-50"
+                    className="line-clamp-2 flex h-full flex-1 cursor-pointer items-center py-1 text-xs hover:bg-slate-50"
                   >
-                    {getTitle(
-                      item.title?.text?.[currentLocale] || item.title?.text?.en,
-                      index
-                    )}
+                    {getTitle(item.title?.text?.[currentLocale] || item.title?.text?.en, index)}
                   </Label>
 
                   <div
@@ -68,7 +63,7 @@ const FaqsControl = () => {
                       });
                       setItems(newSlides);
                     }}
-                    className="flex h-full me-1.5 cursor-pointer items-center justify-center hover:bg-slate-50"
+                    className="me-1.5 flex h-full cursor-pointer items-center justify-center hover:bg-slate-50"
                   >
                     <FaRegCopy />
                   </div>
@@ -88,7 +83,7 @@ const FaqsControl = () => {
             </SortableItem>
             <div
               className={classNames(
-                "grid grid-rows-[0fr] bg-[#F8F9F8] overflow-hidden transition-[grid-template-rows] duration-200",
+                "grid grid-rows-[0fr] overflow-hidden bg-[#F8F9F8] transition-[grid-template-rows] duration-200",
                 {
                   "grid-rows-[1fr]": activeItem === item.id,
                 }

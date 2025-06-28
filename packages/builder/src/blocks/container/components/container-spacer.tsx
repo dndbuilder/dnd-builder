@@ -23,11 +23,7 @@ const positionClassMap = {
   right: "right-0 top-0 h-full w-[8px] cursor-col-resize min-w-[8px]",
 } as const;
 
-const ContainerSpacer: FC<ContainerSpacerProps> = ({
-  containerRef,
-  position,
-  onChange,
-}) => {
+const ContainerSpacer: FC<ContainerSpacerProps> = ({ containerRef, position, onChange }) => {
   const { window: frameWindow, document: frameDocument } = useFrame();
 
   const spacerRef = useRef<HTMLDivElement>(null);
@@ -37,12 +33,7 @@ const ContainerSpacer: FC<ContainerSpacerProps> = ({
   const [isDragging, setIsDragging] = useState(false);
 
   useEffect(() => {
-    if (
-      !containerRef.current ||
-      !spacerRef.current ||
-      !frameWindow ||
-      !frameDocument
-    ) {
+    if (!containerRef.current || !spacerRef.current || !frameWindow || !frameDocument) {
       return;
     }
 
@@ -84,10 +75,7 @@ const ContainerSpacer: FC<ContainerSpacerProps> = ({
         coordinate = event.clientX;
 
         // Set the element's new padding in px
-        paddingInPixel =
-          position === Position.LEFT
-            ? paddingInPixel + dx
-            : paddingInPixel - dx;
+        paddingInPixel = position === Position.LEFT ? paddingInPixel + dx : paddingInPixel - dx;
       }
 
       // Set the minimum padding
@@ -99,8 +87,7 @@ const ContainerSpacer: FC<ContainerSpacerProps> = ({
       setPadding(Number(paddingInPixel));
 
       // Set spaceable element padding
-      spaceableElement.style[paddingDirectionMap[position]] =
-        `${paddingInPixel}px`;
+      spaceableElement.style[paddingDirectionMap[position]] = `${paddingInPixel}px`;
 
       // Set spacer element height
       if (position === Position.TOP || position === Position.BOTTOM) {

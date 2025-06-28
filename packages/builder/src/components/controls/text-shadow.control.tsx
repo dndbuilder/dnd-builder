@@ -66,10 +66,7 @@ export const TextShadowControl: FC<TextShadowControlProps> = ({
   //   };
   // }, [debouncedChangeHandler]);
 
-  const handleValueChange = (
-    val: number | string | undefined,
-    field: string
-  ) => {
+  const handleValueChange = (val: number | string | undefined, field: string) => {
     // debouncedChangeHandler(val, field);
     setTextShadow({
       ...innerValue,
@@ -89,21 +86,14 @@ export const TextShadowControl: FC<TextShadowControlProps> = ({
           </div>
         </Popover.Trigger>
         <Popover.Portal>
-          <Popover.Content
-            align="end"
-            alignOffset={-8}
-            className="w-[260px] bg-white p-4"
-          >
+          <Popover.Content align="end" alignOffset={-8} className="w-[260px] bg-white p-4">
             {/* Color */}
             <div className="flex items-center justify-between">
               <Label>Color</Label>
               <Popover>
                 <Popover.Trigger asChild className="rounded-xs border p-1">
                   <div>
-                    <BsFillSquareFill
-                      style={{ color: innerValue.color }}
-                      className="rounded-xs"
-                    />
+                    <BsFillSquareFill style={{ color: innerValue.color }} className="rounded-xs" />
                   </div>
                 </Popover.Trigger>
                 <Popover.Content className="p-0">

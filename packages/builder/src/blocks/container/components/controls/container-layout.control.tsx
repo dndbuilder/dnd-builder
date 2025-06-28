@@ -100,9 +100,7 @@ const ContainerLayoutControl = () => {
             controls={[
               {
                 tooltipContent: "Row - horizontal",
-                toggleTrigger: (
-                  <HiOutlineArrowNarrowRight className="text-sm" />
-                ),
+                toggleTrigger: <HiOutlineArrowNarrowRight className="text-sm" />,
                 value: FlexDirectionType.ROW,
               },
               {
@@ -135,16 +133,11 @@ const ContainerLayoutControl = () => {
                 tooltipContent: "Start",
                 toggleTrigger: (
                   <MdAlignHorizontalLeft
-                    className={classNames(
-                      "text-sm transition-transform duration-200",
-                      {
-                        "rotate-90": flexDirection === FlexDirection.COLUMN,
-                        "rotate-180":
-                          flexDirection === FlexDirection.ROW_REVERSE,
-                        "-rotate-90":
-                          flexDirection === FlexDirection.COLUMN_REVERSE,
-                      }
-                    )}
+                    className={classNames("text-sm transition-transform duration-200", {
+                      "rotate-90": flexDirection === FlexDirection.COLUMN,
+                      "rotate-180": flexDirection === FlexDirection.ROW_REVERSE,
+                      "-rotate-90": flexDirection === FlexDirection.COLUMN_REVERSE,
+                    })}
                   />
                 ),
                 value: JustifyContent.START,
@@ -153,14 +146,11 @@ const ContainerLayoutControl = () => {
                 tooltipContent: "Center",
                 toggleTrigger: (
                   <MdOutlineAlignHorizontalCenter
-                    className={classNames(
-                      "text-sm transition-transform duration-200",
-                      {
-                        "rotate-90":
-                          flexDirection === FlexDirection.COLUMN ||
-                          flexDirection === FlexDirection.COLUMN_REVERSE,
-                      }
-                    )}
+                    className={classNames("text-sm transition-transform duration-200", {
+                      "rotate-90":
+                        flexDirection === FlexDirection.COLUMN ||
+                        flexDirection === FlexDirection.COLUMN_REVERSE,
+                    })}
                   />
                 ),
                 value: JustifyContent.CENTER,
@@ -169,16 +159,11 @@ const ContainerLayoutControl = () => {
                 tooltipContent: "End",
                 toggleTrigger: (
                   <MdAlignHorizontalRight
-                    className={classNames(
-                      "text-sm transition-transform duration-200",
-                      {
-                        "rotate-90": flexDirection === FlexDirection.COLUMN,
-                        "rotate-180":
-                          flexDirection === FlexDirection.ROW_REVERSE,
-                        "-rotate-90":
-                          flexDirection === FlexDirection.COLUMN_REVERSE,
-                      }
-                    )}
+                    className={classNames("text-sm transition-transform duration-200", {
+                      "rotate-90": flexDirection === FlexDirection.COLUMN,
+                      "rotate-180": flexDirection === FlexDirection.ROW_REVERSE,
+                      "-rotate-90": flexDirection === FlexDirection.COLUMN_REVERSE,
+                    })}
                   />
                 ),
                 value: JustifyContent.END,
@@ -187,15 +172,12 @@ const ContainerLayoutControl = () => {
                 tooltipContent: "Space Between",
                 toggleTrigger: (
                   <LuAlignVerticalSpaceAround
-                    className={classNames(
-                      "text-sm transition-transform duration-200",
-                      {
-                        "rotate-0": flexDirection === FlexDirection.COLUMN,
-                        "rotate-90":
-                          flexDirection === FlexDirection.ROW ||
-                          flexDirection === FlexDirection.ROW_REVERSE,
-                      }
-                    )}
+                    className={classNames("text-sm transition-transform duration-200", {
+                      "rotate-0": flexDirection === FlexDirection.COLUMN,
+                      "rotate-90":
+                        flexDirection === FlexDirection.ROW ||
+                        flexDirection === FlexDirection.ROW_REVERSE,
+                    })}
                   />
                 ),
                 value: JustifyContent.SPACE_BETWEEN,
@@ -204,15 +186,12 @@ const ContainerLayoutControl = () => {
                 tooltipContent: "Space Around",
                 toggleTrigger: (
                   <MdFormatAlignCenter
-                    className={classNames(
-                      "text-sm transition-transform duration-200",
-                      {
-                        "rotate-0": flexDirection === FlexDirection.COLUMN,
-                        "rotate-90":
-                          flexDirection === FlexDirection.ROW ||
-                          flexDirection === FlexDirection.ROW_REVERSE,
-                      }
-                    )}
+                    className={classNames("text-sm transition-transform duration-200", {
+                      "rotate-0": flexDirection === FlexDirection.COLUMN,
+                      "rotate-90":
+                        flexDirection === FlexDirection.ROW ||
+                        flexDirection === FlexDirection.ROW_REVERSE,
+                    })}
                   />
                 ),
                 value: JustifyContent.SPACE_AROUND,
@@ -221,15 +200,12 @@ const ContainerLayoutControl = () => {
                 tooltipContent: "Space Evently",
                 toggleTrigger: (
                   <LuAlignCenter
-                    className={classNames(
-                      "text-sm transition-transform duration-200",
-                      {
-                        "rotate-0": flexDirection === FlexDirection.COLUMN,
-                        "rotate-90":
-                          flexDirection === FlexDirection.ROW ||
-                          flexDirection === FlexDirection.ROW_REVERSE,
-                      }
-                    )}
+                    className={classNames("text-sm transition-transform duration-200", {
+                      "rotate-0": flexDirection === FlexDirection.COLUMN,
+                      "rotate-90":
+                        flexDirection === FlexDirection.ROW ||
+                        flexDirection === FlexDirection.ROW_REVERSE,
+                    })}
                   />
                 ),
                 value: JustifyContent.SPACE_EVENTLY,
@@ -248,14 +224,11 @@ const ContainerLayoutControl = () => {
                 tooltipContent: "Start",
                 toggleTrigger: (
                   <MdOutlineAlignVerticalTop
-                    className={classNames(
-                      "text-sm transition-transform duration-200",
-                      {
-                        "-rotate-90":
-                          flexDirection === FlexDirection.COLUMN ||
-                          flexDirection === FlexDirection.COLUMN_REVERSE,
-                      }
-                    )}
+                    className={classNames("text-sm transition-transform duration-200", {
+                      "-rotate-90":
+                        flexDirection === FlexDirection.COLUMN ||
+                        flexDirection === FlexDirection.COLUMN_REVERSE,
+                    })}
                   />
                 ),
                 value: AlignItem.START,
@@ -264,14 +237,11 @@ const ContainerLayoutControl = () => {
                 tooltipContent: "Center",
                 toggleTrigger: (
                   <MdVerticalAlignCenter
-                    className={classNames(
-                      "text-sm transition-transform duration-200",
-                      {
-                        "-rotate-90":
-                          flexDirection === FlexDirection.COLUMN ||
-                          flexDirection === FlexDirection.COLUMN_REVERSE,
-                      }
-                    )}
+                    className={classNames("text-sm transition-transform duration-200", {
+                      "-rotate-90":
+                        flexDirection === FlexDirection.COLUMN ||
+                        flexDirection === FlexDirection.COLUMN_REVERSE,
+                    })}
                   />
                 ),
                 value: AlignItem.CENTER,
@@ -280,14 +250,11 @@ const ContainerLayoutControl = () => {
                 tooltipContent: "End",
                 toggleTrigger: (
                   <MdOutlineAlignVerticalBottom
-                    className={classNames(
-                      "text-sm transition-transform duration-200",
-                      {
-                        "-rotate-90":
-                          flexDirection === FlexDirection.COLUMN ||
-                          flexDirection === FlexDirection.COLUMN_REVERSE,
-                      }
-                    )}
+                    className={classNames("text-sm transition-transform duration-200", {
+                      "-rotate-90":
+                        flexDirection === FlexDirection.COLUMN ||
+                        flexDirection === FlexDirection.COLUMN_REVERSE,
+                    })}
                   />
                 ),
                 value: AlignItem.END,
@@ -296,14 +263,11 @@ const ContainerLayoutControl = () => {
                 tooltipContent: "Stretch",
                 toggleTrigger: (
                   <LuAlignCenter
-                    className={classNames(
-                      "text-sm transition-transform duration-200",
-                      {
-                        "-rotate-90":
-                          flexDirection === FlexDirection.COLUMN ||
-                          flexDirection === FlexDirection.COLUMN_REVERSE,
-                      }
-                    )}
+                    className={classNames("text-sm transition-transform duration-200", {
+                      "-rotate-90":
+                        flexDirection === FlexDirection.COLUMN ||
+                        flexDirection === FlexDirection.COLUMN_REVERSE,
+                    })}
                   />
                 ),
                 value: AlignItem.STRETCH,
@@ -335,24 +299,20 @@ const ContainerLayoutControl = () => {
               },
               {
                 tooltipContent: "Wrap",
-                toggleTrigger: (
-                  <PiArrowUUpRightLight className="rotate-180 text-sm" />
-                ),
+                toggleTrigger: <PiArrowUUpRightLight className="rotate-180 text-sm" />,
                 value: FlexWrapType.WRAP,
               },
             ]}
           />
           <InfoMessage>
-            Items within the container can stay in a single line (No wrap), or
-            break into multiple lines (Wrap).
+            Items within the container can stay in a single line (No wrap), or break into multiple
+            lines (Wrap).
           </InfoMessage>
         </Accordion.Content>
       </Accordion.Item>
 
       <Accordion.Item value={AccordionGroup.ADDITIONAL}>
-        <Accordion.Trigger className="p-4">
-          Additional Options
-        </Accordion.Trigger>
+        <Accordion.Trigger className="p-4">Additional Options</Accordion.Trigger>
         <Accordion.Content className="px-4">
           <SelectControl
             fieldName="overflow.desktop"

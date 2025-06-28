@@ -67,12 +67,7 @@ export const SelectControl: FC<SelectControlProps> = ({
 
   const autoId = createId();
   return (
-    <div
-      className={classNames(
-        "mt-4 w-full gap-1.5",
-        controlVariants({ direction, className })
-      )}
-    >
+    <div className={classNames("mt-4 w-full gap-1.5", controlVariants({ direction, className }))}>
       {label && (
         <Label htmlFor={autoId} className="flex flex-1 items-center gap-1">
           {label} {responsive && <BreakpointSelector />}
@@ -85,11 +80,7 @@ export const SelectControl: FC<SelectControlProps> = ({
           setValue(value);
           onValueChange?.(value);
         }}
-        value={
-          value !== undefined && value !== null
-            ? value
-            : defaultValue || "select"
-        }
+        value={value !== undefined && value !== null ? value : defaultValue || "select"}
       >
         <Select.Trigger id={autoId} className="flex-1 bg-white">
           <Select.Value />

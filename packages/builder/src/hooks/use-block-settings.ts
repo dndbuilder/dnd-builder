@@ -14,9 +14,7 @@ export const useBlockSettings = <T = unknown>(blockId: string, key: string) => {
         ? (valueOrCallback as (currentValue: T) => T)(settings)
         : valueOrCallback;
 
-    dispatch(
-      setBlockSettingsValueByKey({ id: blockId, values: [{ key, value }] })
-    );
+    dispatch(setBlockSettingsValueByKey({ id: blockId, values: [{ key, value }] }));
   };
 
   return [settings, setSettings] as const;

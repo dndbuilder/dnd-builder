@@ -22,10 +22,7 @@ export const themeSlice = createSlice({
     setActiveTheme: (state: ThemeState, action: PayloadAction<Theme>) => {
       state.activeTheme = action.payload;
     },
-    setActiveThemeSettings: (
-      state: ThemeState,
-      action: PayloadAction<Theme["settings"]>
-    ) => {
+    setActiveThemeSettings: (state: ThemeState, action: PayloadAction<Theme["settings"]>) => {
       state.activeTheme.settings = action.payload;
     },
     setActiveThemeSettingsValueByKey: (
@@ -39,8 +36,5 @@ export const themeSlice = createSlice({
   },
 });
 
-export const {
-  setActiveTheme,
-  setActiveThemeSettings,
-  setActiveThemeSettingsValueByKey,
-} = themeSlice.actions;
+export const { setActiveTheme, setActiveThemeSettings, setActiveThemeSettingsValueByKey } =
+  themeSlice.actions;

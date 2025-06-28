@@ -24,10 +24,7 @@ export const ResetControl: FC<ResetControlProps> = ({
   return (
     <Tooltip>
       <Tooltip.Trigger className={classNames(className)} {...props}>
-        <div
-          onClick={() => setValue(undefined)}
-          className="cursor-pointer px-1.5"
-        >
+        <div onClick={() => setValue(undefined)} className="cursor-pointer px-1.5">
           <CiUndo />
         </div>
       </Tooltip.Trigger>

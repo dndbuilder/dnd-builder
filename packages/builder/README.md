@@ -28,10 +28,7 @@ blockRegistry.registerBlocks([
 ]);
 
 // Register blocks with a specific group
-blockRegistry.registerBlocks([
-  IconConfig,
-  ImageConfig,
-], BlockGroup.BASIC);
+blockRegistry.registerBlocks([IconConfig, ImageConfig], BlockGroup.BASIC);
 
 // Register a single block with a specific group
 blockRegistry.registerBlock(SliderConfig, BlockGroup.ADVANCED);
@@ -47,11 +44,11 @@ export const BlockConfiguration = blockRegistry.getRegisteredBlocks();
 const allBlocksByGroup = blockRegistry.getBlocksByGroup();
 
 // Get blocks from a specific group
-const layoutBlocks = blockRegistry.getBlocksByGroup('Layout');
-const ecommerceBlocks = blockRegistry.getBlocksByGroup('Ecommerce');
+const layoutBlocks = blockRegistry.getBlocksByGroup("Layout");
+const ecommerceBlocks = blockRegistry.getBlocksByGroup("Ecommerce");
 
 // Get a specific block config
-const headingBlock = blockRegistry.getBlockConfig('heading');
+const headingBlock = blockRegistry.getBlockConfig("heading");
 ```
 
 ### Conditional Block Loading
@@ -63,20 +60,11 @@ import { ButtonConfig } from "@/blocks/button";
 // ... other block imports
 
 // Register essential blocks (always included)
-blockRegistry.registerBlocks([
-  ContainerConfig,
-  HeadingConfig,
-  TextConfig,
-  ButtonConfig,
-]);
+blockRegistry.registerBlocks([ContainerConfig, HeadingConfig, TextConfig, ButtonConfig]);
 
 // Conditionally register additional blocks
 if (process.env.ENABLE_ADVANCED_FEATURES === "true") {
-  blockRegistry.registerBlocks([
-    HtmlConfig,
-    BannerConfig,
-    SliderConfig,
-  ]);
+  blockRegistry.registerBlocks([HtmlConfig, BannerConfig, SliderConfig]);
 }
 
 // Export the block configuration
@@ -117,11 +105,14 @@ export function registerCustomBlocks() {
   });
 
   // Register as a plugin with a specific group
-  blockRegistry.registerPlugin({
-    name: "my-app-extension-advanced",
-    blocks: [AdvancedCustomBlockConfig],
-    enabled: true,
-  }, BlockGroup.ADVANCED);
+  blockRegistry.registerPlugin(
+    {
+      name: "my-app-extension-advanced",
+      blocks: [AdvancedCustomBlockConfig],
+      enabled: true,
+    },
+    BlockGroup.ADVANCED
+  );
 
   return blockRegistry.getRegisteredBlocks();
 }

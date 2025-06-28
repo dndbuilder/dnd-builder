@@ -1,5 +1,5 @@
-import { useAppSelector } from '@/hooks/use-app-selector';
-import { getCurrentBreakpoint, getCurrentLocale } from '../store/selectors';
+import { useAppSelector } from "@/hooks/use-app-selector";
+import { getCurrentBreakpoint, getCurrentLocale } from "../store/selectors";
 
 type Option = {
   key: string;

@@ -15,10 +15,7 @@ import { SettingsType } from "@/types";
 import { PseudoClass, Unit } from "@/types/style";
 
 const ButtonStyleControl = () => {
-  const [borderStyle] = useSettings(
-    "border.style.desktop.default",
-    SettingsType.BLOCK
-  );
+  const [borderStyle] = useSettings("border.style.desktop.default", SettingsType.BLOCK);
 
   return (
     <Accordion defaultValue="Button" type="single" collapsible>
@@ -27,11 +24,7 @@ const ButtonStyleControl = () => {
         <Accordion.Trigger className="p-4">Button</Accordion.Trigger>
         <Accordion.Content className="px-4">
           {/* Typography */}
-          <TypographyControl
-            fieldName="typography"
-            className="mt-0"
-            type={SettingsType.BLOCK}
-          />
+          <TypographyControl fieldName="typography" className="mt-0" type={SettingsType.BLOCK} />
 
           {/* Text Shadow */}
           <TextShadowControl

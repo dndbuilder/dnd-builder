@@ -63,19 +63,13 @@ export const SliderUnitControl: FC<SliderControlProps> = ({
   const debounceValue = useDebounce(innerValue, 400);
 
   useEffect(() => {
-    if (
-      value?.value !== debounceValue?.value ||
-      value?.unit !== debounceValue?.unit
-    ) {
+    if (value?.value !== debounceValue?.value || value?.unit !== debounceValue?.unit) {
       setValue(debounceValue);
     }
   }, [debounceValue]);
 
   useEffect(() => {
-    if (
-      value?.value !== innerValue?.value ||
-      value?.unit !== innerValue?.unit
-    ) {
+    if (value?.value !== innerValue?.value || value?.unit !== innerValue?.unit) {
       setInnerValue(value);
     }
   }, [value]);
@@ -112,7 +106,7 @@ export const SliderUnitControl: FC<SliderControlProps> = ({
   return (
     <div className={classNames("mt-4", className)}>
       {label && (
-        <Label className="mb-1.5 gap-1 flex items-center">
+        <Label className="mb-1.5 flex items-center gap-1">
           {label} {responsive && <BreakpointSelector />}
         </Label>
       )}
@@ -133,12 +127,10 @@ export const SliderUnitControl: FC<SliderControlProps> = ({
             <Tooltip.Trigger>
               <input
                 onChange={(e) =>
-                  handleValueChange(
-                    e.target.value === "" ? undefined : Number(e.target.value)
-                  )
+                  handleValueChange(e.target.value === "" ? undefined : Number(e.target.value))
                 }
                 value={innerValue?.value ?? ""}
-                className="remove-spinner bg-transparent w-[46px] rounded-sm border-0 p-0 pl-1.5 pt-[3px] text-[11px] outline-none shadow-none leading-3 focus:ring-0"
+                className="remove-spinner w-[46px] rounded-sm border-0 bg-transparent p-0 pl-1.5 pt-[3px] text-[11px] leading-3 shadow-none outline-none focus:ring-0"
                 type="number"
                 min={minimum}
                 max={maximum}
@@ -146,27 +138,18 @@ export const SliderUnitControl: FC<SliderControlProps> = ({
               />
             </Tooltip.Trigger>
             {innerValue?.value && innerValue.value > maximum ? (
-              <Tooltip.Content>
-                Value must be less than or equel to {maximum}
-              </Tooltip.Content>
+              <Tooltip.Content>Value must be less than or equel to {maximum}</Tooltip.Content>
             ) : null}
           </Tooltip>
 
-          <Select
-            onValueChange={onUnitChange}
-            value={innerValue?.unit || units[0]}
-          >
+          <Select onValueChange={onUnitChange} value={innerValue?.unit || units[0]}>
             <Select.Trigger
               className="flex h-full w-7 items-center justify-center rounded-none rounded-r border-0 border-l p-0 text-[11px] leading-3 hover:bg-slate-300 focus:ring-0 focus:ring-offset-0"
               chevronDown={false}
             >
               <Select.Value />
             </Select.Trigger>
-            <Select.Content
-              alignOffset={-10}
-              sideOffset={-60}
-              className="min-w-[38px] border-0"
-            >
+            <Select.Content alignOffset={-10} sideOffset={-60} className="min-w-[38px] border-0">
               <Select.Group>
                 {units.map((unit) => (
                   <Select.Item

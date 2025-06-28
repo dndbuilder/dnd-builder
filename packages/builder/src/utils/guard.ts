@@ -3,12 +3,7 @@ import { ResponsiveValue } from "@/types/responsive";
 import { SpacingValue, UnitValue, WithPseudoClass } from "@/types/style";
 
 export const isDropableBlock = (block: unknown): block is DroppableBlock => {
-  return (
-    typeof block === "object" &&
-    block !== null &&
-    "type" in block &&
-    "settings" in block
-  );
+  return typeof block === "object" && block !== null && "type" in block && "settings" in block;
 };
 
 export const isMoveableBlock = (block: unknown): block is MoveableBlock => {

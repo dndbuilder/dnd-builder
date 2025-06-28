@@ -110,9 +110,7 @@ const DropdownConfig = createBlockConfig<DropdownSettingsType>({
               right: borderTopRightRadius,
               bottom: borderBottomRightRadius,
               left: borderBottomLeftRadius,
-            } = generateSpacingValue(
-              settings?.button?.border?.radius?.[pseudo]
-            );
+            } = generateSpacingValue(settings?.button?.border?.radius?.[pseudo]);
 
             const borderType = settings.button?.border?.type?.[pseudo];
             return {
@@ -130,9 +128,7 @@ const DropdownConfig = createBlockConfig<DropdownSettingsType>({
           [".dropdown-button-text"]: {
             ...generateResponsiveStyle(breakpoints, (breakpoint) => {
               return {
-                display: settings?.button?.text?.show?.[breakpoint]
-                  ? "inline-block"
-                  : "none",
+                display: settings?.button?.text?.show?.[breakpoint] ? "inline-block" : "none",
                 order: settings?.button?.text?.order?.[breakpoint],
               };
             }),
@@ -141,31 +137,19 @@ const DropdownConfig = createBlockConfig<DropdownSettingsType>({
             color: settings?.button?.icon?.color?.default,
             ...generateResponsiveStyle(breakpoints, (breakpoint) => {
               return {
-                display: settings?.button?.icon?.show?.[breakpoint]
-                  ? "inline-block"
-                  : "none",
+                display: settings?.button?.icon?.show?.[breakpoint] ? "inline-block" : "none",
                 order: settings?.button?.icon?.order?.[breakpoint],
-                fontSize: generateUnitValue(
-                  settings?.button?.icon?.size?.[breakpoint]?.default
-                ),
+                fontSize: generateUnitValue(settings?.button?.icon?.size?.[breakpoint]?.default),
               };
             }),
           },
           [".dropdown-button-image"]: {
             ...generateResponsiveStyle(breakpoints, (breakpoint) => {
               return {
-                width: generateUnitValue(
-                  settings?.button?.image?.width?.[breakpoint]
-                ),
-                maxWidth: generateUnitValue(
-                  settings?.button?.image?.maxWidth?.[breakpoint]
-                ),
-                height: generateUnitValue(
-                  settings?.button?.image?.height?.[breakpoint]
-                ),
-                display: settings?.button?.image?.show?.[breakpoint]
-                  ? "inline-block"
-                  : "none",
+                width: generateUnitValue(settings?.button?.image?.width?.[breakpoint]),
+                maxWidth: generateUnitValue(settings?.button?.image?.maxWidth?.[breakpoint]),
+                height: generateUnitValue(settings?.button?.image?.height?.[breakpoint]),
+                display: settings?.button?.image?.show?.[breakpoint] ? "inline-block" : "none",
                 order: settings?.button?.image?.order?.[breakpoint],
               };
             }),
@@ -176,9 +160,7 @@ const DropdownConfig = createBlockConfig<DropdownSettingsType>({
           color: settings?.button?.icon?.color?.hover,
           ...generateResponsiveStyle(breakpoints, (breakpoint) => {
             return {
-              fontSize: generateUnitValue(
-                settings?.button?.icon?.size?.[breakpoint]?.hover
-              ),
+              fontSize: generateUnitValue(settings?.button?.icon?.size?.[breakpoint]?.hover),
             };
           }),
         },
@@ -187,9 +169,7 @@ const DropdownConfig = createBlockConfig<DropdownSettingsType>({
           color: settings?.button?.icon?.color?.focus,
           ...generateResponsiveStyle(breakpoints, (breakpoint) => {
             return {
-              fontSize: generateUnitValue(
-                settings?.button?.icon?.size?.[breakpoint]?.hover
-              ),
+              fontSize: generateUnitValue(settings?.button?.icon?.size?.[breakpoint]?.hover),
             };
           }),
         },
@@ -220,9 +200,7 @@ const DropdownConfig = createBlockConfig<DropdownSettingsType>({
               paddingBottom,
               paddingLeft,
               width: generateUnitValue(settings?.content?.width?.[breakpoint]),
-              height: generateUnitValue(
-                settings?.content?.height?.[breakpoint]
-              ),
+              height: generateUnitValue(settings?.content?.height?.[breakpoint]),
               ...generatePseudoStyle((pseudoClass) => {
                 const {
                   top: borderTopWidth,
@@ -248,9 +226,7 @@ const DropdownConfig = createBlockConfig<DropdownSettingsType>({
               right: borderTopRightRadius,
               bottom: borderBottomRightRadius,
               left: borderBottomLeftRadius,
-            } = generateSpacingValue(
-              settings?.content?.border?.radius?.[pseudo]
-            );
+            } = generateSpacingValue(settings?.content?.border?.radius?.[pseudo]);
 
             const borderType = settings.content?.border?.type?.[pseudo];
             return {
@@ -261,9 +237,7 @@ const DropdownConfig = createBlockConfig<DropdownSettingsType>({
               borderBottomLeftRadius,
               borderStyle: Boolean(borderType) ? borderType : undefined,
               borderColor: settings?.content?.border?.color?.[pseudo],
-              boxShadow: generateBoxShadow(
-                settings?.content?.boxShadow?.[pseudo]
-              ),
+              boxShadow: generateBoxShadow(settings?.content?.boxShadow?.[pseudo]),
             };
           }),
         },

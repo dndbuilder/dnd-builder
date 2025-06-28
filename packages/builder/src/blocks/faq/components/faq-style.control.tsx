@@ -26,11 +26,7 @@ const FaqStyleControl = () => {
           />
 
           {/* Border */}
-          <BorderControl
-            type={SettingsType.BLOCK}
-            fieldName="item.border"
-            className="mt-4"
-          />
+          <BorderControl type={SettingsType.BLOCK} fieldName="item.border" className="mt-4" />
 
           {/* Padding */}
           <SpacingControl

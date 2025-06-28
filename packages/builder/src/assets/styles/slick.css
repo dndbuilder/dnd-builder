@@ -59,7 +59,7 @@
 .slick-track:after {
   display: table;
 
-  content: '';
+  content: "";
 }
 
 .slick-track:after {
@@ -78,7 +78,7 @@
   min-height: 1px;
 }
 
-[dir='rtl'] .slick-slide {
+[dir="rtl"] .slick-slide {
   float: right;
 }
 
@@ -116,21 +116,21 @@
 
 /* Slider */
 .slick-loading .slick-list {
-  background: #fff url('../images/ajax-loader.gif') center center no-repeat;
+  background: #fff url("../images/ajax-loader.gif") center center no-repeat;
 }
 
 /* Icons */
 @font-face {
-  font-family: 'slick';
+  font-family: "slick";
   font-weight: normal;
   font-style: normal;
 
-  src: url('../fonts/slick.eot');
+  src: url("../fonts/slick.eot");
   src:
-    url('../fonts/slick.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/slick.woff') format('woff'),
-    url('../fonts/slick.ttf') format('truetype'),
-    url('../fonts/slick.svg?#slick') format('svg');
+    url("../fonts/slick.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/slick.woff") format("woff"),
+    url("../fonts/slick.ttf") format("truetype"),
+    url("../fonts/slick.svg?#slick") format("svg");
 }
 
 /* Arrows */
@@ -182,7 +182,7 @@
 
 .slick-prev:before,
 .slick-next:before {
-  font-family: 'slick';
+  font-family: "slick";
   font-size: 20px;
   line-height: 1;
 
@@ -197,34 +197,34 @@
   left: -25px;
 }
 
-[dir='rtl'] .slick-prev {
+[dir="rtl"] .slick-prev {
   right: -25px;
   left: auto;
 }
 
 .slick-prev:before {
-  content: '←';
+  content: "←";
 }
 
-[dir='rtl'] .slick-prev:before {
-  content: '→';
+[dir="rtl"] .slick-prev:before {
+  content: "→";
 }
 
 .slick-next {
   right: -25px;
 }
 
-[dir='rtl'] .slick-next {
+[dir="rtl"] .slick-next {
   right: auto;
   left: -25px;
 }
 
 .slick-next:before {
-  content: '→';
+  content: "→";
 }
 
-[dir='rtl'] .slick-next:before {
-  content: '←';
+[dir="rtl"] .slick-next:before {
+  content: "←";
 }
 
 /* Dots */
@@ -289,7 +289,7 @@
 }
 
 .slick-dots li button:before {
-  font-family: 'slick';
+  font-family: "slick";
   font-size: 6px;
   line-height: 20px;
 
@@ -300,7 +300,7 @@
   width: 20px;
   height: 20px;
 
-  content: '•';
+  content: "•";
   text-align: center;
 
   opacity: 0.25;

@@ -8,16 +8,8 @@ import * as Tabs from "@radix-ui/react-tabs";
 import { cloneDeep } from "lodash";
 import { FC } from "react";
 
-const TabsBlock: FC<BlockProps<TabsSettingsType>> = ({
-  settings,
-  id,
-  meta,
-  isEditable,
-}) => {
-  const [activeTabId, setActiveTabId] = useBlockSettings<string | null>(
-    id,
-    "activeTabId"
-  );
+const TabsBlock: FC<BlockProps<TabsSettingsType>> = ({ settings, id, meta, isEditable }) => {
+  const [activeTabId, setActiveTabId] = useBlockSettings<string | null>(id, "activeTabId");
   const { 0: orientation } = useBlockSettings<"horizontal" | "vertical">(
     id,
     "list.orientation.{{BREAKPOINT}}"
@@ -39,7 +31,7 @@ const TabsBlock: FC<BlockProps<TabsSettingsType>> = ({
           <Tabs.Trigger key={tab.id} value={tab.id} asChild>
             <div
               role="button"
-              className="tab-button transition-colors duration-150 gap-2 px-2 py-1 data-[state=active]:text-primary-500 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current whitespace-nowrap"
+              className="tab-button data-[state=active]:text-primary-500 gap-2 whitespace-nowrap px-2 py-1 transition-colors duration-150 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current"
             >
               <RenderIcon
                 iconSet={tab.icon?.iconSet}

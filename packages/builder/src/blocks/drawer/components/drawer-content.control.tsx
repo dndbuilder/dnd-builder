@@ -1,10 +1,4 @@
-import {
-  IconControl,
-  InputControl,
-  Label,
-  Separator,
-  SwitchControl,
-} from "@/components";
+import { IconControl, InputControl, Label, Separator, SwitchControl } from "@/components";
 import { ToggleGroupControl } from "@/components/controls/toggle-group.control";
 import { Accordion } from "@/components/shared/accordion";
 import { SettingsType } from "@/types";
@@ -51,11 +45,7 @@ const DrawerContentControl = () => {
             responsive
           />
 
-          <IconControl
-            label="Icon"
-            fieldName="trigger.icon"
-            type={SettingsType.BLOCK}
-          />
+          <IconControl label="Icon" fieldName="trigger.icon" type={SettingsType.BLOCK} />
 
           <InputControl
             label="Order"
@@ -88,17 +78,17 @@ const DrawerContentControl = () => {
               },
               {
                 tooltipContent: "Top",
-                toggleTrigger: <FiSidebar className="text-sm rotate-90" />,
+                toggleTrigger: <FiSidebar className="rotate-90 text-sm" />,
                 value: "top",
               },
               {
                 tooltipContent: "Right",
-                toggleTrigger: <FiSidebar className="text-sm rotate-180" />,
+                toggleTrigger: <FiSidebar className="rotate-180 text-sm" />,
                 value: "right",
               },
               {
                 tooltipContent: "Bottom",
-                toggleTrigger: <FiSidebar className="text-sm -rotate-90" />,
+                toggleTrigger: <FiSidebar className="-rotate-90 text-sm" />,
                 value: "bottom",
               },
             ]}

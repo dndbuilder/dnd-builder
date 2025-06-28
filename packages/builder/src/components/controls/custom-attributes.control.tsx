@@ -9,9 +9,10 @@ import { cloneDeep } from "lodash";
 import { SettingsType } from "@/types";
 
 export const CustomAttributeControl = () => {
-  const [customAttributes, setCustomAttributes] = useSettings<
-    AttributeType[] | undefined
-  >("customAttributes", SettingsType.ADVANCED);
+  const [customAttributes, setCustomAttributes] = useSettings<AttributeType[] | undefined>(
+    "customAttributes",
+    SettingsType.ADVANCED
+  );
   return (
     <div>
       <Label className="mb-1.5 block">Custom Attributes</Label>
@@ -44,7 +45,7 @@ export const CustomAttributeControl = () => {
                 newCustomAttributes.splice(index, 1);
                 setCustomAttributes(newCustomAttributes);
               }}
-              className="cursor-pointer hover:text-danger-500"
+              className="hover:text-danger-500 cursor-pointer"
             />
           </div>
         </div>
@@ -52,17 +53,13 @@ export const CustomAttributeControl = () => {
 
       <Button
         onClick={() => {
-          const newCustomAttributes = customAttributes
-            ? [...customAttributes]
-            : [];
+          const newCustomAttributes = customAttributes ? [...customAttributes] : [];
           newCustomAttributes.push({ name: "", value: "" });
           setCustomAttributes(newCustomAttributes);
         }}
         disabled={
           Boolean(customAttributes?.length) &&
-          !customAttributes?.every(
-            (attribute) => attribute.name && attribute.value
-          )
+          !customAttributes?.every((attribute) => attribute.name && attribute.value)
         }
         variant="secondary"
         className="w-full"
@@ -72,4 +69,3 @@ export const CustomAttributeControl = () => {
     </div>
   );
 };
-
