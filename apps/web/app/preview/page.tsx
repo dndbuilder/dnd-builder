@@ -2,7 +2,7 @@ import clientPromise from "@/lib/mongodb";
 import { Block, BlockType, BuilderConfig } from "@dndbuilder.com/react";
 import { RenderContent } from "@dndbuilder.com/react/components/server";
 import "@dndbuilder.com/react/dist/style.css";
-import CustomLinkBlock from "../components/blocks/link/link.preview";
+import CustomLinkBlock from "../../components/blocks/link/link.preview";
 
 async function fetchContent(): Promise<Record<string, Block>> {
   let content: Record<string, Block> = {};

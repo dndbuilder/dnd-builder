@@ -1,6 +1,6 @@
 import "./globals.css";
 import React from "react";
-import { Open_Sans } from "next/font/google";
+import { Inter, Open_Sans } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 
 const openSans = Open_Sans({
