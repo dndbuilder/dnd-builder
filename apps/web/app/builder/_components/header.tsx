@@ -40,9 +40,11 @@ export const Header = () => {
     <header className="fixed left-0 top-0 z-[100] flex h-[60px] w-full items-center justify-between border-b bg-white px-4 shadow-sm">
       <div className="text-xl font-bold text-white">
         {/* Placeholder logo */}
-        <Link href={"/"} className="flex items-center text-slate-800">
-          <TbDragDrop size={32} className="mr-2" />
-          <span className="font-bold">DnD Builder</span>
+        <Link href={"/"} className="flex items-center space-x-2">
+          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-gray-900 to-black">
+            <TbDragDrop className="h-5 w-5 text-white" />
+          </div>
+          <span className="text-xl font-bold text-gray-900">DnD Builder</span>
         </Link>
       </div>
 
