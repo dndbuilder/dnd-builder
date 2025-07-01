@@ -3,7 +3,6 @@
 import * as React from "react";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { HiChevronRight } from "react-icons/hi";
-
 import { classNames } from "@/utils";
 
 export type AccordionProps = (

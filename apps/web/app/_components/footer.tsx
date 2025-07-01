@@ -1,6 +1,7 @@
-import Link from "next/link";
-import { FiGithub, FiLayers, FiMail, FiTwitter } from "react-icons/fi";
 import { classNames } from "@/lib/utils";
+import Link from "next/link";
+import { FiGithub, FiMail, FiTwitter } from "react-icons/fi";
+import { TbDragDrop } from "react-icons/tb";
 
 interface FooterProps {
   className?: string;
@@ -12,20 +13,26 @@ export function Footer({ className }: FooterProps) {
       <div className="container mx-auto px-4">
         <div className="grid gap-8 md:grid-cols-4">
           <div>
-            <div className="mb-4 flex items-center space-x-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-gray-900 to-black">
-                <FiLayers className="h-5 w-5 text-white" />
+            <Link href={"/"} className="flex items-center space-x-2">
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-white">
+                <TbDragDrop className="h-5 w-5 text-gray-900" />
               </div>
-              <span className="text-xl font-bold">DnD Builder</span>
-            </div>
-            <p className="mb-4 text-gray-400">
+              <span className="text-xl font-bold text-white">DnD Builder</span>
+            </Link>
+            <p className="mb-4 mt-2 text-gray-400">
               The most powerful drag-and-drop page builder for React applications.
             </p>
             <div className="flex space-x-4">
-              <Link href="https://github.com/dnd-builder/react" className="text-gray-400 transition-colors hover:text-white">
+              <Link
+                href="https://github.com/dnd-builder/react"
+                className="text-gray-400 transition-colors hover:text-white"
+              >
                 <FiGithub className="h-5 w-5" />
               </Link>
-              <Link href="https://twitter.com/dndbuilder" className="text-gray-400 transition-colors hover:text-white">
+              <Link
+                href="https://twitter.com/dndbuilder"
+                className="text-gray-400 transition-colors hover:text-white"
+              >
                 <FiTwitter className="h-5 w-5" />
               </Link>
               <Link href="/contact" className="text-gray-400 transition-colors hover:text-white">
@@ -47,11 +54,7 @@ export function Footer({ className }: FooterProps) {
                   Pricing
                 </Link>
               </li>
-              <li>
-                <Link href="/#premium" className="transition-colors hover:text-white">
-                  Premium
-                </Link>
-              </li>
+
               <li>
                 <Link href="/changelog" className="transition-colors hover:text-white">
                   Changelog
@@ -64,18 +67,13 @@ export function Footer({ className }: FooterProps) {
             <h3 className="mb-4 font-semibold">Resources</h3>
             <ul className="space-y-2 text-gray-400">
               <li>
-                <Link href="/documentation" className="transition-colors hover:text-white">
+                <Link href="/docs" className="transition-colors hover:text-white">
                   Documentation
                 </Link>
               </li>
               <li>
                 <Link href="/examples" className="transition-colors hover:text-white">
                   Examples
-                </Link>
-              </li>
-              <li>
-                <Link href="/tutorials" className="transition-colors hover:text-white">
-                  Tutorials
                 </Link>
               </li>
               <li>
@@ -90,7 +88,7 @@ export function Footer({ className }: FooterProps) {
             <h3 className="mb-4 font-semibold">Support</h3>
             <ul className="space-y-2 text-gray-400">
               <li>
-                <Link href="/help-center" className="transition-colors hover:text-white">
+                <Link href="/help" className="transition-colors hover:text-white">
                   Help Center
                 </Link>
               </li>
@@ -104,17 +102,12 @@ export function Footer({ className }: FooterProps) {
                   Contact
                 </Link>
               </li>
-              <li>
-                <Link href="/status" className="transition-colors hover:text-white">
-                  Status
-                </Link>
-              </li>
             </ul>
           </div>
         </div>
 
         <div className="mt-8 border-t border-gray-800 pt-8 text-gray-400">
-          <div className="flex flex-wrap justify-center gap-4 mb-4">
+          <div className="mb-4 flex flex-wrap justify-center gap-4">
             <Link href="/privacy-policy" className="transition-colors hover:text-white">
               Privacy Policy
             </Link>
@@ -125,7 +118,7 @@ export function Footer({ className }: FooterProps) {
               Contact Us
             </Link>
           </div>
-          <p className="text-center">&copy; 2024 DnD Builder. All rights reserved.</p>
+          <p className="text-center">&copy; 2025 DnD Builder. All rights reserved.</p>
         </div>
       </div>
     </footer>

@@ -25,12 +25,27 @@ export function InstallationSection({ className }: InstallationSectionProps) {
         </div>
 
         <div className="mx-auto max-w-2xl rounded-lg border border-gray-300 bg-white shadow-sm">
-          <Tabs defaultValue="install" className="w-full" onValueChange={setActiveTab}>
+          <Tabs value={activeTab} className="w-full" onValueChange={setActiveTab}>
             <div className="flex items-center border-b border-gray-300 px-4">
               <Tabs.List className="h-12">
-                <Tabs.Trigger value="install">Installation</Tabs.Trigger>
-                <Tabs.Trigger value="setup">Setup</Tabs.Trigger>
-                <Tabs.Trigger value="usage">Usage</Tabs.Trigger>
+                <Tabs.Trigger
+                  className="relative h-full after:absolute after:bottom-[-1px] after:left-0 after:h-0.5 after:w-full after:bg-gray-900 after:opacity-0 data-[state=active]:text-gray-900 data-[state=active]:after:opacity-100"
+                  value="install"
+                >
+                  Installation
+                </Tabs.Trigger>
+                <Tabs.Trigger
+                  className="relative h-full after:absolute after:bottom-[-1px] after:left-0 after:h-0.5 after:w-full after:bg-gray-900 after:opacity-0 data-[state=active]:text-gray-900 data-[state=active]:after:opacity-100"
+                  value="setup"
+                >
+                  Setup
+                </Tabs.Trigger>
+                <Tabs.Trigger
+                  className="relative h-full after:absolute after:bottom-[-1px] after:left-0 after:h-0.5 after:w-full after:bg-gray-900 after:opacity-0 data-[state=active]:text-gray-900 data-[state=active]:after:opacity-100"
+                  value="usage"
+                >
+                  Usage
+                </Tabs.Trigger>
               </Tabs.List>
               {/* <div className="ml-auto flex items-center gap-2">
                 <Button variant="secondary" size="sm" className="h-8 text-xs">

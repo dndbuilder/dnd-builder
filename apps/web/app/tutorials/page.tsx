@@ -1,10 +1,6 @@
-import { Header } from "../_components/header";
-import { Footer } from "../_components/footer";
-
 export default function TutorialsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
-      <Header />
       <main className="container mx-auto px-4 py-16">
         <div className="mx-auto max-w-4xl">
           <h1 className="mb-8 text-4xl font-bold text-gray-900">Tutorials</h1>
@@ -155,7 +151,7 @@ export default function TutorialsPage() {
 
           <div className="mt-12 flex justify-between">
             <a
-              href="/documentation"
+              href="/docs"
               className="rounded-md bg-blue-600 px-6 py-3 text-white transition-colors hover:bg-blue-700"
             >
               View Documentation
@@ -169,7 +165,6 @@ export default function TutorialsPage() {
           </div>
         </div>
       </main>
-      <Footer />
     </div>
   );
 }

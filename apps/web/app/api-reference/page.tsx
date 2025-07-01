@@ -1,27 +1,24 @@
-import { Header } from "../_components/header";
-import { Footer } from "../_components/footer";
 
 export default function ApiReferencePage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
-      <Header />
       <main className="container mx-auto px-4 py-16">
         <div className="mx-auto max-w-4xl">
           <h1 className="mb-8 text-4xl font-bold text-gray-900">API Reference</h1>
-          
+
           <p className="mb-8 text-xl text-gray-600">
             Comprehensive documentation of the DnD Builder API.
           </p>
-          
+
           <div className="mb-12 rounded-lg bg-white p-8 shadow-md">
             <h2 className="mb-6 text-2xl font-bold text-gray-900">Core Components</h2>
-            
+
             <div className="mb-8 border-b border-gray-200 pb-8">
               <h3 className="mb-3 text-xl font-semibold text-gray-900">Builder</h3>
               <p className="mb-4 text-gray-600">
                 The main component that renders the builder interface.
               </p>
-              
+
               <div className="mb-4">
                 <h4 className="mb-2 font-medium text-gray-900">Props</h4>
                 <div className="overflow-x-auto">
@@ -63,7 +60,7 @@ export default function ApiReferencePage() {
                   </table>
                 </div>
               </div>
-              
+
               <div>
                 <h4 className="mb-2 font-medium text-gray-900">Example</h4>
                 <div className="rounded-md bg-gray-900 p-4">
@@ -78,13 +75,13 @@ export default function ApiReferencePage() {
                 </div>
               </div>
             </div>
-            
+
             <div className="border-b border-gray-200 pb-8">
               <h3 className="mb-3 text-xl font-semibold text-gray-900">useBuilderState</h3>
               <p className="mb-4 text-gray-600">
                 Hook for managing builder state with undo/redo support.
               </p>
-              
+
               <div className="mb-4">
                 <h4 className="mb-2 font-medium text-gray-900">Parameters</h4>
                 <div className="overflow-x-auto">
@@ -108,7 +105,7 @@ export default function ApiReferencePage() {
                   </table>
                 </div>
               </div>
-              
+
               <div>
                 <h4 className="mb-2 font-medium text-gray-900">Returns</h4>
                 <div className="overflow-x-auto">
@@ -139,16 +136,16 @@ export default function ApiReferencePage() {
               </div>
             </div>
           </div>
-          
+
           <div className="mb-12 rounded-lg bg-white p-8 shadow-md">
             <h2 className="mb-6 text-2xl font-bold text-gray-900">Types</h2>
-            
+
             <div className="mb-8 border-b border-gray-200 pb-8">
               <h3 className="mb-3 text-xl font-semibold text-gray-900">BuilderState</h3>
               <p className="mb-4 text-gray-600">
                 Represents the current state of the builder.
               </p>
-              
+
               <div className="rounded-md bg-gray-900 p-4">
                 <pre className="text-sm text-white">
 {`interface BuilderState {
@@ -161,13 +158,13 @@ export default function ApiReferencePage() {
                 </pre>
               </div>
             </div>
-            
+
             <div>
               <h3 className="mb-3 text-xl font-semibold text-gray-900">Block</h3>
               <p className="mb-4 text-gray-600">
                 Represents a single block in the builder.
               </p>
-              
+
               <div className="rounded-md bg-gray-900 p-4">
                 <pre className="text-sm text-white">
 {`interface Block {
@@ -180,10 +177,10 @@ export default function ApiReferencePage() {
               </div>
             </div>
           </div>
-          
+
           <div className="mt-8 flex justify-between">
             <a 
-              href="/documentation" 
+              href="/docs" 
               className="rounded-md bg-blue-600 px-6 py-3 text-white transition-colors hover:bg-blue-700"
             >
               View Documentation
@@ -197,7 +194,6 @@ export default function ApiReferencePage() {
           </div>
         </div>
       </main>
-      <Footer />
     </div>
   );
 }
