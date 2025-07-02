@@ -170,14 +170,30 @@ export class BuilderRegistry {
     if (config.blocks && config.blocks.length > 0) {
       // For each block in the config
       config.blocks.forEach((block) => {
-        const existingBlock = this.registeredBlocks[block.type];
+        // Add a type guard to ensure block.type is defined
+        if (block.type) {
+          const existingBlock = this.registeredBlocks[block.type];
 
-        if (existingBlock) {
-          // If block already exists, deep merge it with the existing one
-          this.registeredBlocks[block.type] = deepmerge(existingBlock, block);
+          if (existingBlock) {
+            // If a block already exists, deep merge it with the existing one
+            this.registeredBlocks[block.type] = deepmerge(existingBlock, block);
+          } else {
+            // If a block doesn't exist, register it
+            // Check if block has all required properties to be a complete BlockConfig
+            if (
+              block.label !== undefined && 
+              block.component !== undefined && 
+              block.settings !== undefined && 
+              block.controls !== undefined
+            ) {
+              this.registerBlock(block as BlockConfig);
+            } else {
+              console.warn(`Block "${block.type}" is missing required properties and cannot be registered`);
+            }
+          }
         } else {
-          // If block doesn't exist, register it
-          this.registerBlock(block);
+          // Handle blocks with undefined type
+          console.warn('Block with undefined type encountered and skipped');
         }
       });
     }
@@ -192,14 +208,31 @@ export class BuilderRegistry {
     if (config.breakpoints && config.breakpoints.length > 0) {
       // For each breakpoint in the config
       config.breakpoints.forEach((breakpoint) => {
-        const existingBreakpoint = this.breakpoints[breakpoint.key];
+        // Add a type guard to ensure breakpoint.key is defined
+        if (breakpoint.key !== undefined) {
+          const existingBreakpoint = this.breakpoints[breakpoint.key];
 
-        if (existingBreakpoint) {
-          // If breakpoint already exists, deep merge it with the existing one
-          this.breakpoints[breakpoint.key] = deepmerge(existingBreakpoint, breakpoint);
+          if (existingBreakpoint) {
+            // If breakpoint already exists, deep merge it with the existing one
+            this.breakpoints[breakpoint.key] = deepmerge(existingBreakpoint, breakpoint);
+          } else {
+            // If breakpoint doesn't exist, register it
+            // Check if breakpoint has all required properties to be a complete BreakpointConfig
+            if (
+              breakpoint.label !== undefined &&
+              breakpoint.icon !== undefined &&
+              breakpoint.previewWidth !== undefined &&
+              breakpoint.maxWidth !== undefined &&
+              breakpoint.minWidth !== undefined
+            ) {
+              this.registerBreakpoint(breakpoint as BreakpointConfig);
+            } else {
+              console.warn(`Breakpoint "${breakpoint.key}" is missing required properties and cannot be registered`);
+            }
+          }
         } else {
-          // If breakpoint doesn't exist, register it
-          this.registerBreakpoint(breakpoint);
+          // Handle breakpoints with an undefined key
+          console.warn('Breakpoint with undefined key encountered and skipped');
         }
       });
     }

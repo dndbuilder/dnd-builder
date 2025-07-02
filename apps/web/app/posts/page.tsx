@@ -46,7 +46,7 @@ export default function ApiReferencePage() {
                       </tr>
                       <tr className="border-b">
                         <td className="px-4 py-3 font-medium">onChange</td>
-                        <td className="px-4 py-3"><code>(state: BuilderState) => void</code></td>
+                        <td className="px-4 py-3"><code>(state: BuilderState) {'=>'} void</code></td>
                         <td className="px-4 py-3">Yes</td>
                         <td className="px-4 py-3">Callback when state changes</td>
                       </tr>
@@ -120,9 +120,9 @@ export default function ApiReferencePage() {
                       <tr>
                         <td className="px-4 py-3">
                           <code>
-                            [BuilderState, (state: BuilderState) => void, {"{"}
-                            undo: () => void, 
-                            redo: () => void, 
+                            [BuilderState, (state: BuilderState) {'=>'} void, {"{"}
+                            undo: () {'=>'} void, 
+                            redo: () {'=>'} void, 
                             canUndo: boolean, 
                             canRedo: boolean 
                             {"}"}]
