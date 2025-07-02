@@ -78,58 +78,78 @@ export default function ContactPage() {
                   </Card.Description>
                 </Card.Header>
                 <Card.Content className="space-y-6">
-                  <div className="grid gap-4 md:grid-cols-2">
+                  <form action="https://formsubmit.co/support@dndbuilder.com" method="POST">
+                    {/* FormSubmit.co configuration */}
+                    <input type="hidden" name="_subject" value="New contact form submission" />
+                    <input type="hidden" name="_captcha" value="false" />
+                    <input type="hidden" name="_template" value="table" />
+                    <input type="hidden" name="_next" value="/thank-you" />
+
+                    <div className="grid gap-4 md:grid-cols-2">
+                      <div>
+                        <label className="mb-2 block text-sm font-medium text-gray-700">
+                          First Name
+                        </label>
+                        <input
+                          type="text"
+                          name="first_name"
+                          className="w-full rounded-md border border-gray-300 px-3 py-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-gray-900"
+                          placeholder="John"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <label className="mb-2 block text-sm font-medium text-gray-700">
+                          Last Name
+                        </label>
+                        <input
+                          type="text"
+                          name="last_name"
+                          className="w-full rounded-md border border-gray-300 px-3 py-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-gray-900"
+                          placeholder="Doe"
+                          required
+                        />
+                      </div>
+                    </div>
                     <div>
-                      <label className="mb-2 block text-sm font-medium text-gray-700">
-                        First Name
-                      </label>
+                      <label className="mb-2 block text-sm font-medium text-gray-700">Email</label>
                       <input
-                        type="text"
+                        type="email"
+                        name="email"
                         className="w-full rounded-md border border-gray-300 px-3 py-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-gray-900"
-                        placeholder="John"
+                        placeholder="john@example.com"
+                        required
                       />
                     </div>
                     <div>
-                      <label className="mb-2 block text-sm font-medium text-gray-700">
-                        Last Name
-                      </label>
-                      <input
-                        type="text"
+                      <label className="mb-2 block text-sm font-medium text-gray-700">Subject</label>
+                      <select 
+                        name="subject"
                         className="w-full rounded-md border border-gray-300 px-3 py-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-gray-900"
-                        placeholder="Doe"
-                      />
+                        required
+                      >
+                        <option value="General Inquiry">General Inquiry</option>
+                        <option value="Technical Support">Technical Support</option>
+                        <option value="Billing Question">Billing Question</option>
+                        <option value="Feature Request">Feature Request</option>
+                        <option value="Partnership">Partnership</option>
+                      </select>
                     </div>
-                  </div>
-                  <div>
-                    <label className="mb-2 block text-sm font-medium text-gray-700">Email</label>
-                    <input
-                      type="email"
-                      className="w-full rounded-md border border-gray-300 px-3 py-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-gray-900"
-                      placeholder="john@example.com"
-                    />
-                  </div>
-                  <div>
-                    <label className="mb-2 block text-sm font-medium text-gray-700">Subject</label>
-                    <select className="w-full rounded-md border border-gray-300 px-3 py-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-gray-900">
-                      <option>General Inquiry</option>
-                      <option>Technical Support</option>
-                      <option>Billing Question</option>
-                      <option>Feature Request</option>
-                      <option>Partnership</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="mb-2 block text-sm font-medium text-gray-700">Message</label>
-                    <textarea
-                      rows={5}
-                      className="w-full rounded-md border border-gray-300 px-3 py-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-gray-900"
-                      placeholder="Tell us how we can help you..."
-                    ></textarea>
-                  </div>
-                  <Button className="w-full bg-black hover:bg-gray-800">
-                    <LuSend className="mr-2 h-4 w-4" />
-                    Send Message
-                  </Button>
+                    <div>
+                      <label className="mb-2 block text-sm font-medium text-gray-700">Message</label>
+                      <textarea
+                        name="message"
+                        rows={5}
+                        className="w-full rounded-md border border-gray-300 px-3 py-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-gray-900"
+                        placeholder="Tell us how we can help you..."
+                        required
+                      ></textarea>
+                    </div>
+                    <Button type="submit" className="w-full bg-black hover:bg-gray-800">
+                      <LuSend className="mr-2 h-4 w-4" />
+                      Send Message
+                    </Button>
+                  </form>
                 </Card.Content>
               </Card>
             </div>
