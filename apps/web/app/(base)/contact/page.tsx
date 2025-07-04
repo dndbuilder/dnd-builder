@@ -22,7 +22,7 @@ export default async function ContactPage() {
             </Badge>
             <h1 className="mb-6 text-4xl font-bold text-gray-900 lg:text-5xl">Contact Us</h1>
             <p className="mx-auto mb-8 max-w-2xl text-xl text-gray-600">
-              Have questions about DnD Builder? We're here to help. Reach out to our team and we'll
+              Have questions about DnD Builder? We&apos;re here to help. Reach out to our team and we&apos;ll
               get back to you as soon as possible.
             </p>
           </div>
@@ -81,7 +81,7 @@ export default async function ContactPage() {
                 <Card.Header className="text-center">
                   <Card.Title className="text-2xl">Send us a Message</Card.Title>
                   <Card.Description>
-                    Fill out the form below and we'll get back to you soon
+                    Fill out the form below and we&apos;ll get back to you soon
                   </Card.Description>
                 </Card.Header>
                 <Card.Content>

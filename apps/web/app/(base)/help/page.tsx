@@ -17,7 +17,7 @@ export default function HelpCenterPage() {
           </Badge>
           <h1 className="mb-6 text-4xl font-bold text-gray-900 lg:text-5xl">Help Center</h1>
           <p className="mb-8 text-xl text-gray-600">
-            We're building a comprehensive help center with documentation, tutorials, and support
+            We&apos;re building a comprehensive help center with documentation, tutorials, and support
             resources. Stay tuned for updates!
           </p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">

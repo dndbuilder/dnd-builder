@@ -44,7 +44,7 @@ export function PremiumFeaturesShowcase({ className }: PremiumFeaturesShowcasePr
                 Coming Soon
               </Badge>
             </h3>
-            <p className="text-sm opacity-80">Customize your site's appearance</p>
+            <p className="text-sm opacity-80">Customize your site&apos;s appearance</p>
           </div>
 
           <div className="rounded-lg border border-white/20 bg-white/10 p-6 backdrop-blur-sm">

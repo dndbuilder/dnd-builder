@@ -1,12 +1,21 @@
-import { useAppSelector } from "@/hooks/use-app-selector";
-import { BuilderConfiguration } from "@/config/builder.config";
-import { BlockAdvancedSettings, BlockType, BlockConfig } from "@/types/block";
-import { getActiveThemeContainerSettings } from "@/store/selectors";
 import { ContainerSettingsType } from "@/blocks/container/types";
+import { BuilderConfiguration } from "@/config/builder.config";
+import { useAppSelector } from "@/hooks/use-app-selector";
+import { getActiveThemeContainerSettings } from "@/store/selectors";
+import { BlockAdvancedSettings, BlockType } from "@/types/block";
 import deepmerge from "deepmerge";
 
 export const useContainerSettings = () => {
   const ContainerConfig = BuilderConfiguration.getBlock(BlockType.CONTAINER);
+
+  if (!ContainerConfig) {
+    console.warn("Container block configuration not found.");
+
+    return {
+      settings: {},
+      advancedSettings: {},
+    };
+  }
 
   const themeContainerSettings = useAppSelector(getActiveThemeContainerSettings);
 

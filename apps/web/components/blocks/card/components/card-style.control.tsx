@@ -6,6 +6,7 @@ import {
   BorderControl,
   BoxShadowControl,
   ColorControl,
+  Separator,
   SliderInputControl,
   SliderUnitControl,
   SpacingControl,
@@ -52,8 +53,10 @@ const CardStyleControl = () => {
           {/* Margin */}
           <SpacingControl responsive label="Margin" fieldName="margin" type={SettingsType.BLOCK} />
 
+          {/* Border */}
+
           {/* Background */}
-          <Tabs defaultValue={PseudoClass.DEFAULT}>
+          <Tabs defaultValue={PseudoClass.DEFAULT} className="mt-4">
             <Tabs.List className="mb-2 mt-0 h-8 w-full rounded-full">
               <Tabs.Trigger
                 className="flex-1 rounded-full p-[3px] text-[13px]"
@@ -75,6 +78,21 @@ const CardStyleControl = () => {
                 mode={PseudoClass.DEFAULT}
                 className="mt-0"
               />
+
+              {/* Border */}
+              <BorderControl
+                fieldName="border"
+                type={SettingsType.BLOCK}
+                mode={PseudoClass.DEFAULT}
+              />
+
+              {/* Box Shadow */}
+              <BoxShadowControl
+                label="Box Shadow"
+                fieldName="boxShadow"
+                type={SettingsType.BLOCK}
+                mode={PseudoClass.DEFAULT}
+              />
             </Tabs.Content>
             <Tabs.Content value={PseudoClass.HOVER}>
               <ColorControl
@@ -85,22 +103,22 @@ const CardStyleControl = () => {
                 className="mt-0"
               />
 
-              {/* Transition Duration */}
-              <SliderInputControl
-                label="Transition Duration"
-                fieldName="background.transitionDuration"
+              {/* Border */}
+              <BorderControl
+                fieldName="border"
                 type={SettingsType.BLOCK}
-                min={0}
-                max={1000}
+                mode={PseudoClass.HOVER}
+              />
+
+              {/* Box Shadow */}
+              <BoxShadowControl
+                label="Box Shadow"
+                fieldName="boxShadow"
+                type={SettingsType.BLOCK}
+                mode={PseudoClass.HOVER}
               />
             </Tabs.Content>
           </Tabs>
-
-          {/* Border */}
-          <BorderControl fieldName="border" type={SettingsType.BLOCK} />
-
-          {/* Box Shadow */}
-          <BoxShadowControl label="Box Shadow" fieldName="boxShadow" type={SettingsType.BLOCK} />
         </Accordion.Content>
       </Accordion.Item>
 
@@ -180,7 +198,7 @@ const CardStyleControl = () => {
           {/* Color */}
           <ColorControl
             label="Color"
-            fieldName="title.color.desktop"
+            fieldName="title.color"
             type={SettingsType.BLOCK}
             mode={PseudoClass.DEFAULT}
           />
@@ -215,7 +233,7 @@ const CardStyleControl = () => {
           {/* Color */}
           <ColorControl
             label="Color"
-            fieldName="description.color.desktop"
+            fieldName="description.color"
             type={SettingsType.BLOCK}
             mode={PseudoClass.DEFAULT}
             className="mt-0"
@@ -248,26 +266,10 @@ const CardStyleControl = () => {
       <Accordion.Item value="Link">
         <Accordion.Trigger className="p-4">Link</Accordion.Trigger>
         <Accordion.Content className="px-4">
-          {/* Color */}
-          <ColorControl
-            label="Color"
-            fieldName="link.color"
-            type={SettingsType.BLOCK}
-            className="mt-0"
-          />
-
           {/* Typography */}
           <TypographyControl
             label="Typography"
             fieldName="link.typography"
-            type={SettingsType.BLOCK}
-          />
-
-          {/* Background */}
-          <ColorControl
-            mode={PseudoClass.DEFAULT}
-            label="Background"
-            fieldName="link.background"
             type={SettingsType.BLOCK}
           />
 
@@ -285,6 +287,58 @@ const CardStyleControl = () => {
             fieldName="link.margin"
             type={SettingsType.BLOCK}
           />
+
+          <Tabs defaultValue={PseudoClass.DEFAULT} className="mt-4">
+            <Tabs.List className="mb-2 mt-0 h-8 w-full rounded-full">
+              <Tabs.Trigger
+                className="flex-1 rounded-full p-[3px] text-[13px]"
+                value={PseudoClass.DEFAULT}
+              >
+                {"Normal"}
+              </Tabs.Trigger>
+              <Tabs.Trigger
+                className="flex-1 rounded-full p-[3px] text-[13px]"
+                value={PseudoClass.HOVER}
+              >
+                {"Hover"}
+              </Tabs.Trigger>
+            </Tabs.List>
+            <Tabs.Content value={PseudoClass.DEFAULT}>
+              {/* Color */}
+              <ColorControl
+                label="Color"
+                fieldName="link.color"
+                type={SettingsType.BLOCK}
+                mode={PseudoClass.DEFAULT}
+                className="mt-0"
+              />
+
+              {/* Background */}
+              <ColorControl
+                mode={PseudoClass.DEFAULT}
+                label="Background"
+                fieldName="link.background.color"
+                type={SettingsType.BLOCK}
+              />
+            </Tabs.Content>
+            <Tabs.Content value={PseudoClass.HOVER}>
+              {/* Color */}
+              <ColorControl
+                label="Color"
+                fieldName="link.color"
+                type={SettingsType.BLOCK}
+                mode={PseudoClass.HOVER}
+                className="mt-0"
+              />
+              {/* Background */}
+              <ColorControl
+                mode={PseudoClass.HOVER}
+                label="Background"
+                fieldName="link.background.color"
+                type={SettingsType.BLOCK}
+              />
+            </Tabs.Content>
+          </Tabs>
         </Accordion.Content>
       </Accordion.Item>
     </Accordion>

@@ -71,14 +71,18 @@ pnpm add @dndbuilder.com/react`}
               <pre className="overflow-x-auto rounded-md bg-gray-100 p-4 text-gray-800">
                 <code className="text-sm">
                   {`import React from "react";
-import { Builder, BuilderProvider } from "@dndbuilder.com/react";
+import { Block } from "@dndbuilder.com/react";
+import { BuilderProvider, Editor } from "@dndbuilder.com/react";
 import "@dndbuilder.com/react/dist/style.css";
+import { store } from "@dndbuilder.com/react";
 
 function App() {
   return (
-    <BuilderProvider blocks={myBlockConfigs}>
-      <Builder />
-    </BuilderProvider>
+     <BuilderProvider store={store}>
+        <Editor
+          content={initialContent}
+        />
+      </BuilderProvider>
   );
 }
 
@@ -92,12 +96,11 @@ export default App;`}
                   {`import { useContent } from "@dndbuilder.com/react";
 
 function SaveButton() {
-  const { content, saveContent } = useContent();
+  const { content } = useContent();
 
   const handleSave = () => {
     // Save content to your backend or local storage
     console.log("Saving content:", content);
-    saveContent();
   };
 
   return <button onClick={handleSave}>Save Content</button>;

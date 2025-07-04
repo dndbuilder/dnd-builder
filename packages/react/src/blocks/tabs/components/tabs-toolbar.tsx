@@ -27,7 +27,7 @@ const TabsToolbar: FC<BlockToolbarProps> = memo(({ blockId, blockType }) => {
     dispatch(removeBlock(blockId));
   };
 
-  if (!document) return null;
+  if (!document || !blockConfig) return null;
 
   return (
     <div

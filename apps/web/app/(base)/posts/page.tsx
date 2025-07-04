@@ -47,7 +47,7 @@ export default function BlogPostPage() {
             </Badge>
             <h1 className="mb-6 text-4xl font-bold text-gray-900 lg:text-5xl">Blog & Tutorials</h1>
             <p className="mb-8 text-xl text-gray-600">
-              We're preparing in-depth tutorials, guides, and insights to help you master DnD
+              We&apos;re preparing in-depth tutorials, guides, and insights to help you master DnD
               Builder. Get notified when we publish our first posts!
             </p>
 
@@ -73,7 +73,7 @@ export default function BlogPostPage() {
       <section className="bg-white py-16">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-4xl">
-            <h2 className="mb-8 text-center text-3xl font-bold text-gray-900">What's Coming</h2>
+            <h2 className="mb-8 text-center text-3xl font-bold text-gray-900">What&apos;s Coming</h2>
             <div className="grid gap-6 md:grid-cols-2">
               {upcomingTopics.map((topic, index) => (
                 <Card key={index} className="border-0 shadow-lg">

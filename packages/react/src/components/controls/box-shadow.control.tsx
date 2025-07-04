@@ -2,7 +2,6 @@
 
 import { Input } from "@/components/shared/input";
 import { Popover } from "@/components/shared/popover";
-import { RangeSlider } from "@/components/shared/range-slider";
 import { BsFillSquareFill } from "react-icons/bs";
 import { CiEdit } from "react-icons/ci";
 
@@ -46,20 +45,20 @@ export const BoxShadowControl: FC<BoxShadowControlProps> = ({
     type
   );
 
-  const innerValue = boxShadow ?? {
-    color: "#ddd",
-    horizontal: 0,
-    vertical: 0,
-    blur: 0,
-    spread: 0,
-    position: "",
-  };
+  // const boxShadow = boxShadow ?? {
+  //   color: "#ddd",
+  //   horizontal: 0,
+  //   vertical: 0,
+  //   blur: 0,
+  //   spread: 0,
+  //   position: "",
+  // };
 
   // const debouncedChangeHandler = useCallback(
   //   debounce((val, field) => {
   //     // Update the value in the store
   //     setBoxShadow({
-  //       ...innerValue,
+  //       ...boxShadow,
   //       [field]: val,
   //     });
   //   }, 300),
@@ -75,10 +74,15 @@ export const BoxShadowControl: FC<BoxShadowControlProps> = ({
 
   const handleValueChange = (val: number | string | undefined, field: string) => {
     // debouncedChangeHandler(val, field);
-    setBoxShadow({
-      ...innerValue,
+    // setBoxShadow({
+    //   // ...boxShadow,
+    //   [field]: val,
+    // });
+
+    setBoxShadow((prev) => ({
+      ...prev,
       [field]: val,
-    });
+    }));
   };
 
   return (
@@ -103,16 +107,16 @@ export const BoxShadowControl: FC<BoxShadowControlProps> = ({
               <Label>Color</Label>
               <Popover>
                 <Popover.Trigger className="rounded-xs border p-1">
-                  <BsFillSquareFill style={{ color: innerValue.color }} className="rounded-xs" />
+                  <BsFillSquareFill style={{ color: boxShadow?.color }} className="rounded-xs" />
                 </Popover.Trigger>
                 <Popover.Content className="p-0">
                   <p className="px-4 py-3 shadow-md">Color Picker</p>
                   <div className="p-4">
                     <ColorPicker
-                      color={innerValue.color}
+                      color={boxShadow?.color}
                       onChange={(val) => {
                         setBoxShadow({
-                          ...innerValue,
+                          ...boxShadow,
                           color: val,
                         });
                       }}
@@ -121,138 +125,65 @@ export const BoxShadowControl: FC<BoxShadowControlProps> = ({
                 </Popover.Content>
               </Popover>
             </div>
-            {/* Horizontal */}
-            <div className="mt-4">
-              <Label className="mb-1.5 block text-xs text-gray-800">Horizontal</Label>
-              <div className="flex gap-1.5">
-                <RangeSlider
-                  defaultValue={[innerValue.horizontal ?? 0]}
-                  onValueChange={(val) => {
-                    // setBoxShadow({
-                    //   ...innerValue,
-                    //   horizontal: val[0],
-                    // });
-                    handleValueChange(val[0], "horizontal");
-                  }}
-                  max={100}
-                  step={1}
-                  min={-100}
-                />
+            {/* Shadow Controls Grid */}
+            <div className="mt-4 grid grid-cols-2 gap-3">
+              {/* Horizontal */}
+              <div>
+                <Label className="mb-1.5 block text-xs text-gray-800">Horizontal</Label>
                 <Input
                   type="number"
-                  defaultValue={innerValue.horizontal ?? ""}
+                  value={boxShadow?.horizontal ?? ""}
                   min={-100}
                   max={100}
-                  className="w-[60px]"
+                  className="w-full"
                   onChange={(e) => {
-                    // setBoxShadow({
-                    //   ...innerValue,
-                    //   horizontal: Number(e.target.value),
-                    // });
                     handleValueChange(Number(e.target.value), "horizontal");
                   }}
                 />
               </div>
-            </div>
 
-            {/* Vertical */}
-            <div className="mt-3">
-              <Label className="mb-1.5 block text-xs text-gray-800">Vertical</Label>
-              <div className="flex gap-1.5">
-                <RangeSlider
-                  defaultValue={[innerValue.vertical ?? 0]}
-                  onValueChange={(val) => {
-                    // setBoxShadow({
-                    //   ...innerValue,
-                    //   vertical: val[0],
-                    // });
-                    handleValueChange(val[0], "vertical");
-                  }}
-                  max={100}
-                  step={1}
-                  min={-100}
-                />
+              {/* Vertical */}
+              <div>
+                <Label className="mb-1.5 block text-xs text-gray-800">Vertical</Label>
                 <Input
                   type="number"
-                  defaultValue={innerValue.vertical ?? ""}
+                  value={boxShadow?.vertical ?? ""}
                   onChange={(e) => {
-                    // setBoxShadow({
-                    //   ...innerValue,
-                    //   vertical: Number(e.target.value),
-                    // });
                     handleValueChange(Number(e.target.value), "vertical");
                   }}
                   min={-100}
                   max={100}
-                  className="w-[60px]"
+                  className="w-full"
                 />
               </div>
-            </div>
 
-            {/* Blur */}
-            <div className="mt-3">
-              <Label className="mb-1.5 block text-xs text-gray-800">Blur</Label>
-              <div className="flex gap-1.5">
-                <RangeSlider
-                  defaultValue={[innerValue.blur ?? 0]}
-                  onValueChange={(val) => {
-                    // setBoxShadow({
-                    //   ...innerValue,
-                    //   blur: val[0],
-                    // });
-                    handleValueChange(val[0], "blur-sm");
-                  }}
-                  max={100}
-                  step={1}
-                  min={0}
-                />
+              {/* Blur */}
+              <div>
+                <Label className="mb-1.5 block text-xs text-gray-800">Blur</Label>
                 <Input
                   type="number"
-                  defaultValue={innerValue.blur ?? ""}
+                  value={boxShadow?.blur ?? ""}
                   onChange={(e) => {
-                    // setBoxShadow({
-                    //   ...innerValue,
-                    //   blur: Number(e.target.value),
-                    // });
                     handleValueChange(Number(e.target.value), "blur-sm");
                   }}
                   min={0}
                   max={100}
-                  className="w-[60px]"
+                  className="w-full"
                 />
               </div>
-            </div>
 
-            {/* Spread */}
-            <div className="mt-3">
-              <Label className="mb-1.5 block text-xs text-gray-800">Spread</Label>
-              <div className="flex gap-1.5">
-                <RangeSlider
-                  defaultValue={[innerValue.spread ?? 0]}
-                  onValueChange={(val) => {
-                    // setBoxShadow({
-                    //   ...innerValue,
-                    //   spread: val[0],
-                    // });
-                    handleValueChange(val[0], "spread");
-                  }}
-                  max={100}
-                  step={1}
-                  min={0}
-                />
+              {/* Spread */}
+              <div>
+                <Label className="mb-1.5 block text-xs text-gray-800">Spread</Label>
                 <Input
                   type="number"
-                  defaultValue={innerValue.spread ?? ""}
+                  value={boxShadow?.spread ?? ""}
                   onChange={(e) => {
-                    // setBoxShadow({
-                    //   ...innerValue,
-                    //   spread: Number(e.target.value),
-                    // });
                     handleValueChange(Number(e.target.value), "spread");
                   }}
                   min={0}
                   max={100}
-                  className="w-[60px]"
+                  className="w-full"
                 />
               </div>
             </div>
@@ -261,12 +192,8 @@ export const BoxShadowControl: FC<BoxShadowControlProps> = ({
             <div className="mt-4 grid grid-cols-2 items-center gap-1.5">
               <Label>Position</Label>
               <Select
-                value={innerValue.position || ""}
+                value={boxShadow?.position || "select"}
                 onValueChange={(val) => {
-                  // setBoxShadow({
-                  //   ...innerValue,
-                  //   position: val,
-                  // });
                   handleValueChange(val, "position");
                 }}
               >
@@ -274,7 +201,7 @@ export const BoxShadowControl: FC<BoxShadowControlProps> = ({
                   <Select.Value />
                 </Select.Trigger>
                 <Select.Content>
-                  <Select.Item value="">Outset</Select.Item>
+                  <Select.Item value="outset">Outset</Select.Item>
                   <Select.Item value="inset">Inset</Select.Item>
                 </Select.Content>
               </Select>

@@ -27,7 +27,7 @@ export default function ThankYouPage() {
             <h1 className="mb-6 text-4xl font-bold text-gray-900 lg:text-5xl">Thank You!</h1>
 
             <p className="mb-8 text-xl leading-relaxed text-gray-600">
-              We've received your message and appreciate you reaching out to us. Our team will
+              We&apos;ve received your message and appreciate you reaching out to us. Our team will
               review your inquiry and get back to you as soon as possible.
             </p>
 
@@ -72,7 +72,7 @@ export default function ThankYouPage() {
                   <div>
                     <h3 className="mb-1 font-semibold text-gray-900">Follow-up</h3>
                     <p className="text-sm text-gray-600">
-                      We'll send a detailed response to the email address you provided in your
+                      We&apos;ll send a detailed response to the email address you provided in your
                       message.
                     </p>
                   </div>

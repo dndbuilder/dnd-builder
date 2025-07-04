@@ -3,7 +3,7 @@
 import { BlockProps } from "@/types/block";
 import { FC } from "react";
 import { ImageSettingsType } from "../types";
-import { generateImageUrl } from "@/utils";
+
 import placeholder from "@/assets/images/placeholder.png";
 
 const ImageBlock: FC<BlockProps<ImageSettingsType>> = ({ settings, meta }) => {
@@ -13,13 +13,9 @@ const ImageBlock: FC<BlockProps<ImageSettingsType>> = ({ settings, meta }) => {
   const img = (
     <>
       <img
-        width={settings.media?.width ?? 500}
-        height={settings.media?.height ?? 500}
-        src={
-          settings.media?.path
-            ? generateImageUrl(settings.media.path)
-            : (settings.media?.url ?? placeholder)
-        }
+        width={settings.media?.originalWidth ?? 500}
+        height={settings.media?.originalWidth ?? 500}
+        src={settings.media?.url ?? placeholder.src}
         alt={settings.media?.name ?? "image"}
       />
       {captionText && <figcaption className="block-img-caption">{captionText}</figcaption>}

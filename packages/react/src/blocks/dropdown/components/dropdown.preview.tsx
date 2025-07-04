@@ -5,7 +5,6 @@ import { Popover } from "@/components/shared/popover";
 import { RenderIcon } from "@/components/shared/render-icon";
 import { useBreakpoint } from "@/hooks/use-breakpoint";
 import { Block, BlockProps } from "@/types/block";
-import { generateImageUrl } from "@/utils";
 import { FC } from "react";
 import { DropdownSettingsType } from "../types";
 
@@ -15,9 +14,7 @@ const Dropdown: FC<BlockProps<DropdownSettingsType>> = ({ settings, children, me
   const locale = meta?.locale || "en";
 
   const buttonText = settings?.button?.text?.content?.[locale];
-  const imageUrl = settings?.button?.image?.media?.path
-    ? generateImageUrl(settings?.button?.image?.media?.path)
-    : settings?.button?.image?.media?.url;
+  const imageUrl = settings?.button?.image?.media?.url;
 
   const side = settings?.content?.side?.[breakpoint] ?? "bottom";
 

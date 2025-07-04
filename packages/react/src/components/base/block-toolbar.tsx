@@ -25,7 +25,7 @@ const BlockToolbar: FC<BlockToolbarProps> = memo(
       dispatch(removeBlock(blockId));
     };
 
-    if (!document) return null;
+    if (!document || !blockConfig) return null;
 
     return (
       <Popover.Root open={isSelected}>

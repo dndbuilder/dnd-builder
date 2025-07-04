@@ -80,9 +80,11 @@ export class BuilderRegistry {
    * @param type - The type of the block to retrieve
    * @returns The block configuration if found, otherwise undefined
    */
-  getBlock(type: string): BlockConfig {
+  getBlock(type: string): BlockConfig | undefined {
     if (!this.registeredBlocks[type]) {
-      throw new Error(`Block type "${type}" is not registered`);
+      // throw new Error(`Block type "${type}" is not registered`);
+      console.warn(`Block type "${type}" is not registered`);
+      return undefined; // Return undefined instead of throwing an error
     }
 
     return this.registeredBlocks[type];

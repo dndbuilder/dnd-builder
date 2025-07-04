@@ -26,27 +26,24 @@ export interface TextareaProps
 
 const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ className, variant, label, error, id, ...props }, ref) => {
-    const textareaId = id || React.useId();
+    const innerId = React.useId();
 
     return (
       <div className="space-y-2">
         {label && (
-          <label
-            htmlFor={textareaId}
-            className="block text-sm font-medium text-gray-700"
-          >
+          <label htmlFor={id || innerId} className="block text-sm font-medium text-gray-700">
             {label}
           </label>
         )}
         <textarea
-          id={textareaId}
-          className={classNames(textareaVariants({ variant: error ? "error" : variant, className }))}
+          id={id || innerId}
+          className={classNames(
+            textareaVariants({ variant: error ? "error" : variant, className })
+          )}
           ref={ref}
           {...props}
         />
-        {error && (
-          <p className="text-sm text-red-500">{error}</p>
-        )}
+        {error && <p className="text-sm text-red-500">{error}</p>}
       </div>
     );
   }

@@ -24,7 +24,7 @@ const inputVariants = cva(
 );
 
 export interface InputProps
-  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'>,
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "size">,
     VariantProps<typeof inputVariants> {
   label?: string;
   error?: string;
@@ -32,27 +32,24 @@ export interface InputProps
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, variant, size, label, error, id, ...props }, ref) => {
-    const inputId = id || React.useId();
+    const innerId = React.useId();
 
     return (
       <div className="space-y-2">
         {label && (
-          <label
-            htmlFor={inputId}
-            className="block text-sm font-medium text-gray-700"
-          >
+          <label htmlFor={id || innerId} className="text-sum block font-medium text-gray-700">
             {label}
           </label>
         )}
         <input
-          id={inputId}
-          className={classNames(inputVariants({ variant: error ? "error" : variant, size, className }))}
+          id={id || innerId}
+          className={classNames(
+            inputVariants({ variant: error ? "error" : variant, size, className })
+          )}
           ref={ref}
           {...props}
         />
-        {error && (
-          <p className="text-sm text-red-500">{error}</p>
-        )}
+        {error && <p className="text-sm text-red-500">{error}</p>}
       </div>
     );
   }

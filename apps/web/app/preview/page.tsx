@@ -3,6 +3,7 @@ import { Block, BlockType, BuilderConfig } from "@dndbuilder.com/react";
 import { RenderContent } from "@dndbuilder.com/react/components/server";
 import "@dndbuilder.com/react/dist/style.css";
 import CustomLinkBlock from "@/components/blocks/link/link.preview";
+import CardBlock from "@/components/blocks/card/components/card.block";
 
 async function fetchContent(): Promise<Record<string, Block>> {
   let content: Record<string, Block> = {};
@@ -37,6 +38,10 @@ export default async function PreviewPage() {
       {
         type: BlockType.LINK,
         previewComponent: CustomLinkBlock,
+      },
+      {
+        type: "card",
+        previewComponent: CardBlock, // Replace with your custom card preview component
       },
     ],
   };

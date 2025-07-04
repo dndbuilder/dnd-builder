@@ -6,14 +6,12 @@ import { startCase } from "lodash";
 import clsx, { ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
-
 // Export all utility functions and types
-export * from './block';
-export * from './guard';
-export * from './popover';
-export * from './style';
-export * from './theme';
-
+export * from "./block";
+export * from "./guard";
+export * from "./popover";
+export * from "./style";
+export * from "./theme";
 
 /**
  * Creates a unique ID generator with a specified length
@@ -125,46 +123,6 @@ export function classNames(...inputs: ClassValue[]) {
 }
 
 /**
- * Dynamically imports icon sets based on the provided icon set name
- * @param iconSet - The name of the icon set to import
- * @returns The imported icon set or undefined if not found
- */
-export async function getIcons(iconSet: string) {
-  switch (iconSet) {
-    // case 'ai': {
-    //   const icons = await import('react-icons/ai');
-    //   return icons;
-    // }
-    // case "fi": {
-    //   const icons = await import("react-icons/fi");
-    //   return icons;
-    // }
-    // case "fa6": {
-    //   const icons = await import("react-icons/fa6");
-    //   return icons;
-    // }
-    // case 'hi2': {
-    //   const icons = await import('react-icons/hi2');
-    //   return icons;
-    // }
-    // case 'md': {
-    //   const icons = await import('react-icons/md');
-    //   return icons;
-    // }
-    // case 'bs': {
-    //   const icons = await import('react-icons/bs');
-    //   return icons;
-    // }
-    // case 'io5': {
-    //   const icons = await import('react-icons/io5');
-    //   return icons;
-    // }
-    default:
-      break;
-  }
-}
-
-/**
  * Sorts an array of items based on a provided order of IDs
  * @param ids - Array of IDs defining the desired order
  * @param data - Array of items to be sorted
@@ -204,48 +162,6 @@ export function objectKeys<T extends object>(obj: T) {
 }
 
 /**
- * Converts a singular word to its plural form following English grammar rules
- * @param word - The singular word to pluralize
- * @returns The pluralized form of the word
- */
-export const pluralize = <T extends string>(word: T) => {
-  if (word.endsWith("y") && !["a", "e", "i", "o", "u"].includes(word[word.length - 2])) {
-    return word.slice(0, -1) + "ies";
-  } else if (
-    word.endsWith("s") ||
-    word.endsWith("x") ||
-    word.endsWith("z") ||
-    word.endsWith("sh") ||
-    word.endsWith("ch")
-  ) {
-    return word + "es";
-  } else {
-    return word + "s";
-  }
-};
-
-/**
- * Converts a plural word to its singular form following English grammar rules
- * @param word - The plural word to singularize
- * @returns The singular form of the word
- */
-export const singularize = <T extends string>(word: T) => {
-  if (word.endsWith("ies")) {
-    return word.slice(0, -3) + "y";
-  } else if (
-    word.endsWith("ses") ||
-    word.endsWith("xes") ||
-    word.endsWith("zes") ||
-    word.endsWith("shes") ||
-    word.endsWith("ches")
-  ) {
-    return word.slice(0, -2);
-  } else {
-    return word.slice(0, -1);
-  }
-};
-
-/**
  * Converts bytes to a human-readable file size string
  * @param bytes - The size in bytes
  * @returns A formatted string representing the size (e.g., "1.5 MB")
@@ -257,15 +173,6 @@ export function bytesToSize(bytes: number): string {
   if (i === 0) return `${bytes} ${sizes[i]}`;
   return `${(bytes / Math.pow(1024, i)).toFixed(1)} ${sizes[i]}`;
 }
-
-/**
- * Generates a URL for an image from a path
- * @param path - The path to the image
- * @returns The URL for the image
- */
-export const generateImageUrl = (path: string) => {
-  return path;
-};
 
 /**
  * Converts a file to a base64 string
@@ -304,4 +211,3 @@ export const urlToBase64 = async (url: string): Promise<string> => {
 export const generateUniqueId = (): string => {
   return Date.now().toString(36) + Math.random().toString(36).substring(2);
 };
-

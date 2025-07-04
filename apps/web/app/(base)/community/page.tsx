@@ -26,7 +26,7 @@ export default function CommunityPage() {
           </Badge>
           <h1 className="mb-6 text-4xl font-bold text-gray-900 lg:text-5xl">Community</h1>
           <p className="mb-8 text-xl text-gray-600">
-            We're building an amazing community platform where developers can connect, share
+            We&apos;re building an amazing community platform where developers can connect, share
             projects, and help each other. Join our waitlist to be notified when it launches!
           </p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">

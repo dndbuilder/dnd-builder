@@ -3,8 +3,10 @@
 import {
   Accordion,
   InputControl,
+  Label,
   LinkControl,
   MediaControl,
+  Separator,
   TextareaControl,
 } from "@dndbuilder.com/react/components";
 import { SettingsType } from "@dndbuilder.com/react";
@@ -40,10 +42,13 @@ const CardContentControl = () => {
             isLocalized
           />
 
-          {/* Link */}
+          <Separator className="my-4" />
 
+          <Label className="font-semibold"> Link</Label>
+
+          {/* Link */}
           <InputControl
-            label="Link Text"
+            label="Text"
             fieldName="link.text"
             type={SettingsType.BLOCK}
             placeholder="Enter link text"
@@ -51,7 +56,7 @@ const CardContentControl = () => {
             isLocalized
           />
 
-          <LinkControl label="Link" fieldName="link" type={SettingsType.BLOCK} />
+          <LinkControl label="Url" fieldName="link" type={SettingsType.BLOCK} />
         </Accordion.Content>
       </Accordion.Item>
     </Accordion>

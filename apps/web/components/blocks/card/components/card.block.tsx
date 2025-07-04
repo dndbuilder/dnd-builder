@@ -11,14 +11,14 @@ const CardBlock: FC<BlockProps<CardSettingsType>> = ({ settings, meta }) => {
   const locale = meta?.locale || "en";
 
   return (
-    <Card className="card w-[350px]">
+    <Card className="card w-[350px] overflow-hidden transition-all duration-300">
       {settings.image && (
         <Image
           src={settings.image.url || ""}
           alt={settings.image.altText || "Card Image"}
-          width={settings.image.originalHeight || 100}
-          height={settings.image.originalWidth || 100}
-          className="card-image mb-4"
+          width={settings.image.originalHeight || 350}
+          height={settings.image.originalWidth || 350}
+          className="card-image mb-4 object-cover"
         />
       )}
 
@@ -32,7 +32,10 @@ const CardBlock: FC<BlockProps<CardSettingsType>> = ({ settings, meta }) => {
         </Card.Description>
 
         {settings.link && (
-          <Link href={settings.link.url || "#"} className="card-link">
+          <Link
+            href={settings.link.url || "#"}
+            className="card-link reset-style mt-4 inline-block rounded bg-slate-800 px-4 py-1.5 text-gray-50 transition-all duration-300 hover:bg-slate-900 hover:text-gray-100"
+          >
             {settings.link.text?.[locale]}
           </Link>
         )}

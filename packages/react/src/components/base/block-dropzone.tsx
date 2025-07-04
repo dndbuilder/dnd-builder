@@ -46,8 +46,8 @@ const BlockDropzone: FC<BlockDropzoneProps> = ({
         const container = createBlock({
           type: BlockType.CONTAINER,
           parentId: blockId,
-          settings: ContainerConfig.settings,
-          advancedSettings: ContainerConfig.advancedSettings,
+          settings: ContainerConfig?.settings,
+          advancedSettings: ContainerConfig?.advancedSettings,
         });
 
         const blocks: Block[] = [container];

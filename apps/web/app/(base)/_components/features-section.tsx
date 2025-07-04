@@ -18,7 +18,7 @@ export function FeaturesSection({ className }: FeaturesSectionProps) {
             Everything You Need to Build
           </h2>
           <p className="mx-auto text-xl text-gray-600">
-            From basic building blocks to advanced components, we've got you covered
+            From basic building blocks to advanced components, we&apos;ve got you covered
           </p>
         </div>
 
