@@ -1,13 +1,12 @@
-import { useActionContext } from "@/contexts/action-context";
+import { useAction } from "@/hooks";
 import { classNames } from "@/utils";
 import { FC, HTMLAttributes } from "react";
 import { FiChevronLeft } from "react-icons/fi";
-import { VscTriangleLeft } from "react-icons/vsc";
 
 interface CollapseShapeProps extends HTMLAttributes<SVGAElement> {}
 
 const CollapseShape: FC<CollapseShapeProps> = () => {
-  const { isLeftPanelOpen, setIsLeftPanelOpen } = useActionContext();
+  const { isLeftPanelOpen, setIsLeftPanelOpen } = useAction();
   return (
     <div
       onClick={() => {

@@ -1,7 +1,7 @@
 "use client";
 import { Popover } from "@/components/shared/popover";
 import { Tooltip } from "@/components/shared/tooltip";
-import { useActionContext } from "@/contexts/action-context";
+import { useAction } from "@/hooks";
 import { useAppDispatch } from "@/hooks/use-app-dispatch";
 import { useAppSelector } from "@/hooks/use-app-selector";
 import { clearContent, setContent } from "@/store/builder-slice";
@@ -89,7 +89,7 @@ const ActionDropdown: FC = () => {
     dispatch(clearContent());
   };
 
-  const { isSaving, save } = useActionContext();
+  const { isSaving, save } = useAction();
 
   return (
     <div className="flex h-9 divide-x divide-indigo-700 overflow-hidden rounded-sm bg-gray-900 text-white">

@@ -18,6 +18,7 @@ A modern, extensible drag-and-drop page builder for React, built as a monorepo u
 - State management with Redux Toolkit
 - Extensible via custom blocks and configuration
 - Monorepo structure for scalable development
+- Built-in keyboard shortcuts and editor actions (copy, paste, undo/redo)
 
 ## Getting Started
 
@@ -79,19 +80,3 @@ pnpm start
 - **Build Failures**: Clean cache with `rm -rf .turbo` and rebuild
 - **Dependency Issues**: Remove `node_modules` and reinstall with `pnpm install`
 - **TypeScript Errors**: Ensure code follows the shared TypeScript config
-
-## License
-
-MIT
-
-## TODO
-
-- [ ] Refactor `.reset` class to reset global styles
-- [ ] Refactor `slider-block` to use `Swiper React` component
-- [ ] Improve documentation and usage examples
-- [ ] Add support for block-level theming
-- [ ] Enhance accessibility (a11y) features
-- [ ] Add export/import functionality for page data
-- [ ] Add integration tests for the builder UI
-- [ ] Enable collaborative editing
-- [ ] Add plugin system for third-party extensions

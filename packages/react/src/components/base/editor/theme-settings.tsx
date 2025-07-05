@@ -1,7 +1,6 @@
 "use client";
 
 import { ScrollArea } from "@/components/shared/scroll-area";
-import { useActionContext } from "@/contexts/action-context";
 import { ThemeSettingsType } from "@/types";
 import { BuilderRightPanelType } from "@/store/app-slice";
 import { useState } from "react";
@@ -19,6 +18,7 @@ import ThemeCustomCssSettings from "./theme-custom-css-settings";
 import ThemeLayoutSettings from "./theme-layout-settings";
 import ThemeLinkSettings from "./theme-link-settings";
 import ThemeTypographySettings from "./theme-typography-settings";
+import { useAction } from "@/hooks";
 
 interface SettingItemProps {
   label: React.ReactNode;
@@ -43,7 +43,7 @@ const SettingItem = ({ label, icon, onClick }: SettingItemProps) => {
 const Navigation = () => {
   const [currentSetting, setCurrentSetting] = useState<ThemeSettingsType>(ThemeSettingsType.GLOBAL);
 
-  const { toggleRightPanel } = useActionContext();
+  const { toggleRightPanel } = useAction();
 
   switch (currentSetting) {
     case ThemeSettingsType.LAYOUT:

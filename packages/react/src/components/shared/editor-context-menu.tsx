@@ -1,15 +1,18 @@
 "use client";
 
+import { useAction } from "@/hooks";
 import { useAppDispatch } from "@/hooks/use-app-dispatch";
-import { BuilderRightPanelType } from "@/store/app-slice";
-import { FC, ReactNode, useState } from "react";
+import { useAppSelector } from "@/hooks/use-app-selector";
 import { useFrame } from "@/hooks/use-frame";
+import { BuilderRightPanelType } from "@/store/app-slice";
 import {
   copyToClipboard,
   duplicateBlock,
   removeBlock,
   selectBlock as setSelectedBlock,
 } from "@/store/builder-slice";
+import { getBlock } from "@/store/selectors";
+import { FC, ReactNode, useState } from "react";
 import {
   ContextMenu,
   ContextMenuContent,
@@ -19,9 +22,6 @@ import {
   ContextMenuShortcut,
   ContextMenuTrigger,
 } from "./context-menu";
-import { useAppSelector } from "@/hooks/use-app-selector";
-import { getBlock } from "@/store/selectors";
-import { useActionContext } from "@/contexts/action-context";
 
 export type EditorContextMenuProps = {
   blockId: string;
@@ -39,7 +39,7 @@ export const EditorContextMenu: FC<EditorContextMenuProps> = ({ blockId, childre
     getPlatformSpecificSaveShortcut,
     toggleRightPanel,
     getClipboardData,
-  } = useActionContext();
+  } = useAction();
   const { document } = useFrame();
   const [pastable, setPastable] = useState(true);
   const block = useAppSelector(getBlock(blockId));

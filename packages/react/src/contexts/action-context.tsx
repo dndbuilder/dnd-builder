@@ -232,13 +232,3 @@ export const ActionProvider = ({ children }: { children: ReactNode }) => {
     </ActionContext.Provider>
   );
 };
-
-export const useActionContext = () => {
-  const context = useContext(ActionContext);
-
-  if (!context) {
-    throw new Error("useActionContext must be used within a ActionProvider");
-  }
-
-  return context;
-};

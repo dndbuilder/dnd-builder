@@ -1,12 +1,12 @@
 "use client";
-import { useActionContext } from "@/contexts/action-context";
 import { BuilderRightPanelType } from "@/store/app-slice";
 import { classNames } from "@/utils";
 import Structure from "./structure";
 import ThemeSettings from "./theme-settings";
+import { useAction } from "@/hooks";
 
 export const RightPanel = () => {
-  const { activeRightPanel } = useActionContext();
+  const { activeRightPanel } = useAction();
 
   return (
     <div

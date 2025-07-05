@@ -1,6 +1,5 @@
 "use client";
 import { BuilderConfiguration } from "@/config/builder.config";
-import { useActionContext } from "@/contexts/action-context";
 import { unselectBlock } from "@/store/builder-slice";
 import { getSelectedBlock } from "@/store/selectors";
 import { useAppDispatch } from "@/hooks/use-app-dispatch";
@@ -9,10 +8,11 @@ import { classNames } from "@/utils";
 import { FiChevronLeft } from "react-icons/fi";
 import { BlockControlPanel } from "./block-control-panel";
 import { BlockNavigation } from "./block-navigation";
-import CollapseShape from "../../icons/collapse-shape";
+import CollapseShape from "@/components/icons/collapse-shape";
+import { useAction } from "@/hooks";
 
 export const LeftPanel = () => {
-  const { isLeftPanelOpen } = useActionContext();
+  const { isLeftPanelOpen } = useAction();
 
   const selectedBlock = useAppSelector(getSelectedBlock);
 

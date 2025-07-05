@@ -1,26 +1,34 @@
 "use client";
+
 import { Tooltip } from "@/components/shared/tooltip";
-import { useActionContext } from "@/contexts/action-context";
+import { useAction } from "@/hooks/use-action";
+
 import { classNames } from "@/utils";
 import { FC } from "react";
 import { LuRedo2, LuUndo2 } from "react-icons/lu";
 
-const UndoRedo: FC<{ className?: string }> = ({ className }) => {
-  const { undo, redo, isRedoable, isUndoable } = useActionContext();
+export type UndoRedoProps = React.HTMLAttributes<HTMLDivElement>;
+
+export const UndoRedo: FC<{ className?: string }> = ({ className, ...rest }) => {
+  const { undo, redo, isRedoable, isUndoable } = useAction();
 
   return (
     <div
-      className={classNames("flex h-10 divide-x divide-gray-700 rounded-sm bg-gray-800", className)}
+      className={classNames(
+        "flex h-10 items-center rounded-sm px-2 text-lg ring-1 ring-inset ring-gray-300 transition-colors duration-150 hover:bg-gray-100 hover:ring-gray-600",
+        className
+      )}
+      {...rest}
     >
       {/* Undo */}
       <Tooltip>
         <Tooltip.Trigger
           type="button"
-          className="px-2.5 text-gray-100 enabled:hover:text-gray-800 disabled:cursor-not-allowed disabled:opacity-50"
+          className="p-2 disabled:cursor-not-allowed disabled:opacity-50"
           onClick={undo}
           disabled={!isUndoable}
         >
-          <LuUndo2 size={18} />
+          <LuUndo2 size={20} />
 
           <Tooltip.Content>Undo - Ctrl/Cmd+Z</Tooltip.Content>
         </Tooltip.Trigger>
@@ -30,16 +38,14 @@ const UndoRedo: FC<{ className?: string }> = ({ className }) => {
       <Tooltip>
         <Tooltip.Trigger
           type="button"
-          className="px-2.5 text-gray-100 enabled:hover:text-gray-800 disabled:cursor-not-allowed disabled:opacity-50"
+          className="p-2 disabled:cursor-not-allowed disabled:opacity-50"
           onClick={redo}
           disabled={!isRedoable}
         >
-          <LuRedo2 size={16} />
+          <LuRedo2 size={20} />
           <Tooltip.Content>Redo - Ctrl/Cmd+Shift+Z</Tooltip.Content>
         </Tooltip.Trigger>
       </Tooltip>
     </div>
   );
 };
-
-export default UndoRedo;

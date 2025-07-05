@@ -6,7 +6,6 @@ import { FrameContextManager } from "@/components/base/frame-context-manager";
 import { RenderFrame } from "@/components/base/render-frame";
 import { ErrorFallback } from "@/components/shared/error-fallback";
 import { BuilderConfiguration } from "@/config/builder.config";
-import { useActionContext } from "@/contexts/action-context";
 import { useAppDispatch } from "@/hooks/use-app-dispatch";
 import { useAppSelector } from "@/hooks/use-app-selector";
 import { unselectBlock } from "@/store/builder-slice";
@@ -21,15 +20,14 @@ import { classNames } from "@/utils";
 import { CSSProperties, FC, useEffect, useMemo, useRef, useState } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { EditorAssetManager } from "../editor-asset-manager";
+import { useAction } from "@/hooks";
 
 export const CanvasArea: FC = () => {
   const content = useAppSelector(getContent);
 
   const themeSettings = useAppSelector(getActiveThemeSettings);
 
-  const { isLeftPanelOpen } = useActionContext();
-
-  const { activeRightPanel } = useActionContext();
+  const { isLeftPanelOpen, activeRightPanel } = useAction();
 
   const currentBreakpoint = useAppSelector(getCurrentBreakpoint);
 

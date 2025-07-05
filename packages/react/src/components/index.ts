@@ -69,11 +69,13 @@ export * from "./controls/media.control";
 // Editor Components
 export * from "./base/editor/canvas-area";
 export * from "./base/editor/breakpoint-switch";
+export * from "./base/editor/undo-redo";
 export * from "./base/editor/theme-settings";
 export * from "./base/editor/left-panel";
 export * from "./base/editor/right-panel";
 export * from "./base/editor/block-control-panel";
 export * from "./base/editor/block-navigation";
+export * from "./base/editor/block-navigation-item";
 
 // Base Components
 export * from "./base/editor-asset-manager";

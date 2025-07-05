@@ -1,6 +1,6 @@
 "use client";
 import { Tooltip } from "@/components/shared/tooltip";
-import { useActionContext } from "@/contexts/action-context";
+import { useAction } from "@/hooks";
 import { useAppSelector } from "@/hooks/use-app-selector";
 import { BuilderRightPanelType } from "@/store/app-slice";
 import { classNames } from "@/utils";
@@ -14,7 +14,7 @@ type SettingsToggleProps = {
 const SettingsToggle: FC<SettingsToggleProps> = ({ className }) => {
   const activeRightPanel = useAppSelector((state) => state.app.activeBuilderRightPanel);
 
-  const { toggleRightPanel } = useActionContext();
+  const { toggleRightPanel } = useAction();
 
   return (
     <Tooltip>

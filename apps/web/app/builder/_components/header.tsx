@@ -1,10 +1,10 @@
+import { BreakpointSwitch, Tooltip, UndoRedo } from "@dndbuilder.com/react/components";
 import { useContent } from "@dndbuilder.com/react/hooks";
-import { BreakpointSwitch, Tooltip } from "@dndbuilder.com/react/components";
 import Link from "next/link";
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { TbDragDrop } from "react-icons/tb";
 import { LuScanEye } from "react-icons/lu";
+import { TbDragDrop } from "react-icons/tb";
 
 export const Header = () => {
   const [content] = useContent();
@@ -48,7 +48,10 @@ export const Header = () => {
         </Link>
       </div>
 
-      <BreakpointSwitch />
+      <div className="flex items-center space-x-2">
+        <BreakpointSwitch />
+        <UndoRedo />
+      </div>
 
       <div className="flex items-center space-x-2">
         <Tooltip>

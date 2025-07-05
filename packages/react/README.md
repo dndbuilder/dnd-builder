@@ -133,6 +133,7 @@ Custom hooks for accessing and manipulating the editor state:
 - `useBuilderDispatch`: Dispatch actions to the editor store
 - `useSettings`: Access and update editor settings
 - `useFieldName`: Generate settings field names
+- `useAction`: Access editor actions like save, copy, paste, undo, redo, and panel management
 
 ```jsx
 import {

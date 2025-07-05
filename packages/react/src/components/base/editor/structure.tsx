@@ -1,7 +1,10 @@
 "use client";
 import { ScrollArea } from "@/components/shared/scroll-area";
 import { BuilderConfiguration } from "@/config/builder.config";
-import { useActionContext } from "@/contexts/action-context";
+import { useAction } from "@/hooks";
+import { useAppDispatch } from "@/hooks/use-app-dispatch";
+import { useAppSelector } from "@/hooks/use-app-selector";
+import { BuilderRightPanelType } from "@/store/app-slice";
 import { duplicateBlock, removeBlock, selectBlock } from "@/store/builder-slice";
 import {
   getBlock,
@@ -9,15 +12,11 @@ import {
   getIsAnyChildSelected,
   getSelectedBlock,
 } from "@/store/selectors";
-import { useAppDispatch } from "@/hooks/use-app-dispatch";
-import { useAppSelector } from "@/hooks/use-app-selector";
-import { BuilderRightPanelType } from "@/store/app-slice";
 import { classNames } from "@/utils";
 import { MouseEvent, useCallback, useEffect, useState } from "react";
 import { BsQuestionCircle } from "react-icons/bs";
 import { FiChevronRight, FiLayers, FiTrash2, FiX } from "react-icons/fi";
 import { IoDuplicateOutline } from "react-icons/io5";
-import { TiWarning, TiWarningOutline } from "react-icons/ti";
 
 interface LayterItemProps {
   blockId: string;
@@ -193,7 +192,7 @@ const StructureItem = ({ blockId, index }: LayterItemProps) => {
 
 const Structure = () => {
   const root = useAppSelector(getContentRoot);
-  const { toggleRightPanel } = useActionContext();
+  const { toggleRightPanel } = useAction();
 
   return (
     <ScrollArea className="h-[calc(100vh-70px)]">
