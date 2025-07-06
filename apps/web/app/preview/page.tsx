@@ -31,8 +31,6 @@ export default async function PreviewPage() {
   // Fetch content from MongoDB using the utility function
   const content = await fetchContent();
 
-  console.log("PreviewPage - content:", content);
-
   // Create a custom builder configuration that overrides the Link block
   const builderConfig: BuilderConfig = {
     blocks: [
