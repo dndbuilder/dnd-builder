@@ -11,8 +11,6 @@ import { editorConfig } from "./config/editor.config";
 export default function BuilderPage() {
   const [initialContent, setInitialContent] = useState<Record<string, Block>>({});
 
-  // const [isLoading, setIsLoading] = useState(true);
-
   useEffect(() => {
     // Load content from API instead of localStorage
     const fetchContent = async () => {
