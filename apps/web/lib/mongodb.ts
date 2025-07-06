@@ -4,6 +4,10 @@ if (!process.env.MONGODB_URI) {
   throw new Error("Please add your MongoDB URI to .env.local");
 }
 
+if (!process.env.DB_NAME) {
+  throw new Error("Please add your DB_NAME to .env.local");
+}
+
 const uri = process.env.MONGODB_URI;
 const options = {};
 

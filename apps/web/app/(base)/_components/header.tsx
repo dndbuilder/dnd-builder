@@ -1,8 +1,7 @@
-import Link from "next/link";
-import { FiLayers } from "react-icons/fi";
-import { Button } from "@/components/ui/button";
 import { classNames } from "@/lib/utils";
+import Link from "next/link";
 import { TbDragDrop } from "react-icons/tb";
+import { AuthSection } from "./auth-section";
 
 interface HeaderProps {
   className?: string;
@@ -36,18 +35,8 @@ export function Header({ className }: HeaderProps) {
           <Link href="/contact" className="text-gray-600 transition-colors hover:text-gray-900">
             Contact
           </Link>
-          <div className="flex items-center space-x-2">
-            <Button variant="outline" className="border-gray-300" size="sm">
-              <Link href="/login" className="flex items-center space-x-1">
-                <span>Login</span>
-              </Link>
-            </Button>
-            <Button size="sm" asChild>
-              <Link href="/register" className="flex items-center space-x-1">
-                <span>Get Started</span>
-              </Link>
-            </Button>
-          </div>
+
+          <AuthSection />
         </nav>
       </div>
     </header>

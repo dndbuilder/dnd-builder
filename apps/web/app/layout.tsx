@@ -3,6 +3,7 @@ import React from "react";
 import { Toaster } from "react-hot-toast";
 import "./globals.css";
 import ProgressProvider from "@/providers/progress-provider";
+import NextAuthSessionProvider from "@/providers/session-provider";
 
 const openSans = Open_Sans({
   weight: ["300", "400", "500", "600", "700", "800"],
@@ -69,8 +70,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={openSans.className}>
       <body>
-        <ProgressProvider>{children}</ProgressProvider>
-        <Toaster />
+        <NextAuthSessionProvider>
+          <ProgressProvider>{children}</ProgressProvider>
+          <Toaster />
+        </NextAuthSessionProvider>
       </body>
     </html>
   );

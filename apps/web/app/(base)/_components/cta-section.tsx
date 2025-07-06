@@ -16,7 +16,7 @@ export function CtaSection({ className }: CtaSectionProps) {
           Join the developers who are creating stunning, responsive pages with our intuitive
           drag-and-drop builder
         </p>
-        <div className="flex flex-col justify-center gap-4 sm:flex-row">
+        <div className="flex justify-center gap-4 sm:flex-row">
           <Button
             size="lg"
             className="bg-white px-8 py-3 text-sm text-black hover:bg-gray-100"
