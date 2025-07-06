@@ -1,19 +1,18 @@
+import CustomLinkBlock from "@/components/blocks/link/link.preview";
 import clientPromise from "@/lib/mongodb";
 import { Block, BlockType, BuilderConfig } from "@dndbuilder.com/react";
 import { RenderContent } from "@dndbuilder.com/react/components/server";
 import "@dndbuilder.com/react/dist/style.css";
-import CustomLinkBlock from "@/components/blocks/link/link.preview";
-import CardBlock from "@/components/blocks/card/components/card.block";
 
 async function fetchContent(): Promise<Record<string, Block>> {
   let content: Record<string, Block> = {};
 
   try {
     const client = await clientPromise;
-    const db = client.db("pageBuilder");
+    const db = client.db(process.env.DB_NAME || "dndbuilder");
 
     // Get the latest content
-    const contentDoc = await db.collection("builderContent").findOne({}, { sort: { _id: -1 } });
+    const contentDoc = await db.collection("pages").findOne({}, { sort: { _id: -1 } });
 
     if (contentDoc && contentDoc.data) {
       content = contentDoc.data;
@@ -39,17 +38,9 @@ export default async function PreviewPage() {
         type: BlockType.LINK,
         previewComponent: CustomLinkBlock,
       },
-      {
-        type: "card",
-        previewComponent: CardBlock, // Replace with your custom card preview component
-      },
+      // CardConfig,
     ],
   };
 
-  return (
-    <>
-      {/* Render the content with a custom builder configuration */}
-      <RenderContent content={content} builderConfig={builderConfig} />
-    </>
-  );
+  return <RenderContent content={content} builderConfig={builderConfig} />;
 }
