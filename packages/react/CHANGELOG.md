@@ -1,5 +1,17 @@
 # @dndbuilder.com/react
 
+## 0.1.2
+
+### Patch Changes
+
+- 11046b4: fix: image block placeholder image issue
+
+## 0.1.1
+
+### Patch Changes
+
+- 31d1b6d: fix: update class name in Text component for better styling consistency
+
 ## 0.1.0
 
 ### Minor Changes

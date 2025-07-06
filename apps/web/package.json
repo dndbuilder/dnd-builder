@@ -1,6 +1,6 @@
 {
   "name": "web",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -21,6 +21,7 @@
     "@tailwindcss/postcss": "^4.1.7",
     "@types/mdx": "^2.0.13",
     "bcryptjs": "^3.0.2",
+    "@vercel/analytics": "^1.5.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "mongodb": "^6.17.0",

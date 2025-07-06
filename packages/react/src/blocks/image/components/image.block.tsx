@@ -15,7 +15,7 @@ const ImageBlock: FC<BlockProps<ImageSettingsType>> = ({ settings, meta }) => {
       <img
         width={settings.media?.originalWidth ?? 500}
         height={settings.media?.originalWidth ?? 500}
-        src={settings.media?.url ?? placeholder.src}
+        src={settings.media?.url ?? placeholder}
         alt={settings.media?.name ?? "image"}
       />
       {captionText && <figcaption className="block-img-caption">{captionText}</figcaption>}

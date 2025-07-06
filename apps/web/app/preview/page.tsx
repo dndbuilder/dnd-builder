@@ -1,27 +1,32 @@
+import CustomLinkBlock from "@/components/blocks/link/link.preview";
 import clientPromise from "@/lib/mongodb";
 import { Block, BlockType, BuilderConfig } from "@dndbuilder.com/react";
 import { RenderContent } from "@dndbuilder.com/react/components/server";
 import "@dndbuilder.com/react/dist/style.css";
-import CustomLinkBlock from "@/components/blocks/link/link.preview";
-import CardBlock from "@/components/blocks/card/components/card.block";
 
 async function fetchContent(): Promise<Record<string, Block>> {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+
   let content: Record<string, Block> = {};
 
-  try {
-    const client = await clientPromise;
-    const db = client.db("pageBuilder");
+  const response = await fetch(`${baseUrl}/api/builder-content`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    cache: "no-store", // Ensure we always fetch the latest content
+  });
+  if (!response.ok) {
+    throw new Error("Failed to fetch content.");
+  }
 
-    // Get the latest content
-    const contentDoc = await db.collection("builderContent").findOne({}, { sort: { _id: -1 } });
+  const data = await response.json();
 
-    if (contentDoc && contentDoc.data) {
-      content = contentDoc.data;
-    }
-  } catch (error) {
-    console.error("Error fetching content from database:", error);
-    // We can't access localStorage on the server side
-    // The client-side fallback will be handled in a client component if needed
+  if (data.content && Object.keys(data.content).length > 0) {
+    content = data.content;
+  } else {
+    // Fallback to an empty content object if no content is found
+    console.warn("No content found, using empty content.");
   }
 
   return content;
@@ -39,17 +44,9 @@ export default async function PreviewPage() {
         type: BlockType.LINK,
         previewComponent: CustomLinkBlock,
       },
-      {
-        type: "card",
-        previewComponent: CardBlock, // Replace with your custom card preview component
-      },
+      // CardConfig,
     ],
   };
 
-  return (
-    <>
-      {/* Render the content with a custom builder configuration */}
-      <RenderContent content={content} builderConfig={builderConfig} />
-    </>
-  );
+  return <RenderContent content={content} builderConfig={builderConfig} />;
 }

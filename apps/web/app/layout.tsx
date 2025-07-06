@@ -4,6 +4,7 @@ import { Toaster } from "react-hot-toast";
 import "./globals.css";
 import ProgressProvider from "@/providers/progress-provider";
 import NextAuthSessionProvider from "@/providers/session-provider";
+import { Analytics } from "@vercel/analytics/next";
 
 const openSans = Open_Sans({
   weight: ["300", "400", "500", "600", "700", "800"],
@@ -74,6 +75,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <ProgressProvider>{children}</ProgressProvider>
           <Toaster />
         </NextAuthSessionProvider>
+        <Analytics />
       </body>
     </html>
   );
