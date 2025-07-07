@@ -1,7 +1,7 @@
-import { classNames } from "@/lib/utils";
-import Link from "next/link";
-import { TbDragDrop } from "react-icons/tb";
-import { AuthSection } from "./auth-section";
+import { classNames } from '@/lib/utils';
+import Link from 'next/link';
+import { TbDragDrop } from 'react-icons/tb';
+import { AuthSection } from './auth-section';
 
 interface HeaderProps {
   className?: string;
@@ -11,12 +11,12 @@ export function Header({ className }: HeaderProps) {
   return (
     <header
       className={classNames(
-        "sticky top-0 z-50 border-b border-gray-300 bg-white/80 backdrop-blur-sm",
+        'sticky top-0 z-50 border-b border-gray-300 bg-white/80 backdrop-blur-sm',
         className
       )}
     >
       <div className="container mx-auto flex items-center justify-between px-4 py-4">
-        <Link href={"/"} className="flex items-center space-x-2">
+        <Link href={'/'} className="flex items-center space-x-2">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-gray-900 to-black">
             <TbDragDrop className="h-5 w-5 text-white" />
           </div>

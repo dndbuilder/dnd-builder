@@ -1,23 +1,23 @@
-import CustomLinkBlock from "@/components/blocks/link/link.preview";
-import clientPromise from "@/lib/mongodb";
-import { Block, BlockType, BuilderConfig } from "@dndbuilder.com/react";
-import { RenderContent } from "@dndbuilder.com/react/components/server";
-import "@dndbuilder.com/react/dist/style.css";
+import CustomLinkBlock from '@/components/blocks/link/link.preview';
+import clientPromise from '@/lib/mongodb';
+import { Block, BlockType, BuilderConfig } from '@dndbuilder.com/react';
+import { RenderContent } from '@dndbuilder.com/react/components/server';
+import '@dndbuilder.com/react/dist/style.css';
 
 async function fetchContent(): Promise<Record<string, Block>> {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
 
   let content: Record<string, Block> = {};
 
   const response = await fetch(`${baseUrl}/api/builder-content`, {
-    method: "GET",
+    method: 'GET',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
-    cache: "no-store", // Ensure we always fetch the latest content
+    cache: 'no-store', // Ensure we always fetch the latest content
   });
   if (!response.ok) {
-    throw new Error("Failed to fetch content.");
+    throw new Error('Failed to fetch content.');
   }
 
   const data = await response.json();
@@ -26,7 +26,7 @@ async function fetchContent(): Promise<Record<string, Block>> {
     content = data.content;
   } else {
     // Fallback to an empty content object if no content is found
-    console.warn("No content found, using empty content.");
+    console.warn('No content found, using empty content.');
   }
 
   return content;

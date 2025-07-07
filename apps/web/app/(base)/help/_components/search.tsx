@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import * as React from "react";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Card } from "@/components/ui/card";
-import { LuClock, LuFilter, LuSearch, LuTrendingUp } from "react-icons/lu";
-import { classNames } from "@/lib/utils";
-import { FiX } from "react-icons/fi";
+import * as React from 'react';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { Card } from '@/components/ui/card';
+import { LuClock, LuFilter, LuSearch, LuTrendingUp } from 'react-icons/lu';
+import { classNames } from '@/lib/utils';
+import { FiX } from 'react-icons/fi';
 
 export interface SearchResult {
   id: string;
@@ -14,7 +14,7 @@ export interface SearchResult {
   description: string;
   category?: string;
   url?: string;
-  type?: "article" | "example" | "documentation" | "community";
+  type?: 'article' | 'example' | 'documentation' | 'community';
   tags?: string[];
   popularity?: number;
 }
@@ -30,13 +30,13 @@ export interface SearchProps {
   recentSearches?: string[];
   popularSearches?: string[];
   className?: string;
-  size?: "sm" | "md" | "lg";
+  size?: 'sm' | 'md' | 'lg';
 }
 
 const SearchComponent = React.forwardRef<HTMLDivElement, SearchProps>(
   (
     {
-      placeholder = "Search...",
+      placeholder = 'Search...',
       onSearch,
       onResultSelect,
       results = [],
@@ -46,21 +46,21 @@ const SearchComponent = React.forwardRef<HTMLDivElement, SearchProps>(
       recentSearches = [],
       popularSearches = [],
       className,
-      size = "md",
+      size = 'md',
       ...props
     },
     ref
   ) => {
-    const [query, setQuery] = React.useState("");
+    const [query, setQuery] = React.useState('');
     const [isOpen, setIsOpen] = React.useState(false);
     const [selectedIndex, setSelectedIndex] = React.useState(-1);
     const inputRef = React.useRef<HTMLInputElement>(null);
     const resultsRef = React.useRef<HTMLDivElement>(null);
 
     const sizeClasses = {
-      sm: "h-9 text-sm",
-      md: "h-11 text-base",
-      lg: "h-14 text-lg",
+      sm: 'h-9 text-sm',
+      md: 'h-11 text-base',
+      lg: 'h-14 text-lg',
     };
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -87,15 +87,15 @@ const SearchComponent = React.forwardRef<HTMLDivElement, SearchProps>(
       if (!isOpen) return;
 
       switch (e.key) {
-        case "ArrowDown":
+        case 'ArrowDown':
           e.preventDefault();
           setSelectedIndex((prev) => (prev < results.length - 1 ? prev + 1 : prev));
           break;
-        case "ArrowUp":
+        case 'ArrowUp':
           e.preventDefault();
           setSelectedIndex((prev) => (prev > 0 ? prev - 1 : -1));
           break;
-        case "Enter":
+        case 'Enter':
           e.preventDefault();
           if (selectedIndex >= 0 && results[selectedIndex]) {
             handleResultClick(results[selectedIndex]);
@@ -104,7 +104,7 @@ const SearchComponent = React.forwardRef<HTMLDivElement, SearchProps>(
             setIsOpen(false);
           }
           break;
-        case "Escape":
+        case 'Escape':
           setIsOpen(false);
           inputRef.current?.blur();
           break;
@@ -112,24 +112,24 @@ const SearchComponent = React.forwardRef<HTMLDivElement, SearchProps>(
     };
 
     const clearSearch = () => {
-      setQuery("");
+      setQuery('');
       setIsOpen(false);
-      onSearch?.("");
+      onSearch?.('');
       inputRef.current?.focus();
     };
 
     const getResultIcon = (type?: string) => {
       switch (type) {
-        case "article":
-          return "📄";
-        case "example":
-          return "🎨";
-        case "documentation":
-          return "📚";
-        case "community":
-          return "👥";
+        case 'article':
+          return '📄';
+        case 'example':
+          return '🎨';
+        case 'documentation':
+          return '📚';
+        case 'community':
+          return '👥';
         default:
-          return "🔍";
+          return '🔍';
       }
     };
 
@@ -140,12 +140,12 @@ const SearchComponent = React.forwardRef<HTMLDivElement, SearchProps>(
         }
       };
 
-      document.addEventListener("mousedown", handleClickOutside);
-      return () => document.removeEventListener("mousedown", handleClickOutside);
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => document.removeEventListener('mousedown', handleClickOutside);
     }, []);
 
     return (
-      <div ref={ref} className={classNames("relative w-full", className)} {...props}>
+      <div ref={ref} className={classNames('relative w-full', className)} {...props}>
         {/* Search Input */}
         <div className="relative">
           <LuSearch className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 transform text-gray-400" />
@@ -158,7 +158,7 @@ const SearchComponent = React.forwardRef<HTMLDivElement, SearchProps>(
             onFocus={() => setIsOpen(query.length > 0 || showRecentSearches)}
             placeholder={placeholder}
             className={classNames(
-              "w-full rounded-lg border border-gray-300 pl-10 pr-12 transition-all focus:border-transparent focus:outline-none focus:ring-2 focus:ring-gray-900",
+              'w-full rounded-lg border border-gray-300 pl-10 pr-12 transition-all focus:border-transparent focus:outline-none focus:ring-2 focus:ring-gray-900',
               sizeClasses[size],
               className
             )}
@@ -200,8 +200,8 @@ const SearchComponent = React.forwardRef<HTMLDivElement, SearchProps>(
                       <div
                         key={result.id}
                         className={classNames(
-                          "cursor-pointer border-b border-gray-100 px-4 py-3 transition-colors last:border-b-0 hover:bg-gray-50",
-                          selectedIndex === index && "bg-gray-50"
+                          'cursor-pointer border-b border-gray-100 px-4 py-3 transition-colors last:border-b-0 hover:bg-gray-50',
+                          selectedIndex === index && 'bg-gray-50'
                         )}
                         onClick={() => handleResultClick(result)}
                       >
@@ -296,6 +296,6 @@ const SearchComponent = React.forwardRef<HTMLDivElement, SearchProps>(
   }
 );
 
-SearchComponent.displayName = "Search";
+SearchComponent.displayName = 'Search';
 
 export { SearchComponent as Search };

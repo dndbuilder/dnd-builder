@@ -1,7 +1,7 @@
-const tsParser = require("@typescript-eslint/parser");
-const js = require("@eslint/js");
+const tsParser = require('@typescript-eslint/parser');
+const js = require('@eslint/js');
 
-const { FlatCompat } = require("@eslint/eslintrc");
+const { FlatCompat } = require('@eslint/eslintrc');
 
 const compat = new FlatCompat({
   baseDirectory: __dirname,
@@ -11,7 +11,7 @@ const compat = new FlatCompat({
 
 module.exports = [
   ...compat.config({
-    extends: ["@repo/eslint-config/next.js"],
+    extends: ['@repo/eslint-config/next.js'],
   }),
   {
     languageOptions: {

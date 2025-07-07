@@ -1,1 +1,1 @@
-export { default as CardConfig } from "./card.config";
+export { default as CardConfig } from './card.config';

@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useState } from "react";
+import { useState } from 'react';
 import {
   LuMail,
   LuLock,
@@ -10,21 +10,21 @@ import {
   LuArrowRight,
   LuUser,
   LuCheck,
-} from "react-icons/lu";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import Link from "next/link";
-import { signIn, useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
-import { toast } from "react-hot-toast";
+} from 'react-icons/lu';
+import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import Link from 'next/link';
+import { signIn, useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+import { toast } from 'react-hot-toast';
 
 export default function RegisterPage() {
   const [showPassword, setShowPassword] = useState(false);
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [marketingConsent, setMarketingConsent] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -38,7 +38,7 @@ export default function RegisterPage() {
 
   // Redirect if already logged in
   if (session) {
-    router.push("/");
+    router.push('/');
     return null;
   }
 
@@ -50,17 +50,17 @@ export default function RegisterPage() {
     e.preventDefault();
 
     if (!firstName || !lastName || !email || !password) {
-      toast.error("Please fill in all required fields");
+      toast.error('Please fill in all required fields');
       return;
     }
 
     if (!termsAccepted) {
-      toast.error("You must accept the Terms of Service and Privacy Policy");
+      toast.error('You must accept the Terms of Service and Privacy Policy');
       return;
     }
 
     if (!hasMinLength || !hasMixedCase || !hasNumber) {
-      toast.error("Please ensure your password meets all requirements");
+      toast.error('Please ensure your password meets all requirements');
       return;
     }
 
@@ -68,10 +68,10 @@ export default function RegisterPage() {
 
     try {
       // Register the user
-      const response = await fetch("/api/auth/register", {
-        method: "POST",
+      const response = await fetch('/api/auth/register', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           firstName,
@@ -84,27 +84,27 @@ export default function RegisterPage() {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.error || "Failed to register");
+        throw new Error(data.error || 'Failed to register');
       }
 
-      toast.success("Account created successfully");
+      toast.success('Account created successfully');
 
       // Sign in the user
-      const result = await signIn("credentials", {
+      const result = await signIn('credentials', {
         redirect: false,
         email,
         password,
       });
 
       if (result?.error) {
-        toast.error("Failed to sign in after registration");
+        toast.error('Failed to sign in after registration');
       } else {
-        router.push("/");
+        router.push('/');
         router.refresh();
       }
     } catch (error: any) {
-      toast.error(error.message || "An error occurred during registration");
-      console.error("Registration error:", error);
+      toast.error(error.message || 'An error occurred during registration');
+      console.error('Registration error:', error);
     } finally {
       setIsLoading(false);
     }
@@ -114,7 +114,7 @@ export default function RegisterPage() {
     setIsLoading(true);
 
     try {
-      await signIn(provider, { callbackUrl: "/" });
+      await signIn(provider, { callbackUrl: '/' });
     } catch (error) {
       toast.error(`Error signing up with ${provider}`);
       console.error(`${provider} registration error:`, error);
@@ -195,7 +195,7 @@ export default function RegisterPage() {
                     <div className="relative">
                       <LuLock className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 transform text-gray-400" />
                       <input
-                        type={showPassword ? "text" : "password"}
+                        type={showPassword ? 'text' : 'password'}
                         required
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
@@ -216,7 +216,7 @@ export default function RegisterPage() {
                     </div>
                     <div className="mt-2 space-y-1">
                       <div
-                        className={`flex items-center text-xs ${hasMinLength ? "text-gray-500" : "text-gray-400"}`}
+                        className={`flex items-center text-xs ${hasMinLength ? 'text-gray-500' : 'text-gray-400'}`}
                       >
                         {hasMinLength ? (
                           <LuCheck className="mr-1 h-3 w-3 text-green-500" />
@@ -226,7 +226,7 @@ export default function RegisterPage() {
                         At least 8 characters
                       </div>
                       <div
-                        className={`flex items-center text-xs ${hasMixedCase ? "text-gray-500" : "text-gray-400"}`}
+                        className={`flex items-center text-xs ${hasMixedCase ? 'text-gray-500' : 'text-gray-400'}`}
                       >
                         {hasMixedCase ? (
                           <LuCheck className="mr-1 h-3 w-3 text-green-500" />
@@ -236,7 +236,7 @@ export default function RegisterPage() {
                         Include uppercase and lowercase letters
                       </div>
                       <div
-                        className={`flex items-center text-xs ${hasNumber ? "text-gray-500" : "text-gray-400"}`}
+                        className={`flex items-center text-xs ${hasNumber ? 'text-gray-500' : 'text-gray-400'}`}
                       >
                         {hasNumber ? (
                           <LuCheck className="mr-1 h-3 w-3 text-green-500" />
@@ -258,11 +258,11 @@ export default function RegisterPage() {
                       className="mt-1 rounded border-gray-300 text-gray-900 focus:ring-gray-900"
                     />
                     <div className="ml-2 text-sm text-gray-600">
-                      I agree to the{" "}
+                      I agree to the{' '}
                       <Link href="/terms" className="text-gray-900 underline hover:text-gray-700">
                         Terms of Service
-                      </Link>{" "}
-                      and{" "}
+                      </Link>{' '}
+                      and{' '}
                       <Link href="/privacy" className="text-gray-900 underline hover:text-gray-700">
                         Privacy Policy
                       </Link>
@@ -288,7 +288,7 @@ export default function RegisterPage() {
                     className="w-full bg-black py-3 hover:bg-gray-800"
                     disabled={isLoading}
                   >
-                    {isLoading ? "Creating Account..." : "Create Account"}
+                    {isLoading ? 'Creating Account...' : 'Create Account'}
                     {!isLoading && <LuArrowRight className="ml-2 h-4 w-4" />}
                   </Button>
 
@@ -308,7 +308,7 @@ export default function RegisterPage() {
                       variant="outline"
                       type="button"
                       className="bg-transparent"
-                      onClick={() => handleSocialLogin("github")}
+                      onClick={() => handleSocialLogin('github')}
                       disabled={isLoading}
                     >
                       <LuGithub className="mr-2 h-4 w-4" />
@@ -318,7 +318,7 @@ export default function RegisterPage() {
                       variant="outline"
                       type="button"
                       className="bg-transparent"
-                      onClick={() => handleSocialLogin("google")}
+                      onClick={() => handleSocialLogin('google')}
                       disabled={isLoading}
                     >
                       <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24">
@@ -349,7 +349,7 @@ export default function RegisterPage() {
             {/* Sign In Link */}
             <div className="mt-6 text-center">
               <p className="text-gray-600">
-                Already have an account?{" "}
+                Already have an account?{' '}
                 <Link href="/login" className="font-medium text-gray-900 hover:text-gray-700">
                   Sign in
                 </Link>

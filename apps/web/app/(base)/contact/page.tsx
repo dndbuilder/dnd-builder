@@ -1,13 +1,13 @@
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { headers } from "next/headers";
-import { LuSend } from "react-icons/lu";
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
+import { headers } from 'next/headers';
+import { LuSend } from 'react-icons/lu';
 
 export default async function ContactPage() {
   const headersList = await headers();
-  const host = headersList.get("host");
-  const protocol = process.env.NODE_ENV === "production" ? "https" : "http";
+  const host = headersList.get('host');
+  const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http';
   const origin = `${protocol}://${host}`;
   const thankYouUrl = `${origin}/contact/thank-you`;
 

@@ -1,26 +1,26 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { LuMail, LuLock, LuEye, LuEyeOff, LuGithub, LuArrowRight } from "react-icons/lu";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import Link from "next/link";
-import { signIn, useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
-import { toast } from "react-hot-toast";
+import { useState } from 'react';
+import { LuMail, LuLock, LuEye, LuEyeOff, LuGithub, LuArrowRight } from 'react-icons/lu';
+import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import Link from 'next/link';
+import { signIn, useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+import { toast } from 'react-hot-toast';
 
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const { data: session } = useSession();
 
   // Redirect if already logged in
   if (session) {
-    router.push("/");
+    router.push('/');
     return null;
   }
 
@@ -32,29 +32,29 @@ export default function LoginPage() {
     e.preventDefault();
 
     if (!email || !password) {
-      toast.error("Please fill in all fields");
+      toast.error('Please fill in all fields');
       return;
     }
 
     setIsLoading(true);
 
     try {
-      const result = await signIn("credentials", {
+      const result = await signIn('credentials', {
         redirect: false,
         email,
         password,
       });
 
       if (result?.error) {
-        toast.error("Invalid email or password");
+        toast.error('Invalid email or password');
       } else {
-        toast.success("Logged in successfully");
-        router.push("/");
+        toast.success('Logged in successfully');
+        router.push('/');
         router.refresh();
       }
     } catch (error) {
-      toast.error("An error occurred during login");
-      console.error("Login error:", error);
+      toast.error('An error occurred during login');
+      console.error('Login error:', error);
     } finally {
       setIsLoading(false);
     }
@@ -64,7 +64,7 @@ export default function LoginPage() {
     setIsLoading(true);
 
     try {
-      await signIn(provider, { callbackUrl: "/" });
+      await signIn(provider, { callbackUrl: '/' });
     } catch (error) {
       toast.error(`Error signing in with ${provider}`);
       console.error(`${provider} login error:`, error);
@@ -112,7 +112,7 @@ export default function LoginPage() {
                     <div className="relative">
                       <LuLock className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 transform text-gray-400" />
                       <input
-                        type={showPassword ? "text" : "password"}
+                        type={showPassword ? 'text' : 'password'}
                         required
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
@@ -156,7 +156,7 @@ export default function LoginPage() {
                     className="w-full bg-black py-3 hover:bg-gray-800"
                     disabled={isLoading}
                   >
-                    {isLoading ? "Signing in..." : "Sign In"}
+                    {isLoading ? 'Signing in...' : 'Sign In'}
                     {!isLoading && <LuArrowRight className="ml-2 h-4 w-4" />}
                   </Button>
 
@@ -176,7 +176,7 @@ export default function LoginPage() {
                       variant="outline"
                       type="button"
                       className="bg-transparent"
-                      onClick={() => handleSocialLogin("github")}
+                      onClick={() => handleSocialLogin('github')}
                       disabled={isLoading}
                     >
                       <LuGithub className="mr-2 h-4 w-4" />
@@ -186,7 +186,7 @@ export default function LoginPage() {
                       variant="outline"
                       type="button"
                       className="bg-transparent"
-                      onClick={() => handleSocialLogin("google")}
+                      onClick={() => handleSocialLogin('google')}
                       disabled={isLoading}
                     >
                       <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24">
@@ -217,7 +217,7 @@ export default function LoginPage() {
             {/* Sign Up Link */}
             <div className="mt-6 text-center">
               <p className="text-gray-600">
-                Don&apos;t have an account?{" "}
+                Don&apos;t have an account?{' '}
                 <Link href="/register" className="font-medium text-gray-900 hover:text-gray-700">
                   Sign up for free
                 </Link>

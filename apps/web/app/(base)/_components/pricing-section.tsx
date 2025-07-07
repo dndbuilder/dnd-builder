@@ -1,10 +1,10 @@
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { FiCheck, FiStar } from "react-icons/fi";
-import { classNames } from "@/lib/utils";
-import Link from "next/link";
-import { LuArrowRight, LuDownload } from "react-icons/lu";
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
+import { FiCheck, FiStar } from 'react-icons/fi';
+import { classNames } from '@/lib/utils';
+import Link from 'next/link';
+import { LuArrowRight, LuDownload } from 'react-icons/lu';
 
 interface PricingSectionProps {
   className?: string;
@@ -12,7 +12,7 @@ interface PricingSectionProps {
 
 export function PricingSection({ className }: PricingSectionProps) {
   return (
-    <section className={classNames("bg-gray-50 py-20", className)} id="pricing">
+    <section className={classNames('bg-gray-50 py-20', className)} id="pricing">
       <div className="container mx-auto px-4">
         <div className="mb-16 text-center">
           <h2 className="mb-4 text-3xl font-bold text-gray-900 lg:text-4xl">
@@ -29,7 +29,8 @@ export function PricingSection({ className }: PricingSectionProps) {
             <Card.Header className="pb-8 text-center">
               <Card.Title className="text-2xl">Free</Card.Title>
               <div className="mt-4 text-4xl font-bold text-gray-900">
-                $0<span className="text-lg font-normal text-gray-600">/month</span>
+                $0
+                <span className="text-lg font-normal text-gray-600">/month</span>
               </div>
               <Card.Description className="mt-2">
                 Perfect for getting started and small projects
@@ -83,7 +84,8 @@ export function PricingSection({ className }: PricingSectionProps) {
             <Card.Header className="pb-8 text-center">
               <Card.Title className="text-2xl">Premium</Card.Title>
               <div className="mt-4 text-4xl font-bold text-gray-900">
-                $10<span className="text-lg font-normal text-gray-600">/month</span>
+                $10
+                <span className="text-lg font-normal text-gray-600">/month</span>
               </div>
               <Card.Description className="mt-2">
                 Everything in Free plus advanced components

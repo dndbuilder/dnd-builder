@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { useSession } from "next-auth/react";
-import { ProfileDropdown } from "./profile-dropdown";
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
+import { useSession } from 'next-auth/react';
+import { ProfileDropdown } from './profile-dropdown';
 
 export function AuthSection() {
   const { data: session, status } = useSession();
@@ -11,7 +11,7 @@ export function AuthSection() {
   return (
     <>
       {/* Conditional rendering based on authentication status */}
-      {status === "authenticated" && session ? (
+      {status === 'authenticated' && session ? (
         <ProfileDropdown />
       ) : (
         <div className="flex items-center space-x-2">

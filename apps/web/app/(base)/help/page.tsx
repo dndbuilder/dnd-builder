@@ -1,8 +1,8 @@
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { GrHelpBook } from "react-icons/gr";
-import { LuMessageCircle } from "react-icons/lu";
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
+import { GrHelpBook } from 'react-icons/gr';
+import { LuMessageCircle } from 'react-icons/lu';
 
 export default function HelpCenterPage() {
   return (
@@ -23,7 +23,7 @@ export default function HelpCenterPage() {
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <Button size="lg" className="bg-black hover:bg-gray-800">
               <Link href="/contact" className="flex items-center">
-                {" "}
+                {' '}
                 <LuMessageCircle className="mr-2 h-4 w-4" />
                 Contact Support
               </Link>

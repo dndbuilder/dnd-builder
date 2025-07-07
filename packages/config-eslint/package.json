@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "files": [
+    "prettier.js",
     "library.js",
     "nest.js",
     "next.js",
@@ -16,6 +17,7 @@
     "eslint-config-turbo": "^2.4.2",
     "eslint-plugin-only-warn": "^1.1.0",
     "eslint-plugin-react": "^7.37.4",
+    "prettier": "^3.5.1",
     "typescript": "5.7.3"
   }
 }

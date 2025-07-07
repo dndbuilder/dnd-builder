@@ -1,8 +1,8 @@
-import { classNames } from "@/lib/utils";
-import Link from "next/link";
-import { FiGithub, FiMail, FiTwitter } from "react-icons/fi";
-import { TbDragDrop } from "react-icons/tb";
-import { RiTwitterXLine } from "react-icons/ri";
+import { classNames } from '@/lib/utils';
+import Link from 'next/link';
+import { FiGithub, FiMail, FiTwitter } from 'react-icons/fi';
+import { TbDragDrop } from 'react-icons/tb';
+import { RiTwitterXLine } from 'react-icons/ri';
 
 interface FooterProps {
   className?: string;
@@ -10,11 +10,11 @@ interface FooterProps {
 
 export function Footer({ className }: FooterProps) {
   return (
-    <footer className={classNames("bg-gray-900 py-16 text-white", className)}>
+    <footer className={classNames('bg-gray-900 py-16 text-white', className)}>
       <div className="container mx-auto px-4">
         <div className="grid gap-8 md:grid-cols-4">
           <div>
-            <Link href={"/"} className="flex items-center space-x-2">
+            <Link href={'/'} className="flex items-center space-x-2">
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-white">
                 <TbDragDrop className="h-5 w-5 text-gray-900" />
               </div>

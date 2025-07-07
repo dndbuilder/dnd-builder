@@ -1,6 +1,14 @@
 {
   "$schema": "https://turborepo.org/schema.json",
-  "globalEnv": ["MONGODB_URI", "NODE_ENV", "DB_NAME", "GITHUB_ID", "GITHUB_SECRET", "GOOGLE_CLIENT_ID", "GOOGLE_CLIENT_SECRET"],
+  "globalEnv": [
+    "MONGODB_URI",
+    "NODE_ENV",
+    "DB_NAME",
+    "GITHUB_ID",
+    "GITHUB_SECRET",
+    "GOOGLE_CLIENT_ID",
+    "GOOGLE_CLIENT_SECRET"
+  ],
   "tasks": {
     "build": {
       "dependsOn": ["^build"],

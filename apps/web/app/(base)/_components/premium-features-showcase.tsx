@@ -1,7 +1,7 @@
-import { Badge } from "@/components/ui/badge";
-import { LuPackage } from "react-icons/lu";
-import { classNames } from "@/lib/utils";
-import { AiOutlineCloudUpload } from "react-icons/ai";
+import { Badge } from '@/components/ui/badge';
+import { LuPackage } from 'react-icons/lu';
+import { classNames } from '@/lib/utils';
+import { AiOutlineCloudUpload } from 'react-icons/ai';
 
 interface PremiumFeaturesShowcaseProps {
   className?: string;
@@ -10,7 +10,7 @@ interface PremiumFeaturesShowcaseProps {
 export function PremiumFeaturesShowcase({ className }: PremiumFeaturesShowcaseProps) {
   return (
     <section
-      className={classNames("bg-gradient-to-r from-gray-900 to-black py-20", className)}
+      className={classNames('bg-gradient-to-r from-gray-900 to-black py-20', className)}
       id="premium"
     >
       <div className="container mx-auto px-4 text-center text-white">

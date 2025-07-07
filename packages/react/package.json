@@ -99,7 +99,8 @@
     "tslib": "^2.8.1",
     "typescript": "5.7.3",
     "vite": "^6.3.5",
-    "vite-plugin-dts": "^3.7.0"
+    "vite-plugin-dts": "^3.7.0",
+    "prettier-plugin-tailwindcss": "^0.5.14"
   },
   "peerDependencies": {
     "react": "^19.0.0",

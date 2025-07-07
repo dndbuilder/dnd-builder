@@ -1,9 +1,9 @@
-import { Badge } from "@/components/ui/badge";
-import { Card } from "@/components/ui/card";
-import { FiLayers, FiMousePointer } from "react-icons/fi";
-import { LuUndo, LuSmartphone, LuPalette } from "react-icons/lu";
-import { classNames } from "@/lib/utils";
-import { AiOutlineCloudUpload } from "react-icons/ai";
+import { Badge } from '@/components/ui/badge';
+import { Card } from '@/components/ui/card';
+import { FiLayers, FiMousePointer } from 'react-icons/fi';
+import { LuUndo, LuSmartphone, LuPalette } from 'react-icons/lu';
+import { classNames } from '@/lib/utils';
+import { AiOutlineCloudUpload } from 'react-icons/ai';
 
 interface FeaturesSectionProps {
   className?: string;
@@ -11,7 +11,7 @@ interface FeaturesSectionProps {
 
 export function FeaturesSection({ className }: FeaturesSectionProps) {
   return (
-    <section className={classNames("bg-white py-20", className)} id="features">
+    <section className={classNames('bg-white py-20', className)} id="features">
       <div className="container mx-auto px-4">
         <div className="mb-16 text-center">
           <h2 className="mb-4 text-3xl font-bold text-gray-900 lg:text-4xl">

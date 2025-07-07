@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { Block } from "@dndbuilder.com/react";
-import { BuilderProvider, Editor } from "@dndbuilder.com/react";
-import "@dndbuilder.com/react/dist/style.css";
-import { store } from "@dndbuilder.com/react";
-import { useEffect, useState } from "react";
-import { Header } from "./_components/header";
-import { editorConfig } from "./config/editor.config";
+import { Block } from '@dndbuilder.com/react';
+import { BuilderProvider, Editor } from '@dndbuilder.com/react';
+import '@dndbuilder.com/react/dist/style.css';
+import { store } from '@dndbuilder.com/react';
+import { useEffect, useState } from 'react';
+import { Header } from './_components/header';
+import { editorConfig } from './config/editor.config';
 
 export default function BuilderPage() {
   const [initialContent, setInitialContent] = useState<Record<string, Block>>({});
@@ -15,9 +15,9 @@ export default function BuilderPage() {
     // Load content from API instead of localStorage
     const fetchContent = async () => {
       try {
-        const response = await fetch("/api/builder-content");
+        const response = await fetch('/api/builder-content');
         if (!response.ok) {
-          throw new Error("Failed to fetch content");
+          throw new Error('Failed to fetch content');
         }
 
         const data = await response.json();
@@ -25,16 +25,16 @@ export default function BuilderPage() {
           setInitialContent(data.content);
         }
       } catch (error) {
-        console.error("Error loading content:", error);
+        console.error('Error loading content:', error);
         // Fallback to localStorage if API fails
         try {
-          const savedContent = localStorage.getItem("builder-content");
+          const savedContent = localStorage.getItem('builder-content');
           if (savedContent) {
             const parsedContent = JSON.parse(savedContent);
             setInitialContent(parsedContent);
           }
         } catch (localError) {
-          console.error("Error loading from localStorage:", localError);
+          console.error('Error loading from localStorage:', localError);
         }
       } finally {
         // setIsLoading(false);
@@ -54,7 +54,7 @@ export default function BuilderPage() {
             content={initialContent}
             builderConfig={editorConfig}
             style={{
-              height: "calc(100vh - 60px)", // Adjust height to account for header
+              height: 'calc(100vh - 60px)', // Adjust height to account for header
             }}
           />
         </main>

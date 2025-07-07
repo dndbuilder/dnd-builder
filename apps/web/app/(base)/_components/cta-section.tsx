@@ -1,7 +1,7 @@
-import { Button } from "@/components/ui/button";
-import { FiArrowRight } from "react-icons/fi";
-import { classNames } from "@/lib/utils";
-import Link from "next/link";
+import { Button } from '@/components/ui/button';
+import { FiArrowRight } from 'react-icons/fi';
+import { classNames } from '@/lib/utils';
+import Link from 'next/link';
 
 interface CtaSectionProps {
   className?: string;
@@ -9,7 +9,7 @@ interface CtaSectionProps {
 
 export function CtaSection({ className }: CtaSectionProps) {
   return (
-    <section className={classNames("bg-gradient-to-r from-gray-900 to-black py-20", className)}>
+    <section className={classNames('bg-gradient-to-r from-gray-900 to-black py-20', className)}>
       <div className="container mx-auto px-4 text-center text-white">
         <h2 className="mb-6 text-3xl font-bold lg:text-4xl">Ready to Start Building?</h2>
         <p className="mx-auto mb-8 max-w-2xl text-xl opacity-90">

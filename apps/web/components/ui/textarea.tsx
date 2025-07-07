@@ -1,18 +1,18 @@
-import * as React from "react";
-import { cva, type VariantProps } from "class-variance-authority";
-import { classNames } from "@/lib/utils";
+import * as React from 'react';
+import { cva, type VariantProps } from 'class-variance-authority';
+import { classNames } from '@/lib/utils';
 
 const textareaVariants = cva(
-  "w-full rounded-md border border-gray-300 px-4 py-2 text-sm text-gray-900 placeholder:text-gray-500 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50",
+  'w-full rounded-md border border-gray-300 px-4 py-2 text-sm text-gray-900 placeholder:text-gray-500 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50',
   {
     variants: {
       variant: {
-        default: "focus:border-gray-500 focus:ring-2 focus:ring-gray-500/50",
-        error: "border-red-500 focus:border-red-500 focus:ring-2 focus:ring-red-500/50",
+        default: 'focus:border-gray-500 focus:ring-2 focus:ring-gray-500/50',
+        error: 'border-red-500 focus:border-red-500 focus:ring-2 focus:ring-red-500/50',
       },
     },
     defaultVariants: {
-      variant: "default",
+      variant: 'default',
     },
   }
 );
@@ -38,7 +38,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
         <textarea
           id={id || innerId}
           className={classNames(
-            textareaVariants({ variant: error ? "error" : variant, className })
+            textareaVariants({ variant: error ? 'error' : variant, className })
           )}
           ref={ref}
           {...props}
@@ -48,6 +48,6 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
     );
   }
 );
-Textarea.displayName = "Textarea";
+Textarea.displayName = 'Textarea';
 
 export { Textarea, textareaVariants };

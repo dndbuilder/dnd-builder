@@ -1,6 +1,6 @@
-import { NextResponse } from "next/server";
-import { getToken } from "next-auth/jwt";
-import { NextRequest } from "next/server";
+import { NextResponse } from 'next/server';
+import { getToken } from 'next-auth/jwt';
+import { NextRequest } from 'next/server';
 
 // This function can be marked `async` if using `await` inside
 export async function middleware(request: NextRequest) {
@@ -8,7 +8,7 @@ export async function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname;
 
   // Check if the path is a protected route
-  const isProtectedRoute = ["/builder", "/preview"].some(
+  const isProtectedRoute = ['/builder', '/preview'].some(
     (route) => path === route || path.startsWith(`${route}/`)
   );
 
@@ -21,9 +21,9 @@ export async function middleware(request: NextRequest) {
 
     // If the user is not authenticated, redirect to the login page
     if (!token) {
-      const url = new URL("/login", request.url);
+      const url = new URL('/login', request.url);
       // Add the current path as a redirect parameter
-      url.searchParams.set("callbackUrl", encodeURI(request.url));
+      url.searchParams.set('callbackUrl', encodeURI(request.url));
       return NextResponse.redirect(url);
     }
   }
@@ -34,5 +34,5 @@ export async function middleware(request: NextRequest) {
 
 // Configure the middleware to run only on specific paths
 export const config = {
-  matcher: ["/builder/:path*", "/preview/:path*"],
+  matcher: ['/builder/:path*', '/preview/:path*'],
 };

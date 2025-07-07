@@ -1,5 +1,5 @@
-import { NextRequest, NextResponse } from "next/server";
-import { registerUser } from "@/lib/auth";
+import { NextRequest, NextResponse } from 'next/server';
+import { registerUser } from '@/lib/auth';
 
 export async function POST(req: NextRequest) {
   try {
@@ -7,7 +7,7 @@ export async function POST(req: NextRequest) {
 
     // Validate input
     if (!firstName || !lastName || !email || !password) {
-      return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
+      return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
     // Register user
@@ -25,17 +25,17 @@ export async function POST(req: NextRequest) {
           name: user.name,
           email: user.email,
         },
-        message: "User registered successfully",
+        message: 'User registered successfully',
       },
       { status: 201 }
     );
   } catch (error: any) {
-    console.error("Error in register route:", error);
+    console.error('Error in register route:', error);
 
-    if (error.message === "User already exists") {
-      return NextResponse.json({ error: "User with this email already exists" }, { status: 409 });
+    if (error.message === 'User already exists') {
+      return NextResponse.json({ error: 'User with this email already exists' }, { status: 409 });
     }
 
-    return NextResponse.json({ error: "Failed to register user" }, { status: 500 });
+    return NextResponse.json({ error: 'Failed to register user' }, { status: 500 });
   }
 }

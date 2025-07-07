@@ -1,6 +1,6 @@
-import Link from "next/link";
-import { FiGithub, FiLayers, FiMail, FiTwitter } from "react-icons/fi";
-import { classNames } from "@/lib/utils";
+import Link from 'next/link';
+import { FiGithub, FiLayers, FiMail, FiTwitter } from 'react-icons/fi';
+import { classNames } from '@/lib/utils';
 
 interface LandingFooterProps {
   className?: string;
@@ -8,7 +8,7 @@ interface LandingFooterProps {
 
 export function LandingFooter({ className }: LandingFooterProps) {
   return (
-    <footer className={classNames("bg-gray-900 py-16 text-white", className)}>
+    <footer className={classNames('bg-gray-900 py-16 text-white', className)}>
       <div className="container mx-auto px-4">
         <div className="grid gap-8 md:grid-cols-4">
           <div>

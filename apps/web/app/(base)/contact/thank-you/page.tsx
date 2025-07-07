@@ -1,9 +1,9 @@
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import Link from "next/link";
-import { FiCheckCircle, FiHome } from "react-icons/fi";
-import { LuClock, LuMessageCircle } from "react-icons/lu";
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
+import Link from 'next/link';
+import { FiCheckCircle, FiHome } from 'react-icons/fi';
+import { LuClock, LuMessageCircle } from 'react-icons/lu';
 
 export default function ThankYouPage() {
   return (
