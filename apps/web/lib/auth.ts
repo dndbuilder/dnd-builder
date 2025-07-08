@@ -1,5 +1,5 @@
 import clientPromise from "./mongodb";
-import { AuthOptions } from "next-auth";
+import { AuthOptions, Session } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GithubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
@@ -44,6 +44,9 @@ export const authOptions: AuthOptions = {
             id: data.id,
             name: `${data.firstName} ${data.lastName}`,
             email: data.email,
+            firstName: data.firstName,
+            lastName: data.lastName,
+            role: data.role,
             image: data.image,
             token: data.token,
           };
@@ -69,13 +72,18 @@ export const authOptions: AuthOptions = {
     async jwt({ token, user }: { token: JWT; user?: User & { token?: string } }) {
       if (user) {
         token.id = user.id;
+        token.name = user.name;
         token.accessToken = user.token;
       }
       return token;
     },
-    async session({ session, token }: { session: any; token: JWT & { accessToken?: string } }) {
+    async session({ session, token }: { session: Session; token: JWT & { accessToken?: string } }) {
       if (token && session.user) {
-        session.user.id = token.id;
+        session.user = {
+          id: token.id,
+          name: token.name || session.user.name || "",
+          email: token.email || session.user.email || "",
+        };
         session.accessToken = token.accessToken;
       }
       return session;
