@@ -12,6 +12,10 @@ export type UserDocument = User & Document;
 @Schema({
   timestamps: true,
   collection: "users",
+  toJSON: {
+    versionKey: false,
+    getters: true,
+  },
 })
 export class User {
   @Prop({

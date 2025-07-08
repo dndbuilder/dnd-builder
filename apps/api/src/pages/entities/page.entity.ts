@@ -7,6 +7,10 @@ export type PageDocument = Page & Document;
 @Schema({
   timestamps: true,
   collection: "pages",
+  toJSON: {
+    versionKey: false,
+    getters: true,
+  },
 })
 export class Page {
   @Prop({
@@ -23,7 +27,7 @@ export class Page {
   @Prop({ required: false })
   description?: string;
 
-  @Prop({ type: MongooseSchema.Types.ObjectId, ref: 'User', required: true })
+  @Prop({ type: MongooseSchema.Types.ObjectId, ref: "User", required: true })
   userId: User;
 
   @Prop({ type: Object, required: true })
@@ -31,3 +35,6 @@ export class Page {
 }
 
 export const PageSchema = SchemaFactory.createForClass(Page);
+
+// Create a compound index for name and userId to ensure uniqueness of page names per user
+PageSchema.index({ name: 1, userId: 1 }, { unique: true });

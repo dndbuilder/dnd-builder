@@ -6,7 +6,7 @@ import { Page, PageDocument } from "./entities/page.entity";
 import { CreatePageDto } from "./dto/create-page.dto";
 import { UpdatePageDto } from "./dto/update-page.dto";
 import { User, UserRole } from "../users/entities/user.entity";
-import { NotFoundException } from "@nestjs/common";
+import { NotFoundException, ConflictException } from "@nestjs/common";
 
 describe("PagesService", () => {
   let service: PagesService;
@@ -73,6 +73,11 @@ describe("PagesService", () => {
         content: { blocks: [] },
       };
 
+      // Mock findOne to return null (no existing page with the same name)
+      mockPageModel.findOne.mockReturnValue({
+        exec: jest.fn().mockResolvedValue(null),
+      });
+
       // The create method is already defined in the mockPageModel object
 
       // Act
@@ -80,6 +85,67 @@ describe("PagesService", () => {
 
       // Assert
       expect(result).toEqual(mockPage);
+      expect(mockPageModel.findOne).toHaveBeenCalledWith({
+        name: createPageDto.name,
+        userId: mockUser.id,
+      });
+      expect(mockPageModel.create).toHaveBeenCalledWith({
+        ...createPageDto,
+        userId: mockUser.id,
+      });
+    });
+
+    it("should throw ConflictException if page with same name already exists", async () => {
+      // Arrange
+      const createPageDto: CreatePageDto = {
+        name: "Existing Page",
+        description: "Test Description",
+        content: { blocks: [] },
+      };
+
+      // Mock findOne to return an existing page
+      mockPageModel.findOne.mockReturnValue({
+        exec: jest.fn().mockResolvedValue(mockPage),
+      });
+
+      // Act & Assert
+      await expect(service.create(createPageDto, mockUser)).rejects.toThrow(
+        ConflictException
+      );
+      expect(mockPageModel.findOne).toHaveBeenCalledWith({
+        name: createPageDto.name,
+        userId: mockUser.id,
+      });
+      expect(mockPageModel.create).not.toHaveBeenCalled();
+    });
+
+    it("should handle MongoDB duplicate key error", async () => {
+      // Arrange
+      const createPageDto: CreatePageDto = {
+        name: "Test Page",
+        description: "Test Description",
+        content: { blocks: [] },
+      };
+
+      // Mock findOne to return null (no existing page with the same name)
+      mockPageModel.findOne.mockReturnValue({
+        exec: jest.fn().mockResolvedValue(null),
+      });
+
+      // Mock create to throw a MongoDB duplicate key error
+      const duplicateKeyError: any = new Error('Duplicate key error');
+      duplicateKeyError.name = 'MongoServerError';
+      duplicateKeyError.code = 11000;
+      mockPageModel.create.mockRejectedValue(duplicateKeyError);
+
+      // Act & Assert
+      await expect(service.create(createPageDto, mockUser)).rejects.toThrow(
+        ConflictException
+      );
+      expect(mockPageModel.findOne).toHaveBeenCalledWith({
+        name: createPageDto.name,
+        userId: mockUser.id,
+      });
       expect(mockPageModel.create).toHaveBeenCalledWith({
         ...createPageDto,
         userId: mockUser.id,
@@ -147,6 +213,11 @@ describe("PagesService", () => {
         description: "Updated Description",
       };
 
+      // Mock findOne to return null (no existing page with the same name)
+      mockPageModel.findOne.mockReturnValue({
+        exec: jest.fn().mockResolvedValue(null),
+      });
+
       mockPageModel.findOneAndUpdate.mockReturnValue({
         exec: jest.fn().mockResolvedValue({
           ...mockPage,
@@ -162,6 +233,70 @@ describe("PagesService", () => {
         ...mockPage,
         ...updatePageDto,
       });
+      expect(mockPageModel.findOne).toHaveBeenCalledWith({
+        _id: { $ne: mockPage.id },
+        name: updatePageDto.name,
+        userId: mockUser.id,
+      });
+      expect(mockPageModel.findOneAndUpdate).toHaveBeenCalledWith(
+        { _id: mockPage.id, userId: mockUser.id },
+        updatePageDto,
+        { new: true }
+      );
+    });
+
+    it("should throw ConflictException if page with same name already exists", async () => {
+      // Arrange
+      const updatePageDto: UpdatePageDto = {
+        name: "Existing Page",
+      };
+
+      // Mock findOne to return an existing page
+      const existingPage = { ...mockPage, id: "another-page-id" };
+      mockPageModel.findOne.mockReturnValue({
+        exec: jest.fn().mockResolvedValue(existingPage),
+      });
+
+      // Act & Assert
+      await expect(
+        service.update(mockPage.id, updatePageDto, mockUser.id)
+      ).rejects.toThrow(ConflictException);
+      expect(mockPageModel.findOne).toHaveBeenCalledWith({
+        _id: { $ne: mockPage.id },
+        name: updatePageDto.name,
+        userId: mockUser.id,
+      });
+      expect(mockPageModel.findOneAndUpdate).not.toHaveBeenCalled();
+    });
+
+    it("should handle MongoDB duplicate key error during update", async () => {
+      // Arrange
+      const updatePageDto: UpdatePageDto = {
+        name: "Updated Page",
+      };
+
+      // Mock findOne to return null (no existing page with the same name)
+      mockPageModel.findOne.mockReturnValue({
+        exec: jest.fn().mockResolvedValue(null),
+      });
+
+      // Mock findOneAndUpdate to throw a MongoDB duplicate key error
+      const duplicateKeyError: any = new Error('Duplicate key error');
+      duplicateKeyError.name = 'MongoServerError';
+      duplicateKeyError.code = 11000;
+      mockPageModel.findOneAndUpdate.mockReturnValue({
+        exec: jest.fn().mockRejectedValue(duplicateKeyError),
+      });
+
+      // Act & Assert
+      await expect(
+        service.update(mockPage.id, updatePageDto, mockUser.id)
+      ).rejects.toThrow(ConflictException);
+      expect(mockPageModel.findOne).toHaveBeenCalledWith({
+        _id: { $ne: mockPage.id },
+        name: updatePageDto.name,
+        userId: mockUser.id,
+      });
       expect(mockPageModel.findOneAndUpdate).toHaveBeenCalledWith(
         { _id: mockPage.id, userId: mockUser.id },
         updatePageDto,
@@ -174,6 +309,11 @@ describe("PagesService", () => {
       const updatePageDto: UpdatePageDto = {
         name: "Updated Page",
       };
+
+      // Mock findOne to return null (no existing page with the same name)
+      mockPageModel.findOne.mockReturnValue({
+        exec: jest.fn().mockResolvedValue(null),
+      });
 
       mockPageModel.findOneAndUpdate.mockReturnValue({
         exec: jest.fn().mockResolvedValue(null),
