@@ -68,11 +68,6 @@ export const authOptions: AuthOptions = {
     async signIn({ user, account }: { user: User; account?: Account | null }) {
       // Only process for OAuth providers
       if (account && account.provider && account.provider !== "credentials") {
-        console.log("Social login attempt:", {
-          account,
-          user,
-        });
-
         try {
           // Send social login data to API
           const response = await fetch(`${BASE_URL}/auth/social-login`, {
@@ -86,8 +81,6 @@ export const authOptions: AuthOptions = {
               name: user.name,
             }),
           });
-
-          console.log("Social login response:", response);
 
           if (response.ok) {
             const data = await response.json();
