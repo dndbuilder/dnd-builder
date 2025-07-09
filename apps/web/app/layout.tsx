@@ -81,6 +81,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 toast: "max-w-[90vw] !w-fit", // makes toast width adapt to content
               },
             }}
+            style={{
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
+            }}
           />
         </NextAuthSessionProvider>
         <Analytics />
