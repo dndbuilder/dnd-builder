@@ -24,7 +24,7 @@ export class AuthService {
 
   async login(loginDto: LoginDto): Promise<AuthResponseDto> {
     try {
-      const user = await this.usersService.findByEmail(loginDto.email);
+      const user = await this.usersService.findByEmailOrFail(loginDto.email);
 
       const isPasswordValid = await bcrypt.compare(loginDto.password, user.password);
 
@@ -72,7 +72,7 @@ export class AuthService {
   }
 
   async validateUser(userId: string): Promise<User> {
-    return this.usersService.findById(userId);
+    return this.usersService.findByIdOrFail(userId);
   }
 
   private generateToken(user: User): string {

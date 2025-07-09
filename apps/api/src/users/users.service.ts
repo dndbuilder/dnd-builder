@@ -22,23 +22,27 @@ export class UsersService {
     return createdUser.save();
   }
 
-  async findByEmail(email: string): Promise<UserDocument> {
-    const user = await this.userModel.findOne({ email }).exec();
+  async findByEmail(email: string): Promise<UserDocument | null> {
+    return this.userModel.findOne({ email }).exec();
+  }
 
+  async findById(id: string): Promise<UserDocument | null> {
+    return this.userModel.findById(id).exec();
+  }
+
+  async findByIdOrFail(id: string): Promise<UserDocument> {
+    const user = await this.userModel.findById(id).exec();
     if (!user) {
-      throw new NotFoundException("User not found");
+      throw new NotFoundException(`User with id ${id} not found`);
     }
-
     return user;
   }
 
-  async findById(id: string): Promise<UserDocument> {
-    const user = await this.userModel.findById(id).exec();
-
+  async findByEmailOrFail(email: string): Promise<UserDocument> {
+    const user = await this.userModel.findOne({ email }).exec();
     if (!user) {
-      throw new NotFoundException("User not found");
+      throw new NotFoundException(`User with email ${email} not found`);
     }
-
     return user;
   }
 }
