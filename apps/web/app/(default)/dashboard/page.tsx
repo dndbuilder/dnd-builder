@@ -2,6 +2,7 @@ import { LicenseKeyManagement } from "./_components/license-key-management";
 import { QuickIntegration } from "./_components/quick-integration";
 import { DemoAccess } from "./_components/demo-access";
 import { QuickLinks } from "./_components/quick-links";
+import { ProfileManagement } from "./_components/profile-management";
 
 export default function Dashboard() {
   return (
@@ -21,7 +22,10 @@ export default function Dashboard() {
             <LicenseKeyManagement />
 
             {/* Integration Guide */}
-            <QuickIntegration />
+            {/* <QuickIntegration /> */}
+
+            {/* Profile Section */}
+            <ProfileManagement />
           </div>
 
           {/* Sidebar */}
