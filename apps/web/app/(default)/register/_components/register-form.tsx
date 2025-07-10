@@ -3,10 +3,12 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
 import { signIn, useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
 import {
   LuArrowRight,
   LuCheck,
@@ -19,43 +21,51 @@ import {
 } from "react-icons/lu";
 import { toast } from "sonner";
 
+type RegisterFormInputs = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+  termsAccepted: boolean;
+};
+
 export default function RegisterForm() {
   const [showPassword, setShowPassword] = useState(false);
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [termsAccepted, setTermsAccepted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
-  const { data: session } = useSession();
 
   const searchParams = useSearchParams();
 
   const callbackUrl = searchParams.get("callbackUrl") || "/dashboard";
 
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<RegisterFormInputs>({
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+      termsAccepted: false,
+    },
+  });
+
+  // Watch the password field for strength indicators
+  const password = watch("password");
+
   // Password strength indicators
-  const hasMinLength = password.length >= 8;
-  const hasMixedCase = /(?=.*[a-z])(?=.*[A-Z])/.test(password);
-  const hasNumber = /\d/.test(password);
+  const hasMinLength = password?.length >= 8;
+  const hasMixedCase = /(?=.*[a-z])(?=.*[A-Z])/.test(password || "");
+  const hasNumber = /\d/.test(password || "");
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (!firstName || !lastName || !email || !password) {
-      toast.error("Please fill in all required fields");
-      return;
-    }
-
-    if (!termsAccepted) {
-      toast.error("You must accept the Terms of Service and Privacy Policy");
-      return;
-    }
-
+  const onSubmit: SubmitHandler<RegisterFormInputs> = async (data) => {
     if (!hasMinLength || !hasMixedCase || !hasNumber) {
       toast.error("Please ensure your password meets all requirements");
       return;
@@ -71,17 +81,17 @@ export default function RegisterForm() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          firstName,
-          lastName,
-          email,
-          password,
+          firstName: data.firstName,
+          lastName: data.lastName,
+          email: data.email,
+          password: data.password,
         }),
       });
 
-      const data = await response.json();
+      const responseData = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.error || "Failed to register");
+        throw new Error(responseData.error || "Failed to register");
       }
 
       toast.success("Account created successfully");
@@ -89,8 +99,8 @@ export default function RegisterForm() {
       // Sign in the user
       const result = await signIn("credentials", {
         redirect: false,
-        email,
-        password,
+        email: data.email,
+        password: data.password,
       });
 
       if (result?.error) {
@@ -132,7 +142,7 @@ export default function RegisterForm() {
 
             <Card className="border-0 shadow-xl">
               <Card.Content className="p-8">
-                <form className="space-y-6" onSubmit={handleSubmit}>
+                <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
                   {/* Name Fields */}
                   <div className="grid grid-cols-2 gap-4">
                     <div>
@@ -143,13 +153,20 @@ export default function RegisterForm() {
                         <LuUser className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 transform text-gray-400" />
                         <input
                           type="text"
-                          required
-                          value={firstName}
-                          onChange={(e) => setFirstName(e.target.value)}
-                          className="w-full rounded-md border border-gray-300 py-3 pl-10 pr-4 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-gray-900"
+                          className={`w-full rounded-md border ${
+                            errors.firstName ? "border-red-500" : "border-gray-300"
+                          } py-3 pl-10 pr-4 focus:border-transparent focus:outline-none focus:ring-2 ${
+                            errors.firstName ? "focus:ring-red-500" : "focus:ring-gray-900"
+                          }`}
                           placeholder="John"
+                          {...register("firstName", {
+                            required: "First name is required",
+                          })}
                         />
                       </div>
+                      {errors.firstName && (
+                        <p className="mt-1 text-xs text-red-500">{errors.firstName.message}</p>
+                      )}
                     </div>
                     <div>
                       <label className="mb-2 block text-sm font-medium text-gray-700">
@@ -157,12 +174,19 @@ export default function RegisterForm() {
                       </label>
                       <input
                         type="text"
-                        required
-                        value={lastName}
-                        onChange={(e) => setLastName(e.target.value)}
-                        className="w-full rounded-md border border-gray-300 px-4 py-3 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-gray-900"
+                        className={`w-full rounded-md border ${
+                          errors.lastName ? "border-red-500" : "border-gray-300"
+                        } px-4 py-3 focus:border-transparent focus:outline-none focus:ring-2 ${
+                          errors.lastName ? "focus:ring-red-500" : "focus:ring-gray-900"
+                        }`}
                         placeholder="Doe"
+                        {...register("lastName", {
+                          required: "Last name is required",
+                        })}
                       />
+                      {errors.lastName && (
+                        <p className="mt-1 text-xs text-red-500">{errors.lastName.message}</p>
+                      )}
                     </div>
                   </div>
 
@@ -175,13 +199,20 @@ export default function RegisterForm() {
                       <LuMail className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 transform text-gray-400" />
                       <input
                         type="email"
-                        required
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        className="w-full rounded-md border border-gray-300 py-3 pl-10 pr-4 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-gray-900"
+                        className={`w-full rounded-md border ${
+                          errors.email ? "border-red-500" : "border-gray-300"
+                        } py-3 pl-10 pr-4 focus:border-transparent focus:outline-none focus:ring-2 ${
+                          errors.email ? "focus:ring-red-500" : "focus:ring-gray-900"
+                        }`}
                         placeholder="john@example.com"
+                        {...register("email", {
+                          required: "Email is required",
+                        })}
                       />
                     </div>
+                    {errors.email && (
+                      <p className="mt-1 text-xs text-red-500">{errors.email.message}</p>
+                    )}
                   </div>
 
                   {/* Password Field */}
@@ -191,11 +222,19 @@ export default function RegisterForm() {
                       <LuLock className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 transform text-gray-400" />
                       <input
                         type={showPassword ? "text" : "password"}
-                        required
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        className="w-full rounded-md border border-gray-300 py-3 pl-10 pr-12 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-gray-900"
+                        className={`w-full rounded-md border ${
+                          errors.password ? "border-red-500" : "border-gray-300"
+                        } py-3 pl-10 pr-12 focus:border-transparent focus:outline-none focus:ring-2 ${
+                          errors.password ? "focus:ring-red-500" : "focus:ring-gray-900"
+                        }`}
                         placeholder="Create a strong password"
+                        {...register("password", {
+                          required: "Password is required",
+                          minLength: {
+                            value: 8,
+                            message: "Password must be at least 8 characters",
+                          },
+                        })}
                       />
                       <button
                         type="button"
@@ -209,6 +248,9 @@ export default function RegisterForm() {
                         )}
                       </button>
                     </div>
+                    {errors.password && (
+                      <p className="mt-1 text-xs text-red-500">{errors.password.message}</p>
+                    )}
                     <div className="mt-2 space-y-1">
                       <div
                         className={`flex items-center text-xs ${hasMinLength ? "text-gray-500" : "text-gray-400"}`}
@@ -244,23 +286,31 @@ export default function RegisterForm() {
                   </div>
 
                   {/* Terms and Privacy */}
-                  <div className="flex items-start">
-                    <input
-                      type="checkbox"
-                      required
-                      checked={termsAccepted}
-                      onChange={(e) => setTermsAccepted(e.target.checked)}
-                      className="mt-1 rounded border-gray-300 text-gray-900 focus:ring-gray-900"
+                  <div className="flex items-center">
+                    <Checkbox
+                      className={`rounded ${
+                        errors.termsAccepted ? "border-red-500" : "border-gray-300"
+                      } text-gray-900 ${
+                        errors.termsAccepted ? "focus:ring-red-500" : "focus:ring-gray-900"
+                      }`}
+                      {...register("termsAccepted", {
+                        required: "You must accept the Terms of Service and Privacy Policy",
+                      })}
                     />
-                    <div className="ml-2 text-sm text-gray-600">
-                      I agree to the{" "}
-                      <Link href="/terms" className="text-gray-900 underline hover:text-gray-700">
-                        Terms of Service
-                      </Link>{" "}
-                      and{" "}
-                      <Link href="/privacy" className="text-gray-900 underline hover:text-gray-700">
-                        Privacy Policy
-                      </Link>
+                    <div className="ml-2">
+                      <div className="text-sm text-gray-600">
+                        I agree to the{" "}
+                        <Link href="/terms" className="text-gray-900 underline hover:text-gray-700">
+                          Terms of Service
+                        </Link>{" "}
+                        and{" "}
+                        <Link href="/privacy" className="text-gray-900 underline hover:text-gray-700">
+                          Privacy Policy
+                        </Link>
+                      </div>
+                      {errors.termsAccepted && (
+                        <p className="mt-1 text-xs text-red-500">{errors.termsAccepted.message}</p>
+                      )}
                     </div>
                   </div>
 
