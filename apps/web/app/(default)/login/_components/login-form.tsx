@@ -3,43 +3,52 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
 import { LuArrowRight, LuEye, LuEyeOff, LuGithub, LuLock, LuMail } from "react-icons/lu";
 import { toast } from "sonner";
 
+type LoginFormInputs = {
+  email: string;
+  password: string;
+  rememberMe?: boolean;
+};
+
 export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
-
   const searchParams = useSearchParams();
-
   const callbackUrl = searchParams.get("callbackUrl") || "/dashboard";
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<LoginFormInputs>({
+    defaultValues: {
+      email: "",
+      password: "",
+      rememberMe: false,
+    },
+  });
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (!email || !password) {
-      toast.error("Please fill in all fields");
-      return;
-    }
-
+  const onSubmit: SubmitHandler<LoginFormInputs> = async (data) => {
     setIsLoading(true);
 
     try {
       const result = await signIn("credentials", {
         redirect: false,
-        email,
-        password,
+        email: data.email,
+        password: data.password,
       });
 
       if (result?.error) {
@@ -84,7 +93,7 @@ export default function LoginForm() {
 
             <Card className="border-0 shadow-xl">
               <Card.Content className="p-8">
-                <form className="space-y-6" onSubmit={handleSubmit}>
+                <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
                   {/* Email Field */}
                   <div>
                     <label className="mb-2 block text-sm font-medium text-gray-700">
@@ -94,13 +103,21 @@ export default function LoginForm() {
                       <LuMail className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 transform text-gray-400" />
                       <input
                         type="email"
-                        required
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        className="w-full rounded-md border border-gray-300 py-3 pl-10 pr-4 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-gray-900"
+                        className={`w-full rounded-md border ${
+                          errors.email ? "border-red-500" : "border-gray-300"
+                        } py-3 pl-10 pr-4 focus:border-transparent focus:outline-none focus:ring-2 ${
+                          errors.email ? "focus:ring-red-500" : "focus:ring-gray-900"
+                        }`}
                         placeholder="john@example.com"
+                        {...register("email", {
+                          required: "Email is required",
+
+                        })}
                       />
                     </div>
+                    {errors.email && (
+                      <p className="mt-1 text-xs text-red-500">{errors.email.message}</p>
+                    )}
                   </div>
 
                   {/* Password Field */}
@@ -110,11 +127,19 @@ export default function LoginForm() {
                       <LuLock className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 transform text-gray-400" />
                       <input
                         type={showPassword ? "text" : "password"}
-                        required
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        className="w-full rounded-md border border-gray-300 py-3 pl-10 pr-12 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-gray-900"
+                        className={`w-full rounded-md border ${
+                          errors.password ? "border-red-500" : "border-gray-300"
+                        } py-3 pl-10 pr-12 focus:border-transparent focus:outline-none focus:ring-2 ${
+                          errors.password ? "focus:ring-red-500" : "focus:ring-gray-900"
+                        }`}
                         placeholder="Enter your password"
+                        {...register("password", {
+                          required: "Password is required",
+                          minLength: {
+                            value: 6,
+                            message: "Password must be at least 6 characters",
+                          },
+                        })}
                       />
                       <button
                         type="button"
@@ -128,14 +153,17 @@ export default function LoginForm() {
                         )}
                       </button>
                     </div>
+                    {errors.password && (
+                      <p className="mt-1 text-xs text-red-500">{errors.password.message}</p>
+                    )}
                   </div>
 
                   {/* Remember Me & Forgot Password */}
                   <div className="flex items-center justify-between">
                     <label className="flex items-center">
-                      <input
-                        type="checkbox"
+                      <Checkbox
                         className="rounded border-gray-300 text-gray-900 focus:ring-gray-900"
+                        {...register("rememberMe")}
                       />
                       <span className="ml-2 text-sm text-gray-600">Remember me</span>
                     </label>

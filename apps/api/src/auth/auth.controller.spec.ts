@@ -141,6 +141,7 @@ describe("AuthController", () => {
         password: "hashed-password",
         firstName: "Test",
         lastName: "User",
+        licenseKey: "license-key",
         role: UserRole.CUSTOMER,
       };
 
