@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Get, UseGuards, Put } from "@nestjs/common";
+import { Controller, Post, Body, Get, UseGuards, Put, Logger } from "@nestjs/common";
 import { AuthService } from "./auth.service";
 import { CreateUserDto } from "../users/dto/create-user.dto";
 import { LoginDto } from "./dto/login.dto";
@@ -7,6 +7,7 @@ import { JwtAuthGuard } from "./guards/jwt-auth.guard";
 import { CurrentUser } from "./decorators/current-user.decorator";
 import { User } from "../users/entities/user.entity";
 import { SocialLoginDto } from "./dto/social-login.dto";
+import { UpdateProfileDto } from "./dto/update-profile.dto";
 
 @Controller("auth")
 export class AuthController {
@@ -27,6 +28,15 @@ export class AuthController {
   async getProfile(@CurrentUser() user: User): Promise<Omit<User, "password">> {
     const { password, ...result } = user;
     return result;
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Put("profile")
+  async updateProfile(
+    @CurrentUser() user: User,
+    @Body() updateProfileDto: UpdateProfileDto
+  ): Promise<Omit<User, "password">> {
+    return this.authService.updateProfile(user.id, updateProfileDto);
   }
 
   @Post("social-login")

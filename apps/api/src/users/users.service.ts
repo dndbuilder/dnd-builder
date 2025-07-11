@@ -22,6 +22,14 @@ export class UsersService {
     return createdUser.save();
   }
 
+  async findAll(): Promise<UserDocument[]> {
+    return this.userModel.find().exec();
+  }
+
+  async findOne(id: string): Promise<UserDocument | null> {
+    return this.userModel.findById(id).exec();
+  }
+
   async findByEmail(email: string): Promise<UserDocument | null> {
     return this.userModel.findOne({ email }).exec();
   }
@@ -50,5 +58,43 @@ export class UsersService {
     const user = await this.findByIdOrFail(userId);
     user.licenseKey = generateLicenseKey();
     return user.save();
+  }
+
+  async updateProfile(userId: string, updateData: Partial<User>): Promise<UserDocument> {
+    const user = await this.findByIdOrFail(userId);
+
+    // Update only the fields that are provided
+    if (updateData.email !== undefined) {
+      // Check if email is already taken by another user
+      if (updateData.email !== user.email) {
+        const existingUser = await this.userModel.findOne({ email: updateData.email }).exec();
+        if (existingUser) {
+          throw new ConflictException("Email already exists");
+        }
+        user.email = updateData.email;
+      }
+    }
+
+    if (updateData.firstName !== undefined) {
+      user.firstName = updateData.firstName;
+    }
+
+    if (updateData.lastName !== undefined) {
+      user.lastName = updateData.lastName;
+    }
+
+    return user.save();
+  }
+
+  async remove(id: string): Promise<UserDocument | null> {
+    const user = await this.findById(id);
+    if (!user) {
+      throw new NotFoundException(`User with id ${id} not found`);
+    }
+    return this.userModel.findByIdAndDelete(id).exec();
+  }
+
+  async removeAll(): Promise<void> {
+    await this.userModel.deleteMany({}).exec();
   }
 }

@@ -5,16 +5,21 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useState } from "react";
+import { UserProfile } from "@/lib/profile";
+import { FC, useState } from "react";
 import { LuRefreshCw, LuUser } from "react-icons/lu";
 import { toast } from "sonner";
 
-export const ProfileManagement = () => {
+export type ProfileManagementProps = {
+  profile: UserProfile;
+};
+
+export const ProfileManagement: FC<ProfileManagementProps> = ({ profile }) => {
   const [profileData, setProfileData] = useState({
-    firstName: "John",
-    lastName: "Doe",
-    email: "john@example.com",
-    avatar: "/placeholder.svg?height=80&width=80",
+    firstName: profile.firstName,
+    lastName: profile.lastName,
+    email: profile.email,
+    image: profile.image || "",
   });
   const [isUpdatingProfile, setIsUpdatingProfile] = useState(false);
 
@@ -42,7 +47,7 @@ export const ProfileManagement = () => {
       <Card.Content className="space-y-6">
         <div className="flex items-center space-x-4">
           <Avatar className="h-20 w-20">
-            <Avatar.Image src={profileData.avatar || "/placeholder.svg"} alt={fullName} />
+            <Avatar.Image src={profileData.image || "/placeholder.svg"} alt={fullName} />
             <Avatar.Fallback className="bg-black text-lg text-white">
               {fullName
                 .split(" ")

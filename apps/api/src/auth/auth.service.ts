@@ -80,6 +80,12 @@ export class AuthService {
     return { licenseKey: user.licenseKey };
   }
 
+  async updateProfile(userId: string, updateData: Partial<User>): Promise<Omit<User, "password">> {
+    const user = await this.usersService.updateProfile(userId, updateData);
+    const { password, ...result } = user.toJSON();
+    return result as Omit<User, "password">;
+  }
+
   private generateToken(user: User): string {
     const payload = {
       sub: user.id,

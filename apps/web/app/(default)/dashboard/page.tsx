@@ -1,10 +1,12 @@
-import { LicenseKeyManagement } from "./_components/license-key-management";
-import { QuickIntegration } from "./_components/quick-integration";
+import { getUserProfile } from "@/lib/profile";
 import { DemoAccess } from "./_components/demo-access";
-import { QuickLinks } from "./_components/quick-links";
+import { LicenseKeyManagement } from "./_components/license-key-management";
 import { ProfileManagement } from "./_components/profile-management";
+import { QuickLinks } from "./_components/quick-links";
 
-export default function Dashboard() {
+export default async function Dashboard() {
+  const profile = await getUserProfile();
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Main Content */}
@@ -21,11 +23,8 @@ export default function Dashboard() {
           <div className="md:col-span-1 lg:col-span-2">
             <LicenseKeyManagement />
 
-            {/* Integration Guide */}
-            {/* <QuickIntegration /> */}
-
             {/* Profile Section */}
-            <ProfileManagement />
+            <ProfileManagement profile={profile} />
           </div>
 
           {/* Sidebar */}

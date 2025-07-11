@@ -8,7 +8,7 @@ import { signIn, useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import {
   LuArrowRight,
   LuCheck,
@@ -39,6 +39,7 @@ export default function RegisterForm() {
   const callbackUrl = searchParams.get("callbackUrl") || "/dashboard";
 
   const {
+    control,
     register,
     handleSubmit,
     watch,
@@ -287,15 +288,23 @@ export default function RegisterForm() {
 
                   {/* Terms and Privacy */}
                   <div className="flex items-center">
-                    <Checkbox
-                      className={`rounded ${
-                        errors.termsAccepted ? "border-red-500" : "border-gray-300"
-                      } text-gray-900 ${
-                        errors.termsAccepted ? "focus:ring-red-500" : "focus:ring-gray-900"
-                      }`}
-                      {...register("termsAccepted", {
-                        required: "You must accept the Terms of Service and Privacy Policy",
-                      })}
+                    <Controller
+                      control={control}
+                      name="termsAccepted"
+                      rules={{
+                        required: "You must accept the terms and privacy policy",
+                      }}
+                      render={({ field }) => (
+                        <Checkbox
+                          checked={field.value}
+                          onCheckedChange={(value) => field.onChange(value === true)}
+                          className={`rounded ${
+                            errors.termsAccepted ? "border-red-500" : "border-gray-300"
+                          } text-gray-900 ${
+                            errors.termsAccepted ? "focus:ring-red-500" : "focus:ring-gray-900"
+                          }`}
+                        />
+                      )}
                     />
                     <div className="ml-2">
                       <div className="text-sm text-gray-600">
@@ -304,7 +313,10 @@ export default function RegisterForm() {
                           Terms of Service
                         </Link>{" "}
                         and{" "}
-                        <Link href="/privacy" className="text-gray-900 underline hover:text-gray-700">
+                        <Link
+                          href="/privacy"
+                          className="text-gray-900 underline hover:text-gray-700"
+                        >
                           Privacy Policy
                         </Link>
                       </div>

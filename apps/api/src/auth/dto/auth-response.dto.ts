@@ -18,7 +18,7 @@ export class AuthResponseDto {
   role: UserRole;
 
   @Expose()
-  licenseKey: string;
+  licenseKey?: string;
 
   @Exclude()
   password?: string;

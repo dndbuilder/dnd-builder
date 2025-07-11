@@ -131,27 +131,6 @@ export const authOptions: AuthOptions = {
   },
 };
 
-export async function getUserProfile(token: string) {
-  try {
-    const response = await fetch(`${BASE_URL}/auth/profile`, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-    });
-
-    if (!response.ok) {
-      throw new Error("Failed to fetch user profile");
-    }
-
-    return await response.json();
-  } catch (error) {
-    console.error("Error fetching user profile:", error);
-    throw error;
-  }
-}
-
 export async function registerUser({
   firstName,
   lastName,
