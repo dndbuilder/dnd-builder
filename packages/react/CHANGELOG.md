@@ -1,5 +1,11 @@
 # @dndbuilder.com/react
 
+## 0.2.1
+
+### Patch Changes
+
+- 4f35778: docs: update README.md file to include theming
+
 ## 0.2.0
 
 ### Minor Changes

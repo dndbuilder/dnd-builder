@@ -49,6 +49,7 @@ A powerful drag-and-drop page builder for React applications. This package provi
 - 📦 **Tree-Shakable**: Import only what you need
 - 🌐 **Server-Side Rendering**: Compatible with Next.js for SSR
 - 🔍 **TypeScript Support**: Fully typed with TypeScript for better development experience
+- 🎨 **Theme Support**: Built-in theming system for consistent styling across your application
 
 ## Installation
 
