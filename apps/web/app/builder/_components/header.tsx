@@ -1,14 +1,16 @@
 'use client";';
 
+import { savePage } from "@/lib/page";
+import { saveActiveTheme } from "@/lib/theme";
+import { BuilderRightPanelType } from "@dndbuilder.com/react";
 import { BreakpointSwitch, Tooltip, UndoRedo } from "@dndbuilder.com/react/components";
-import { useContent } from "@dndbuilder.com/react/hooks";
+import { useAction, useContent, useTheme } from "@dndbuilder.com/react/hooks";
 import Link from "next/link";
 import { FC, useState } from "react";
-import { toast } from "sonner";
-import { LuScanEye } from "react-icons/lu";
+import { FiLayers } from "react-icons/fi";
+import { LuScanEye, LuSettings } from "react-icons/lu";
 import { TbDragDrop } from "react-icons/tb";
-import { BASE_URL } from "@/lib/constants";
-import { useSession } from "next-auth/react";
+import { toast } from "sonner";
 
 type HeaderProps = {
   pageId?: string;
@@ -16,43 +18,23 @@ type HeaderProps = {
 
 export const Header: FC<HeaderProps> = ({ pageId }) => {
   const [content] = useContent();
+  const [theme] = useTheme();
 
   const [isSaving, setIsSaving] = useState(false);
 
-  const { data: session } = useSession();
+  const { toggleRightPanel } = useAction();
 
   const handleSave = async () => {
     setIsSaving(true);
     try {
-      if (!pageId) {
-        // Create new page if pageId is not provided
-        const response = await fetch(`${BASE_URL}/pages`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: session?.accessToken ? `Bearer ${session.accessToken}` : "",
-          },
-          body: JSON.stringify({ name: "home", content }),
-        });
-
-        if (!response.ok) {
-          throw new Error("Failed to create new page");
-        }
-      } else {
-        // Update existing page
-        const response = await fetch(`${BASE_URL}/pages/${pageId}`, {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: session?.accessToken ? `Bearer ${session.accessToken}` : "",
-          },
-          body: JSON.stringify({ content }),
-        });
-
-        if (!response.ok) {
-          throw new Error("Failed to update page");
-        }
-      }
+      await Promise.all([
+        savePage({
+          id: pageId,
+          name: "home",
+          content,
+        }),
+        saveActiveTheme(theme),
+      ]);
 
       toast.success("Content saved successfully!");
     } catch (error) {
@@ -82,7 +64,31 @@ export const Header: FC<HeaderProps> = ({ pageId }) => {
 
       <div className="flex items-center space-x-2">
         <Tooltip>
-          <Tooltip.Trigger>
+          <Tooltip.Trigger asChild>
+            <button
+              className="flex items-center rounded p-2 text-gray-600 ring-1 ring-inset ring-gray-300 transition-colors hover:bg-gray-100 hover:text-gray-800 hover:ring-gray-600"
+              onClick={() => toggleRightPanel(BuilderRightPanelType.LAYER)}
+            >
+              <FiLayers size={20} />
+            </button>
+          </Tooltip.Trigger>
+          <Tooltip.Content>Layers</Tooltip.Content>
+        </Tooltip>
+
+        <Tooltip>
+          <Tooltip.Trigger asChild>
+            <button
+              className="flex items-center rounded p-2 text-gray-600 ring-1 ring-inset ring-gray-300 transition-colors hover:bg-gray-100 hover:text-gray-800 hover:ring-gray-600"
+              onClick={() => toggleRightPanel(BuilderRightPanelType.SETTINGS)}
+            >
+              <LuSettings size={20} />
+            </button>
+          </Tooltip.Trigger>
+          <Tooltip.Content>Settings</Tooltip.Content>
+        </Tooltip>
+
+        <Tooltip>
+          <Tooltip.Trigger asChild>
             <Link
               href={"/preview"}
               target="_blank"
@@ -90,8 +96,8 @@ export const Header: FC<HeaderProps> = ({ pageId }) => {
             >
               <LuScanEye size={20} />
             </Link>
-            <Tooltip.Content>Preview</Tooltip.Content>
           </Tooltip.Trigger>
+          <Tooltip.Content>Preview</Tooltip.Content>
         </Tooltip>
 
         <button

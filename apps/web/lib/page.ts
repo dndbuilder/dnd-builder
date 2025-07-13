@@ -1,10 +1,13 @@
+"use server";
+
 import { Block } from "@dndbuilder.com/react";
 import { getServerSession } from "next-auth";
 import { authOptions } from "./auth";
 import { BASE_URL } from "./constants";
+import { revalidateTag } from "next/cache";
 
 export type Page = {
-  id: string;
+  id?: string;
   name: string;
   content: Record<string, Block>;
 };
@@ -25,6 +28,9 @@ export async function fetchPage(): Promise<Page | null> {
     method: "GET",
     headers,
     cache: "no-store", // Ensure we always fetch the latest content
+    next: {
+      tags: ["page"], // Tag this request for cache invalidation
+    },
   });
 
   if (!response.ok) {
@@ -46,4 +52,40 @@ export async function fetchPage(): Promise<Page | null> {
   }
 
   return null;
+}
+
+export async function savePage(page: Page): Promise<void> {
+  const session = await getServerSession(authOptions);
+
+  const headers: HeadersInit = {
+    "Content-Type": "application/json",
+  };
+
+  // Add authorization header if session exists
+  if (session?.accessToken) {
+    headers["Authorization"] = `Bearer ${session.accessToken}`;
+  }
+
+  const url = page.id ? `${BASE_URL}/pages/${page.id}` : `${BASE_URL}/pages`;
+
+  const method = page.id ? "PUT" : "POST";
+
+  const response = await fetch(url, {
+    method,
+    headers,
+    body: JSON.stringify({
+      name: page.name,
+      content: page.content,
+    }),
+  });
+
+  revalidateTag("page"); // Invalidate the page tag to refresh cache
+
+  if (!response.ok) {
+    throw new Error("Failed to save content.");
+  }
+
+  const data = await response.json();
+
+  return data;
 }
