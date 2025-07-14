@@ -1,10 +1,10 @@
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
-import { FiCheck, FiStar } from 'react-icons/fi';
-import { classNames } from '@/lib/utils';
-import Link from 'next/link';
-import { LuArrowRight, LuDownload } from 'react-icons/lu';
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { FiCheck, FiStar } from "react-icons/fi";
+import { classNames } from "@/lib/utils";
+import Link from "next/link";
+import { LuArrowRight, LuDownload } from "react-icons/lu";
 
 interface PricingSectionProps {
   className?: string;
@@ -12,7 +12,7 @@ interface PricingSectionProps {
 
 export function PricingSection({ className }: PricingSectionProps) {
   return (
-    <section className={classNames('bg-gray-50 py-20', className)} id="pricing">
+    <section className={classNames("bg-gray-50 py-20", className)} id="pricing">
       <div className="container mx-auto px-4">
         <div className="mb-16 text-center">
           <h2 className="mb-4 text-3xl font-bold text-gray-900 lg:text-4xl">
@@ -104,12 +104,6 @@ export function PricingSection({ className }: PricingSectionProps) {
                 <li className="flex items-center">
                   <FiCheck className="mr-3 h-5 w-5 text-green-600" />
                   <span>Global Theme Settings</span>
-                  <Badge
-                    variant="outline"
-                    className="ml-2 border-yellow-300 bg-yellow-500/10 text-yellow-500"
-                  >
-                    Coming Soon
-                  </Badge>
                 </li>
                 <li className="flex items-center">
                   <FiCheck className="mr-3 h-5 w-5 text-green-600" />
