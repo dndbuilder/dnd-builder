@@ -1,7 +1,7 @@
-import { Badge } from '@/components/ui/badge';
-import { LuPackage } from 'react-icons/lu';
-import { classNames } from '@/lib/utils';
-import { AiOutlineCloudUpload } from 'react-icons/ai';
+import { Badge } from "@/components/ui/badge";
+import { LuPackage } from "react-icons/lu";
+import { classNames } from "@/lib/utils";
+import { AiOutlineCloudUpload } from "react-icons/ai";
 
 interface PremiumFeaturesShowcaseProps {
   className?: string;
@@ -10,7 +10,7 @@ interface PremiumFeaturesShowcaseProps {
 export function PremiumFeaturesShowcase({ className }: PremiumFeaturesShowcaseProps) {
   return (
     <section
-      className={classNames('bg-gradient-to-r from-gray-900 to-black py-20', className)}
+      className={classNames("bg-gradient-to-r from-gray-900 to-black py-20", className)}
       id="premium"
     >
       <div className="container mx-auto px-4 text-center text-white">
@@ -35,15 +35,7 @@ export function PremiumFeaturesShowcase({ className }: PremiumFeaturesShowcasePr
             <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-white/20">
               <LuPackage className="h-6 w-6" />
             </div>
-            <h3 className="mb-2 font-semibold">
-              Theme Settings
-              <Badge
-                variant="outline"
-                className="border-yellow-300 bg-yellow-500/10 text-yellow-500"
-              >
-                Coming Soon
-              </Badge>
-            </h3>
+            <h3 className="mb-2 font-semibold">Theme Settings</h3>
             <p className="text-sm opacity-80">Customize your site&apos;s appearance</p>
           </div>
 
