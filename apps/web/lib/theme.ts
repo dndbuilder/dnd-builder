@@ -22,32 +22,17 @@ export async function fetchActiveTheme(): Promise<Theme | null> {
     headers["Authorization"] = `Bearer ${session.accessToken}`;
   }
 
-  try {
-    const response = await fetch(`${BASE_URL}/themes/active`, {
-      method: "GET",
-      headers,
-      cache: "no-store", // Ensure we always fetch the latest theme
-      next: {
-        tags: ["theme"], // Tag this request for cache invalidation
-      },
-    });
+  const response = await fetch(`${BASE_URL}/themes/active`, {
+    method: "GET",
+    headers,
+    cache: "no-store", // Ensure we always fetch the latest theme
+    next: {
+      tags: ["theme"], // Tag this request for cache invalidation
+    },
+  });
 
-    if (!response.ok) {
-      if (response.status === 401) {
-        signOut({
-          callbackUrl: "/login",
-        });
-      }
-
-      throw new Error(`Failed to fetch active theme: ${response.statusText}`);
-    }
-
-    const data = await response.json();
-    return data as Theme;
-  } catch (error) {
-    console.error("Error fetching active theme:", error);
-    throw new Error("Failed to fetch active theme. Please try again later.");
-  }
+  const data = await response.json();
+  return data as Theme;
 }
 
 export async function saveActiveTheme(theme: Partial<Theme>): Promise<void> {
@@ -75,13 +60,5 @@ export async function saveActiveTheme(theme: Partial<Theme>): Promise<void> {
     },
   });
 
-  if (!response.ok) {
-    if (response.status === 401) {
-      signOut({
-        callbackUrl: "/login",
-      });
-    }
-
-    throw new Error("Failed to save theme.");
-  }
+  return response.json();
 }

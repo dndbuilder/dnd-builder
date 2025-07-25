@@ -34,16 +34,6 @@ export async function fetchPage(): Promise<Page | null> {
     },
   });
 
-  if (!response.ok) {
-    if (response.status === 401) {
-      signOut({
-        callbackUrl: "/login",
-      });
-    }
-
-    throw new Error("Failed to fetch content.");
-  }
-
   const data = await response.json();
 
   // API returns an array of pages, so we'll use the first page's content
@@ -87,16 +77,6 @@ export async function savePage(page: Page): Promise<void> {
   });
 
   revalidateTag("page"); // Invalidate the page tag to refresh cache
-
-  if (!response.ok) {
-    if (response.status === 401) {
-      signOut({
-        callbackUrl: "/login",
-      });
-    }
-
-    throw new Error("Failed to save content.");
-  }
 
   const data = await response.json();
 
