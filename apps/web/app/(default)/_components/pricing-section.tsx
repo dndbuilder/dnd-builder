@@ -24,28 +24,26 @@ export function PricingSection({ className }: PricingSectionProps) {
         </div>
 
         <div className="mx-auto grid max-w-4xl gap-8 md:grid-cols-2">
-
           {/* Lifetime Deal */}
           <Card className="relative border-2 border-gray-900 shadow-xl">
             <div className="absolute -top-4 left-1/2 -translate-x-1/2 transform">
               <Badge className="bg-black px-4 py-1 text-white">
                 <FiStar className="mr-1 h-4 w-4" />
-                Limited Time
+                Limited Updates
               </Badge>
             </div>
             <Card.Header className="pb-8 text-center">
               <Card.Title className="text-2xl">Lifetime Deal</Card.Title>
               <div className="mt-4 text-4xl font-bold text-gray-900">
-                $50
-                <span className="text-lg font-normal text-gray-600">/once</span>
+                $99
+                {/* <span className="text-lg font-normal text-gray-600">/once</span> */}
               </div>
               <Card.Description className="mt-2">
-                Everything in Premium plus enterprise features
+                Lifetime access with 1 year of updates
               </Card.Description>
             </Card.Header>
             <Card.Content>
               <ul className="mb-8 space-y-3">
-
                 <li className="flex items-center">
                   <FiCheck className="mr-3 h-5 w-5 text-green-600" />
                   <span>All blocks</span>
@@ -80,7 +78,6 @@ export function PricingSection({ className }: PricingSectionProps) {
                   </Badge>
                 </li>
 
-
                 <li className="flex items-center">
                   <FiCheck className="mr-3 h-5 w-5 text-green-600" />
                   <span>Full Customization</span>
@@ -102,10 +99,10 @@ export function PricingSection({ className }: PricingSectionProps) {
           {/* Custom Plan */}
           <Card className="relative border-2 border-gray-200 shadow-xl">
             <Card.Header className="pb-8 text-center">
-              <Card.Title className="text-2xl">Custom Plan</Card.Title>
+              <Card.Title className="text-2xl">Enterprise Deal</Card.Title>
               <div className="mt-4 text-4xl font-bold text-gray-900">
                 Custom
-                <span className="text-lg font-normal text-gray-600">/pricing</span>
+                {/* <span className="text-lg font-normal text-gray-600">/pricing</span> */}
               </div>
               <Card.Description className="mt-2">
                 Everything in LTD plus custom development
@@ -142,12 +139,7 @@ export function PricingSection({ className }: PricingSectionProps) {
                   <span>Custom Development</span>
                 </li>
               </ul>
-              <Button
-                  variant="outline"
-                  size="lg"
-                  className="w-full"
-                  asChild
-              >
+              <Button variant="outline" size="lg" className="w-full" asChild>
                 <Link href="mailto:sales@dndbuilder.com">
                   Contact Sales
                   <LuArrowRight className="ml-2 h-4 w-4" />

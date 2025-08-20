@@ -26,7 +26,7 @@ export function InstallationSection({ className }: InstallationSectionProps) {
         <div className="mx-auto max-w-2xl rounded-lg border border-gray-300 bg-white shadow-sm">
           <Tabs value={activeTab} className="w-full" onValueChange={setActiveTab}>
             <div className="flex items-center border-b border-gray-300 px-4">
-              <Tabs.List className="h-12">
+              <Tabs.List className="h-12 bg-white p-0">
                 <Tabs.Trigger
                   className="relative h-full after:absolute after:bottom-[-1px] after:left-0 after:h-0.5 after:w-full after:bg-gray-900 after:opacity-0 data-[state=active]:text-gray-900 data-[state=active]:after:opacity-100"
                   value="install"
