@@ -1,5 +1,5 @@
 {
-  "name": "@dndbuilder/react",
+  "name": "@dndbuilder.com/react",
   "description": "Drag and drop builder for React",
   "author": "DnD Builder",
   "license": "MIT",
@@ -15,9 +15,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/dndbuilder/project"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
   },
   "keywords": [
     "react",

@@ -1,43 +1,31 @@
 ## Installation
 
-This package is hosted as a private package on GitHub Package Registry. You'll need to authenticate with GitHub first.
+This package is published to npm and can be installed directly without any additional authentication.
 
-### Step 1: Create GitHub Personal Access Token
+### Install the Package
 
-1. Go to GitHub Settings → Developer settings → Personal access tokens → Tokens (classic)
-2. Click "Generate new token (classic)"
-3. Select the `read:packages` scope
-4. Copy the generated token
-
-### Step 2: Configure Authentication
-
-Create a `.npmrc` file in your project root:
-
-```bash
-@dndbuilder:registry=https://npm.pkg.github.com
-//npm.pkg.github.com/:_authToken=YOUR_GITHUB_TOKEN
-```
-
-### Step 3: Install the Package
+Simply run one of the following commands in your project:
 
 ```bash
 # Using npm
-npm install @dndbuilder/react
+npm install @dndbuilder.com/react
 
 # Using yarn
-yarn add @dndbuilder/react
+yarn add @dndbuilder.com/react
 
 # Using pnpm
-pnpm add @dndbuilder/react
+pnpm add @dndbuilder.com/react
 ```
+
+No additional configuration or authentication tokens are required.
 
 ## Quick Start
 
 ```jsx
 import React, { useState } from "react";
-import { Editor, BuilderProvider } from "@dndbuilder/react";
-import { store } from "@dndbuilder/react";
-import "@dndbuilder/react/dist/style.css";
+import { Editor, BuilderProvider } from "@dndbuilder.com/react";
+import { store } from "@dndbuilder.com/react";
+import "@dndbuilder.com/react/dist/style.css";
 
 // Basic editor configuration
 const editorConfig = {
@@ -87,7 +75,7 @@ The package exports several components for building and rendering pages:
 - `BuilderProvider`: Provider component for the editor state
 
 ```jsx
-import { Editor, BuilderProvider } from "@dndbuilder/react";
+import { Editor, BuilderProvider } from "@dndbuilder.com/react";
 ```
 
 ### Server Components
@@ -95,7 +83,7 @@ import { Editor, BuilderProvider } from "@dndbuilder/react";
 For server-side rendering, you can use the `RenderContent` component to render content fetched from your backend
 
 ```jsx
-import { RenderContent } from "@dndbuilder/react/components/server";
+import { RenderContent } from "@dndbuilder.com/react/components/server";
 ```
 
 ### Hooks
@@ -117,7 +105,7 @@ import {
   useSettings,
   useFieldName,
   useAction,
-} from "@dndbuilder/react/hooks";
+} from "@dndbuilder.com/react/hooks";
 ```
 
 ### Utilities
@@ -145,7 +133,7 @@ import {
   generateUnitValue,
   generateBoxShadow,
   generateBackground,
-} from "@dndbuilder/react/utils";
+} from "@dndbuilder.com/react/utils";
 ```
 
 ## Working with Content
@@ -155,7 +143,7 @@ import {
 To save content, you can use the `useContent` hook to access the editor state:
 
 ```jsx
-import { useContent } from "@dndbuilder/react/hooks";
+import { useContent } from "@dndbuilder.com/react/hooks";
 
 function SaveButton() {
   const { content, saveContent } = useContent();
@@ -183,7 +171,7 @@ function SaveButton() {
 To render content on the frontend, use the `RenderContent` component:
 
 ```jsx
-import { RenderContent } from "@dndbuilder/react/components/server";
+import { RenderContent } from "@dndbuilder.com/react/components/server";
 import { editorConfig } from "./editorConfig"; // Your editor configuration
 
 async function ContentPage() {
@@ -214,7 +202,7 @@ Here's a simplified example of creating a custom block:
 ```jsx
 // 1. Create your block component (my-block.tsx)
 import React from "react";
-import { BlockProps } from "@dndbuilder/react/types";
+import { BlockProps } from "@dndbuilder.com/react/types";
 
 const MyBlock = ({ settings, meta }: BlockProps) => {
   return (
@@ -229,8 +217,8 @@ export default MyBlock;
 
 // 2. Create a control component (my-block-control.tsx)
 import React from "react";
-import { ControlProps } from "@dndbuilder/react/types";
-import { TextInput } from "@dndbuilder/react/components";
+import { ControlProps } from "@dndbuilder.com/react/types";
+import { TextInput } from "@dndbuilder.com/react/components";
 
 const MyBlockControl = ({ settings, updateSettings }: ControlProps) => {
   return (
@@ -252,7 +240,7 @@ const MyBlockControl = ({ settings, updateSettings }: ControlProps) => {
 export default MyBlockControl;
 
 // 3. Define your block configuration (my-block.config.ts)
-import { createBlockConfig } from "@dndbuilder/react/utils";
+import { createBlockConfig } from "@dndbuilder.com/react/utils";
 import { lazy } from "react";
 import { FiBox } from "react-icons/fi";
 
@@ -293,8 +281,8 @@ export const editorConfig = {
 You can override the configuration of an existing block by extending it:
 
 ```jsx
-import { BlockType } from "@dndbuilder/react/types";
-import { createBlockConfig } from "@dndbuilder/react/utils";
+import { BlockType } from "@dndbuilder.com/react/types";
+import { createBlockConfig } from "@dndbuilder.com/react/utils";
 import { lazy } from "react";
 
 // Override the Heading block configuration
@@ -377,7 +365,7 @@ The theme settings include:
 You can access and update the current theme using the `useTheme` hook:
 
 ```jsx
-import { useTheme } from "@dndbuilder/react/hooks";
+import { useTheme } from "@dndbuilder.com/react/hooks";
 
 function ThemeToggle() {
   const [theme, setTheme] = useTheme();
@@ -406,7 +394,7 @@ function ThemeToggle() {
 To save a theme, you can use the same approach as saving content:
 
 ```jsx
-import { useTheme } from "@dndbuilder/react/hooks";
+import { useTheme } from "@dndbuilder.com/react/hooks";
 
 function SaveThemeButton() {
   const [theme] = useTheme();
@@ -436,7 +424,7 @@ The package supports server-side rendering (SSR) with Next.js.
 
 ```jsx
 // Next.js page component
-import { RenderContent } from "@dndbuilder/react/components/server";
+import { RenderContent } from "@dndbuilder.com/react/components/server";
 import { editorConfig } from "../editorConfig"; // Your editor configuration
 
 export default function Page({ content }) {
