@@ -6,14 +6,16 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md,js,jsx,json,css}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx,md,js,jsx,json,css}\"",
-    "publish-packages": "turbo run build && changeset version && changeset publish"
+    "publish-packages": "turbo run build && changeset version && changeset publish && pnpm update-changelog",
+    "update-changelog": "tsx scripts/update-changelog.ts"
   },
   "devDependencies": {
     "@changesets/cli": "^2.29.5",
+    "@repo/eslint-config": "workspace:*",
     "eslint": "^9.20.1",
     "prettier": "^3.5.1",
-    "turbo": "^2.5.4",
-    "@repo/eslint-config": "workspace:*"
+    "tsx": "^4.20.6",
+    "turbo": "^2.5.4"
   },
   "packageManager": "pnpm@9.1.1",
   "name": "dnd-builder",
