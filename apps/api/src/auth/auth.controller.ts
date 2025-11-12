@@ -46,12 +46,6 @@ export class AuthController {
     return this.authService.socialLogin(loginDto);
   }
 
-  @UseGuards(JwtAuthGuard)
-  @Put("regenerate-license-key")
-  async regenerateLicenseKey(@CurrentUser() user: User): Promise<{ licenseKey: string }> {
-    return this.authService.regenerateLicenseKey(user.id);
-  }
-
   @Post("forgot-password")
   async forgotPassword(@Body() forgotPasswordDto: ForgotPasswordDto): Promise<{ message: string }> {
     return this.authService.forgotPassword(forgotPasswordDto.email);

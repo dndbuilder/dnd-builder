@@ -7,6 +7,7 @@ import { AuthModule } from "./auth/auth.module";
 import { UsersModule } from "./users/users.module";
 import { PagesModule } from "./pages/pages.module";
 import { ThemesModule } from "./themes/themes.module";
+import { AppsModule } from "./apps/apps.module";
 import { databaseConfig } from "./config/database.config";
 
 @Module({
@@ -21,6 +22,7 @@ import { databaseConfig } from "./config/database.config";
     UsersModule,
     PagesModule,
     ThemesModule,
+    AppsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

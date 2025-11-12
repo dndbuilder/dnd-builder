@@ -50,6 +50,15 @@ export function ProfileDropdown({ session }: { session: Session }) {
               Dashboard
             </Link>
           </Popover.Close>
+          <Popover.Close asChild>
+            <Link
+              href={"/dashboard/profile"}
+              className="flex w-full items-center border-b border-gray-100 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+            >
+              <LuUser className="mr-2 h-4 w-4" />
+              Profile
+            </Link>
+          </Popover.Close>
           <button
             onClick={handleSignOut}
             className="flex w-full items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"

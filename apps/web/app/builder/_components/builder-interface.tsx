@@ -26,6 +26,8 @@ export function BuilderInterface({ initialPage, initialTheme }: BuilderPageClien
             content={initialContent}
             builderConfig={editorConfig}
             theme={theme || undefined}
+            appId={process.env.NEXT_PUBLIC_BUILDER_APP_ID || "builder-internal"}
+            appKey={process.env.NEXT_PUBLIC_BUILDER_APP_KEY || "builder-internal-key"}
             style={{
               height: "calc(100vh - 60px)", // Adjust height to account for header
             }}

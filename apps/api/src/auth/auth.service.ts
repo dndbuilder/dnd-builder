@@ -77,11 +77,6 @@ export class AuthService {
     return this.usersService.findByIdOrFail(userId);
   }
 
-  async regenerateLicenseKey(userId: string): Promise<{ licenseKey: string }> {
-    const user = await this.usersService.regenerateLicenseKey(userId);
-    return { licenseKey: user.licenseKey };
-  }
-
   async updateProfile(userId: string, updateData: Partial<User>): Promise<Omit<User, "password">> {
     const user = await this.usersService.updateProfile(userId, updateData);
     const { password, ...result } = user.toJSON();
@@ -136,7 +131,6 @@ export class AuthService {
       firstName: user.firstName,
       lastName: user.lastName,
       role: user.role,
-      licenseKey: user.licenseKey,
       token,
     });
   }

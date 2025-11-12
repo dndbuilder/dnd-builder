@@ -21,6 +21,8 @@ No additional configuration or authentication tokens are required.
 
 ## Quick Start
 
+Before using the Editor component, you need to create an app in the dashboard to get your `appId` and `appKey` credentials.
+
 ```jsx
 import React, { useState } from "react";
 import { Editor, BuilderProvider } from "@dndbuilder.com/react";
@@ -39,7 +41,12 @@ function App() {
 
   return (
     <BuilderProvider store={store}>
-      <Editor content={initialContent} builderConfig={editorConfig} />
+      <Editor
+        content={initialContent}
+        builderConfig={editorConfig}
+        appId="your-app-id-here"
+        appKey="your-app-key-here"
+      />
     </BuilderProvider>
   );
 }
@@ -47,11 +54,27 @@ function App() {
 export default App;
 ```
 
+### Getting Your App Credentials
+
+1. Sign up or log in to the [DnD Builder Dashboard](https://dndbuilder.com/dashboard)
+2. Create a new app from the App Management section
+3. Copy your `appId` and `appKey` (the appKey is shown only once, so save it securely)
+4. Use these credentials to initialize the Editor component
+
+**Note**: The Editor component validates your credentials on initialization. If validation fails, an error overlay will be displayed.
+
 ## Core Concepts
 
 ### Editor
 
 The Editor is the main component that provides the drag-and-drop interface for building pages. It manages the state of the page content and provides tools for editing blocks.
+
+**Required Props:**
+- `appId`: Your application ID (obtained from the dashboard)
+- `appKey`: Your application key (obtained from the dashboard)
+- `content`: The initial content structure
+
+The Editor validates your `appId` and `appKey` credentials on mount. If validation fails, an error overlay will be displayed.
 
 ### Blocks
 

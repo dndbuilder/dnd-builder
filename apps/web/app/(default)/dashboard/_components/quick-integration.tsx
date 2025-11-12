@@ -8,7 +8,7 @@ export function QuickIntegration() {
       <Card.Header className="space-y-1 sm:space-y-2">
         <Card.Title className="text-lg text-black sm:text-xl">Quick Integration</Card.Title>
         <Card.Description className="text-xs sm:text-sm">
-          Add your license key to your environment variables to unlock premium features.
+          Use your appId and appKey to initialize the Editor component.
         </Card.Description>
       </Card.Header>
       <Card.Content>
@@ -16,19 +16,19 @@ export function QuickIntegration() {
           <pre>
             <code className="language-js">
               {`import React from "react";
-import { Block } from "@dndbuilder.com/react";
 import { BuilderProvider, Editor } from "@dndbuilder.com/react";
 import "@dndbuilder.com/react/dist/style.css";
 import { store } from "@dndbuilder.com/react";
 
 function App() {
   return (
-     <BuilderProvider store={store}>
-        <Editor
-          content={initialContent}
-          licenseKey="your-license-key-here"
-        />
-      </BuilderProvider>
+    <BuilderProvider store={store}>
+      <Editor
+        content={initialContent}
+        appId="your-app-id-here"
+        appKey="your-app-key-here"
+      />
+    </BuilderProvider>
   );
 }
 
